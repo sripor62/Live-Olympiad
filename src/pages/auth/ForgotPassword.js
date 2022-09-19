@@ -1,18 +1,27 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
+import { afterValidate } from '../../utils/commonService';
+import { getErrorMsz } from '../../utils/validator';
 
 const ForgotPassword = () => {
+    const [submitFlag, setsubmitFlag] = useState(false)
+    const [pageData, setPageData] = useState({ phoneNumber: "", });
+
     const submitHandler = () => {
-        console.log(pageData)
+        setsubmitFlag(true);
+        afterValidate(afterValidateCallBack)
     };
-    const [pageData, setPageData] = useState({
-        phoneNumber: "",
-    });
-    return (
-        <Box>
-            <Grid container>
+
+    const afterValidateCallBack = (second) => {
+        console.log('pageData', pageData)
+    }
+
+    return <AuthLayout>
+        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+            <Grid container xs="10">
                 <Grid xs={12} >
                     <Typography variant='h3'><Box mb={3} mt={9}>Forgot Password?</Box></Typography>
                 </Grid>
@@ -21,14 +30,26 @@ const ForgotPassword = () => {
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={3} width={1}>
-                        <CustomTextField placeholder="Phone Number" value={pageData.phoneNumber} type="tel" variant="filled" onChange={(event) => {setPageData({ ...pageData, phoneNumber: event.target.value })}}/>
+                        <CustomTextField
+                            placeholder="Phone Number"
+                            value={pageData.phoneNumber}
+                            type="tel"
+                            variant="filled"
+                            endIcon={<img src='./images/flag.png' />}
+                            required
+                            error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
+                            errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
+                            onChange={(event) => { setPageData({ ...pageData, phoneNumber: event.target.value }) }}
+                        />
                     </Box>
                 </Grid>
                 <Grid xs={12}>
-                    <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
+                    <Box mb={20} width={1}>
+                        <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
+                    </Box>
                 </Grid>
             </Grid>
-        </Box>
-    );
+        </Grid>
+    </AuthLayout>
 };
 export default ForgotPassword;

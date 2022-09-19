@@ -1,17 +1,5 @@
-// Some CSS
-export const overrideComponentTheme = {
 
-    MuiButtonBase: {
-        styleOverrides: {
-            // Name of the slot
-            root: {
-                borderRadius: "50px !important",
-                minWidth: "240px !important",
-                padding: "9px 16px !important",
-            }
-        }
-    },
-
+export const tabStyle = {
     MuiTabs: {
         styleOverrides: {
             flexContainer: {
@@ -32,14 +20,13 @@ export const overrideComponentTheme = {
                 minWidth: "90px !important",
                 "&.Mui-selected": {
                     backgroundColor: "#F9BB47 !important",
+                    color: "#fff !important",
                 }
             },
-            textColorWhite: {
-                color: "#1E232C"
-            },
+
             flexContainer: {
                 justifyContent: "center"
             }
         }
     }
-} 
+}
