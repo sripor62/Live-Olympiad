@@ -4,17 +4,12 @@ import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
 
 const ForgotPassword = () => {
-
     const submitHandler = () => {
         console.log(pageData)
-
-    }
-
+    };
     const [pageData, setPageData] = useState({
         phoneNumber: "",
     });
-
-
     return (
         <>
             <Box>
@@ -43,5 +38,4 @@ const ForgotPassword = () => {
         </>
     );
 };
-
 export default ForgotPassword;

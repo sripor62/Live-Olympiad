@@ -4,16 +4,12 @@ import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
 
 const SignUp = () => {
-
     const submitHandler = () => {
         console.log(pageData)
-
-    }
-
+    };
     const [pageData, setPageData] = useState({
         phoneNumber: "",
     });
-
     return (
         <>
             <Box>
@@ -42,6 +38,4 @@ const SignUp = () => {
         </>
     );
 };
-
-
 export default SignUp;
