@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
+import { overrideComponentTheme } from "./overrideComponentTheme";
 
 export const customTheme = responsiveFontSizes(createTheme({
     breakpoints: {
@@ -12,28 +13,14 @@ export const customTheme = responsiveFontSizes(createTheme({
     },
     palette: {
         primary: {
-            main: "#00679C",
-            light: "#0090C7",
-            dark: "#004172",
-            contrastText: "#FFFFFF",
+            main: "#4545A5",
         },
         secondary: {
-            main: "#CC3E22",
-            light: "#F25F3D",
-            dark: "#610004",
-            contrastText: "#FFFFFF",
+            main: "#F9BB47",
         },
-        action: {
-            main: "#777777",
-            light: "#EEEEEE",
-            dark: "#333333",
-            contrastText: '#FFFFFF'
+        neutral: {
+            main: "#ffffff",
         },
-        error: {
-            main: '#C80021',
-            dark: '#940000',
-            light: '#FC3844'
-        }
     },
     typography: {
         htmlFontSize: 16,
@@ -96,5 +83,5 @@ export const customTheme = responsiveFontSizes(createTheme({
             },
         },
     },
-
+    components: overrideComponentTheme
 }))
