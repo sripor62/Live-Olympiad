@@ -3,10 +3,11 @@ import React from 'react'
 import { AuthLayout } from '.'
 import CustomTabs from '../../components/customTabs'
 import LoginPage from './login'
+import SignUp from './SignUp'
 
 export const LoginSignTabGroup = () => {
     const tabArr = [
-        { label: "Signup", component: <LoginPage /> },
+        { label: "Signup", component: <SignUp/> },
         { label: "Login", component: <LoginPage /> },
     ]
 
