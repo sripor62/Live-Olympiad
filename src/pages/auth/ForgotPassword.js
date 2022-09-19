@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
 
-const SignUp = () => {
+const ForgotPassword = () => {
 
     const submitHandler = () => {
         console.log(pageData)
@@ -14,15 +14,16 @@ const SignUp = () => {
         phoneNumber: "",
     });
 
+
     return (
         <>
             <Box>
                 <Grid container>
                     <Grid xs={12} >
-                        <Typography variant='h3'><Box mb={3} mt={9}>Sign Up</Box></Typography>
+                        <Typography variant='h3'><Box mb={3} mt={9}>Forgot Password?</Box></Typography>
                     </Grid>
                     <Grid xs={12}>
-                        <Typography variant='body2'><Box mb={3}>Existing User? Enter your login details below,</Box></Typography>
+                        <Typography variant='body2'><Box mb={3}>No worries, You can reset your password by verifying your Phone Number with an OTP.</Box></Typography>
                     </Grid>
                     <Grid xs={12}>
                         <Box mb={3} width={1}>
@@ -36,7 +37,7 @@ const SignUp = () => {
                         </Box>
                     </Grid>
                     <Grid xs={12}>
-                        <CustomButton btnText="Sign Up" color="primary" variant="contained" onClick={submitHandler} />
+                        <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
                     </Grid>
                 </Grid>
             </Box>
@@ -44,5 +45,4 @@ const SignUp = () => {
     );
 };
 
-
-export default SignUp;
+export default ForgotPassword;
