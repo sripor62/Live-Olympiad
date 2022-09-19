@@ -5,7 +5,7 @@ import { CustomTextField } from '../../components/TextField'
 
 export default function LoginPage() {
     return <Box>
-        <Grid>
+        <Grid container>
             <Grid xs={12}>
                 <Typography variant='h3'><Box mb={3} mt={9}>Log In</Box></Typography>
             </Grid>
@@ -14,19 +14,16 @@ export default function LoginPage() {
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
-                    <CustomTextField />
+                    <CustomTextField placeholder="Email" variant="filled" />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3}>
-                    <CustomTextField />
+                <Box mb={3} width={1}>
+                    <CustomTextField type="password" placeholder="Password" variant="filled" />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='h6'>Existing User? Enter your login details below,</Typography>
-            </Grid>
-            <Grid xs={12}>
-                <CustomButton btnText="dasdasd" color="primary" variant="contained" />
+                <CustomButton btnText="Login" color="primary" variant="contained" />
             </Grid>
         </Grid>
     </Box>

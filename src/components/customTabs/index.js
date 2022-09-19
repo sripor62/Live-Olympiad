@@ -85,8 +85,8 @@ const CustomTabs = (props) => {
                 variant="scrollable"
                 indicatorColor={indicatorColor}
                 textColor={textColor}
-                scrollButtons={scrollButtons}
                 aria-label={tabLabel}
+                centered
             >
                 {
                     tabArr.map((option, index) => <Tab key={`${option.label}_label`} label={renderLabel(option)} {...a11yProps(index)} />)
