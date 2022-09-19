@@ -28,7 +28,6 @@ const SignUp = () => {
                         <Box mb={3} width={1}>
                             <CustomTextField placeholder="Phone Number" value={pageData.phoneNumber} type="tel" variant="filled"
                                 onChange={(event) => {
-                                    console.log(event.target.value)
                                     setPageData({ ...pageData, phoneNumber: event.target.value })
                                 }
                                 }
