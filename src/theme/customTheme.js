@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
+import { textFieldStyle } from "./component/textfield";
 import { overrideComponentTheme } from "./overrideComponentTheme";
 
 export const customTheme = responsiveFontSizes(createTheme({
@@ -83,5 +84,8 @@ export const customTheme = responsiveFontSizes(createTheme({
             },
         },
     },
-    components: overrideComponentTheme
+    components: {
+        ...textFieldStyle,
+        ...overrideComponentTheme
+    }
 }))

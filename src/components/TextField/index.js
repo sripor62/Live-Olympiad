@@ -6,7 +6,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 export const CustomTextField = (props) => {
-    const { required, type, readOnlyValue, errorMsz, error, startIcon, endIcon, inputLabel, select, selectArr, selectDefaultOption } = props;
+    const { required, type, readOnlyValue, errorMsz, error, startIcon = false, endIcon, inputLabel, select, selectArr, selectDefaultOption } = props;
 
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -39,7 +39,7 @@ export const CustomTextField = (props) => {
                     ))}
                 </TextField>
                 : <TextField
-                    {...props}
+
                     type={type == "password" ? showPassword ? 'text' : 'password' : type}
                     InputProps={{
                         readOnly: readOnlyValue,
@@ -61,11 +61,12 @@ export const CustomTextField = (props) => {
                                     </IconButton>
                                 </InputAdornment>
                                 :
-                                <InputAdornment position="start">
+                                endIcon && <InputAdornment position="start">
                                     {endIcon}
                                 </InputAdornment>
                         )
                     }}
+                    {...props}
                 />
         }
         {
