@@ -1,31 +1,24 @@
 // Some CSS
 export const overrideComponentTheme = {
-    MuiInputBase: {
-        styleOverrides: {
-            // Name of the slot
-            root: {
-                padding: "0px !important",
-                backgroundColor: "#F7F8F9",
-                borderRadius: "10px !important"
-            },
-            input: {
-                padding: "15px 24px!important",
-            },
-        },
-    },
+
     MuiButtonBase: {
         styleOverrides: {
             // Name of the slot
             root: {
-                MuiTab: {
-                    root: {
-                        fontSize: "20px"
-                    }
-                }
+                borderRadius: "50px !important",
+                minWidth: "240px !important",
+                padding: "9px 16px !important",
             }
         }
     },
 
+    MuiTabs: {
+        styleOverrides: {
+            flexContainer: {
+                justifyContent: "center"
+            }
+        },
+    },
     MuiTab: {
         styleOverrides: {
             root: {
@@ -36,12 +29,16 @@ export const overrideComponentTheme = {
                 minHeight: "40px !important",
                 padding: "0px !important",
                 marginRight: "10px !important",
+                minWidth: "90px !important",
                 "&.Mui-selected": {
                     backgroundColor: "#F9BB47 !important",
                 }
             },
             textColorWhite: {
                 color: "#1E232C"
+            },
+            flexContainer: {
+                justifyContent: "center"
             }
         }
     }
