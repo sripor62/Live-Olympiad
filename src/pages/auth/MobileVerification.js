@@ -1,5 +1,6 @@
-import { Box, Grid, Link, Typography } from '@mui/material';
+import { Box, Grid, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { useState } from 'react';
+import OtpInput from 'react-otp-input';
 import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
@@ -8,8 +9,10 @@ import { getErrorMsz } from '../../utils/validator';
 
 const MobileVerification = () => {
     const navigate = useNavigate();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
     const [submitFlag, setsubmitFlag] = useState(false)
-    const [pageData, setPageData] = useState({ phoneNumber: "", });
+    const [otp, setOtp] = useState("");
 
     const submitHandler = () => {
         setsubmitFlag(true);
@@ -17,11 +20,11 @@ const MobileVerification = () => {
     };
 
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData)
+        console.log('otp', otp)
     }
 
-  return (
-    <Box>
+    return (
+        <Box>
             <Grid container>
                 <Grid xs={12} >
                     <Typography variant='h3'><Box mb={1} mt={9}>Mobile</Box></Typography>
@@ -32,22 +35,39 @@ const MobileVerification = () => {
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={3} width={1}>
-                        <CustomTextField
-                            placeholder="Phone Number"
-                            value={pageData.phoneNumber}
-                            type="tel"
-                            variant="filled"
-                            endIcon={<img src='./images/flag.png' />}
-                            required
-                            error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
-                            errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
-                            onChange={(event) => { setPageData({ ...pageData, phoneNumber: event.target.value }) }}
+                        <OtpInput
+                            numInputs={4}
+                            value={otp}
+                            onChange={(val) => {
+                                setOtp(val);
+                            }}
+                            focusInput={1}
+                            focusStyle={{
+                                borderWidth: 1
+                            }}
+                            inputStyle={{
+                                width: matches ? "25px" : "40px",
+                                height: matches ? "30px" : "45px",
+                                borderWidth: 1,
+                                borderRadius: 2,
+
+                            }}
+                            sx={{
+
+                                "&:focus": {
+                                    backgroundColor: "red",
+                                },
+                                "&:hover": {
+                                    backgroundColor: "green",
+                                },
+                            }}
+                            isInputNum={true}
                         />
                     </Box>
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={16}>
-                        <CustomButton btnText="Verify"  color="primary" variant="contained" onClick={submitHandler} />
+                        <CustomButton btnText="Verify" color="primary" variant="contained" onClick={submitHandler} />
                     </Box>
                 </Grid>
                 <Grid xs={12}>
@@ -58,7 +78,7 @@ const MobileVerification = () => {
                 </Grid>
             </Grid>
         </Box>
-  );
+    );
 };
 
 export default MobileVerification;
