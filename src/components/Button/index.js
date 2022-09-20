@@ -11,11 +11,13 @@ export const CustomButton = (props) => {
                 <label htmlFor="contained-button-file">
                     <Input accept="image/*" id="contained-button-file" onChange={onUpload} multiple={multiple} type="file" style={{ display: "none" }} />
                     <Button
-                        {...props}
+
                         startIcon={startIcon && startIcon}
                         endIcon={endIcon && endIcon}
                         style={btnClass}
-                        component="span">
+                        component="span"
+                        {...props}
+                    >
                         {btnText}
 
                     </Button>
