@@ -17,7 +17,6 @@ export const tabStyle = {
                 minHeight: "40px !important",
                 padding: "0px !important",
                 marginRight: "10px !important",
-                minWidth: "90px !important",
                 "&.Mui-selected": {
                     backgroundColor: "#F9BB47 !important",
                     color: "#fff !important",

@@ -14,9 +14,6 @@ export const textFieldStyle = {
         styleOverrides: {
             root: {
                 borderRadius: "10px !important",
-                '& .MuiIconButton-root': {
-                    minWidth: "auto !important",
-                },
             },
             input: {
                 borderRadius: "10px !important",

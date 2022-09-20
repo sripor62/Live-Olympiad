@@ -2,7 +2,7 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import { AuthLayout } from '.'
 import CustomTabs from '../../components/customTabs'
-import LoginPage from './login'
+import LoginPage from './LoginPage'
 import SignUp from './SignUp'
 
 export const LoginSignTabGroup = () => {
