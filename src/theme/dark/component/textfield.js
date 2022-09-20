@@ -26,7 +26,13 @@ export const textFieldStyle = {
             },
         },
     },
-
+    MuiInputAdornment: {
+        styleOverrides: {
+            root: {
+                marginTop: "0px !important"
+            }
+        }
+    },
     MuiFilledInput: {
         styleOverrides: {
             root: {

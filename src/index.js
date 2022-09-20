@@ -5,7 +5,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import './index.css';
 import App from './App';
-import { customTheme } from './theme/customTheme';
+import { customTheme } from './theme/light/customTheme';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { PersistGate } from 'redux-persist/integration/react'

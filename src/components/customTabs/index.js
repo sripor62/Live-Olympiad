@@ -69,9 +69,7 @@ const CustomTabs = (props) => {
         return <React.Fragment>
             <span>{option.label}
                 {
-                    option.count != undefined && <span style={{ fontSize: 14, backgroundColor: "#FFC62D", borderRadius: 10, padding: "3px 10px", marginLeft: 10 }}>
-                        {option.count}
-                    </span>
+                    option.count != undefined && <span>{option.count}</span>
                 }
             </span>
         </React.Fragment>

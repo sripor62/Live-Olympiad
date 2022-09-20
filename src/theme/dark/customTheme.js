@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
+import { buttonStyle } from "./component/buttons";
+import { tabStyle } from "./component/tabs";
 import { textFieldStyle } from "./component/textfield";
-import { overrideComponentTheme } from "./overrideComponentTheme";
 
 export const customTheme = responsiveFontSizes(createTheme({
     breakpoints: {
@@ -55,7 +56,6 @@ export const customTheme = responsiveFontSizes(createTheme({
         subtitle1: {
             fontSize: 22,
         },
-        // subtitle2: buildVariant(fontWeightLight, 14, 1.57, 0.1),
         subtitle2: {
             fontSize: 18,
         },
@@ -65,14 +65,6 @@ export const customTheme = responsiveFontSizes(createTheme({
         body2: {
             fontSize: 14,
         },
-        button: {
-            textTransform: 'none',
-            fontWeight: 400,
-            fontSize: 20,
-        },
-
-        // caption: h6 as per our design
-        // overline: buildVariant(fontWeightRegular, 12, 2.66, 1),
     },
 
     overrides: {
@@ -86,6 +78,7 @@ export const customTheme = responsiveFontSizes(createTheme({
     },
     components: {
         ...textFieldStyle,
-        ...overrideComponentTheme
+        ...buttonStyle,
+        ...tabStyle,
     }
 }))
