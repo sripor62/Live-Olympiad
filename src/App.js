@@ -7,6 +7,8 @@ import CreateNewPassword from './pages/auth/CreateNewPassword';
 import LoginPage from './pages/auth/login';
 import { LoginSignTabGroup } from './pages/auth/loginsignuptab';
 import ResetPassword from './pages/auth/ResetPassword';
+import MobileVerification from './pages/auth/MobileVerification';
+import SchoolDetails from './pages/auth/SchoolDetails';
 
 
 
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/createnewpassword' element={<CreateNewPassword/>} />
         <Route path='/resetpassword' element={<ResetPassword/>} />
+        <Route path='/mobileverification' element={<MobileVerification/>} />
+        <Route path='/schooldetails' element={<SchoolDetails/>} />
       </Routes>
     </Router>
 
