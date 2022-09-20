@@ -3,7 +3,6 @@ import React from 'react'
 import { AuthLayout } from '.'
 import CustomTabs from '../../components/customTabs'
 import LoginPage from './login'
-import MobileVerification from './MobileVerification'
 import SignUp from './SignUp'
 
 export const LoginSignTabGroup = () => {
