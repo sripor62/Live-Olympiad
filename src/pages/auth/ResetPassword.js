@@ -21,8 +21,8 @@ export default function ResetPassword() {
         console.log('pageData', pageData)
     }
     return <AuthLayout>
-        <Box sx={{ml:5,mt:10}}>
-            <Grid container>
+        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+            <Grid container xs="10">
                 <Grid xs={12}>
                     <Typography variant='h3'><Box mb={3} mt={9}>Reset Password</Box></Typography>
                 </Grid>
@@ -55,6 +55,6 @@ export default function ResetPassword() {
                     <CustomButton btnText="Confirm Password" color="primary" variant="contained" onClick={submitHandler} />
                 </Grid>
             </Grid>
-        </Box>
+        </Grid>
     </AuthLayout>
 }

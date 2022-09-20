@@ -1,6 +1,5 @@
 import { Box, Grid, Link, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
@@ -8,8 +7,6 @@ import { getErrorMsz } from '../../utils/validator'
 import { AuthLayout } from '.';
 
 export default function ResetPassword() {
-    const navigate = useNavigate();
-
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
 
@@ -22,8 +19,8 @@ export default function ResetPassword() {
         console.log('pageData', pageData)
     }
     return <AuthLayout>
-        <Box sx={{ml:5,mt:8}}>
-            <Grid container  justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+            <Grid container xs="10">
                 <Grid xs={12}>
                     <Typography variant='h3'><Box mb={3} mt={9}>Create New Password</Box></Typography>
                 </Grid>
@@ -56,6 +53,6 @@ export default function ResetPassword() {
                     <CustomButton btnText="Confirm Password" color="primary" variant="contained" onClick={submitHandler} />
                 </Grid>
             </Grid>
-        </Box>
+        </Grid>
     </AuthLayout>
 }
