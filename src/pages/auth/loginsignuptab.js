@@ -8,7 +8,7 @@ import SignUp from './SignUp'
 
 export const LoginSignTabGroup = () => {
     const tabArr = [
-        { label: "Signup", component: <MobileVerification/> },
+        { label: "Signup", component: <SignUp/> },
         { label: "Login", component: <LoginPage /> },
     ]
 
