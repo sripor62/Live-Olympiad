@@ -4,8 +4,10 @@ import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", });
 
@@ -44,7 +46,7 @@ const SignUp = () => {
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={16}>
-                        <CustomButton btnText="Sign Up" color="primary" variant="contained" onClick={submitHandler} />
+                        <CustomButton btnText="Sign Up"  color="primary" variant="contained" onClick={submitHandler} />
                     </Box>
                 </Grid>
             </Grid>
