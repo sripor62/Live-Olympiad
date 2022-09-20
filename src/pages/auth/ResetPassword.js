@@ -21,7 +21,7 @@ export default function ResetPassword() {
         console.log('pageData', pageData)
     }
     return <AuthLayout>
-        <Box  sx={{ml:5,mt:10}}>
+        <Box sx={{ml:5,mt:10}}>
             <Grid container>
                 <Grid xs={12}>
                     <Typography variant='h3'><Box mb={3} mt={9}>Reset Password</Box></Typography>
