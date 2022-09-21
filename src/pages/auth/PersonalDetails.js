@@ -10,12 +10,6 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 export default function PersonalDetails() {
-    const [currency, setCurrency] = React.useState('EUR');
-
-    const handleChange = (event) => {
-        setCurrency(event.target.value);
-    };
-
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ fullname: "", gender: "", rollno: "", dob: "", email: "" });
 
@@ -52,9 +46,7 @@ export default function PersonalDetails() {
                         <CustomTextField
                             placeholder="Gender"
                             variant="filled"
-                            id="outlined-select-currency"
-                            onChange={handleChange}
-                            value={currency}
+                            onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                             error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
                             errorMsz={getErrorMsz('gender', pageData.gender)}>
                             <Select>
