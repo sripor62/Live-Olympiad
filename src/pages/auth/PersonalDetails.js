@@ -80,7 +80,6 @@ export default function PersonalDetails() {
                             placeholder="Date of Birth"
                             id="date"
                             type="date"
-                            sx={{ width: 220 }}
                             InputLabelProps={{
                                 shrink: true,
                             }}
