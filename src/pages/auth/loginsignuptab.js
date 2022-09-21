@@ -7,8 +7,8 @@ import SignUp from './SignUp'
 
 export const LoginSignTabGroup = () => {
     const tabArr = [
-        { label: "Signup", component: <SignUp /> },
         { label: "Login", component: <LoginPage /> },
+        { label: "Signup", component: <SignUp /> },
     ]
 
     return <AuthLayout>
@@ -19,7 +19,7 @@ export const LoginSignTabGroup = () => {
             indicatorColor="red"
             textColor="white"
             scrollButtons="auto"
-            activeIndex={0}
+            activeIndex={1}
         />
     </AuthLayout>
 }

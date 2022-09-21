@@ -4,18 +4,21 @@ import OtpInput from 'react-otp-input';
 import { useNavigate } from 'react-router-dom';
 import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
+import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomOtp } from '../../components/otp';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
 
 const MobileVerification = () => {
     const navigate = useNavigate();
-    const [submitFlag, setsubmitFlag] = useState(false)
+    const [submitFlag, setsubmitFlag] = useState(false);
+    const [snakeBarProps, setSnakeBarProps] = useState({});
 
     const savedOtp = 1234;
     const [otp, setOtp] = useState();
     const [hasErrored, setHasErrored] = useState(false);
     const [errorMsz, setErrorMsz] = useState("");
+    const [mobNum, setMobNum] = useState("9897969592")
     const handleChangeOtp = (value) => {
         setOtp(value)
     }
@@ -31,6 +34,7 @@ const MobileVerification = () => {
 
     const afterValidateCallBack = (second) => {
         console.log('otp', otp)
+        setSnakeBarProps({ snackbarFlag: true, msz: "Mobile number verified", type: "success" })
     }
 
     return <AuthLayout>
@@ -39,7 +43,7 @@ const MobileVerification = () => {
                 <Typography variant='h3'><Box mb={1}>Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>Enter the 4-Digit OTP recieved on +91 99999 99999 over WhatsApp</Box></Typography>
+                <Typography variant='body2'><Box mb={3}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
@@ -47,16 +51,20 @@ const MobileVerification = () => {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={16}>
-                    <CustomButton btnText="Verify" color="primary" variant="contained" onClick={submitHandler} />
+                <Box mb={2}>
+                    <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>WhatsApp necessary for OTP to work</Box></Typography>
+                <Typography variant='body2'><Box mb={16}>WhatsApp necessary for OTP to work</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
             </Grid>
+            {
+                Object.keys(snakeBarProps).length > 0 &&
+                <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
+            }
         </Grid>
     </AuthLayout>
 };

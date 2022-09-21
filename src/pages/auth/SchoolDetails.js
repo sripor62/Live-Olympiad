@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
+import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomTextField } from '../../components/TextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
 
 const SchoolDetails = () => {
     const navigate = useNavigate();
+    const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({
         postalCode: "",
@@ -19,16 +21,16 @@ const SchoolDetails = () => {
 
     const submitHandler = () => {
         setsubmitFlag(true);
-        console.log('pageData', pageData)
         afterValidate(afterValidateCallBack)
     };
 
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData)
+        console.log('pageData', pageData);
+        setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
     }
 
     return <AuthLayout>
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+        <Grid container spacing={1} sx={{ height: "100%" }}>
             <Grid xs={12} >
                 <Typography variant='h3'><Box mb={3} mt={9}>School Details</Box></Typography>
             </Grid>
@@ -39,12 +41,12 @@ const SchoolDetails = () => {
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="School Area Postal Code"
-                        value={pageData.postalCode}
                         variant="filled"
+                        value={pageData.postalCode}
+                        onChange={(event) => { setPageData({ ...pageData, postalCode: event.target.value }) }}
                         required
                         error={submitFlag && getErrorMsz('postal_code', pageData.postalCode) != ""}
                         errorMsz={getErrorMsz('postal_code', pageData.postalCode)}
-                        onChange={(event) => { setPageData({ ...pageData, postalCode: event.target.value }) }}
                     />
                 </Box>
             </Grid>
@@ -52,12 +54,12 @@ const SchoolDetails = () => {
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="School"
-                        value={pageData.school}
                         variant="filled"
-                        required
-                        error={submitFlag && getErrorMsz('school', pageData.school) != ""}
-                        errorMsz={getErrorMsz('school', pageData.school)}
+                        value={pageData.school}
                         onChange={(event) => { setPageData({ ...pageData, school: event.target.value }) }}
+                        required
+                        error={submitFlag && getErrorMsz('student_school', pageData.school) != ""}
+                        errorMsz={getErrorMsz('student_school', pageData.school)}
                     />
                 </Box>
             </Grid>
@@ -65,12 +67,12 @@ const SchoolDetails = () => {
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="Class"
-                        value={pageData.class}
                         variant="filled"
-                        required
-                        error={submitFlag && getErrorMsz('class', pageData.class) != ""}
-                        errorMsz={getErrorMsz('class', pageData.class)}
+                        value={pageData.class}
                         onChange={(event) => { setPageData({ ...pageData, class: event.target.value }) }}
+                        required
+                        error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
+                        errorMsz={getErrorMsz('student_class', pageData.class)}
                     />
                 </Box>
             </Grid>
@@ -78,20 +80,25 @@ const SchoolDetails = () => {
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="Section"
-                        value={pageData.section}
                         variant="filled"
-                        required
-                        error={submitFlag && getErrorMsz('section', pageData.section) != ""}
-                        errorMsz={getErrorMsz('section', pageData.section)}
+                        value={pageData.section}
                         onChange={(event) => { setPageData({ ...pageData, section: event.target.value }) }}
+                        required
+                        error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
+                        errorMsz={getErrorMsz('student_section', pageData.section)}
                     />
                 </Box>
             </Grid>
+
             <Grid xs={12}>
                 <Box mb={16}>
-                    <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
+                    <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>
+            {
+                Object.keys(snakeBarProps).length > 0 &&
+                <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
+            }
         </Grid>
     </AuthLayout>
 };
