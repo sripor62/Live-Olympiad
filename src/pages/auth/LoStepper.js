@@ -1,24 +1,33 @@
-import { Box, Step, StepContent, StepLabel, Stepper } from '@mui/material';
-import React from 'react';
+import { Box, Grid, Step, StepContent, StepLabel, Stepper, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import MenuBookTwoToneIcon from '@mui/icons-material/MenuBookTwoTone';
+import { AuthLayout } from '.';
 
 const LoStepper = () => {
+
+    const [activeStep, setActiveStep] = useState(0);
+
     return (
-        <Box>
-            <Stepper orientation="vertical" activeStep={0}>
-                <Step>
-                    <StepLabel>School Details</StepLabel>
-                    <StepContent></StepContent>
-                </Step>
-                <Step>
-                    <StepLabel>Personal Details</StepLabel>
-                    <StepContent></StepContent>
-                </Step>
-                <Step>
-                    <StepLabel>Choose Your Plan</StepLabel>
-                    <StepContent></StepContent>
-                </Step>
-            </Stepper>
-        </Box>
+        <AuthLayout>
+            <Grid container justifyContent='center' alignItems='center'>
+                <Grid xs={12}>
+                    <Box sx={{ display: 'flex',justifyContent:'center', alignItems: "center" }}>
+                        <Stepper orientation="vertical" activeStep={activeStep}>
+                            <Step>
+                                <StepLabel StepIconComponent={MenuBookTwoToneIcon} ><Typography variant='subtitle2'><Box>School Details</Box></Typography></StepLabel>
+                            </Step>
+                            <Step>
+                                <StepLabel StepIconComponent={MenuBookTwoToneIcon}><Typography variant='subtitle2'><Box>Personal Details</Box></Typography></StepLabel>
+                            </Step>
+                            <Step>
+                                <StepLabel StepIconComponent={MenuBookTwoToneIcon}><Typography variant='subtitle2'><Box>Choose Your Plan</Box></Typography></StepLabel>
+                            </Step>
+                        </Stepper>
+                    </Box>
+                </Grid>
+            </Grid>
+
+        </AuthLayout>
     );
 };
 
