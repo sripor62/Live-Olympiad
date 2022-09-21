@@ -33,6 +33,22 @@ export const getErrorMsz = (type, value, value2) => {
     if (type == "student_section") {
         return value == "" ? "Please select the section" : ""
     }
+    if (type == "fullname") {
+        return value == "" ? "Please enter fullname"
+            : ""
+    }
+    if (type == "dob") {
+        return value == "" ? "Please enter date of birth"
+            : ""
+    }
+    if (type == "gender") {
+        return value == "" ? "Please select gender"
+            : ""
+    }
+    if (type == "rollno") {
+        return value == "" ? "Please enter rollno"
+            : ""
+    }
 }
 
 function isValidDate(d) {
