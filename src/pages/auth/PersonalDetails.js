@@ -7,9 +7,11 @@ import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import MenuItem from '@mui/material/MenuItem';
+import { CustomSnackbar } from '../../components/CustomSnackbar'
 
 
 export default function PersonalDetails() {
+    const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ fullname: "", gender: "", rollno: "", dob: "", email: "" });
 
@@ -19,7 +21,7 @@ export default function PersonalDetails() {
     };
 
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData)
+        setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
     return <AuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
@@ -36,6 +38,7 @@ export default function PersonalDetails() {
                             type="text"
                             placeholder="Full Name"
                             variant="filled"
+                            required
                             onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
                             error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
                             errorMsz={getErrorMsz('fullname', pageData.fullname)} />
@@ -46,6 +49,7 @@ export default function PersonalDetails() {
                         <CustomTextField
                             placeholder="Gender"
                             variant="filled"
+                            required
                             onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                             error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
                             errorMsz={getErrorMsz('gender', pageData.gender)}>
@@ -61,6 +65,7 @@ export default function PersonalDetails() {
                         <CustomTextField
                             placeholder="RollNo"
                             variant="filled"
+                            required
                             onChange={(event) => { setPageData({ ...pageData, rollno: event.target.value }) }}
                             error={submitFlag && getErrorMsz('rollno', pageData.rollno) != ""}
                             errorMsz={getErrorMsz('rollno', pageData.rollno)} />
@@ -72,6 +77,7 @@ export default function PersonalDetails() {
                             placeholder="Date of Birth"
                             id="date"
                             type="date"
+                            required
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -82,20 +88,25 @@ export default function PersonalDetails() {
                     </Box>
                 </Grid>
                 <Grid xs={12}>
-                        <Box mb={3} width={1}>
-                            <CustomTextField
-                                type="email"
-                                placeholder="Email Address"
-                                variant="filled"
-                                onChange={(event) => { setPageData({ ...pageData, email: event.target.value }) }}
-                                error={submitFlag && getErrorMsz('email', pageData.email) != ""}
-                                errorMsz={getErrorMsz('email', pageData.email)} />
-                        </Box>
-                    </Grid>
+                    <Box mb={3} width={1}>
+                        <CustomTextField
+                            type="email"
+                            placeholder="Email Address"
+                            variant="filled"
+                            required
+                            onChange={(event) => { setPageData({ ...pageData, email: event.target.value }) }}
+                            error={submitFlag && getErrorMsz('email', pageData.email) != ""}
+                            errorMsz={getErrorMsz('email', pageData.email)} />
+                    </Box>
+                </Grid>
                 <Grid xs={12}>
                     <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
                 </Grid>
             </Grid>
         </Grid>
+        {
+            Object.keys(snakeBarProps).length > 0 &&
+            <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
+        }
     </AuthLayout>
 }
