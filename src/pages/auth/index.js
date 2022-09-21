@@ -14,7 +14,11 @@ export const AuthLayout = (props) => {
                 </Box>
             </Grid>
             <Grid xs="5">
-                {props.children}
+                <Grid container xs="12" direction="row" justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+                    <Grid xs="10">
+                        {props.children}
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </Box>

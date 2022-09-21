@@ -2,12 +2,14 @@ import { Box, Grid, Link, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CustomButton } from '../../components/Button'
+import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 
 export default function LoginPage() {
     const navigate = useNavigate();
+    const [snakeBarProps, setSnakeBarProps] = useState({});
 
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
@@ -18,7 +20,7 @@ export default function LoginPage() {
     };
 
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData)
+        setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
 
     return <Box>
@@ -61,8 +63,12 @@ export default function LoginPage() {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <CustomButton btnText="Login" color="primary" variant="contained" onClick={submitHandler} />
+                <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
+        {
+            Object.keys(snakeBarProps).length > 0 &&
+            <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
+        }
     </Box>
 }
