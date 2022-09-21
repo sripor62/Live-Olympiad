@@ -42,7 +42,7 @@ export default function PersonalDetails() {
                     </Box>
                 </Grid>
                 <Grid xs={4}>
-                    <Box mb={3} width={1} ml={4}>
+                    <Box mb={3} width={1} ml={2}>
                         <CustomTextField
                             placeholder="Gender"
                             variant="filled"
@@ -82,7 +82,6 @@ export default function PersonalDetails() {
                     </Box>
                 </Grid>
                 <Grid xs={12}>
-                    <Grid xs={12}>
                         <Box mb={3} width={1}>
                             <CustomTextField
                                 type="email"
@@ -93,6 +92,7 @@ export default function PersonalDetails() {
                                 errorMsz={getErrorMsz('email', pageData.email)} />
                         </Box>
                     </Grid>
+                <Grid xs={12}>
                     <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
                 </Grid>
             </Grid>
