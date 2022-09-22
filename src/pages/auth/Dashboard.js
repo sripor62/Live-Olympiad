@@ -85,8 +85,8 @@ const Dashboard = () => {
                                             />
                                         </Box>
                                     </Grid>
-                                    <Grid xs={12} ml={14}>
-                                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" />
+                                    <Grid xs={12} ml={9}>
+                                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" className="minWidth240" />
                                     </Grid>
                                 </Grid>
                                 <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>
@@ -96,8 +96,8 @@ const Dashboard = () => {
                                     <Grid xs={12}>
                                         <Typography variant='body2' align="center"><Box mb={3} mt={1} ml={2} width={350}>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
                                     </Grid>
-                                    <Grid xs={12} ml={14}>
-                                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" />
+                                    <Grid xs={12} ml={9}>
+                                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" className="minWidth240" />
                                     </Grid>
                                 </Grid>
                             </Grid>
