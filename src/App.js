@@ -11,6 +11,7 @@ import PersonalDetails from './pages/unAuth/PersonalDetails';
 import MobileVerification from './pages/unAuth/MobileVerification';
 import SchoolDetails from './pages/unAuth/SchoolDetails';
 import Dashboard from './pages/auth/Dashboard';
+import Sidebar from './pages/auth/Sidebar';
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='/mobileverification' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/sidebar' element={<Sidebar/>} />
       </Routes>
     </Router>
 
