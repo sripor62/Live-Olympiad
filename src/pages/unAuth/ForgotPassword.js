@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
 import { CustomTextField } from '../../components/TextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
+import { UnAuthLayout } from './layout/UnAuthLayout';
 
 const ForgotPassword = () => {
     const [submitFlag, setsubmitFlag] = useState(false)
@@ -19,7 +19,7 @@ const ForgotPassword = () => {
         console.log('pageData', pageData)
     }
 
-    return <AuthLayout>
+    return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
             <Grid xs={12} >
                 <Typography variant='h3'><Box mb={3} mt={9}>Forgot Password?</Box></Typography>
@@ -48,6 +48,6 @@ const ForgotPassword = () => {
                 </Box>
             </Grid>
         </Grid>
-    </AuthLayout>
+    </UnAuthLayout>
 };
 export default ForgotPassword;

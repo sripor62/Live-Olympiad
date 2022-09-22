@@ -4,8 +4,8 @@ import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
-import { AuthLayout } from '.';
 import { CustomSnackbar } from '../../components/CustomSnackbar'
+import { UnAuthLayout } from './layout/UnAuthLayout'
 
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -19,7 +19,7 @@ export default function ResetPassword() {
     const afterValidateCallBack = (second) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
-    return <AuthLayout>
+    return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
             <Grid xs={12}>
                 <Typography variant='h3'><Box mb={3}>Create New Password</Box></Typography>
@@ -28,7 +28,7 @@ export default function ResetPassword() {
                 <Typography variant='body2'><Box mb={3}>Create on Unique 6 Digit Numeric Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
-            <Box mb={3} width={1}>
+                <Box mb={3} width={1}>
                     <CustomTextField
                         type="password"
                         placeholder="Password"
@@ -57,8 +57,8 @@ export default function ResetPassword() {
             </Grid>
         </Grid>
         {
-        Object.keys(snakeBarProps).length > 0 &&
-        <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-    }
-    </AuthLayout>     
+            Object.keys(snakeBarProps).length > 0 &&
+            <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
+        }
+    </UnAuthLayout>
 }

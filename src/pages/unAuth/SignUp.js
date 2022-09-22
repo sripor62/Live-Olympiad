@@ -44,7 +44,7 @@ const SignUp = () => {
                             endIcon={<img src='./images/flag.png' />}
                             required
                             error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
-                            errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}                           
+                            errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
                         />
                     </Box>
                 </Grid>

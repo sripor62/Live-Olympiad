@@ -1,12 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomTextField } from '../../components/TextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
+import { OnboardingLayout } from './layout/OnboardingLayout';
 
 const SchoolDetails = () => {
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ const SchoolDetails = () => {
         setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
     }
 
-    return <AuthLayout>
+    return <OnboardingLayout stepperIndex="0">
         <Grid container spacing={1} sx={{ height: "100%" }}>
             <Grid xs={12} >
                 <Typography variant='h3'><Box mb={3} mt={9}>School Details</Box></Typography>
@@ -100,7 +100,7 @@ const SchoolDetails = () => {
                 <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
             }
         </Grid>
-    </AuthLayout>
+    </OnboardingLayout>
 };
 
 export default SchoolDetails;

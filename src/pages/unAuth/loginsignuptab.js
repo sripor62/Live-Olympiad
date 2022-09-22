@@ -1,7 +1,6 @@
-import { Grid } from '@mui/material'
 import React from 'react'
-import { AuthLayout } from '.'
 import CustomTabs from '../../components/customTabs'
+import { UnAuthLayout } from './layout/UnAuthLayout'
 import LoginPage from './LoginPage'
 import SignUp from './SignUp'
 
@@ -11,7 +10,7 @@ export const LoginSignTabGroup = () => {
         { label: "Signup", component: <SignUp /> },
     ]
 
-    return <AuthLayout>
+    return <UnAuthLayout>
         <CustomTabs
             tabArr={tabArr}
             label="auth"
@@ -21,5 +20,5 @@ export const LoginSignTabGroup = () => {
             scrollButtons="auto"
             activeIndex={1}
         />
-    </AuthLayout>
+    </UnAuthLayout>
 }

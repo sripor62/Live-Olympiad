@@ -1,12 +1,11 @@
-import { Box, Grid, Link, Typography } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AuthLayout } from '.'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
+import { UnAuthLayout } from './layout/UnAuthLayout'
 
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -21,7 +20,7 @@ export default function ResetPassword() {
     const afterValidateCallBack = (second) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
-    return <AuthLayout>
+    return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
             <Grid xs={12}>
                 <Typography variant='h3'><Box mb={3}>Reset Password</Box></Typography>
@@ -62,5 +61,5 @@ export default function ResetPassword() {
             Object.keys(snakeBarProps).length > 0 &&
             <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
         }
-    </AuthLayout>
+    </UnAuthLayout>
 }

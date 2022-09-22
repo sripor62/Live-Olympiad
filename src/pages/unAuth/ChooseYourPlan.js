@@ -1,12 +1,12 @@
 import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
-import { AuthLayout } from '.';
 import { CustomButton } from '../../components/Button';
+import { OnboardingLayout } from './OnboardingLayout';
 
 const ChooseYourPlan = () => {
     return (
-        <AuthLayout>
+        <OnboardingLayout>
             <Grid container>
                 <Grid xs={12}>
                     <Typography variant='h3'><Box mb={3} mt={9}>Choose Your Plan!</Box></Typography>
@@ -71,7 +71,7 @@ const ChooseYourPlan = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </AuthLayout>
+        </OnboardingLayout>
     );
 };
 
