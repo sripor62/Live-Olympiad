@@ -98,7 +98,7 @@ export default function PersonalDetails() {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
+                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
         {
