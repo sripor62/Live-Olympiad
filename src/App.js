@@ -12,6 +12,7 @@ import MobileVerification from './pages/auth/MobileVerification';
 import SchoolDetails from './pages/auth/SchoolDetails';
 import LoStepper from './pages/auth/LoStepper';
 import ChooseYourPlan from './pages/auth/ChooseYourPlan';
+import Dashboard from './pages/auth/Dashboard';
 
 
 
@@ -29,8 +30,7 @@ const App = () => {
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/mobileverification' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
-        <Route path='/lostepper' element={<LoStepper/>} />
-        <Route path='/chooseyourplan' element={<ChooseYourPlan/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
       </Routes>
     </Router>
 
