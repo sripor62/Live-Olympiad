@@ -27,8 +27,6 @@ const App = () => {
         <Route path='/mobileverification' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/header' element={<Header />} />
-        <Route path='/sidebar' element={<Sidebar/>} />
       </Routes>
     </Router>
 
