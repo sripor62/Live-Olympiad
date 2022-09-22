@@ -53,7 +53,7 @@ export default function ResetPassword() {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <CustomButton btnText="Confirm Password" color="primary" variant="contained" onClick={submitHandler} />
+                <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
         {

@@ -44,7 +44,7 @@ const ForgotPassword = () => {
             </Grid>
             <Grid xs={12}>
                 <Box mb={20} width={1}>
-                    <CustomButton btnText="Next" color="primary" variant="contained" onClick={submitHandler} />
+                    <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>
         </Grid>

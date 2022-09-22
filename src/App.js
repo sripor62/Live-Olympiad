@@ -11,6 +11,7 @@ import PersonalDetails from './pages/unAuth/PersonalDetails';
 import MobileVerification from './pages/unAuth/MobileVerification';
 import SchoolDetails from './pages/unAuth/SchoolDetails';
 import Dashboard from './pages/auth/Dashboard';
+import Header from './pages/auth/Header';
 
 
 
@@ -24,11 +25,10 @@ const App = () => {
         <Route path='/createnewpassword' element={<CreateNewPassword />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/personaldetails' element={<PersonalDetails />} />
-        <Route path='/createnewpassword' element={<CreateNewPassword />} />
-        <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/mobileverification' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/header' element={<Header />} />
       </Routes>
     </Router>
 
