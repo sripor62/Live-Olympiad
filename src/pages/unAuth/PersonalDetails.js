@@ -30,35 +30,37 @@ export default function PersonalDetails() {
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3}>Enter the personal details of the student </Box></Typography>
             </Grid>
-            <Grid xs={7}>
-                <Box mb={3} width={1}>
-                    <CustomTextField
-                        type="text"
-                        placeholder="Full Name"
-                        variant="filled"
-                        required
-                        onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
-                        error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
-                        errorMsz={getErrorMsz('fullname', pageData.fullname)} />
-                </Box>
+            <Grid container spacing={2}>
+                <Grid item xs={8}>
+                    <Box mb={3} width={1}>
+                        <CustomTextField
+                            type="text"
+                            placeholder="Full Name"
+                            variant="filled"
+                            required
+                            onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
+                            error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
+                            errorMsz={getErrorMsz('fullname', pageData.fullname)} />
+                    </Box>
+                </Grid>
+                <Grid item xs={4}>
+                    <Box mb={3} width={1}>
+                        <CustomTextField
+                            placeholder="Gender"
+                            variant="filled"
+                            required
+                            onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
+                            error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
+                            errorMsz={getErrorMsz('gender', pageData.gender)}>
+                            <Select>
+                                <MenuItem>F</MenuItem>
+                                <MenuItem>M</MenuItem>
+                            </Select>
+                        </CustomTextField>
+                    </Box>
+                </Grid>
             </Grid>
-            <Grid xs={4}>
-                <Box mb={3} width={1} ml={2}>
-                    <CustomTextField
-                        placeholder="Gender"
-                        variant="filled"
-                        required
-                        onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
-                        error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
-                        errorMsz={getErrorMsz('gender', pageData.gender)}>
-                        <Select>
-                            <MenuItem>F</MenuItem>
-                            <MenuItem>M</MenuItem>
-                        </Select>
-                    </CustomTextField>
-                </Box>
-            </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="RollNo"
@@ -69,7 +71,7 @@ export default function PersonalDetails() {
                         errorMsz={getErrorMsz('rollno', pageData.rollno)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid item xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
                         placeholder="Date of Birth"
@@ -85,7 +87,7 @@ export default function PersonalDetails() {
                         errorMsz={getErrorMsz('dob', pageData.dob)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid item  xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
                         type="email"
