@@ -1,13 +1,15 @@
 import { Box, Chip, Grid, Stack, Typography } from '@mui/material';
 import React from 'react';
 import DashboardLayout from '../auth/DashboardLayout';
-import { CalendarPickerSkeleton } from '@mui/x-date-pickers-pro';
+import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 const Schedule = () => {
     return (
         <DashboardLayout>
-            <Box p={3} sx={{ backgroundColor: 'pink' }}>
-                <Grid container sx={{ backgroundColor: 'white' }}>
+            <Box p={3}>
+                <Grid container>
                     <Grid xs={12} mb={2}>
                         <Stack direction="row" spacing={2}>
                             <Chip label="All" variant="outlined" sx={{ color: '#F9BB47', border: '2px solid #F9BB47' }} />
@@ -15,7 +17,7 @@ const Schedule = () => {
                             <Chip label="Olympiads" variant="outlined" sx={{ color: '#F9BB47', border: '2px solid #F9BB47' }} />
                         </Stack>
                     </Grid>
-                    <Grid container xs={12}>
+                    <Grid container xs={12} p={3}>
                         <Grid container item xs={7}>
                             <Grid xs={12} mb={2}>
                                 <Box mr={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
@@ -72,12 +74,22 @@ const Schedule = () => {
                                 </Box>
                             </Grid>
                         </Grid>
-                        <Grid item xs={5} sx={{ backgroundColor: 'yellow' }}>
-                            <Box ml={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
+                        <Grid item xs={5}>
+                            <Box ml={2} mb={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
                                 <Grid container>
                                     <Grid xs={12}>
-                                        <CalendarPickerSkeleton/>
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <CalendarPicker />
+                                        </LocalizationProvider>
                                     </Grid>
+                                </Grid>
+                            </Box>
+                            <Box ml={2} p={2}>
+                                <Grid container alignItems='center'>
+                                <Grid xs={1}><Box sx={{height:'20px', width:'20px', backgroundColor:'#53D064', borderRadius:'50%'}}/></Grid>
+                                    <Grid xs={5}><Typography variant='body2'><Box>Mock Test</Box></Typography></Grid>
+                                    <Grid xs={1}><Box sx={{height:'20px', width:'20px', backgroundColor:'#FCBD42', borderRadius:'50%'}}/></Grid>
+                                    <Grid xs={5}><Typography variant='body2'><Box>Olympiad</Box></Typography></Grid>
                                 </Grid>
                             </Box>
                         </Grid>

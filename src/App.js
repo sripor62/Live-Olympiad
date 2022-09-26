@@ -11,6 +11,8 @@ import MobileVerification from './pages/unAuth/MobileVerification';
 import SchoolDetails from './pages/unAuth/SchoolDetails';
 import Dashboard from './pages/auth/Dashboard';
 import Schedule from './pages/unAuth/Schedule';
+import Header from './pages/auth/Header';
+import Sidebar from './pages/auth/Sidebar';
 import Profile from './pages/auth/Profile';
 
 
@@ -26,8 +28,10 @@ const App = () => {
         <Route path='/mobileverification' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/schedule' element={<Schedule />} />
+        <Route path='/schedule' element={<Schedule />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </Router>
 
