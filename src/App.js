@@ -4,15 +4,13 @@ import React from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import ForgotPassword from './pages/unAuth/ForgotPassword';
 import CreateNewPassword from './pages/unAuth/CreateNewPassword';
-import LoginPage from './pages/unAuth/LoginPage';
 import { LoginSignTabGroup } from './pages/unAuth/loginsignuptab';
 import ResetPassword from './pages/unAuth/ResetPassword';
 import PersonalDetails from './pages/unAuth/PersonalDetails';
 import MobileVerification from './pages/unAuth/MobileVerification';
 import SchoolDetails from './pages/unAuth/SchoolDetails';
 import Dashboard from './pages/auth/Dashboard';
-import Header from './pages/auth/Header';
-import Sidebar from './pages/auth/Sidebar';
+import Schedule from './pages/unAuth/Schedule';
 import Profile from './pages/auth/Profile';
 
 
@@ -29,6 +27,7 @@ const App = () => {
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/schedule' element={<Schedule />} />
       </Routes>
     </Router>
 
