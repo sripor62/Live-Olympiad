@@ -99,7 +99,7 @@ export default function PersonalDetails() {
                         errorMsz={getErrorMsz('email', pageData.email)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={12} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                 <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>

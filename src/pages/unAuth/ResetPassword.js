@@ -53,7 +53,7 @@ export default function ResetPassword() {
                         errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={12} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                 <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>

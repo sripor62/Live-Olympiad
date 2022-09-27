@@ -44,12 +44,12 @@ const MobileVerification = () => {
                 <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1}>
+                <Box mb={3} width={1} >
                     <CustomOtp value={otp} handleChange={handleChangeOtp} hasErrored={hasErrored} errorMsz={errorMsz} />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={2}>
+                <Box mb={2} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                     <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>
