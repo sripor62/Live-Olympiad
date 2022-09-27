@@ -20,8 +20,8 @@ export default function ResetPassword() {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
     return <UnAuthLayout>
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-            <Grid xs={12}>
+        <Grid container justifyContent="center" alignItems="center" >
+            <Grid xs={6} lg={12}>
                 <Typography variant='h3'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Create New Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
