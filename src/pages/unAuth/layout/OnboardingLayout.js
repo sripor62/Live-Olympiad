@@ -16,10 +16,11 @@ export const OnboardingLayout = (props) => {
                 </Box>
             </Grid>
             <Grid item xs={12} lg={7} sx={{ display: { xs: 'block', lg: 'none' } }}>
-            <Box width={1} height={0.7} sx={{ backgroundColor: "#4545A5" }}>
+            <Box width={1} height={1} sx={{ backgroundColor: "#4545A5" }}>
                     <Box width={1} py={4} ml={2}>
                         <img src='../images/brand.svg' style={{ width: "150px" }} />
                     </Box>
+                         <LoStepper activeStep={props.stepperIndex} />
                 </Box>
             </Grid>
                
