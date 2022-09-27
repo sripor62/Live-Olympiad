@@ -25,10 +25,10 @@ export default function PersonalDetails() {
     return <OnboardingLayout stepperIndex="1">
         <Grid container xs="12">
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} mt={9}>Personal Details</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={5} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Personal Details</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>Enter the personal details of the student </Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the personal details of the student </Box></Typography>
             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={8}>
@@ -99,7 +99,7 @@ export default function PersonalDetails() {
                         errorMsz={getErrorMsz('email', pageData.email)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={12} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                 <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
