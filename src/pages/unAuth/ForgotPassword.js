@@ -22,10 +22,10 @@ const ForgotPassword = () => {
     return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
             <Grid xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={9}>Forgot Password?</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={9} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Forgot Password?</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>No worries, You can reset your password by verifying your Phone Number with an OTP.</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>No worries, You can reset your password by verifying your Phone Number with an OTP.</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>

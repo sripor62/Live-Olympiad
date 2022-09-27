@@ -26,10 +26,10 @@ export default function LoginPage() {
     return <Box>
         <Grid container>
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} mt={9}>Log In</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={9} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2'><Box mb={3}  sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Existing User? Enter your login details below</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
@@ -62,7 +62,7 @@ export default function LoginPage() {
                     <Link href="" underline="none" onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid xs={12}  sx={{ alignItems: { xs: 'center', lg: 'left' }}}>
                 <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>

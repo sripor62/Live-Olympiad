@@ -22,8 +22,7 @@ export const OnboardingLayout = (props) => {
                     </Box>
                          <LoStepper activeStep={props.stepperIndex} />
                 </Box>
-            </Grid>
-               
+            </Grid>           
             <Grid xs={12} lg={5}>
                 <Grid container xs={12} lg={12} direction="row" justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
                     <Grid xs="10">
