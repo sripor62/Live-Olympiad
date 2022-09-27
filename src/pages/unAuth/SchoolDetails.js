@@ -32,10 +32,10 @@ const SchoolDetails = () => {
     return <OnboardingLayout stepperIndex="0">
         <Grid container spacing={1} sx={{ height: "100%" }}>
             <Grid xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={9}>School Details</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={5} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>School Details</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>Enter the details of the school the student is enrolled in,</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the details of the school the student is enrolled in,</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
@@ -91,7 +91,7 @@ const SchoolDetails = () => {
             </Grid>
 
             <Grid xs={12}>
-                <Box mb={16}>
+                <Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                     <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>

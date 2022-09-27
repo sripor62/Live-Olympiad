@@ -20,12 +20,12 @@ export default function ResetPassword() {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
     return <UnAuthLayout>
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-            <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3}>Create New Password</Box></Typography>
+        <Grid container justifyContent="center" alignItems="center" >
+            <Grid xs={6} lg={12}>
+                <Typography variant='h3'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Create New Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}>Create on Unique 6 Digit Numeric Password </Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Create on Unique 6 Digit Numeric Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
@@ -52,8 +52,8 @@ export default function ResetPassword() {
                         errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)} />
                 </Box>
             </Grid>
-            <Grid xs={12}>
-                <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
+            <Grid xs={12} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+                <CustomButton  btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
         {
