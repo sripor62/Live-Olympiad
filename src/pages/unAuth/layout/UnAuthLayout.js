@@ -1,8 +1,9 @@
 import { Box, Grid, Hidden } from '@mui/material'
 import React from 'react'
+import MobileHeader from '../../../components/MobileHeader'
 
 export const UnAuthLayout = (props) => {
-    return <Box sx={{ height: "100vh" }}>
+    return <Box sx={{ height:{lg:"100vh",xs:'80vh'}}}>
         <Grid container sx={{ height: "100%" }}>
             <Grid item xs={12} lg={7} sx={{ display: { xs: 'none', lg: 'block' } }}>
                 <Box width={1} height={1} sx={{ backgroundColor: "#4545A5" }}>
@@ -13,6 +14,7 @@ export const UnAuthLayout = (props) => {
                     </Grid>
                 </Box>
             </Grid>
+
             <Grid item xs={12} lg={7} sx={{ display: { xs: 'block', lg: 'none' } }}>
                 <Box width={1} height={0.6} sx={{ backgroundColor: "#4545A5" }}>
                     <Grid container xs={12} lg={12} sx={{ height: "100%" }} alignItems="center" justifyContent="center">
