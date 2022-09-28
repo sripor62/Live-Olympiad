@@ -37,14 +37,14 @@ const MobileVerification = () => {
 
     return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-            <Grid xs={12} >
-                <Typography variant='h3'><Box mb={1} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Mobile Verification</Box></Typography>
+            <Grid xs={7.5} lg={12}>
+                <Typography variant='h3'><Box mb={1} sx={{ textAlign: { xs: 'center', lg: 'left' },width:'200px'}} >Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1} >
+            <Grid xs={10} lg={12}>
+                <Box mb={3} width={1}>
                     <CustomOtp value={otp} handleChange={handleChangeOtp} hasErrored={hasErrored} errorMsz={errorMsz} />
                 </Box>
             </Grid>
@@ -57,7 +57,7 @@ const MobileVerification = () => {
                 <Typography variant='body2'><Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>WhatsApp necessary for OTP to work</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
+                <Typography variant='body2'><Box mb={3} mt={8} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
             </Grid>
             {
                 Object.keys(snakeBarProps).length > 0 &&

@@ -30,15 +30,15 @@ const SchoolDetails = () => {
     }
 
     return <OnboardingLayout stepperIndex="0">
-        <Grid container spacing={1} sx={{ height: "100%" }}>
-            <Grid xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={5} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>School Details</Box></Typography>
+        <Grid container  sx={{ height: "100%" }}>
+            <Grid item xs={12} >
+                <Typography variant='h3'><Box mb={3} mt={5} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>School Details</Box></Typography>
             </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the details of the school the student is enrolled in,</Box></Typography>
+            <Grid item xs={12}>
+                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>Enter the details of the school the student is enrolled in,</Box></Typography>
             </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1}>
+            <Grid item xs={12}>
+                <Box mb={2} width={1}>
                     <CustomTextField
                         placeholder="School Area Postal Code"
                         variant="filled"
@@ -50,8 +50,8 @@ const SchoolDetails = () => {
                     />
                 </Box>
             </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1}>
+            <Grid item xs={12}>
+                <Box mb={2} width={1}>
                     <CustomTextField
                         placeholder="School"
                         variant="filled"
@@ -63,35 +63,37 @@ const SchoolDetails = () => {
                     />
                 </Box>
             </Grid>
-            <Grid xs={6}>
-                <Box mb={3} width={1}>
-                    <CustomTextField
-                        placeholder="Class"
-                        variant="filled"
-                        value={pageData.class}
-                        onChange={(event) => { setPageData({ ...pageData, class: event.target.value }) }}
-                        required
-                        error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
-                        errorMsz={getErrorMsz('student_class', pageData.class)}
-                    />
-                </Box>
-            </Grid>
-            <Grid xs={6}>
-                <Box mb={3} width={1}>
-                    <CustomTextField
-                        placeholder="Section"
-                        variant="filled"
-                        value={pageData.section}
-                        onChange={(event) => { setPageData({ ...pageData, section: event.target.value }) }}
-                        required
-                        error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
-                        errorMsz={getErrorMsz('student_section', pageData.section)}
-                    />
-                </Box>
+            <Grid container  spacing={1}>
+                <Grid item xs={12} lg={6}>
+                    <Box mb={2} width={1}>
+                        <CustomTextField
+                            placeholder="Class"
+                            variant="filled"
+                            value={pageData.class}
+                            onChange={(event) => { setPageData({ ...pageData, class: event.target.value }) }}
+                            required
+                            error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
+                            errorMsz={getErrorMsz('student_class', pageData.class)}
+                        />
+                    </Box>
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                    <Box mb={3} width={1}>
+                        <CustomTextField
+                            placeholder="Section"
+                            variant="filled"
+                            value={pageData.section}
+                            onChange={(event) => { setPageData({ ...pageData, section: event.target.value }) }}
+                            required
+                            error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
+                            errorMsz={getErrorMsz('student_section', pageData.section)}
+                        />
+                    </Box>
+                </Grid>
             </Grid>
 
-            <Grid xs={12}>
-                <Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+            <Grid item xs={12}>
+                <Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
                     <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>

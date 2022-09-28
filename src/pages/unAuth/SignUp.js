@@ -28,7 +28,7 @@ const SignUp = () => {
         <Box>
             <Grid container>
                 <Grid xs={12} >
-                    <Typography variant='h3'><Box mb={3} mt={9} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Sign Up</Box></Typography>
+                    <Typography variant='h3'><Box mb={3} mt={6} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Sign Up</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
                     <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Existing User? Enter your login details below,</Box></Typography>
