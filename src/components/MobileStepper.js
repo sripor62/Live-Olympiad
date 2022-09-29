@@ -6,7 +6,7 @@ const MobileStepper = (props) => {
     const [activeStep, setActiveStep] = useState(props.activeStep);
     return (
         <Grid container xs={12} justifyContent='center' alignItems='center'sx={{ backgroundColor: "#4545A5"}}>
-            <Grid item  xs={5} sx={{ display: { xs: 'block', lg: 'none' },mb:1}}>
+            <Grid item  xs={5} sx={{ display: { xs: 'block', lg: 'none' },p:1}}>
                 <Stepper orientation="horizontal" activeStep={activeStep}>
                     <Step>
                         <StepLabel StepIconComponent={MenuBookTwoToneIcon} ></StepLabel>

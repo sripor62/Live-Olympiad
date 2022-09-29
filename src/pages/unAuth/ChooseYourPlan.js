@@ -2,7 +2,8 @@ import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
 import { CustomButton } from '../../components/Button';
-import { OnboardingLayout } from './OnboardingLayout';
+import { OnboardingLayout } from './layout/OnboardingLayout';
+
 
 const ChooseYourPlan = () => {
 
@@ -11,17 +12,17 @@ const ChooseYourPlan = () => {
             <Grid container>
                 <Grid xs={12}>
                     <Typography variant='h3'>
-                        <Box mb={3} mt={9} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>Choose Your Plan!</Box>
+                        <Box mb={2} mt={2} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>Choose Your Plan!</Box>
                     </Typography>
                 </Grid>
                 {
                     [1, 1, 1, 1].map((option) => {
                         return <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '20px' }}>
                             <Grid xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-                                <Typography variant='body2'><Box mb={3}>Single Subject</Box></Typography>
+                                <Typography variant='body2'><Box mb={2}>Single Subject</Box></Typography>
                             </Grid>
                             <Grid xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <Typography variant='body2'><Box mb={3}>₹300 for Year</Box></Typography>
+                                <Typography variant='body2'><Box mb={2}>₹300 for Year</Box></Typography>
                             </Grid>
                             <Grid xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <Box p={1}>
@@ -36,10 +37,10 @@ const ChooseYourPlan = () => {
                     })
                 }
                 <Grid container xs={12} justifyContent="center" alignItems="center">
-                    <Grid xs={6} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
+                    <Grid xs={6} sx={{mb:1 ,textAlign: { xs: 'center', lg: 'left' }}}>
                         <CustomButton btnText="Enter" color="primary" variant="contained" className="minWidth240" />
                     </Grid>
-                    <Grid xs={6} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
+                    <Grid xs={6} sx={{ mb:1}}>
                         <Typography variant='body2' ><Box><Link href="#" >Skip</Link> for now</Box></Typography>
                     </Grid>
                 </Grid>
