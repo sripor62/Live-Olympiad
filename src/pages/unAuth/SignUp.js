@@ -6,6 +6,7 @@ import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
 import { useNavigate } from 'react-router-dom'
 import { CustomSnackbar } from '../../components/CustomSnackbar';
+import { responsiveStype } from '../../theme/responsive';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -28,10 +29,10 @@ const SignUp = () => {
         <Box>
             <Grid container>
                 <Grid xs={12} >
-                    <Typography variant='h3'><Box mb={2} mt={6} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Sign Up</Box></Typography>
+                    <Typography variant='h3'><Box mb={2} mt={6} sx={responsiveStype.Signup.Typo}>Sign Up</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
-                    <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Existing User? Enter your login details below,</Box></Typography>
+                    <Typography variant='body2'><Box mb={3} sx={responsiveStype.Signup.Typo}>Existing User? Enter your login details below,</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={2} width={1}>
@@ -49,7 +50,7 @@ const SignUp = () => {
                     </Box>
                 </Grid>
                 <Grid xs={12}>
-                    <Box mb={15} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+                    <Box mb={15} sx={responsiveStype.Signup.Typo}>
                         <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                     </Box>
                 </Grid>

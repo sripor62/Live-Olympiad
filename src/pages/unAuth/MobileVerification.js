@@ -6,6 +6,7 @@ import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomOtp } from '../../components/otp';
 import { afterValidate } from '../../utils/commonService';
 import { UnAuthLayout } from './layout/UnAuthLayout';
+import { responsiveStype } from '../../theme/responsive';
 
 const MobileVerification = () => {
     const navigate = useNavigate();
@@ -36,28 +37,28 @@ const MobileVerification = () => {
     }
 
     return <UnAuthLayout>
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
-            <Grid xs={7.5} lg={12}>
-                <Typography variant='h3'><Box mb={1} sx={{ textAlign: { xs: 'center', lg: 'left' },width:'200px'}} >Mobile Verification</Box></Typography>
+        <Grid container mt={4} justifyContent="center" alignItems="center">
+            <Grid xs={6} lg={12} >
+                <Typography variant='h3'><Box mb={1} sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
-            <Grid xs={10} lg={12}>
-                <Box mb={3} width={1}>
+            <Grid xs={12} >
+                <Box mb={2} width={1}>
                     <CustomOtp value={otp} handleChange={handleChangeOtp} hasErrored={hasErrored} errorMsz={errorMsz} />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={2} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+                <Box mb={2} sx={responsiveStype.Mobilever.Typo}>
                     <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>WhatsApp necessary for OTP to work</Box></Typography>
+                <Typography variant='body2'><Box mb={10} sx={responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} mt={8} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
+                <Typography variant='body2'><Box mb={3} mt={8} sx={responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
             </Grid>
             {
                 Object.keys(snakeBarProps).length > 0 &&
