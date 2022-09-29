@@ -17,7 +17,7 @@ export const OnboardingLayout = (props) => {
                     <LoStepper activeStep={props.stepperIndex} />
                 </Box>
             </Grid>
-            <Grid item xs={12}  sx={{ display: { xs: 'block', lg: 'none' }}}>
+            <Grid item xs={12}  sx={{ display: { xs: 'block', lg: 'none' }, backgroundColor: "#4545A5"}}>
                 <MobileHeader />
                 <MobileStepper activeStep={props.stepperIndex} />
             </Grid>
