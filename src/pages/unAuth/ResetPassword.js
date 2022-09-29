@@ -6,6 +6,7 @@ import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { UnAuthLayout } from './layout/UnAuthLayout'
+import { responsiveStype } from '../../theme/responsive';
 
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -21,12 +22,12 @@ export default function ResetPassword() {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
     return <UnAuthLayout>
-        <Grid container justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+        <Grid container justifyContent="center" alignItems="center" >
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Reset Password</Box></Typography>
+                <Typography variant='h3'><Box mb={3} sx={responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Create on Unique 6 Digit Numeric Password </Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={responsiveStype.ResetPassword.Typo}>Create on Unique 6 Digit Numeric Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
@@ -53,7 +54,7 @@ export default function ResetPassword() {
                         errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)} />
                 </Box>
             </Grid>
-            <Grid xs={12} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+            <Grid xs={12} mb={14} sx={responsiveStype.ResetPassword.Typo}>
                 <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>

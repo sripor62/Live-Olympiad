@@ -7,6 +7,7 @@ import { CustomTextField } from '../../components/TextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
 import { OnboardingLayout } from './layout/OnboardingLayout';
+import { responsiveStype } from '../../theme/responsive';
 
 const SchoolDetails = () => {
     const navigate = useNavigate();
@@ -30,12 +31,12 @@ const SchoolDetails = () => {
     }
 
     return <OnboardingLayout stepperIndex="0">
-        <Grid container  sx={{ height: "100%" }}>
+        <Grid container>
             <Grid item xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={5} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>School Details</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={5} sx={responsiveStype.School.Typo}>School Details</Box></Typography>
             </Grid>
             <Grid item xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>Enter the details of the school the student is enrolled in,</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in,</Box></Typography>
             </Grid>
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
@@ -93,7 +94,7 @@ const SchoolDetails = () => {
             </Grid>
 
             <Grid item xs={12}>
-                <Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
+                <Box mb={16} sx={responsiveStype.School.Typo}>
                     <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                 </Box>
             </Grid>

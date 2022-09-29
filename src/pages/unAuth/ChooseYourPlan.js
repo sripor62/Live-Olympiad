@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react'
 import { CustomButton } from '../../components/Button';
 import { OnboardingLayout } from './layout/OnboardingLayout';
+import { responsiveStype } from '../../theme/responsive';
 
 
 const ChooseYourPlan = () => {
@@ -12,7 +13,7 @@ const ChooseYourPlan = () => {
             <Grid container>
                 <Grid xs={12}>
                     <Typography variant='h3'>
-                        <Box mb={2} mt={2} sx={{ textAlign: { xs: 'center', lg: 'left' } }}>Choose Your Plan!</Box>
+                        <Box mb={2} mt={2} sx={responsiveStype.CreatePassword.Typo}>Choose Your Plan!</Box>
                     </Typography>
                 </Grid>
                 {
@@ -37,7 +38,7 @@ const ChooseYourPlan = () => {
                     })
                 }
                 <Grid container xs={12} justifyContent="center" alignItems="center">
-                    <Grid xs={6} sx={{mb:1 ,textAlign: { xs: 'center', lg: 'left' }}}>
+                    <Grid xs={6} sx={responsiveStype.CreatePassword.Typo}>
                         <CustomButton btnText="Enter" color="primary" variant="contained" className="minWidth240" />
                     </Grid>
                     <Grid xs={6} sx={{ mb:1}}>
