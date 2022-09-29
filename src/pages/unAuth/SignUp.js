@@ -28,13 +28,13 @@ const SignUp = () => {
         <Box>
             <Grid container>
                 <Grid xs={12} >
-                    <Typography variant='h3'><Box mb={3} mt={6} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Sign Up</Box></Typography>
+                    <Typography variant='h3'><Box mb={2} mt={6} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Sign Up</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
                     <Typography variant='body2'><Box mb={3} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Existing User? Enter your login details below,</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
-                    <Box mb={3} width={1}>
+                    <Box mb={2} width={1}>
                         <CustomTextField
                             placeholder="Phone Number"
                             type="tel"
@@ -49,7 +49,7 @@ const SignUp = () => {
                     </Box>
                 </Grid>
                 <Grid xs={12}>
-                    <Box mb={16} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+                    <Box mb={15} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                         <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                     </Box>
                 </Grid>

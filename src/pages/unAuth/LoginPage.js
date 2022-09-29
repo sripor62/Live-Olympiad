@@ -62,7 +62,7 @@ export default function LoginPage() {
                     <Link href="" underline="none" onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
-            <Grid xs={12}  sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+            <Grid xs={16}  sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
                 <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
