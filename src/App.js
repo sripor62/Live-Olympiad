@@ -14,6 +14,7 @@ import Schedule from './pages/unAuth/Schedule';
 import Header from './pages/auth/Header';
 import Sidebar from './pages/auth/Sidebar';
 import Profile from './pages/auth/Profile';
+import ChooseYourPlan from './pages/unAuth/ChooseYourPlan';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/chooseyourplan' element={<ChooseYourPlan />} />
       </Routes>
     </Router>
 
