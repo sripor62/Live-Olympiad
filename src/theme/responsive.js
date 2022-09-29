@@ -5,5 +5,8 @@ export const responsiveStype = {
     },
     OnboardingLayout: {
         MainWarpper: { height: { lg: "100vh", xs: '80vh' } },
+    },
+    UnAuthLayout:{
+        MaincWarpper: { height: { lg: "100vh", xs: '85vh' } },
     }
 }
