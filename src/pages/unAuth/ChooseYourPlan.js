@@ -2,7 +2,8 @@ import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
 import { CustomButton } from '../../components/Button';
-import { OnboardingLayout } from './OnboardingLayout';
+import { OnboardingLayout } from './layout/OnboardingLayout';
+
 
 const ChooseYourPlan = () => {
 
