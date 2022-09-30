@@ -15,6 +15,8 @@ import Header from './pages/auth/Header';
 import Sidebar from './pages/auth/Sidebar';
 import Profile from './pages/auth/Profile';
 import ChooseYourPlan from './pages/unAuth/ChooseYourPlan';
+import ReportLayout from './pages/Report/ReportLayout';
+import TestScreen from './pages/unAuth/TestScreen';
 
 
 const App = () => {
@@ -34,6 +36,8 @@ const App = () => {
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/chooseyourplan' element={<ChooseYourPlan />} />
+        <Route path='/ReportLayout' element={<ReportLayout/>}/>
+        <Route path='/TestScreen' element={<TestScreen/>}/>
       </Routes>
     </Router>
 
