@@ -20,12 +20,12 @@ const ReportSider = () => {
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: 'white', display: 'flex', p: 1 }}><MemoryIcon />Cognitive Complexity</Box></Typography>
-              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: '#4545A5', color: 'white', p: 1 }}>Understanding</Box></Typography>
+              <Typography variant='Subtitle2' align='center' sx={{fontSize:'small'}}><Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2,alignItems:'center',JustifyContent:'center'}}><MemoryIcon />Cognitive Complexity</Box></Typography>
+              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: '#4545A5', color: 'white', p: 2 }}>Understanding</Box></Typography>
             </Grid>
             <Grid item xs={6}>
-              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: 'white', display: 'flex', p: 1 }}><MemoryIcon />Subject Skill</Box></Typography>
-              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: '#4545A5', color: 'white', p: 1 }}>Comparing whole numbers</Box></Typography>
+              <Typography variant='Subtitle2' align='center'  sx={{fontSize:'small'}}><Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2,alignItems:'center',JustifyContent:'center'}}><MemoryIcon />Subject Skill</Box></Typography>
+              <Typography variant='Subtitle2' align='center'><Box sx={{ borderRadius: "10px", backgroundColor: '#4545A5', color: 'white', p: 2 }}>Comparing whole numbers</Box></Typography>
             </Grid>
           </Grid>
         </Box>
