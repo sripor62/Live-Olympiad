@@ -21,6 +21,34 @@ export const getErrorMsz = (type, value, value2) => {
     if (type == "resetP") {
         return value == "" ? "Enter resetP" : ""
     }
+    if (type == "postal_code") {
+        return value == "" ? "Please enter postal code" : isNaN(value) ? "Postal code must be in digits" : value.length != 6 ? "Postal code must be 6 digit" : ""
+    }
+    if (type == "student_school") {
+        return value == "" ? "Please select the school" : ""
+    }
+    if (type == "student_class") {
+        return value == "" ? "Please select the class" : ""
+    }
+    if (type == "student_section") {
+        return value == "" ? "Please select the section" : ""
+    }
+    if (type == "fullname") {
+        return value == "" ? "Please enter fullname"
+            : ""
+    }
+    if (type == "dob") {
+        return value == "" ? "Please enter date of birth"
+            : ""
+    }
+    if (type == "gender") {
+        return value == "" ? "Please select gender"
+            : ""
+    }
+    if (type == "rollno") {
+        return value == "" ? "Please enter rollno"
+            : ""
+    }
 }
 
 function isValidDate(d) {

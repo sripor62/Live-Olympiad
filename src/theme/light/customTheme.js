@@ -1,5 +1,6 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
 import { buttonStyle } from "./component/buttons";
+import { chipStyle } from "./component/chip";
 import { tabStyle } from "./component/tabs";
 import { textFieldStyle } from "./component/textfield";
 
@@ -70,5 +71,6 @@ export const customTheme = responsiveFontSizes(createTheme({
         ...textFieldStyle,
         ...buttonStyle,
         ...tabStyle,
+        ...chipStyle,
     }
 }))

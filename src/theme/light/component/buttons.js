@@ -3,8 +3,10 @@ export const buttonStyle = {
         styleOverrides: {
             root: {
                 borderRadius: "50px !important",
-                minWidth: "240px !important",
                 padding: "9px 16px !important",
+                '&.minWidth240': {
+                    minWidth: "240px !important",
+                }
             }
         }
     },
