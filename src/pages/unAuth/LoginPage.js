@@ -6,6 +6,7 @@ import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
+import { responsiveStype } from '../../theme/responsive';
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -26,10 +27,10 @@ export default function LoginPage() {
     return <Box>
         <Grid container>
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={2} mt={6} sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Log In</Box></Typography>
+                <Typography variant='h3'><Box mb={2} mt={6}sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3}  sx={{ textAlign: { xs: 'center', lg: 'left' }}}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
@@ -62,7 +63,7 @@ export default function LoginPage() {
                     <Link href="" underline="none" onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
-            <Grid xs={12}  sx={{ textAlign: { xs: 'center', lg: 'left' }}}>
+            <Grid xs={16} sx={responsiveStype.Login.Typo}>
                 <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
