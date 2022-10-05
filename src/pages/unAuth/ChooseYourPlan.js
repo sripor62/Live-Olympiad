@@ -13,7 +13,7 @@ const ChooseYourPlan = () => {
             <Grid container>
                 <Grid xs={12}>
                     <Typography variant='h3'>
-                        <Box mb={2} mt={2} sx={responsiveStype.CreatePassword.Typo}>Choose Your Plan!</Box>
+                        <Box mb={2} mt={2} fontWeight="bold" sx={responsiveStype.CreatePassword.Typo}>Choose Your Plan!</Box>
                     </Typography>
                 </Grid>
                 {

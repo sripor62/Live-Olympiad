@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center">
             <Grid xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={9} sx={responsiveStype.ForgotPassword.Typo}>Forgot Password?</Box></Typography>
+                <Typography variant='h3'><Box fontWeight="bold" mb={3} mt={9} sx={responsiveStype.ForgotPassword.Typo}>Forgot Password?</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={responsiveStype.ForgotPassword.Typo}>No worries, You can reset your password by verifying your Phone Number with an OTP.</Box></Typography>

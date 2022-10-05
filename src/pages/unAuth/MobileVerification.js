@@ -39,7 +39,7 @@ const MobileVerification = () => {
     return <UnAuthLayout>
         <Grid container mt={4} justifyContent="center" alignItems="center">
             <Grid xs={6} lg={12} >
-                <Typography variant='h3'><Box mb={1} sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
+                <Typography variant='h3'><Box mb={1} fontWeight="bold" sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
