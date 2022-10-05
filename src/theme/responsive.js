@@ -19,10 +19,10 @@ export const responsiveStype = {
         Typo:{ textAlign: { xs: 'center', lg: 'left' }}
     },
     Signup:{
-        Typo:{ textAlign: { xs: 'center', lg: 'left' }}
+        Typo:{ textAlign: { xs: 'center', lg: 'left' },fontFamily:"Urbantist"}
     },
     Login:{
-        Typo:{ textAlign: { xs: 'center', lg: 'left' }}
+        Typo:{ textAlign: { xs: 'center', lg: 'left' },fontFamily:"Urbantist"}
     },
     Mobilever:{
         Typo:{ textAlign: { xs: 'center', lg: 'left' }}
