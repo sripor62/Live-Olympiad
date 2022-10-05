@@ -59,7 +59,7 @@ export default function LoginPage() {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right">
+                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px"}}>
                     <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>

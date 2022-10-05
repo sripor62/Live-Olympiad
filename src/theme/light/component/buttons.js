@@ -6,6 +6,7 @@ export const buttonStyle = {
                 padding: "9px 16px !important",
                 '&.minWidth240': {
                     minWidth: "240px !important",
+                    fontWeight:"700"
                 }
             }
         }
