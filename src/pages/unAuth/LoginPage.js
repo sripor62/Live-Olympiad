@@ -60,11 +60,11 @@ export default function LoginPage() {
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1} textAlign="right">
-                    <Link href="" underline="none" onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
+                    <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
             <Grid xs={16} sx={responsiveStype.Login.Typo}>
-                <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
+                <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
         {
