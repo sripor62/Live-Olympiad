@@ -25,7 +25,7 @@ export const responsiveStype = {
         Typo:{ textAlign: { xs: 'center', lg: 'left' },fontFamily:"Urbantist"}
     },
     Mobilever:{
-        Typo:{ textAlign: { xs: 'center', lg: 'left' }}
+        Typo:{ textAlign: { xs: 'center', lg: 'left' },fontFamily:"Urbantist"}
     },
     Personal:{
         Typo:{ textAlign: { xs: 'center', lg: 'left' }}

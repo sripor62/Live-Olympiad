@@ -55,10 +55,10 @@ const MobileVerification = () => {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={10} sx={responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
+                <Typography variant='body2' fontWeight='bold' fontSize='12px'><Box mb={10} sx={responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} mt={8} sx={responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" >Resend</Link></Box></Typography>
+                <Typography variant='body2'  fontWeight='bold'><Box mb={3} mt={18} sx={responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" underline="none">Resend</Link></Box></Typography>
             </Grid>
             {
                 Object.keys(snakeBarProps).length > 0 &&
