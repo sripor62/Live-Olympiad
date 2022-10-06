@@ -15,10 +15,26 @@ const SignUp = () => {
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "" });
 
+
+    const { generateOTP } = useAuthHelper();
+
+
+
     const submitHandler = () => {
         setsubmitFlag(true);
         afterValidate(afterValidateCallBack)
     };
+    const onPhoneNumberSubmit = async () => {
+        // setOtpSent(true);
+        // phoneNumber.setShowError(true);
+        // if (!phoneNumber?.isValid) return;
+        // setOtpSent(true);
+        let res = await generateOTP({
+            phoneNumber: "+91" + pageData.phoneNumber,
+            signUp: true,
+        });
+    
+      };
 
     const afterValidateCallBack = (second) => {
         console.log('pageData', pageData)
@@ -51,7 +67,7 @@ const SignUp = () => {
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={15} sx={responsiveStype.Signup.Typo}>
-                        <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
+                        <CustomButton btnText="Generate Otp" color="primary" variant="contained" className="minWidth240" onClick={onPhoneNumberSubmit} />
                     </Box>
                 </Grid>
             </Grid>
