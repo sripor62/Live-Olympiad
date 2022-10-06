@@ -20,14 +20,14 @@ const Header = () => {
             <Grid xs={4} sm={2} md={2} lg={2} alignItems='center'>
                 <Box mr={2}>
                     <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end' }} >
-                        <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '2px solid white', borderRadius: '10px' }} />
+                        <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' }} />
                         {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}
                     </Stack>
                 </Box>
             </Grid>
             <Grid xs={12} sm={12} md={5} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
-                <Box p={1} sx={{ backgroundColor: "white", borderRadius: '50px' }}>
+                <Box  sx={{ backgroundColor: "white", borderRadius: '50px', padding:'3px' }}>
                     <Grid container alignItems='center'>
                         <Grid container md={10} lg={10} pl={3}>
                             <Grid md={12} lg={12}>
