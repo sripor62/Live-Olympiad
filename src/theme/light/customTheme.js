@@ -27,7 +27,7 @@ export const customTheme = responsiveFontSizes(createTheme({
     },
     typography: {
         htmlFontSize: 16,
-        fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif"].join(","),
+        fontFamily: ["Roboto", "Helvetica", "Arial", "sans-serif","Urbantist"].join(","),
         fontSize: 14,
         lineHeight: 1,
         fontWeightLight: 300,

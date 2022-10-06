@@ -27,6 +27,18 @@ export const responsiveStype = {
     Mobilever: {
         Typo: { textAlign: { xs: 'center', lg: 'left' } }
     },
+    ForgotPassword: {
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+    },
+    Signup: {
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+    },
+    Login: {
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+    },
+    Mobilever: {
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+    },
     Personal: {
         Typo: { textAlign: { xs: 'center', lg: 'left' } }
     },

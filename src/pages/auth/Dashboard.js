@@ -132,21 +132,21 @@ const Dashboard = () => {
                         </Box>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" fullWidth sx={{ color: '#FFFFFF' }} />
+                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" sx={{ color: '#FFFFFF' }}/>
                     </Grid>
                 </Grid>
                 <Grid container md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>
                     <Grid item md={12} lg={12}>
-                        <Typography variant='h4'><Box align="center">LiveOlympiad</Box></Typography>
+                        <Typography variant='h4' sx={{fontWeight:600}}><Box align="center">LiveOlympiad</Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} mb={3}>
-                        <Typography variant='h4'><Box align="center">Knowledge Tree</Box></Typography>
+                        <Typography variant='h4' sx={{fontWeight:600}}><Box align="center">Knowledge Tree</Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} mb={3}>
                         <Typography variant='body2' align="center" sx={{ color: '#838BA1' }}><Box>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" fullWidth />
+                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" />
                     </Grid>
                 </Grid>
             </Grid>

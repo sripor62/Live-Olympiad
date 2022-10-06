@@ -27,10 +27,10 @@ export default function LoginPage() {
     return <Box>
         <Grid container>
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={2} mt={6}sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
+                <Typography variant='h3'><Box fontWeight="bold" mb={2} mt={6} sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2' color="primary"><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
@@ -59,12 +59,12 @@ export default function LoginPage() {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right">
-                    <Link href="" underline="none" onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
+                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px"}}>
+                    <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
             <Grid xs={16} sx={responsiveStype.Login.Typo}>
-                <CustomButton btnText="Login" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
+                <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
             </Grid>
         </Grid>
         {
