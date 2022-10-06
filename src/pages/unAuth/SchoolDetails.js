@@ -33,7 +33,7 @@ const SchoolDetails = () => {
     return <OnboardingLayout stepperIndex="0">
         <Grid container>
             <Grid item xs={12} >
-                <Typography variant='h3'><Box mb={3} mt={5} sx={responsiveStype.School.Typo}>School Details</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={5} fontWeight="bold" sx={responsiveStype.School.Typo}>School Details</Box></Typography>
             </Grid>
             <Grid item xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in,</Box></Typography>

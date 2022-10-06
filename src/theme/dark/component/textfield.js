@@ -38,7 +38,7 @@ export const textFieldStyle = {
             root: {
                 backgroundColor: "#F7F8F9 !important",
                 '&:after,&:before': {
-                    border: "none !important"
+                    border: "none !important",
                 }
             }
         }

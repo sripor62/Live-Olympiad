@@ -26,7 +26,7 @@ export default function PersonalDetails() {
     return <OnboardingLayout stepperIndex="1">
         <Grid container xs="12">
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} mt={5} sx={responsiveStype.Personal.Typo}>Personal Details</Box></Typography>
+                <Typography variant='h3'><Box mb={3} mt={5} fontWeight="bold" sx={responsiveStype.Personal.Typo}>Personal Details</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={responsiveStype.Personal.Typo}>Enter the personal details of the student </Box></Typography>
