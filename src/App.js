@@ -18,7 +18,7 @@ import ChooseYourPlan from './pages/unAuth/ChooseYourPlan';
 import TestLayout from './pages/test/TestLayout';
 import ReportLayout from './pages/Report/ReportLayout';
 import TestScreen from './pages/unAuth/TestScreen';
-
+import Login from './pages/unAuth/LoginPage'
 
 const App = () => {
   return (
@@ -26,10 +26,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LoginSignTabGroup />} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
-        <Route path='/createnewpassword' element={<CreateNewPassword />} />
+        <Route path='/createnewpassword/:token' element={<CreateNewPassword />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/personaldetails' element={<PersonalDetails />} />
-        <Route path='/mobileverification' element={<MobileVerification />} />
+        <Route path='/mobileverification/:phoneNumber' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
@@ -39,6 +39,7 @@ const App = () => {
         <Route path='/test' element={<TestLayout />} />
         <Route path='/ReportLayout' element={<ReportLayout />} />
         <Route path='/TestScreen' element={<TestScreen />} />
+        <Route path='/login' element={<Login/>}/>
       </Routes >
     </Router >
 
