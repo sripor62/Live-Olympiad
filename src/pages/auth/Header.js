@@ -15,7 +15,7 @@ const Header = () => {
             <Grid xs={4} sm={2} md={2} lg={2} alignItems='center'>
                 <Box mr={2}>
                     <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end' }} >
-                        <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '2px solid white', borderRadius: '10px' }} />
+                        <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' }} />
                         {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}
                     </Stack>

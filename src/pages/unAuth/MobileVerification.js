@@ -44,7 +44,7 @@ const MobileVerification = () => {
             <Grid xs={12}>
                 <Typography variant='body2'><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
-            <Grid xs={12} >
+            <Grid xs={12}>
                 <Box mb={2} width={1}>
                     <CustomOtp value={otp} handleChange={handleChangeOtp} hasErrored={hasErrored} errorMsz={errorMsz} />
                 </Box>

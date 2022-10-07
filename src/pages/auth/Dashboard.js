@@ -25,12 +25,12 @@ const Dashboard = () => {
         <Grid container mt={2} style={{ padding: 10 }}>
             <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
                 <Grid container p={2} mb={2} xs={12} sm={12} alignItems='center' sx={{ display: { xs: 'flex', sm:'flex', md:'none', lg: 'none' }, backgroundColor: '#F7F8F9', borderRadius: '20px' }} >
-                    <Grid xs={8} sm={10} >
+                    <Grid  item xs={8} sm={10} >
                         <Typography variant='subtitle'>
                             <Box>You’re Currently on the free plan, upgrade for more benefits!</Box>
                         </Typography>
                     </Grid>
-                    <Grid xs={4} sm={2} >
+                    <Grid xs={4} sm={2}>
                         <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF' }}>Upgrade</Button>
                     </Grid>
                 </Grid>
