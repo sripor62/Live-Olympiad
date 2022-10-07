@@ -27,13 +27,13 @@ const Dashboard = () => {
     return <DashboardLayout>
         <Grid container mt={2} style={{ padding: 10 }}>
             <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-                <Grid container p={2} mb={2} xs={12} sm={12} alignItems='center' sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' }, backgroundColor: '#F7F8F9', borderRadius: '20px' }} >
-                    <Grid xs={8} sm={10} >
+                <Grid container p={2} mb={2} xs={12} sm={12} alignItems='center' sx={{ display: { xs: 'flex', sm:'flex', md:'none', lg: 'none' }, backgroundColor: '#F7F8F9', borderRadius: '20px' }} >
+                    <Grid  item xs={8} sm={10} >
                         <Typography variant='subtitle'>
-                            <Box>You’re Currently on the free plan, upgrade for more benefits!</Box>
+                            <Box>You're Currently on the free plan, upgrade for more benefits!</Box>
                         </Typography>
                     </Grid>
-                    <Grid xs={4} sm={2} >
+                    <Grid xs={4} sm={2}>
                         <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF' }}>Upgrade</Button>
                     </Grid>
                 </Grid>
@@ -64,7 +64,7 @@ const Dashboard = () => {
                         </Stack>
                     </Grid>
                     <Grid xs={12} sm={3} md={4} lg={3} mt={2}>
-                        <Button id="dropbtn" endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#F7F8F9', color: '#6A707C' }}
+                        <Button id="dropbtn" endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#F7F8F9', color: '#6A707C'}}
                             onClick={handleClick}
                         >Filter by Status
                         </Button>
@@ -86,13 +86,14 @@ const Dashboard = () => {
                         return <Box>
                             <Chip label="Science" color="primary" className='brb_0' />
                             <Grid container item xs={12} sm={12} md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>
-                                <Grid item xs={4} sm={6} md={6} lg={6} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                                    <Typography variant='subtitle2'><Box mb={1}>Test Name</Box></Typography>
-                                    <Typography variant='body2' sx={{ color: '#6A707C' }}><Box mb={1}>Practice Test</Box></Typography>
+
+                                <Grid item xs={4} sm={6} md={6} lg={5} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
+                                    <Typography variant='body1'><Box mb={1} sx={{fontFamily:'Urbantist'}}>Test Name</Box></Typography>
+                                    <Typography variant='body2'><Box mb={1} sx={{fontFamily:'Urbantist'}}>Practice Test</Box></Typography>
                                 </Grid>
-                                <Grid item xs={8} sm={6} md={6} lg={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                    <Typography variant='h4' sx={{ color: '#0B841B', fontWeight: '300' }}><Box sx={{ m: 2 }}>18<Typography variant='body2' sx={{ color: 'black', fontWeight: '500', display: 'inline' }}>/20</Typography></Box></Typography>
-                                    <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon />} variant="contained" sx={{ backgroundColor: '#838BA1' }} />
+                                <Grid item xs={8} sm={6} md={6} lg={7} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                                <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>19</Box><Box sx={{ mt: 4 ,mr:4}}>/20</Box></Typography>
+                                    <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon />} variant="contained" />
                                 </Grid>
                             </Grid>
                         </Box>
@@ -104,31 +105,19 @@ const Dashboard = () => {
                     <Grid item md={12} lg={12} >
                         <Typography variant='subtitle' justifyContent="center" alignItems="center"><Box mb={3} mt={1}>You're Currently on 2 Subjects Subscription,   upgrade license to avail more benefits!</Box></Typography>
                     </Grid>
-                    <Grid item md={12} lg={12}>
-                        <Box mb={1}>
-                            <CustomTextField
-                                type="text"
-                                placeholder="Mathematics"
-                                variant="outlined"
-                            />
+                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid #4545A5"}} mb={1}>
+                        <Box>
+                            <Typography p={1} color=" #4545A5">Mathematics</Typography>   
                         </Box>
                     </Grid>
-                    <Grid item md={12} lg={12}>
-                        <Box mb={1}>
-                            <CustomTextField
-                                type="text"
-                                placeholder="Science"
-                                variant="outlined"
-                            />
+                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid #42BBEF"}} mb={1}>
+                        <Box>
+                            <Typography p={1} color="#42BBEF">Science</Typography>   
                         </Box>
                     </Grid>
-                    <Grid item md={12} lg={12}>
-                        <Box mb={2}>
-                            <CustomTextField
-                                type="text"
-                                placeholder="English"
-                                variant="outlined"
-                            />
+                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid red"}} mb={2}>
+                        <Box>
+                            <Typography p={1} color="red">English</Typography>   
                         </Box>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -137,13 +126,13 @@ const Dashboard = () => {
                 </Grid>
                 <Grid container md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>
                     <Grid item md={12} lg={12}>
-                        <Typography variant='h4' sx={{fontWeight:600}}><Box align="center">LiveOlympiad</Box></Typography>
+                        <Typography variant='h4'><Box align="center" sx={{fontFamily:'Urbantist'}}>LiveOlympiad</Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} mb={3}>
-                        <Typography variant='h4' sx={{fontWeight:600}}><Box align="center">Knowledge Tree</Box></Typography>
+                        <Typography variant='h4'><Box align="center" sx={{fontFamily:'Urbantist'}}>Knowledge Tree</Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} mb={3}>
-                        <Typography variant='body2' align="center" sx={{ color: '#838BA1' }}><Box>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
+                        <Typography variant='body2' align="center"><Box sx={{ color: '#6A707C'}}>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <CustomButton btnText="GET STARTED" color="primary" variant="contained" />
