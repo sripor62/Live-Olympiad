@@ -30,10 +30,10 @@ const Schedule = () => {
                                                     <Chip label="Mathematics" variant="filled" sx={{ color: 'white', backgroundColor: "#4545A5" }} />
                                                 </Stack>
                                             </Grid>
-                                            <Grid xs={6} sm={3} md={5} lg={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' sx={{ color: '#838BA1' }}><Box>3 October 2022</Box></Typography></Grid>
+                                            <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                         </Grid>
-                                        <Grid xs={12} sm={12} md={12} lg={12}>
-                                            <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Venue : School Auditorium</Box></Typography>
+                                        <Grid xs={12}>
+                                            <Typography variant='body2' color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
                                         </Grid>
                                     </Grid>
                                 </Box>
@@ -49,10 +49,10 @@ const Schedule = () => {
                                                     <Chip label="Science" variant="filled" sx={{ color: 'white', backgroundColor: "#42BBEF" }} />
                                                 </Stack>
                                             </Grid>
-                                            <Grid xs={6} sm={3} md={5} lg={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' sx={{ color: '#838BA1' }}><Box>3 October 2022</Box></Typography></Grid>
+                                            <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                         </Grid>
-                                        <Grid xs={12} sm={12} md={12} lg={12}>
-                                            <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Venue : School Auditorium</Box></Typography>
+                                        <Grid xs={12}>
+                                            <Typography variant='body2'  color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
                                         </Grid>
                                     </Grid>
                                 </Box>
@@ -68,10 +68,10 @@ const Schedule = () => {
                                                     <Chip label="English" variant="filled" sx={{ color: 'white', backgroundColor: "#EF4255" }} />
                                                 </Stack>
                                             </Grid>
-                                            <Grid xs={6} sm={3} md={5} lg={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' sx={{ color: '#838BA1' }}><Box>To be Scheduled</Box></Typography></Grid>
+                                            <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>To be Scheduled</Box></Typography></Grid>
                                         </Grid>
-                                        <Grid xs={12} sm={12} md={12} lg={12}>
-                                            <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Venue : School Auditorium</Box></Typography>
+                                        <Grid xs={12}>
+                                            <Typography variant='body2'  color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
                                         </Grid>
                                     </Grid>
                                 </Box>
