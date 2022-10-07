@@ -75,12 +75,12 @@ const Dashboard = () => {
                         return <Box>
                             <Chip label="Science" color="primary" className='brb_0' />
                             <Grid container item xs={12} sm={12} md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>
-                                <Grid item xs={4} sm={6} md={6} lg={6} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
+                                <Grid item xs={4} sm={6} md={6} lg={5} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
                                     <Typography variant='body1'><Box mb={1} sx={{fontFamily:'Urbantist'}}>Test Name</Box></Typography>
                                     <Typography variant='body2'><Box mb={1} sx={{fontFamily:'Urbantist'}}>Practice Test</Box></Typography>
                                 </Grid>
-                                <Grid item xs={8} sm={6} md={6} lg={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                    <Typography sx={{ fontSize: "20px" }}><Box sx={{ m: 2 }}>18/20</Box></Typography>
+                                <Grid item xs={8} sm={6} md={6} lg={7} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                                <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>19</Box><Box sx={{ mt: 4 ,mr:4}}>/20</Box></Typography>
                                     <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon />} variant="contained" />
                                 </Grid>
                             </Grid>
