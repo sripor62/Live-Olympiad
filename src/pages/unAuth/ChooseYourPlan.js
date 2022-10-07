@@ -41,7 +41,7 @@ const ChooseYourPlan = () => {
                     <Grid xs={6} sx={responsiveStype.CreatePassword.Typo}>
                         <CustomButton btnText="Enter" color="primary" variant="contained" className="minWidth240" />
                     </Grid>
-                    <Grid xs={6} sx={{ mb:1}}>
+                    <Grid xs={6} sx={{ mb: 1 }}>
                         <Typography variant='body2' ><Box><Link href="#" >Skip</Link> for now</Box></Typography>
                     </Grid>
                 </Grid>

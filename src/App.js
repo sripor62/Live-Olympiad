@@ -15,9 +15,10 @@ import Header from './pages/auth/Header';
 import Sidebar from './pages/auth/Sidebar';
 import Profile from './pages/auth/Profile';
 import ChooseYourPlan from './pages/unAuth/ChooseYourPlan';
+import TestLayout from './pages/test/TestLayout';
 import ReportLayout from './pages/Report/ReportLayout';
 import TestScreen from './pages/unAuth/TestScreen';
-
+import Login from './pages/unAuth/LoginPage'
 
 const App = () => {
   return (
@@ -25,21 +26,22 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LoginSignTabGroup />} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
-        <Route path='/createnewpassword' element={<CreateNewPassword />} />
+        <Route path='/createnewpassword/:token' element={<CreateNewPassword />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/personaldetails' element={<PersonalDetails />} />
-        <Route path='/mobileverification' element={<MobileVerification />} />
+        <Route path='/mobileverification/:phoneNumber' element={<MobileVerification />} />
         <Route path='/schooldetails' element={<SchoolDetails />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/schedule' element={<Schedule />} />
-        <Route path='/schedule' element={<Schedule />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/chooseyourplan' element={<ChooseYourPlan />} />
-        <Route path='/ReportLayout' element={<ReportLayout/>}/>
-        <Route path='/TestScreen' element={<TestScreen/>}/>
-      </Routes>
-    </Router>
+        <Route path='/test' element={<TestLayout />} />
+        <Route path='/ReportLayout' element={<ReportLayout />} />
+        <Route path='/TestScreen' element={<TestScreen />} />
+        <Route path='/login' element={<Login/>}/>
+      </Routes >
+    </Router >
 
 
   );
