@@ -7,14 +7,16 @@ import { getErrorMsz } from '../../utils/validator';
 import { useNavigate } from 'react-router-dom'
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { responsiveStype } from '../../theme/responsive';
-
+import useAuthHelper from "./hooks/useAuthHelper";
+import MobileVerification from './MobileVerification';
+import LoginPage from './LoginPage';
 const SignUp = () => {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
 
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "" });
-
+   const [otpSent,setOtpSent]=useState(false);
 
     const { generateOTP } = useAuthHelper();
 
@@ -25,22 +27,32 @@ const SignUp = () => {
         afterValidate(afterValidateCallBack)
     };
     const onPhoneNumberSubmit = async () => {
-        // setOtpSent(true);
+        setOtpSent(true);
         // phoneNumber.setShowError(true);
-        // if (!phoneNumber?.isValid) return;
+        
         // setOtpSent(true);
         let res = await generateOTP({
             phoneNumber: "+91" + pageData.phoneNumber,
-            signUp: true,
+            signUp: false,
         });
-    
+        if(res.data?.success)
+        window.location.href = "/mobileverification/" + pageData.phoneNumber
+    //     else if (!pageData.phoneNumber?.isValid)
+    //    {
+    //     setSnakeBarProps({ snackbarFlag: true, msz: "Enter your correct Phone Number", type: "error" })
+    //     setPageData({...pageData,phoneNumber:""})
+    //    }
+       else
+       setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+   
+  
       };
 
     const afterValidateCallBack = (second) => {
         console.log('pageData', pageData)
         setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
     }
-
+    
     return (
         <Box>
             <Grid container>
@@ -75,7 +87,12 @@ const SignUp = () => {
                 Object.keys(snakeBarProps).length > 0 &&
                 <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
             }
+            
         </Box>
+       
     );
+    // if (otpSent)
+    // return <MobileVerification  phoneNumber={pageData.phoneNumber}/>;
+
 };
 export default SignUp;

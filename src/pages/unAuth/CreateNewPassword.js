@@ -7,13 +7,30 @@ import { getErrorMsz } from '../../utils/validator'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { UnAuthLayout } from './layout/UnAuthLayout'
 import { responsiveStype } from '../../theme/responsive';
-
+import useAuthHelper from './hooks/useAuthHelper'
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
 
-    const submitHandler = () => {
+
+    const { setPassword } = useAuthHelper();
+    const [searchParams] = useSearchParams();
+const navigate=useNavigate();
+const params=useParams();
+    const submitHandler = async() => {
+
+if(pageData.password===pageData.confirmpassword)
+{
+    let res = await setPassword(pageData.password, params.token);
+    if (res.data?.success) {
+    console.log("successss")
+  
+    }
+}
+
+
         setsubmitFlag(true);
         afterValidate(afterValidateCallBack)
     };

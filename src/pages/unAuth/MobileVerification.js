@@ -1,32 +1,51 @@
 import { Box, Grid, Link, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CustomButton } from '../../components/Button';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomOtp } from '../../components/otp';
 import { afterValidate } from '../../utils/commonService';
 import { UnAuthLayout } from './layout/UnAuthLayout';
 import { responsiveStype } from '../../theme/responsive';
-
-const MobileVerification = () => {
+import useAuthHelper from './hooks/useAuthHelper';
+const MobileVerification = (props) => {
     const navigate = useNavigate();
     const [submitFlag, setsubmitFlag] = useState(false);
     const [snakeBarProps, setSnakeBarProps] = useState({});
-
+    const { validateOTP} = useAuthHelper();
     const savedOtp = 1234;
     const [otp, setOtp] = useState();
     const [hasErrored, setHasErrored] = useState(false);
     const [errorMsz, setErrorMsz] = useState("");
     const [mobNum, setMobNum] = useState("9897969592")
+    const params=useParams();
+    // const {phoneNumber}=props;
+   
     const handleChangeOtp = (value) => {
         setOtp(value)
     }
 
-    const submitHandler = () => {
+    const submitHandler =async () => {
         setsubmitFlag(true);
-        setHasErrored(otp == undefined ? true : otp.length == 4 ? false : true);
-        setErrorMsz(otp == undefined ? "Enter Otp" : otp.length == 4 ? "" : "Enter empty otp")
-        if (otp != undefined && otp.length == 4) {
+        setHasErrored(otp == undefined ? true : otp.length == 6 ? false : true);
+        setErrorMsz(otp == undefined ? "Enter Otp" : otp.length == 6 ? "" : "Enter empty otp")
+        console.log(params.phoneNumber);
+        let validateOtpReqBody = { otp: +otp ,phoneNumber: "+91" + params.phoneNumber};
+
+        let res = await validateOTP({
+            ...validateOtpReqBody,
+            loginAfterVerify: true,
+          });
+          if (res.data?.success){
+            console.log("Hey yoy got it")
+            console.log(res.data.data.access_token)
+            window.location.href= "/createnewpassword/" + res.data.data.access_token
+          }
+        //   if (res.data?.success) {
+        //     setCurrentUser(res.data?.data);
+    
+        //   }
+        if (otp != undefined && otp.length == 6) {
             afterValidate(afterValidateCallBack)
         }
     };
@@ -42,7 +61,7 @@ const MobileVerification = () => {
                 <Typography variant='h3'><Box mb={1} fontWeight="bold" width="160px" sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 4-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
+                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
             <Grid xs={12} >
                 <Box mb={2} width={1}>
