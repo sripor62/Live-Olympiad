@@ -9,6 +9,7 @@ pipeline {
         ECR_LOGIN = "aws ecr get-login --no-include-email --region $AWS_REGION"
         MS_DOMAIN = "liveolympiad.org"
     }
+
     stages{
         stage('Build') {
             when { anyOf {
