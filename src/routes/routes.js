@@ -1,81 +1,75 @@
-import { Navigate } from "react-router-dom";
-import ResetPass from "../features/auth/ResetPass";
-import AuthScreen from "../features/auth/AuthScreen";
-import Dashboard from "../features/dashboard/Dashboard";
-import Home from "../features/dashboard/Home";
-import SetUserProfile from "../features/profile/SetUserProfile";
-import Learners from "../features/learners";
-import Admins from "../features/admins";
-import Roles from "../features/roles";
-import Communities from "../features/communities";
-import EditRole from "../features/roles/EditRole";
-import PrivacyPolicy from "../features/PrivacyPolicy";
-import TOC from "../features/TOC";
+import ResetPassword from '../pages/unAuth/ResetPassword';
+import ForgotPassword from '../pages/unAuth/ForgotPassword';
+import CreateNewPassword from '../pages/unAuth/CreateNewPassword';
+import { LoginSignTabGroup } from '../pages/unAuth/loginsignuptab';
 
+import PersonalDetails from '../pages/unAuth/PersonalDetails';
+import MobileVerification from '../pages/unAuth/MobileVerification';
+import SchoolDetails from '../pages/unAuth/SchoolDetails';
+import Dashboard from '../pages/auth/Dashboard';
+
+import Profile from '../pages/auth/Profile';
+import ChooseYourPlan from '../pages/unAuth/ChooseYourPlan';
+import TestLayout from '../pages/test/TestLayout';
+import ReportLayout from '../pages/Report/ReportLayout';
+import TestScreen from '../pages/unAuth/TestScreen';
+import Login from '../pages/unAuth/LoginPage'
 export const routes = [
-  { path: "/", element: <Navigate to="/login/phone" replace /> },
   {
-    path: "/signup/:routeType",
-    element: <AuthScreen />,
+    path: "/",
+    element: <LoginSignTabGroup />,
   },
   {
-    path: "/login/:routeType",
-    element: <AuthScreen />,
+    path: "/forgotpassword",
+    element: <ForgotPassword />,
   },
   {
-    path: "/forgotpass",
-    element: <AuthScreen />,
+    path: "/createnewpassword",
+    element: <CreateNewPassword />,
   },
   {
-    path: "/set-password",
-    element: <ResetPass cleanUser={true} />,
-  },  
+    path: "/resetpassword",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/personaldetails",
+    element: <PersonalDetails />,
+  },
+  {
+    path: "/mobileverification",
+    element: <MobileVerification />,
+  },
+  {
+    path: "/schooldetails",
+    element: <SchoolDetails />,
+  },
   {
     path: "/dashboard",
     element: <Dashboard />,
-  }, 
-  {
-    path: "/home",
-    element: <Home />,
-  },   
-  {
-    path: "/learners",
-    element: <Learners />,
-  },   
-  {
-    path: "/admins",
-    element: <Admins />,
-  },   
-  {
-    path: "/roles",
-    element: <Roles />,
   },
   {
-    path:"/roles/:roleId",
-    element: <EditRole/>
+    path: "/profile",
+    element: <Profile />,
   },
   {
-    path: "/communities",
-    element: <Communities />,
-  },    
-  {
-    path: "/profile/:paramsUserId",
-    element: <SetUserProfile />,
-  },   
-  {
-    path: "/reset-password",
-    element: <ResetPass cleanUser={false} />,
+    path: "/chooseyourplan",
+    element: <ChooseYourPlan />,
   },
   {
-    path: "privacy-policy",
-    element: <PrivacyPolicy/>
+    path: "/test",
+    element: <TestLayout />,
   },
   {
-    path: "toc",
-    element: <TOC/>
+    path: "/ReportLayout",
+    element: <ReportLayout />},
+  
+  {
+    path: "/TestScreen",
+    element: <TestScreen />,
   },
   {
-    path: "*",
-    element: <Navigate to="/login/phone" replace />,
+    path: "/login",
+    element: <Login/>,
   },
+  
 ];
