@@ -7,12 +7,12 @@ import { CustomOtp } from '../../components/otp';
 import { afterValidate } from '../../utils/commonService';
 import { UnAuthLayout } from './layout/UnAuthLayout';
 import { responsiveStype } from '../../theme/responsive';
-import useAuthHelper from './hooks/useAuthHelper';
+// import useAuthHelper from './hooks/useAuthHelper';
 const MobileVerification = (props) => {
     const navigate = useNavigate();
     const [submitFlag, setsubmitFlag] = useState(false);
     const [snakeBarProps, setSnakeBarProps] = useState({});
-    const { validateOTP} = useAuthHelper();
+    // const { validateOTP} = useAuthHelper();
     const savedOtp = 1234;
     const [otp, setOtp] = useState();
     const [hasErrored, setHasErrored] = useState(false);
@@ -32,22 +32,22 @@ const MobileVerification = (props) => {
         console.log(params.phoneNumber);
         let validateOtpReqBody = { otp: +otp ,phoneNumber: "+91" + params.phoneNumber};
 
-        let res = await validateOTP({
-            ...validateOtpReqBody,
-            loginAfterVerify: true,
-          });
-          if (res.data?.success){
-            console.log("Hey yoy got it")
-            console.log(res.data.data.access_token)
-            window.location.href= "/createnewpassword/" + res.data.data.access_token
-          }
-        //   if (res.data?.success) {
-        //     setCurrentUser(res.data?.data);
-    
+        // let res = await validateOTP({
+        //     ...validateOtpReqBody,
+        //     loginAfterVerify: true,
+        //   });
+        //   if (res.data?.success){
+        //     console.log("Hey yoy got it")
+        //     console.log(res.data.data.access_token)
+        //     window.location.href= "/createnewpassword/" + res.data.data.access_token
         //   }
-        if (otp != undefined && otp.length == 6) {
-            afterValidate(afterValidateCallBack)
-        }
+        // //   if (res.data?.success) {
+        // //     setCurrentUser(res.data?.data);
+    
+        // //   }
+        // if (otp != undefined && otp.length == 6) {
+        //     afterValidate(afterValidateCallBack)
+        // }
     };
 
     const afterValidateCallBack = (second) => {
