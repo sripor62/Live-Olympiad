@@ -7,7 +7,8 @@ import { getErrorMsz } from '../../utils/validator'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { UnAuthLayout } from './layout/UnAuthLayout'
 import { responsiveStype } from '../../theme/responsive';
-// import useAuthHelper from './hooks/useAuthHelper'
+import useAuthHelper from "../../hooks/useAuthHelper";
+
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -15,21 +16,22 @@ export default function ResetPassword() {
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
 
 
-    // const { setPassword } = useAuthHelper();
+    const { setPassword } = useAuthHelper();
     const [searchParams] = useSearchParams();
 const navigate=useNavigate();
 const params=useParams();
     const submitHandler = async() => {
 
-// if(pageData.password===pageData.confirmpassword)
-// {
-//     let res = await setPassword(pageData.password, params.token);
-//     if (res.data?.success) {
-//     console.log("successss")
+if(pageData.password===pageData.confirmpassword)
+{
+    let res = await setPassword(pageData.password, params.token);
+    if (res.data?.success) {
+    navigate("/"+0)
   
-//     }
-// }
-
+    }
+}
+else
+setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "error" })
 
         setsubmitFlag(true);
         afterValidate(afterValidateCallBack)

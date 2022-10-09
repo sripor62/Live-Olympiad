@@ -7,7 +7,9 @@ import { CustomOtp } from '../../components/otp';
 import { afterValidate } from '../../utils/commonService';
 import { UnAuthLayout } from './layout/UnAuthLayout';
 import { responsiveStype } from '../../theme/responsive';
-// import useAuthHelper from './hooks/useAuthHelper';
+import useAuthHelper from "../../hooks/useAuthHelper";
+
+
 const MobileVerification = (props) => {
     const navigate = useNavigate();
     const [submitFlag, setsubmitFlag] = useState(false);
@@ -19,8 +21,8 @@ const MobileVerification = (props) => {
     const [errorMsz, setErrorMsz] = useState("");
     const [mobNum, setMobNum] = useState("9897969592")
     const params=useParams();
-    // const {phoneNumber}=props;
-   
+
+    const { validateOTP, generateOTP } = useAuthHelper();
     const handleChangeOtp = (value) => {
         setOtp(value)
     }
@@ -32,22 +34,22 @@ const MobileVerification = (props) => {
         console.log(params.phoneNumber);
         let validateOtpReqBody = { otp: +otp ,phoneNumber: "+91" + params.phoneNumber};
 
-        // let res = await validateOTP({
-        //     ...validateOtpReqBody,
-        //     loginAfterVerify: true,
-        //   });
-        //   if (res.data?.success){
-        //     console.log("Hey yoy got it")
-        //     console.log(res.data.data.access_token)
-        //     window.location.href= "/createnewpassword/" + res.data.data.access_token
-        //   }
-        // //   if (res.data?.success) {
-        // //     setCurrentUser(res.data?.data);
+        let res = await validateOTP({
+            ...validateOtpReqBody,
+            loginAfterVerify: true,
+          });
+          if (res.data?.success){
+            console.log("Hey yoy got it")
+            console.log(res.data.data.access_token)
+            window.location.href= "/createnewpassword/" + res.data.data.access_token
+          }
+        //   if (res.data?.success) {
+        //     setCurrentUser(res.data?.data);
     
-        // //   }
-        // if (otp != undefined && otp.length == 6) {
-        //     afterValidate(afterValidateCallBack)
-        // }
+        //   }
+        if (otp != undefined && otp.length == 6) {
+            afterValidate(afterValidateCallBack)
+        }
     };
 
     const afterValidateCallBack = (second) => {

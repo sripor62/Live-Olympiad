@@ -7,7 +7,8 @@ import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import { responsiveStype } from '../../theme/responsive';
-// import useAuthHelper from './hooks/useAuthHelper'
+import useAuthHelper from "../../hooks/useAuthHelper";
+
 export default function LoginPage() {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -15,22 +16,27 @@ export default function LoginPage() {
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
 
-    // const { loginUser } = useAuthHelper();
-
+   
+    const { login } = useAuthHelper();
     const submitHandler = async() => {
 console.log("pageData>>>",pageData)
 
-        // let res = await loginUser({
-        //     userName: "+91" + pageData.phoneNumber,
-        //     password: pageData.password,
-        //     loginForced:true,
-        // });
-        // setsubmitFlag(true);
-        // if(res.data?.success)
-        // setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
-        // else
-        // setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
-        // // afterValidate(afterValidateCallBack)
+let res = await login({
+    userName: "+91" + pageData.phoneNumber,
+    password: pageData.password,
+    loginForced:true,
+
+});
+  
+     
+      
+        if(res.data?.success)
+     
+        setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
+        else
+       
+        setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        // afterValidate(afterValidateCallBack)
     };
 
     const afterValidateCallBack = (second) => {

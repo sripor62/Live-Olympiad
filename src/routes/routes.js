@@ -20,11 +20,15 @@ export const routes = [
     element: <LoginSignTabGroup />,
   },
   {
+    path: "/:index",
+    element: <LoginSignTabGroup />,
+  },
+  {
     path: "/forgotpassword",
     element: <ForgotPassword />,
   },
   {
-    path: "/createnewpassword",
+    path: "/createnewpassword/:token",
     element: <CreateNewPassword />,
   },
   {
@@ -36,7 +40,7 @@ export const routes = [
     element: <PersonalDetails />,
   },
   {
-    path: "/mobileverification",
+    path: "/mobileverification/:phoneNumber",
     element: <MobileVerification />,
   },
   {
