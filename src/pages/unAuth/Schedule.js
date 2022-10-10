@@ -24,7 +24,7 @@ const Schedule = () => {
                                 <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                                     <Grid container p={3}>
                                         <Grid container xs={12} sm={12} md={12} lg={12} mb={2}>
-                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box>Mock Test</Box></Typography></Grid>
+                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Mock Test</Box></Typography></Grid>
                                             <Grid xs={4} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                                 <Stack direction="row">
                                                     <Chip label="Mathematics" variant="filled" sx={{ color: 'white', backgroundColor: "#4545A5" }} />
@@ -43,7 +43,7 @@ const Schedule = () => {
                                 <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                                     <Grid container p={3}>
                                         <Grid container xs={12} sm={12} md={12} lg={12} mb={2} >
-                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box>Olympiad</Box></Typography></Grid>
+                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Olympiad</Box></Typography></Grid>
                                             <Grid xs={12} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                                 <Stack direction="row">
                                                     <Chip label="Science" variant="filled" sx={{ color: 'white', backgroundColor: "#42BBEF" }} />
@@ -62,7 +62,7 @@ const Schedule = () => {
                                 <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                                     <Grid container p={3}>
                                         <Grid container xs={12} sm={12} md={12} lg={12} mb={2} >
-                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box>Olympiad</Box></Typography></Grid>
+                                            <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Olympiad</Box></Typography></Grid>
                                             <Grid xs={4} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                                 <Stack direction="row">
                                                     <Chip label="English" variant="filled" sx={{ color: 'white', backgroundColor: "#EF4255" }} />
