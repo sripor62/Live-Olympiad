@@ -43,7 +43,7 @@ console.log("pageData>>>",pageData)
                 <Typography variant='h3'><Box fontWeight="bold" mb={2} mt={6} sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' color="primary"><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2' color="#838BA1"><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
