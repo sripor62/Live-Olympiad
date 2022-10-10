@@ -15,7 +15,7 @@ export const CustomOtp = (props) => {
             isInputNum={true}
             hasErrored={hasErrored}
             errorStyle="error"
-            placeholder={"x"}
+            placeholder={"xxxxxx"}
             separator={<span style={{ margin: "0 10px" }}></span>}
             inputStyle={{ width: 50, height: 50, borderRadius: 10, fontSize: 20,border:"none" ,backgroundColor:'#ECECEC'}}
         />
