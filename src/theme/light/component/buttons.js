@@ -8,7 +8,8 @@ export const buttonStyle = {
                     minWidth: "240px !important",
                     fontWeight:700,
                     fontSize:"20px",
-                    fontFamily:'Urbanist'
+                    fontFamily:'Urbanist',
+                    textTransform:'none'
                 }
             }
         }
