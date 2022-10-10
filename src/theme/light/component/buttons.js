@@ -9,7 +9,8 @@ export const buttonStyle = {
                     fontWeight:700,
                     fontSize:"20px",
                     fontFamily:'Urbanist',
-                    textTransform:'none'
+                    textTransform:'none',
+                    display:'flex'
                 }
             }
         }
