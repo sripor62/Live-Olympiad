@@ -6,9 +6,11 @@ export const buttonStyle = {
                 padding: "9px 16px !important",
                 '&.minWidth240': {
                     minWidth: "240px !important",
-                    fontWeight:"700",
+                    fontWeight:700,
                     fontSize:"20px",
-                    fontFamily:'Urbantist'
+                    fontFamily:'Urbanist',
+                    textTransform:'none',
+                    display:'flex'
                 }
             }
         }
