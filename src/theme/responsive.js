@@ -24,9 +24,6 @@ export const responsiveStype = {
     Login: {
         Typo: { textAlign: { xs: 'center', lg: 'left' } }
     },
-    Mobilever: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
-    },
     ForgotPassword: {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
     },
