@@ -121,7 +121,7 @@ const Dashboard = () => {
                         </Box>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" sx={{ color: '#FFFFFF' }}/>
+                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" sx={{ color: '#FFFFFF',width:'163px',p:'0px 0px 15px 50px',height:'48px',borderRadius:'57px' }}/>
                     </Grid>
                 </Grid>
                 <Grid container md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>
@@ -135,7 +135,7 @@ const Dashboard = () => {
                         <Typography variant='body2' align="center"><Box sx={{ color: '#6A707C',fontFamily:'Urbantist'}}>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
                     </Grid>
                     <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="GET STARTED" color="primary" variant="contained"/>
+                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" sx={{width:'191px',p:'0px 0px 15px 50px',height:'48px'}}/>
                     </Grid>
                 </Grid>
             </Grid>
