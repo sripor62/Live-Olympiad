@@ -33,7 +33,7 @@ export default function ResetPassword() {
                 <Box mb={3} width={1}>
                     <CustomTextField
                         type="password"
-                        placeholder="Password"
+                        placeholder=" New Password"
                         variant="filled"
                         required
                         error={submitFlag && getErrorMsz('password', pageData.password) != ""}
