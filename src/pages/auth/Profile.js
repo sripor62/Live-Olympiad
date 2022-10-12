@@ -38,10 +38,10 @@ const Profile = () => {
             <Grid container p={4}>
                 <Grid xs={12} sm={12} md={4} lg={4} p={2}>
                     <Grid container xs={12} sm={12} md={12} lg={12} p={1} alignItems='center' justifyContent='center' sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
-                        <Grid container xs={12} sm={8} md={12} lg={8} p={1} mb={2} mt={3} justifyContent='center' alignItems='center'>
+                        <Grid container xs={12} sm={8} md={12} lg={8} mb={2} mt={3} justifyContent='center' alignItems='center'>
                             <Grid xs={12} sm={12} md={12} lg={12} mb={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <Box sx={{ width: '100%', height: '100%', display:'flex', justifyContent:'center', alignItems:'center' }}>
-                                    <Avatar sx={{ width: '50%', height: '50%' }} />
+                                <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <Avatar sx={{ width: '133px', height: '133px' }} />
                                 </Box>
                             </Grid>
                             <Grid xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -52,17 +52,17 @@ const Profile = () => {
                             </Grid>
                         </Grid>
                         <Grid container xs={12} sm={8} md={12} lg={8} p={1} mb={3} justifyContent='center' alignItems='center'>
-                            <Grid xs={12} sm={12} md={12}  lg={12} mb={2}>
-                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Total Fees Paid</Box></Typography>
-                                <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupeeIcon sx={{ fontSize: '16px' }} />600</Box></Typography>
+                            <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontFamily: 'Urbanist' }}>Total Fees Paid</Box></Typography>
+                                <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ fontFamily: 'Urbanist', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupeeIcon sx={{ fontSize: '16px' }} />600</Box></Typography>
                             </Grid>
-                            <Grid xs={12} sm={12} md={12}  lg={12} mb={2}>
-                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Subject Subscriptions</Box></Typography>
-                                <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>English, Science</Box></Typography>
+                            <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist' }}>Subject Subscriptions</Box></Typography>
+                                <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Urbanist', justifyContent: 'center' }}>English, Science</Box></Typography>
                             </Grid>
-                            <Grid xs={12} sm={12} md={12}  lg={12} mb={2}>
-                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Date of Joining</Box></Typography>
-                                <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>14/06/2022</Box></Typography>
+                            <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                                <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist' }}>Date of Joining</Box></Typography>
+                                <Typography variant='body1' align="center" sx={{ fontWeight: '600', fontFamily: 'Urbanist' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>14/06/2022</Box></Typography>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -72,30 +72,33 @@ const Profile = () => {
                         <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
                             <Typography variant='h6'><Box>Edit Information</Box></Typography>
                         </Grid>
-                        <Grid xs={12} sm={12} md={8} lg={8} mb={2}>
-                            <CustomTextField
-                                type="text"
-                                placeholder="Full Name"
-                                variant="filled"
-                                required
-                                onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
-                                error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
-                                errorMsz={getErrorMsz('fullname', pageData.fullname)} />
+                        <Grid container spacing={1}>
+                            <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
+                                <CustomTextField
+                                    type="text"
+                                    placeholder="Full Name"
+                                    variant="filled"
+                                    required
+                                    onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
+                                    error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
+                                    errorMsz={getErrorMsz('fullname', pageData.fullname)} />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
+                                <CustomTextField
+                                    placeholder="Gender"
+                                    variant="filled"
+                                    required
+                                    onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
+                                    error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
+                                    errorMsz={getErrorMsz('gender', pageData.gender)}>
+                                    {category.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+                                    ))}
+                                </CustomTextField>
+                            </Grid>
                         </Grid>
-                        <Grid xs={12} sm={12} md={4} lg={4} mb={2}>
-                            <CustomTextField
-                                placeholder="Gender"
-                                variant="filled"
-                                required
-                                onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
-                                error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
-                                errorMsz={getErrorMsz('gender', pageData.gender)}>
-                                {category.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
-                                ))}
-                            </CustomTextField>
-                        </Grid>
-                        <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                     
+                        <Grid item  xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 placeholder="Roll No."
                                 variant="filled"
@@ -104,7 +107,9 @@ const Profile = () => {
                                 error={submitFlag && getErrorMsz('rollno', pageData.rollno) != ""}
                                 errorMsz={getErrorMsz('rollno', pageData.rollno)} />
                         </Grid>
-                        <Grid xs={12} sm={12} md={8} lg={8} mb={2}>
+                        <Grid container spacing={1}>
+
+                        <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                             <CustomTextField
                                 placeholder="Class"
                                 variant="filled"
@@ -115,7 +120,7 @@ const Profile = () => {
                                 errorMsz={getErrorMsz('student_class', pageData.class)}
                             />
                         </Grid>
-                        <Grid xs={12} sm={12} md={4} lg={4} mb={2}>
+                        <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                             <CustomTextField
                                 placeholder="Section"
                                 variant="filled"
@@ -126,7 +131,8 @@ const Profile = () => {
                                 errorMsz={getErrorMsz('student_section', pageData.section)}
                             />
                         </Grid>
-                        <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 placeholder="Date of Birth"
                                 id="date"
@@ -138,7 +144,7 @@ const Profile = () => {
                                 errorMsz={getErrorMsz('dob', pageData.dob)}
                             />
                         </Grid>
-                        <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                        <Grid  item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 type="email"
                                 placeholder="Email Address (Optional)"
@@ -149,7 +155,7 @@ const Profile = () => {
                                 errorMsz={getErrorMsz('email', pageData.email)}
                             />
                         </Grid>
-                        <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 placeholder="School Area Postal Code"
                                 variant="filled"
@@ -160,7 +166,7 @@ const Profile = () => {
                                 errorMsz={getErrorMsz('postal_code', pageData.postalCode)}
                             />
                         </Grid>
-                        <Grid xs={12} sm={12} md={12} lg={12} mb={2}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 placeholder="School"
                                 variant="filled"
