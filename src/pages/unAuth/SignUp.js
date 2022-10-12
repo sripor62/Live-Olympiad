@@ -79,7 +79,7 @@ const SignUp = () => {
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={15} sx={responsiveStype.Signup.Typo}>
-                        <CustomButton btnText="Generate Otp" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
+                        <CustomButton btnText="Sign up" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
                     </Box>
                 </Grid>
             </Grid>
