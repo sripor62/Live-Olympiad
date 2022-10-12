@@ -27,7 +27,7 @@ const Header = () => {
                 </Box>
             </Grid>
             <Grid xs={12} sm={12} md={5} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
-                <Box  sx={{ backgroundColor: "white", borderRadius: '50px', padding:'3px' }}>
+                <Box  sx={{ backgroundColor: "white", borderRadius: '50px', padding:'4px' }}>
                     <Grid container alignItems='center'>
                         <Grid container md={10} lg={10} pl={3}>
                             <Grid md={12} lg={12}>
@@ -39,7 +39,7 @@ const Header = () => {
                         </Grid>
                         <Grid md={2} lg={2}>
                             <Box sx={{ width: '100%', height: '100%' }}>
-                                <Avatar sx={{ width: '100%', height: '100%' }} />
+                                <Avatar sx={{ width: '56px', height: '56px' }} />
                             </Box>
                         </Grid>
                     </Grid>

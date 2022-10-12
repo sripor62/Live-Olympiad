@@ -49,7 +49,7 @@ let res = await login({
                 <Typography variant='h3'><Box fontWeight="bold" mb={2} mt={6} sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2' color="#838BA1"  fontSize="14px"  fontWeight={600}><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
@@ -78,7 +78,7 @@ let res = await login({
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px"}}>
+                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"400"}}>
                     <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>

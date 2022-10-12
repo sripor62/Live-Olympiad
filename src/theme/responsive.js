@@ -13,16 +13,7 @@ export const responsiveStype = {
         Typo: { textAlign: { xs: 'center', lg: 'left' } }
     },
     ResetPassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
-    },
-    ForgotPassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
-    },
-    Signup: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
-    },
-    Login: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
     },
     ForgotPassword: {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }

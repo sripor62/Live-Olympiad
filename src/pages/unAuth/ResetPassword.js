@@ -24,16 +24,16 @@ export default function ResetPassword() {
     return <UnAuthLayout>
         <Grid container justifyContent="center" alignItems="center" >
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} fontWeight="bold" sx={responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
+                <Typography variant='h3'><Box mb={3} fontWeight="bold" fontSize="40px" sx={responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.ResetPassword.Typo}>Create on Unique 6 Digit Numeric Password </Box></Typography>
+                <Typography variant='body2' color="#838BA1"><Box mb={3} sx={responsiveStype.ResetPassword.Typo}>Create on Unique 6 Digit Numeric Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
                         type="password"
-                        placeholder="Password"
+                        placeholder=" New Password"
                         variant="filled"
                         required
                         error={submitFlag && getErrorMsz('password', pageData.password) != ""}
