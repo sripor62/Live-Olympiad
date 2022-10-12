@@ -39,7 +39,7 @@ const Header = () => {
                         </Grid>
                         <Grid md={2} lg={2}>
                             <Box sx={{ width: '100%', height: '100%' }}>
-                                <Avatar sx={{ width: '100%', height: '100%' }} />
+                                <Avatar sx={{ width: '56px', height: '56px' }} />
                             </Box>
                         </Grid>
                     </Grid>
