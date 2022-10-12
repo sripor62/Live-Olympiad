@@ -60,7 +60,7 @@ const SignUp = () => {
                     <Typography variant='h3'><Box mb={2} mt={6} fontWeight="bold" sx={responsiveStype.Signup.Typo}>Sign Up</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
-                    <Typography variant='body2' color="#838BA1"><Box mb={3} sx={responsiveStype.Signup.Typo}>New User? Enter your phone number below,</Box></Typography>
+                    <Typography variant='body2' color="#838BA1" fontSize="14px"  fontWeight={600}><Box mb={3} sx={responsiveStype.Signup.Typo}>New User? Enter your phone number below,</Box></Typography>
                 </Grid>
                 <Grid xs={12}>
                     <Box mb={2} width={1}>
