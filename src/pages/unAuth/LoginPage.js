@@ -72,7 +72,7 @@ console.log("pageData>>>",pageData)
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist'}}>
+                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"400"}}>
                     <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
