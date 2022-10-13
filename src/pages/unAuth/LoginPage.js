@@ -61,6 +61,7 @@ let res = await login({
                         error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
                         errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
                         onChange={(event) => { setPageData({ ...pageData, phoneNumber: event.target.value }) }}
+                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                     />
                 </Box>
             </Grid>
@@ -74,6 +75,7 @@ let res = await login({
                         error={submitFlag && getErrorMsz('password', pageData.password) != ""}
                         errorMsz={getErrorMsz('password', pageData.password)}
                         onChange={(event) => { setPageData({ ...pageData, password: event.target.value }) }}
+                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                     />
                 </Box>
             </Grid>

@@ -39,6 +39,7 @@ export default function ResetPassword() {
                         error={submitFlag && getErrorMsz('password', pageData.password) != ""}
                         errorMsz={getErrorMsz('password', pageData.password)}
                         onChange={(event) => { setPageData({ ...pageData, password: event.target.value }) }}
+                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                     />
                 </Box>
             </Grid>
@@ -51,7 +52,10 @@ export default function ResetPassword() {
                         required
                         onChange={(event) => { setPageData({ ...pageData, confirmpassword: event.target.value }) }}
                         error={submitFlag && getErrorMsz('conrfirm_password', pageData.confirmpassword) != ""}
-                        errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)} />
+                        errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)}
+                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                         />
+                        
                 </Box>
             </Grid>
             <Grid xs={12} mb={14} sx={responsiveStype.ResetPassword.Typo}>

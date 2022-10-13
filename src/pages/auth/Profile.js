@@ -81,7 +81,9 @@ const Profile = () => {
                                     required
                                     onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
                                     error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
-                                    errorMsz={getErrorMsz('fullname', pageData.fullname)} />
+                                    errorMsz={getErrorMsz('fullname', pageData.fullname)}
+                                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                     />
                             </Grid>
                             <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                                 <CustomTextField
@@ -90,7 +92,8 @@ const Profile = () => {
                                     required
                                     onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                                     error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
-                                    errorMsz={getErrorMsz('gender', pageData.gender)}>
+                                    errorMsz={getErrorMsz('gender', pageData.gender)}
+                                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}>
                                     {category.map((option) => (
                                         <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
                                     ))}
@@ -105,7 +108,9 @@ const Profile = () => {
                                 required
                                 onChange={(event) => { setPageData({ ...pageData, rollno: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('rollno', pageData.rollno) != ""}
-                                errorMsz={getErrorMsz('rollno', pageData.rollno)} />
+                                errorMsz={getErrorMsz('rollno', pageData.rollno)} 
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                />
                         </Grid>
                         <Grid container spacing={1}>
 
@@ -118,6 +123,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
                                 errorMsz={getErrorMsz('student_class', pageData.class)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
@@ -129,6 +135,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
                                 errorMsz={getErrorMsz('student_section', pageData.section)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                         </Grid>
@@ -142,6 +149,7 @@ const Profile = () => {
                                 onChange={(event) => { setPageData({ ...pageData, dob: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('dob', pageData.dob) != ""}
                                 errorMsz={getErrorMsz('dob', pageData.dob)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                         <Grid  item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -153,6 +161,7 @@ const Profile = () => {
                                 onChange={(event) => { setPageData({ ...pageData, email: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('email', pageData.email) != ""}
                                 errorMsz={getErrorMsz('email', pageData.email)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -164,6 +173,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('postal_code', pageData.postalCode) != ""}
                                 errorMsz={getErrorMsz('postal_code', pageData.postalCode)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -175,6 +185,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('student_school', pageData.school) != ""}
                                 errorMsz={getErrorMsz('student_school', pageData.school)}
+                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                             />
                         </Grid>
                     </Grid>
