@@ -82,6 +82,7 @@ const SignUp = () => {
                             required
                             error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
                             errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
+                            inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                         />
                     </Box>
                 </Grid>
