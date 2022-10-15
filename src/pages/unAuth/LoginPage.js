@@ -19,23 +19,20 @@ export default function LoginPage() {
    
     const { login } = useAuthHelper();
     const submitHandler = async() => {
-console.log("pageData>>>",pageData)
+        console.log("pageData>>>",pageData)
 
-let res = await login({
-    userName: "+91" + pageData.phoneNumber,
-    password: pageData.password,
-    loginForced:true,
+        let res = await login({
+            userName: "+91" + pageData.phoneNumber,
+            password: pageData.password,
+            loginForced:true,
 
-});
+        });
   
-     
-      
-        if(res.data?.success)
-     
-        setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
-        else
-       
-        setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        if(res.data?.success) {
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
+            navigate("/dashboard")
+        }
+        else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         // afterValidate(afterValidateCallBack)
     };
 
