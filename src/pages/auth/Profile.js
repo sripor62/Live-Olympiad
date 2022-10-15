@@ -9,16 +9,18 @@ import { CustomSnackbar } from '../../components/CustomSnackbar'
 import DashboardLayout from './DashboardLayout'
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-const category = [
-    {
-        label: "F",
-        value: 1
-    },
-    {
-        label: "M",
-        value: 2
-    }
-]
+const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+];
 
 const Profile = () => {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -95,8 +97,8 @@ const Profile = () => {
                                     onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
                                     error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
                                     errorMsz={getErrorMsz('fullname', pageData.fullname)}
-                                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                                     />
+                                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                                />
                             </Grid>
                             <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                                 <CustomTextField
@@ -106,51 +108,53 @@ const Profile = () => {
                                     onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                                     error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
                                     errorMsz={getErrorMsz('gender', pageData.gender)}
-                                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}>
-                                    {category.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+                                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
+                                    {names.map((name) => (
+                                        <MenuItem key={name} value={name}>
+                                            {name}
+                                        </MenuItem>
                                     ))}
                                 </CustomTextField>
                             </Grid>
                         </Grid>
-                     
-                        <Grid item  xs={12} sm={12} md={12} lg={12} mb={2}>
+
+                        <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 placeholder="Roll No."
                                 variant="filled"
                                 required
                                 onChange={(event) => { setPageData({ ...pageData, rollno: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('rollno', pageData.rollno) != ""}
-                                errorMsz={getErrorMsz('rollno', pageData.rollno)} 
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                                />
+                                errorMsz={getErrorMsz('rollno', pageData.rollno)}
+                                inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                            />
                         </Grid>
                         <Grid container spacing={1}>
 
-                        <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
-                            <CustomTextField
-                                placeholder="Class"
-                                variant="filled"
-                                value={pageData.class}
-                                onChange={(event) => { setPageData({ ...pageData, class: event.target.value }) }}
-                                required
-                                error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
-                                errorMsz={getErrorMsz('student_class', pageData.class)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
-                            <CustomTextField
-                                placeholder="Section"
-                                variant="filled"
-                                value={pageData.section}
-                                onChange={(event) => { setPageData({ ...pageData, section: event.target.value }) }}
-                                required
-                                error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
-                                errorMsz={getErrorMsz('student_section', pageData.section)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                            />
-                        </Grid>
+                            <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
+                                <CustomTextField
+                                    placeholder="Class"
+                                    variant="filled"
+                                    value={pageData.class}
+                                    onChange={(event) => { setPageData({ ...pageData, class: event.target.value }) }}
+                                    required
+                                    error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
+                                    errorMsz={getErrorMsz('student_class', pageData.class)}
+                                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
+                                <CustomTextField
+                                    placeholder="Section"
+                                    variant="filled"
+                                    value={pageData.section}
+                                    onChange={(event) => { setPageData({ ...pageData, section: event.target.value }) }}
+                                    required
+                                    error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
+                                    errorMsz={getErrorMsz('student_section', pageData.section)}
+                                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                                />
+                            </Grid>
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
@@ -162,10 +166,10 @@ const Profile = () => {
                                 onChange={(event) => { setPageData({ ...pageData, dob: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('dob', pageData.dob) != ""}
                                 errorMsz={getErrorMsz('dob', pageData.dob)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                             />
                         </Grid>
-                        <Grid  item xs={12} sm={12} md={12} lg={12} mb={2}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                             <CustomTextField
                                 type="email"
                                 placeholder="Email Address (Optional)"
@@ -174,7 +178,7 @@ const Profile = () => {
                                 onChange={(event) => { setPageData({ ...pageData, email: event.target.value }) }}
                                 error={submitFlag && getErrorMsz('email', pageData.email) != ""}
                                 errorMsz={getErrorMsz('email', pageData.email)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -186,7 +190,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('postal_code', pageData.postalCode) != ""}
                                 errorMsz={getErrorMsz('postal_code', pageData.postalCode)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -198,7 +202,7 @@ const Profile = () => {
                                 required
                                 error={submitFlag && getErrorMsz('student_school', pageData.school) != ""}
                                 errorMsz={getErrorMsz('student_school', pageData.school)}
-                                inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                                inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                             />
                         </Grid>
                     </Grid>

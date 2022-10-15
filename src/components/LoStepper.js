@@ -1,6 +1,8 @@
 import { Box, Grid, Step, StepLabel, Stepper, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import MenuBookTwoToneIcon from '@mui/icons-material/MenuBookTwoTone';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 
 const LoStepper = (props) => {
 
@@ -13,10 +15,10 @@ const LoStepper = (props) => {
                     <StepLabel StepIconComponent={MenuBookTwoToneIcon} ><Typography variant='subtitle2'><Box>School Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}><Typography variant='subtitle2'><Box>Personal Details</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={ BadgeOutlinedIcon}><Typography variant='subtitle2'><Box>Personal Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}><Typography variant='subtitle2'><Box>Choose Your Plan</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}><Typography variant='subtitle2'><Box>Choose Your Plan</Box></Typography></StepLabel>
                 </Step>
             </Stepper>
         </Grid>
@@ -26,10 +28,10 @@ const LoStepper = (props) => {
                     <StepLabel StepIconComponent={MenuBookTwoToneIcon} ></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}></StepLabel>
+                    <StepLabel StepIconComponent={ BadgeOutlinedIcon}></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}></StepLabel>
+                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}></StepLabel>
                 </Step>
             </Stepper>
         </Grid>
