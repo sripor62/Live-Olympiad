@@ -34,7 +34,7 @@ const ChooseYourPlan = () => {
                                 </Box>
                             </Grid>
                         </Grid>
-                        <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '20px' }}>
+                        <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: ' 25px 30px', marginBottom: '20px',border: '3px solid #FCBD42' }}>
                             <Grid xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{fontSize:"16px",fontFamily:"Urbanist"}}>Any Two Subjects</Box></Typography>
                             </Grid>
