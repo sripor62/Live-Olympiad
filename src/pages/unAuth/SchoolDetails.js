@@ -36,7 +36,7 @@ const SchoolDetails = () => {
                 <Typography variant='h3'><Box mb={3} mt={5} fontWeight="bold" sx={responsiveStype.School.Typo}>School Details</Box></Typography>
             </Grid>
             <Grid item xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in,</Box></Typography>
+                <Typography variant='body2' fontWeight="medium" sx={{color:"rgba(131,139,161,1)"}}><Box mb={3} sx={responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in.</Box></Typography>
             </Grid>
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
@@ -48,6 +48,7 @@ const SchoolDetails = () => {
                         required
                         error={submitFlag && getErrorMsz('postal_code', pageData.postalCode) != ""}
                         errorMsz={getErrorMsz('postal_code', pageData.postalCode)}
+                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                     />
                 </Box>
             </Grid>
@@ -61,6 +62,7 @@ const SchoolDetails = () => {
                         required
                         error={submitFlag && getErrorMsz('student_school', pageData.school) != ""}
                         errorMsz={getErrorMsz('student_school', pageData.school)}
+                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                     />
                 </Box>
             </Grid>
@@ -75,6 +77,7 @@ const SchoolDetails = () => {
                             required
                             error={submitFlag && getErrorMsz('student_class', pageData.class) != ""}
                             errorMsz={getErrorMsz('student_class', pageData.class)}
+                            inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                         />
                     </Box>
                 </Grid>
@@ -88,6 +91,7 @@ const SchoolDetails = () => {
                             required
                             error={submitFlag && getErrorMsz('student_section', pageData.section) != ""}
                             errorMsz={getErrorMsz('student_section', pageData.section)}
+                            inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                         />
                     </Box>
                 </Grid>
