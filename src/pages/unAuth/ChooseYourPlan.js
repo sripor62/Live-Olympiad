@@ -27,9 +27,9 @@ const ChooseYourPlan = () => {
                             <Grid xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <Box p={1}>
                                     <Stack direction="row" spacing={2}>
-                                        <Chip label="Science" sx={{ color: '#ffffff', border: '2px solid #838BA1', backgroundColor: '#6A707C',fontSize:'12px' }}/>
-                                        <Chip label="Mathematics" variant="outlined" />
-                                        <Chip label="English" variant="outlined" />
+                                        <Chip label="Science" sx={{fontSize:'12px', color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1',fontSize:'12px' ,fontFamily:"Urbanist" }}/>
+                                        <Chip label="Mathematics" variant="outlined" sx={{fontSize:'12px',fontFamily:"Urbanist", color: '#838BA1', border: '3px solid #838BA1'}}/>
+                                        <Chip label="English" variant="outlined" sx={{fontSize:'12px',fontFamily:"Urbanist", color: '#838BA1', border: '3px solid #838BA1'}} />
                                     </Stack>
                                 </Box>
                             </Grid>
@@ -45,9 +45,9 @@ const ChooseYourPlan = () => {
                             <Grid xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <Box p={1}>
                                     <Stack direction="row" spacing={2}>
-                                        <Chip label="Science"  sx={{ backgroundColor: '#42BBEF', color:"white",fontSize:'12px' }} />
-                                        <Chip label="Mathematics" variant="outlined" sx={{ backgroundColor: '#4545A5', color:"white",fontSize:'12px'  }}/>
-                                        <Chip label="English" variant="outlined"sx={{ color: '#EF4255', border: '2px solid #EF4255',fontSize:'12px'}}  />
+                                        <Chip label="Science"  sx={{fontSize:'12px', backgroundColor: '#42BBEF', color:"white",fontSize:'12px',fontFamily:"Urbanist" }} />
+                                        <Chip label="Mathematics" variant="outlined" sx={{fontSize:'12px', backgroundColor: '#4545A5', border: '3px solid #4545A5', color:"white",fontSize:'12px',fontFamily:"Urbanist"}}/>
+                                        <Chip label="English" variant="outlined"sx={{fontSize:'12px', color: '#EF4255', border: '3px solid #EF4255',fontSize:'12px' ,fontFamily:"Urbanist"}}  />
                                     </Stack>
                                 </Box>
                             </Grid>
@@ -63,9 +63,9 @@ const ChooseYourPlan = () => {
                             <Grid xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                 <Box p={1}>
                                     <Stack direction="row" spacing={2}>
-                                        <Chip label="Science" sx={{ color: '#ffffff', border: '2px solid #838BA1', backgroundColor: '#6A707C',fontSize:'12px' }}/>
-                                        <Chip label="Mathematics" variant="outlined" sx={{ color: '#ffffff', border: '2px solid#838BA1', backgroundColor: '#6A707C',fontSize:'12px' }}/>
-                                        <Chip label="English" variant="outlined" sx={{ color: '#ffffff', border: '2px solid #838BA1', backgroundColor: '#6A707C',fontSize:'12px' }} />
+                                        <Chip label="Science" sx={{ fontSize:'12px',color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1',fontSize:'12px',fontFamily:"Urbanist"}}/>
+                                        <Chip label="Mathematics" variant="outlined" sx={{fontSize:'12px', color: '#ffffff', border: '3px solid#838BA1', backgroundColor: '#838BA1',fontSize:'12px',fontFamily:"Urbanist" }}/>
+                                        <Chip label="English" variant="outlined" sx={{fontSize:'12px', color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1',fontSize:'12px',fontFamily:"Urbanist" }} />
                                     </Stack>
                                 </Box>
                             </Grid>
