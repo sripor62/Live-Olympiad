@@ -1,5 +1,5 @@
 import { Box, Grid, Select, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
@@ -33,6 +33,19 @@ const Profile = () => {
     const afterValidateCallBack = (second) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
+
+    const getProfile = () => {
+
+    }
+
+    useEffect(() => {
+        getProfile();
+    }, [])
+
+    const setProfile = () => {
+
+    }
+
     return (
         <DashboardLayout>
             <Grid container p={4}>
