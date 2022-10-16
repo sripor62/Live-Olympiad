@@ -10,7 +10,7 @@ export const responsiveStype = {
         MaincWarpper: { height: { lg: "100vh", xs: '85vh' } },
     },
     CreatePassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
     },
     ResetPassword: {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
@@ -28,9 +28,9 @@ export const responsiveStype = {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbanist" }
     },
     Personal: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
+        Typo: { textAlign: { xs: 'center', lg: 'left' } , fontFamily: "Urbantist"}
     },
     School: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
     }
 }
