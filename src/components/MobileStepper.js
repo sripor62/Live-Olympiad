@@ -1,6 +1,8 @@
 import { Box, Grid, Step, StepLabel, Stepper, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import MenuBookTwoToneIcon from '@mui/icons-material/MenuBookTwoTone';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 
 const MobileStepper = (props) => {
     const [activeStep, setActiveStep] = useState(props.activeStep);
@@ -12,10 +14,10 @@ const MobileStepper = (props) => {
                         <StepLabel StepIconComponent={MenuBookTwoToneIcon} ></StepLabel>
                     </Step>
                     <Step>
-                        <StepLabel StepIconComponent={MenuBookTwoToneIcon}></StepLabel>
+                        <StepLabel StepIconComponent={BadgeOutlinedIcon}></StepLabel>
                     </Step>
                     <Step>
-                        <StepLabel StepIconComponent={MenuBookTwoToneIcon}></StepLabel>
+                        <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}></StepLabel>
                     </Step>
                 </Stepper>
             </Grid>

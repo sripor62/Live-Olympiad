@@ -1,5 +1,5 @@
 import { Box, Grid, Select, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
 import { afterValidate } from '../../utils/commonService'
@@ -9,6 +9,7 @@ import { CustomSnackbar } from '../../components/CustomSnackbar'
 import DashboardLayout from '../../components/Auth/DashboardLayout';
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+<<<<<<< HEAD
 import { UserDetails } from '../../components/Profile/UserDetails'
 import { UserProfileForm } from '../../components/Profile/UserProfileForm'
 const category = [
@@ -35,6 +36,19 @@ const Profile = () => {
     const afterValidateCallBack = (second) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
+
+    const getProfile = () => {
+
+    }
+
+    useEffect(() => {
+        getProfile();
+    }, [])
+
+    const setProfile = () => {
+
+    }
+
     return (
         <DashboardLayout>
             <Grid container p={4}>

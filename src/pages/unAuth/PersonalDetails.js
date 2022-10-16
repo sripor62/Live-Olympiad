@@ -29,7 +29,7 @@ export default function PersonalDetails() {
                 <Typography variant='h3'><Box mb={3} mt={5} fontWeight="bold" sx={responsiveStype.Personal.Typo}>Personal Details</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.Personal.Typo}>Enter the personal details of the student </Box></Typography>
+                <Typography variant='body2' fontWeight="medium" sx={{color:"rgba(131,139,161,1)"}}><Box mb={3} sx={responsiveStype.Personal.Typo}>Enter the personal details of the student. </Box></Typography>
             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={8}>
@@ -41,7 +41,8 @@ export default function PersonalDetails() {
                             required
                             onChange={(event) => { setPageData({ ...pageData, fullname: event.target.value }) }}
                             error={submitFlag && getErrorMsz('fullname', pageData.fullname) != ""}
-                            errorMsz={getErrorMsz('fullname', pageData.fullname)} />
+                            errorMsz={getErrorMsz('fullname', pageData.fullname)}
+                            inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}} />
                     </Box>
                 </Grid>
                 <Grid item xs={4}>
@@ -52,7 +53,8 @@ export default function PersonalDetails() {
                             required
                             onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                             error={submitFlag && getErrorMsz('gender', pageData.gender) != ""}
-                            errorMsz={getErrorMsz('gender', pageData.gender)}>
+                            errorMsz={getErrorMsz('gender', pageData.gender)}
+                            inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}>
                             <Select>
                                 <MenuItem>F</MenuItem>
                                 <MenuItem>M</MenuItem>
@@ -69,7 +71,8 @@ export default function PersonalDetails() {
                         required
                         onChange={(event) => { setPageData({ ...pageData, rollno: event.target.value }) }}
                         error={submitFlag && getErrorMsz('rollno', pageData.rollno) != ""}
-                        errorMsz={getErrorMsz('rollno', pageData.rollno)} />
+                        errorMsz={getErrorMsz('rollno', pageData.rollno)} 
+                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}/>
                 </Box>
             </Grid>
             <Grid item xs={12}>
@@ -85,7 +88,8 @@ export default function PersonalDetails() {
                         variant="filled"
                         onChange={(event) => { setPageData({ ...pageData, dob: event.target.value }) }}
                         error={submitFlag && getErrorMsz('dob', pageData.dob) != ""}
-                        errorMsz={getErrorMsz('dob', pageData.dob)} />
+                        errorMsz={getErrorMsz('dob', pageData.dob)} 
+                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}/>
                 </Box>
             </Grid>
             <Grid item  xs={12}>
@@ -97,7 +101,8 @@ export default function PersonalDetails() {
                         required
                         onChange={(event) => { setPageData({ ...pageData, email: event.target.value }) }}
                         error={submitFlag && getErrorMsz('email', pageData.email) != ""}
-                        errorMsz={getErrorMsz('email', pageData.email)} />
+                        errorMsz={getErrorMsz('email', pageData.email)} 
+                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}/>
                 </Box>
             </Grid>
             <Grid xs={12} sx={responsiveStype.Personal.Typo}>
