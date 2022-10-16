@@ -9,7 +9,6 @@ import { CustomSnackbar } from '../../components/CustomSnackbar'
 import DashboardLayout from '../../components/Auth/DashboardLayout';
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-<<<<<<< HEAD
 import { UserDetails } from '../../components/Profile/UserDetails'
 import { UserProfileForm } from '../../components/Profile/UserProfileForm'
 const category = [
