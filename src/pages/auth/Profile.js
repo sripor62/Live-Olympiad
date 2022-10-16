@@ -6,7 +6,7 @@ import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import MenuItem from '@mui/material/MenuItem';
 import { CustomSnackbar } from '../../components/CustomSnackbar'
-import DashboardLayout from './DashboardLayout'
+import DashboardLayout from '../../components/Auth/DashboardLayout';
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 const category = [

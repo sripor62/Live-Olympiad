@@ -3,11 +3,11 @@ import { Chip, Box, Grid, Link, Typography, Stack, Button, MenuList, MenuItem, M
 import { AuthLayout } from '.'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
-import DashboardLayout from './DashboardLayout';
+import DashboardLayout from '../../components/Auth/DashboardLayout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import MenuDrawer from './MenuDrawer'
+import MenuDrawer from '../../components/Auth/MenuDrawer'
 import { useState } from 'react'
 import { TestBox } from '../../components/TestBox'
 import { SubjectBox } from '../../components/SubjectBox'
