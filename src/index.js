@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import { customTheme } from './theme/light/customTheme';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ErrorFallback } from './pages/ErrorPage';
+import { ErrorFallback } from './components/Error/ErrorPage';
 import { render } from 'react-dom';
 
 const root = document.getElementById("root");
