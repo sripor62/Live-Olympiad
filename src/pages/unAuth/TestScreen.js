@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Grid, Typography, Chip, ListItem, List } from '@mui/material';
 import { CustomButton } from '../../components/Button';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import Header from '../auth/Header';
+import Header from '../../components/Auth/Header'
 import MemoryIcon from '@mui/icons-material/Memory';
 import ReportAction from '../Report/ReportAction';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';

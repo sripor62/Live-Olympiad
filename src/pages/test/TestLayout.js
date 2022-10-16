@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import Header from '../auth/Header';
+import Header from '../../components/Auth/Header';
 import Pallette from './Pallette';
 import TopAction from './TopAction';
 

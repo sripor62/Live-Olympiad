@@ -3,13 +3,16 @@ import { Chip, Box, Grid, Link, Typography, Stack, Button, MenuList, MenuItem, M
 import { AuthLayout } from '.'
 import { CustomButton } from '../../components/Button'
 import { CustomTextField } from '../../components/TextField'
-import RefreshIcon from '@mui/icons-material/Refresh';
-import DashboardLayout from './DashboardLayout';
+import DashboardLayout from '../../components/Auth/DashboardLayout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import MenuDrawer from './MenuDrawer'
+import MenuDrawer from '../../components/Auth/MenuDrawer'
 import { useState } from 'react'
+import { TestBox } from '../../components/TestBox'
+import { SubjectBox } from '../../components/SubjectBox'
+import { CenterButton } from '../../components/CenterButton'
+import { CenterText } from '../../components/CenterText'
 
 const Dashboard = () => {
 
@@ -83,20 +86,7 @@ const Dashboard = () => {
                 </Grid>
                 {
                     [1, 2, 2, 2].map((option) => {
-                        return <Box>
-                            <Chip label="Science" color="primary" className='brb_0' />
-                            <Grid container item xs={12} sm={12} md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>
-
-                                <Grid item xs={4} sm={6} md={6} lg={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                                    <Typography variant='body1'><Box mb={1} sx={{fontFamily:'Urbantist',fontSize:"18px",fontWeight:600}}>Test Name</Box></Typography>
-                                    <Typography variant='body2'><Box mb={1} sx={{fontFamily:'Urbantist',fontWeight:500,color:'rgba(106,112,124,1)'}}>Practice Test</Box></Typography>
-                                </Grid>
-                                <Grid item xs={8} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>19</Box><Box sx={{ mt: 4 ,mr:4}}>/20</Box></Typography>
-                                    <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon />} variant="contained"  sx={{width:'105px',height:'36px',fontSize:'12px',backgroundColor:"#838BA1" ,fontWeight:600}}/>
-                                </Grid>
-                            </Grid>
-                        </Box>
+                        return <TestBox/>
                     })
                 }
             </Grid>
@@ -105,38 +95,38 @@ const Dashboard = () => {
                     <Grid item md={12} lg={12} >
                         <Typography variant='subtitle' justifyContent="center" alignItems="center"><Box mb={3} mt={1} sx={{fontFamily:"Urbantist",fontWeight:500,fontSize:'14px'}}>You're Currently on 2 Subjects Subscription,   upgrade license to avail more benefits!</Box></Typography>
                     </Grid>
-                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid #4545A5"}} mb={1}>
-                        <Box>
-                            <Typography p={1} color=" #4545A5" fontFamily="Urbanist" fontWeight={600} fontSize="16px">Mathematics</Typography>   
-                        </Box>
-                    </Grid>
-                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid #42BBEF"}} mb={1}>
-                        <Box>
-                            <Typography p={1} color="#42BBEF" fontFamily="Urbanist" fontWeight={600} fontSize="16px">Science</Typography>   
-                        </Box>
-                    </Grid>
-                    <Grid item md={12} lg={12} sx={{borderRadius:"10px",border:"1px solid red"}} mb={2}>
-                        <Box>
-                            <Typography p={1} color="red" fontFamily="Urbanist" fontWeight={600} fontSize="16px">English</Typography>   
-                        </Box>
-                    </Grid>
-                    <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="Upgrade" color="secondary" variant="contained" sx={{ color: '#FFFFFF',width:'163px',p:'0px 0px 15px 50px',height:'48px',borderRadius:'57px' }}/>
-                    </Grid>
+                    <SubjectBox text="Mathematics" color="#4545A5" borderRadius="10px" border="1px solid #4545A5"/>
+                    <SubjectBox text="Science" color="#42BBEF" borderRadius="10px" border="1px solid #42BBEF"/>
+                    <SubjectBox text="English" color="red" borderRadius="10px" border="1px solid red"/>
+                    <CenterButton 
+                        text="Upgrade" 
+                        color='#FFFFFF'
+                        buttonColor='secondary'
+                        borderRadius="57px"
+                        width='163px'
+                        p='0px 0px 15px 50px'
+                        height='48px'
+                    />
                 </Grid>
                 <Grid container md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>
-                    <Grid item md={12} lg={12}>
-                        <Typography variant='h4'><Box align="center" sx={{fontFamily:'Urbantist',fontWeight:700,fontSize:"24px"}}>LiveOlympiad</Box></Typography>
-                    </Grid>
-                    <Grid item md={12} lg={12} mb={3}>
-                        <Typography variant='h4'><Box align="center" sx={{fontFamily:'Urbantist',fontWeight:700,fontSize:"24px"}}>Knowledge Tree</Box></Typography>
-                    </Grid>
-                    <Grid item md={12} lg={12} mb={3}>
-                        <Typography variant='body2' align="center"><Box sx={{ color: '#6A707C',fontFamily:'Urbantist'}}>Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot. </Box></Typography>
-                    </Grid>
-                    <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <CustomButton btnText="GET STARTED" color="primary" variant="contained" sx={{width:'191px',p:'0px 0px 15px 50px',height:'48px'}}/>
-                    </Grid>
+                    <CenterText text="LiveOlympiad" variant='h4' fontFamily="Urbantist" fontWeight='700' fontSize="24px"/>
+                    <CenterText text="Knowledge Tree" variant='h4' fontFamily="Urbantist" fontWeight='700' fontSize="24px"/>  
+                    <Box height={40}/>
+                    <CenterText 
+                        text="Learn about Exempler & Challenger Series,Evaluation Criteria.About Live Olympiad,Queries & FAQs,Syllabus through an automated Chatbot." 
+                        variant='body2' 
+                        fontFamily="Urbantist" 
+                        color="#6A707C"
+                    />
+                    <Box height={75}/>
+                    <CenterButton 
+                        text="GET STARTED" 
+                        width='191px' 
+                        p='0px 0px 15px 50px' 
+                        height='48px' 
+                        buttonColor="primary"
+                        color='#FFFFFF'
+                    />
                 </Grid>
             </Grid>
         </Grid>
