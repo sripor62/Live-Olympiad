@@ -42,10 +42,10 @@ setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "err
     return <AuthLayout>
         <Grid container justifyContent="center" alignItems="center" >
             <Grid xs={6} lg={12}>
-                <Typography variant='h3'><Box mb={3} fontWeight="bold" sx={responsiveStype.CreatePassword.Typo}>Create New Password</Box></Typography>
+                <Typography variant='h3'><Box mb={3} fontWeight="bold" fontSize="30px" sx={responsiveStype.CreatePassword.Typo}>Create New Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2'><Box mb={3} sx={responsiveStype.CreatePassword.Typo}>Create on Unique 6 Digit Numeric Password </Box></Typography>
+                <Typography variant='body2'><Box mb={3} display="flex" sx={responsiveStype.CreatePassword.Typo}>Create on Unique <Box sx={{color:"#FF7A00" ,ml:0.4,mr:0.4}}>6 Digit Numeric </Box> Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>
