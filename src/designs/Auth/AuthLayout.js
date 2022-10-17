@@ -1,7 +1,7 @@
 import { Box, Grid, Hidden } from '@mui/material'
 import React from 'react'
-import MobileHeader from './MobileHeader'
-import { responsiveStype } from '../beautifiers/responsive';
+import MobileHeader from '../Onboarding/MobileHeader'
+import { responsiveStype } from '../../beautifiers/responsive';
 
 export const AuthLayout = (props) => {
 

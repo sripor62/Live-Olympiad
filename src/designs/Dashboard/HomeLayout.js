@@ -1,9 +1,14 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import Header from './Header'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar'
+import { SubjectSelector } from '../Onboarding/SubjectSelector'
+import { FilterByStatus } from '../../components/FilterByStatus'
+import { UpgradeBox } from './UpgradeBox'
+import { KnowledgeTree } from './KnowledgeTreeBox'
+import { CustomListItem } from '../../components/CustomListItem'
 
-export default function DashboardLayout(props) {
+export default function HomeLayout(props) {
     return <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}>
             <Header />

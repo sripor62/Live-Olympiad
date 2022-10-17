@@ -10,8 +10,8 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 
 import Profile from '../pages/Dashboard/Profile';
 import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
-import TestLayout from '../pages/Test/TestLayout';
-import ReportLayout from '../pages/Report/ReportLayout';
+import TestLayout from '../designs/Test/TestLayout';
+import ReportLayout from '../designs/Report/ReportLayout';
 import TestScreen from '../pages/Test/TestScreen';
 export const routes = [
   {

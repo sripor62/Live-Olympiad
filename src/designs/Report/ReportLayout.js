@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../designs/Header'
+import Header from '../Dashboard/Header'
 import ReportAction from './ReportAction'
 import ReportSider from './ReportSider'
 import { Box, Grid } from '@mui/material';

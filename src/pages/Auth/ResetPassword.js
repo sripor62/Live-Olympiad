@@ -1,12 +1,9 @@
-import { Box, Grid, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { CustomButton } from '../../components/CustomButton'
-import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
-import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { AuthLayout } from '../../designs/AuthLayout'
+import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import { responsiveStype } from '../../beautifiers/responsive';
+import { ResetPasswordLayout } from '../../designs/Auth/ResetPasswordLayout'
 
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -22,49 +19,14 @@ export default function ResetPassword() {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
     return <AuthLayout>
-        <Grid container justifyContent="center" alignItems="center" >
-            <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} fontWeight="bold" fontSize="40px" sx={responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"><Box mb={3} display="flex" sx={responsiveStype.ResetPassword.Typo}>Create on Unique <Box sx={{color:"#FF7A00" ,ml:0.4,mr:0.4}}> 6 Digit Numeric </Box> Password </Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1}>
-                    <CustomTextField
-                        type="password"
-                        placeholder=" New Password"
-                        variant="filled"
-                        required
-                        error={submitFlag && getErrorMsz('password', pageData.password) != ""}
-                        errorMsz={getErrorMsz('password', pageData.password)}
-                        onChange={(event) => { setPageData({ ...pageData, password: event.target.value }) }}
-                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                    />
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1}>
-                    <CustomTextField
-                        type="Password"
-                        placeholder="Confirm Password"
-                        variant="filled"
-                        required
-                        onChange={(event) => { setPageData({ ...pageData, confirmpassword: event.target.value }) }}
-                        error={submitFlag && getErrorMsz('conrfirm_password', pageData.confirmpassword) != ""}
-                        errorMsz={getErrorMsz('conrfirm_password', pageData.confirmpassword)}
-                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                         />
-                        
-                </Box>
-            </Grid>
-            <Grid xs={12} mb={14} sx={responsiveStype.ResetPassword.Typo}>
-                <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
-            </Grid>
-        </Grid>
-        {
-            Object.keys(snakeBarProps).length > 0 &&
-            <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-        }
+        <ResetPasswordLayout
+            responsiveStype={responsiveStype}
+            submitFlag={submitFlag}
+            getErrorMsz={getErrorMsz}
+            pageData={pageData}
+            setPageData={setPageData}
+            snakeBarProps={snakeBarProps}
+            setSnakeBarProps={setSnakeBarProps}
+        />
     </AuthLayout>
 }
