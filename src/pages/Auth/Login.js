@@ -8,6 +8,7 @@ import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
+import { LoginLayout } from '../../designs/LoginLayout'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -40,54 +41,15 @@ export default function Login() {
       
     }
 
-    return <Box>
-        <Grid container>
-            <Grid xs={12}>
-                <Typography variant='h3'><Box fontWeight="bold" mb={2} mt={6} sx={responsiveStype.Login.Typo}>Log In</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"  fontSize="14px"  fontWeight={600}><Box mb={3} sx={responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={2} width={1}>
-                    <CustomTextField
-                        placeholder="Phone Number"
-                        variant="filled"
-                        endIcon={<img src='./images/flag.png' />}
-                        required
-                        error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
-                        errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
-                        onChange={(event) => { setPageData({ ...pageData, phoneNumber: event.target.value }) }}
-                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                    />
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={2} width={1}>
-                    <CustomTextField
-                        type="password"
-                        placeholder="Password"
-                        variant="filled"
-                        required
-                        error={submitFlag && getErrorMsz('password', pageData.password) != ""}
-                        errorMsz={getErrorMsz('password', pageData.password)}
-                        onChange={(event) => { setPageData({ ...pageData, password: event.target.value }) }}
-                        inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
-                    />
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"400"}}>
-                    <Link href="" underline="none" color='inherit' onClick={() => navigate('/forgotpassword')}>Forgot Password?</Link>
-                </Box>
-            </Grid>
-            <Grid xs={16} sx={responsiveStype.Login.Typo}>
-                <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
-            </Grid>
-        </Grid>
-        {
-            Object.keys(snakeBarProps).length > 0 &&
-            <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-        }
-    </Box>
+    return <LoginLayout
+        responsiveStype={responsiveStype}
+        submitFlag={submitFlag}
+        getErrorMsz={getErrorMsz}
+        pageData={pageData}
+        setPageData={setPageData}
+        navigate={navigate}
+        submitHandler={submitHandler}
+        snakeBarProps={snakeBarProps}
+        setSnakeBarProps={setSnakeBarProps}
+    />
 }

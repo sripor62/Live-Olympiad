@@ -1,5 +1,5 @@
 import React from 'react'
-import { CustomButton } from '../../components/CustomButton';
+import { CustomButton } from '../components/CustomButton';
 import { Box, Grid,Typography } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

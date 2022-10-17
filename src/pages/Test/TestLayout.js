@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import Header from '../../designs/Header';
-import Pallette from './Pallette';
-import TopAction from './TopAction';
+import Pallette from '../../designs/Pallette';
+import TopAction from '../../designs/TopAction';
 
 const TestLayout = () => {
   return (

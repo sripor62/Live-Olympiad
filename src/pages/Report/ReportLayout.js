@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../designs/Header'
-import ReportAction from './ReportAction'
-import ReportSider from './ReportSider'
+import ReportAction from '../../designs/ReportAction'
+import ReportSider from '../../designs/ReportSider'
 import { Box, Grid } from '@mui/material';
 
 const ReportLayout = () => {

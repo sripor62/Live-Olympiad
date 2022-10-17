@@ -6,11 +6,12 @@ import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
 import MenuItem from '@mui/material/MenuItem';
 import { CustomSnackbar } from '../../components/CustomSnackbar'
-import DashboardLayout from '../../designs/DashboardLayout';
+import HomeLayout from '../../designs/HomeLayout';
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { UserDetails } from '../../designs/UserDetails'
 import { UserProfileForm } from '../../designs/UserProfileForm'
+import { ProfileLayout } from '../../designs/ProfileLayout'
 const category = [
     {
         label: "F",
@@ -49,16 +50,18 @@ const Profile = () => {
     }
 
     return (
-        <DashboardLayout>
-            <Grid container p={4}>
-                <UserDetails/>
-                <UserProfileForm category={category} getErrorMsz={getErrorMsz} submitFlag={submitFlag} pageData={pageData} setPageData={setPageData}/>
-            </Grid>
-            {
-                Object.keys(snakeBarProps).length > 0 &&
-                <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-            }
-        </DashboardLayout>
+        <HomeLayout>
+            <ProfileLayout
+                category={category}
+                getErrorMsz={getErrorMsz}
+                submitFlag={submitFlag}
+                submitHandler={submitHandler}
+                setPageData={setPageData}
+                pageData={pageData}
+                snakeBarProps={snakeBarProps}
+                setSnakeBarProps={setSnakeBarProps}
+            />
+        </HomeLayout>
 
     );
 };

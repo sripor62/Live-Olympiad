@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
+import { SignUpLayout } from '../../designs/SignUpLayout';
 const SignUp = () => {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -35,43 +36,15 @@ const SignUp = () => {
     }
  
     return (
-        <Box>
-            <Grid container>
-                <Grid xs={12} >
-                    <Typography variant='h3'><Box mb={2} mt={6} fontWeight="bold" sx={responsiveStype.Signup.Typo}>Sign Up</Box></Typography>
-                </Grid>
-                <Grid xs={12}>
-                    <Typography variant='body2' color="#838BA1" fontSize="14px"  fontWeight={600}><Box mb={3} sx={responsiveStype.Signup.Typo}>New User? Enter your phone number below,</Box></Typography>
-                </Grid>
-                <Grid xs={12}>
-                    <Box mb={2} width={1}>
-                        <CustomTextField
-                            placeholder="Phone Number"
-                            type="tel"
-                            variant="filled"
-                            value={pageData.phoneNumber}
-                            onChange={(event) => { setPageData({ ...pageData, phoneNumber: event.target.value }) }}
-                            endIcon={<img src='./images/flag.png' />}
-                            required
-                            error={submitFlag && getErrorMsz('phone_number', pageData.phoneNumber) != ""}
-                            errorMsz={getErrorMsz('phone_number', pageData.phoneNumber)}
-                            inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
-                        />
-                    </Box>
-                </Grid>
-                <Grid xs={12}>
-                    <Box mb={15} sx={responsiveStype.Signup.Typo}>
-                        <CustomButton btnText="Sign up" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
-                    </Box>
-                </Grid>
-            </Grid>
-            {
-                Object.keys(snakeBarProps).length > 0 &&
-                <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-            }
-            
-        </Box>
-       
+        <SignUpLayout
+            responsiveStype={responsiveStype}
+            pageData={pageData}
+            setPageData={setPageData}
+            submitFlag={submitFlag}
+            getErrorMsz={getErrorMsz}
+            snakeBarProps={snakeBarProps}
+            setSnakeBarProps={setSnakeBarProps}
+        />
     );
    
 

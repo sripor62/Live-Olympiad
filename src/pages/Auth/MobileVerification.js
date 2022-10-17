@@ -8,13 +8,14 @@ import { afterValidate } from '../../services/commonService';
 import { AuthLayout } from '../../designs/AuthLayout';
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
+import { MobileVerificationLayout } from '../../designs/MobileVerificationLayout';
 
 
 const MobileVerification = (props) => {
     const navigate = useNavigate();
     const [submitFlag, setsubmitFlag] = useState(false);
     const [snakeBarProps, setSnakeBarProps] = useState({});
-    // const { validateOTP} = useAuthHelper();
+    // const {validateOTP} = useAuthHelper();
     const savedOtp = 1234;
     const [otp, setOtp] = useState();
     const [hasErrored, setHasErrored] = useState(false);
@@ -27,7 +28,7 @@ const MobileVerification = (props) => {
         setOtp(value)
     }
 
-    const submitHandler =async () => {
+    const submitHandler = async () => {
         setsubmitFlag(true);
         setHasErrored(otp == undefined ? true : otp.length == 6 ? false : true);
         setErrorMsz(otp == undefined ? "Enter Otp" : otp.length == 6 ? "" : "Enter empty otp")
@@ -58,34 +59,17 @@ const MobileVerification = (props) => {
     }
 
     return <AuthLayout>
-        <Grid container mt={4} justifyContent="center" alignItems="center">
-            <Grid xs={6} lg={12} >
-                <Typography variant='h2' fontSize="40px" fontWeight="bold"><Box mb={1}  width="160px" sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2' fontSize="14px" fontHeight="medium"><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={2} width={1}>
-                    <CustomOtp value={otp} handleChange={handleChangeOtp} hasErrored={hasErrored} errorMsz={errorMsz} />
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Box mb={2} sx={responsiveStype.Mobilever.Typo}>
-                    <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={submitHandler} />
-                </Box>
-            </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2' fontWeight='bold' fontSize='12px'><Box mb={10} sx={responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
-            </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2'  fontWeight='medium'><Box mb={3} mt={18} sx={responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" underline="none" fontWeight="bold">Resend</Link></Box></Typography>
-            </Grid>
-            {
-                Object.keys(snakeBarProps).length > 0 &&
-                <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-            }
-        </Grid>
+        <MobileVerificationLayout
+            otp={otp}
+            responsiveStype={responsiveStype}
+            mobNum={mobNum}
+            hasErrored={hasErrored}
+            errorMsz={errorMsz}
+            handleChangeOtp={handleChangeOtp}
+            snakeBarProps={snakeBarProps}
+            setSnakeBarProps={setSnakeBarProps}
+            submitHandler={submitHandler}
+        />
     </AuthLayout>
 };
 
