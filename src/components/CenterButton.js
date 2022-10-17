@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { CustomButton } from "./Button"
+import { CustomButton } from "./CustomButton"
 
 export const CenterButton = (props) => {
     return <Grid item md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

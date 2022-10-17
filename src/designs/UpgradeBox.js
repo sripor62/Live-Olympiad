@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material"
-import { CenterButton } from "../CenterButton"
-import { SubjectBox } from "../SubjectBox"
+import { CenterButton } from "../components/CenterButton"
+import { SubjectBox } from "../components/SubjectBox"
 
 export const UpgradeBox = () => {
     return <Grid container item md={12} lg={12} mt={2} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '24px', marginBottom: '20px' }}>

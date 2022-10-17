@@ -1,11 +1,11 @@
 import { Box, Grid, Hidden } from '@mui/material'
 import React from 'react'
-import MobileHeader from '../../../components/MobileHeader'
-import { responsiveStype } from '../../../theme/responsive';
+import MobileHeader from './MobileHeader'
+import { responsiveStype } from '../theme/responsive';
 
-export const UnAuthLayout = (props) => {
+export const AuthLayout = (props) => {
 
-    return <Box  sx={responsiveStype.UnAuthLayout.MaincWarpper}>
+    return <Box  sx={responsiveStype.AuthLayout.MaincWarpper}>
         <Grid container className="height_100">
             <Grid item xs={12} lg={7} sx={responsiveStype.default.hide_mobile}>
                 <Box width={1} height={1} sx={{ backgroundColor: "#4545A5" }}>

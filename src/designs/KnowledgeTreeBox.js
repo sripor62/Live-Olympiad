@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material"
-import { CenterButton } from "../CenterButton"
-import { CenterText } from "../CenterText"
+import { CenterButton } from "../components/CenterButton"
+import { CenterText } from "../components/CenterText"
 
 export const KnowledgeTree = () => {
     return <Grid container md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '30px', marginBottom: '20px' }}>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Grid } from '@mui/material';
-import LoStepper from '../../../components/LoStepper';
-import MobileStepper from '../../../components/MobileStepper';
-import MobileHeader from '../../../components/MobileHeader';
-import { responsiveStype } from '../../../theme/responsive';
+import LoStepper from '../../designs/LoStepper';
+import MobileStepper from '../../designs/MobileStepper';
+import MobileHeader from '../../designs/MobileHeader';
+import { responsiveStype } from '../../theme/responsive';
 
 export const OnboardingLayout = (props) => {
 

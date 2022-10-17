@@ -1,9 +1,9 @@
 import { Chip, Grid, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { CustomButton } from "./Button"
+import { CustomButton } from "./CustomButton"
 import RefreshIcon from '@mui/icons-material/Refresh';
 
-export const TestBox = () => {
+export const CustomListItem = () => {
     return <Box>
         <Chip label="Science" color="primary" className='brb_0' />
         <Grid container item xs={12} sm={12} md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>

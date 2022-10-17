@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { CustomButton } from '../../components/Button';
-import { CustomTextField } from '../../components/TextField';
+import { CustomButton } from '../../components/CustomButton';
+import { CustomTextField } from '../../components/CustomTextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
-import { UnAuthLayout } from './layout/UnAuthLayout';
+import { AuthLayout } from '../../designs/AuthLayout';
 import { responsiveStype } from '../../theme/responsive';
 
 const ForgotPassword = () => {
@@ -20,7 +20,7 @@ const ForgotPassword = () => {
         console.log('pageData', pageData)
     }
 
-    return <UnAuthLayout>
+    return <AuthLayout>
         <Grid container justifyContent="center" alignItems="center">
             <Grid xs={12} >
                 <Typography variant='h3'><Box fontWeight="bold" mb={3} mt={9} sx={responsiveStype.ForgotPassword.Typo}>Forgot Password?</Box></Typography>
@@ -50,6 +50,6 @@ const ForgotPassword = () => {
                 </Box>
             </Grid>
         </Grid>
-    </UnAuthLayout>
+    </AuthLayout>
 };
 export default ForgotPassword;

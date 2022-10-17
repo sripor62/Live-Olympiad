@@ -1,11 +1,11 @@
 import { Box, Grid, Link, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CustomButton } from '../../components/Button';
+import { CustomButton } from '../../components/CustomButton';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
-import { CustomOtp } from '../../components/otp';
+import { CustomOtp } from '../../components/CustomOtp';
 import { afterValidate } from '../../utils/commonService';
-import { UnAuthLayout } from './layout/UnAuthLayout';
+import { AuthLayout } from '../../designs/AuthLayout';
 import { responsiveStype } from '../../theme/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 
@@ -57,7 +57,7 @@ const MobileVerification = (props) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "Mobile number verified", type: "success" })
     }
 
-    return <UnAuthLayout>
+    return <AuthLayout>
         <Grid container mt={4} justifyContent="center" alignItems="center">
             <Grid xs={6} lg={12} >
                 <Typography variant='h2' fontSize="40px" fontWeight="bold"><Box mb={1}  width="160px" sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
@@ -86,7 +86,7 @@ const MobileVerification = (props) => {
                 <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
             }
         </Grid>
-    </UnAuthLayout>
+    </AuthLayout>
 };
 
 export default MobileVerification;

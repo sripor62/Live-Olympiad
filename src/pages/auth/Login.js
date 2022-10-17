@@ -1,15 +1,15 @@
 import { Box, Grid, Link, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CustomButton } from '../../components/Button'
+import { CustomButton } from '../../components/CustomButton'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { CustomTextField } from '../../components/TextField'
+import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import { responsiveStype } from '../../theme/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 
-export default function LoginPage() {
+export default function Login() {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
 
