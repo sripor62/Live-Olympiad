@@ -66,7 +66,7 @@ export const ChoosePlanLayout = (props) => {
                 </Grid>
         
         <Grid container xs={12} justifyContent="center" alignItems="center">
-            <Grid xs={6} sx={props.responsiveStype.CreatePassword.Typo}>
+            <Grid xs={6} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Enter" color="primary" variant="contained" className="minWidth240" />
             </Grid>
             <Grid xs={5} sx={{ mb: 1,ml:3 }}>

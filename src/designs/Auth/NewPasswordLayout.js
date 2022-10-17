@@ -37,7 +37,7 @@ export const NewPasswordLayout = (props) => {
                     errorMsz={props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword)} />
             </Box>
         </Grid>
-        <Grid xs={12} mb={8} sx={props.responsiveStype.CreatePassword.Typo}>
+        <Grid xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
             <CustomButton  btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
         </Grid>
         </Grid>

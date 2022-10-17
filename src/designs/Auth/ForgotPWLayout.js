@@ -27,7 +27,7 @@ export const ForgotPWLayout = (props) => {
             </Box>
         </Grid>
         <Grid xs={12}>
-            <Box mb={20} width={1} sx={props.responsiveStype.ForgotPassword.Typo}>
+            <Box mb={20} width={1} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Box>
         </Grid>

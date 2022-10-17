@@ -41,7 +41,7 @@ export const ResetPasswordLayout = (props) => {
                         
                 </Box>
             </Grid>
-            <Grid xs={12} mb={14} sx={props.responsiveStype.ResetPassword.Typo}>
+            <Grid xs={12} mb={14} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Grid>
         </Grid>

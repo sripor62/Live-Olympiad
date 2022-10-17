@@ -86,7 +86,7 @@ export const PersonalDetailLayout = (props) => {
                     inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}/>
             </Box>
         </Grid>
-        <Grid xs={12} sx={props.responsiveStype.Personal.Typo}>
+        <Grid xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
             <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
         </Grid>
     </Grid>

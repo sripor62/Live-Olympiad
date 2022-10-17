@@ -46,7 +46,7 @@ export const LoginLayout = (props) => {
                     <Link href="" style={{textDecoration:"none",color:"#1E232C"}} onClick={() => props.navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
-            <Grid xs={16} sx={props.responsiveStype.Login.Typo}>
+            <Grid xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Grid>
         </Grid>
