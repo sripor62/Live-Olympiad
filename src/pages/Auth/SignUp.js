@@ -1,13 +1,9 @@
-import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { CustomButton } from '../../components/CustomButton';
-import { CustomTextField } from '../../components/CustomTextField';
 import { getErrorMsz } from '../../services/validator';
 import { useNavigate } from 'react-router-dom'
-import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
-import { SignUpLayout } from '../../designs/SignUpLayout';
+import { SignUpLayout } from '../../designs/Auth/SignUpLayout';
 const SignUp = () => {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});

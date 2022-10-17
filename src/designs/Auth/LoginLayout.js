@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
-import { CustomButton } from "../components/CustomButton"
-import { CustomSnackbar } from "../components/CustomSnackbar"
-import { CustomTextField } from "../components/CustomTextField"
+import { CustomButton } from "../../components/CustomButton"
+import { CustomSnackbar } from "../../components/CustomSnackbar"
+import { CustomTextField } from "../../components/CustomTextField"
 
 export const LoginLayout = (props) => {
     return <Box>

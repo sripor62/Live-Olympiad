@@ -3,7 +3,7 @@ import { Box, Grid } from '@mui/material';
 import LoStepper from './LoStepper';
 import MobileStepper from './MobileStepper';
 import MobileHeader from './MobileHeader';
-import { responsiveStype } from '../beautifiers/responsive';
+import { responsiveStype } from '../../beautifiers/responsive';
 
 export const OnboardingLayout = (props) => {
 

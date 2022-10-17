@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import CustomTabs from '../../components/CustomTabs'
-import { AuthLayout } from '../../designs/AuthLayout'
+import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import {useParams} from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';

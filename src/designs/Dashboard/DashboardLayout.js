@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material"
-import { CustomListItem } from "../components/CustomListItem"
-import { FilterByStatus } from "../components/FilterByStatus"
+import { CustomListItem } from "../../components/CustomListItem"
+import { FilterByStatus } from "../../components/FilterByStatus"
 import { KnowledgeTree } from "./KnowledgeTreeBox"
-import { SubjectSelector } from "./SubjectSelector"
+import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import { UpgradeBox } from "./UpgradeBox"
 
 export const DashboardLayout = (props) => {

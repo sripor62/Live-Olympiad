@@ -1,7 +1,7 @@
 import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
-import { CustomButton } from '../components/CustomButton';
+import { CustomButton } from '../../components/CustomButton';
 
 export const ChoosePlanLayout = (props) => {
     return <Grid container>

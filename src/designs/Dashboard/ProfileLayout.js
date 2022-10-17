@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { CustomSnackbar } from "../components/CustomSnackbar"
+import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { UserDetails } from "./UserDetails"
 import { UserProfileForm } from "./UserProfileForm"
 

@@ -1,14 +1,9 @@
-import { Box, Grid, Link, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CustomButton } from '../../components/CustomButton'
-import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { CustomTextField } from '../../components/CustomTextField'
-import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
-import { LoginLayout } from '../../designs/LoginLayout'
+import { LoginLayout } from '../../designs/Auth/LoginLayout'
 
 export default function Login() {
     const navigate = useNavigate();

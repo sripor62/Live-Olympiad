@@ -1,12 +1,12 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import Header from './Header'
-import Sidebar from '../components/Sidebar'
-import { SubjectSelector } from './SubjectSelector'
-import { FilterByStatus } from '../components/FilterByStatus'
+import Sidebar from '../../components/Sidebar'
+import { SubjectSelector } from '../Onboarding/SubjectSelector'
+import { FilterByStatus } from '../../components/FilterByStatus'
 import { UpgradeBox } from './UpgradeBox'
 import { KnowledgeTree } from './KnowledgeTreeBox'
-import { CustomListItem } from '../components/CustomListItem'
+import { CustomListItem } from '../../components/CustomListItem'
 
 export default function HomeLayout(props) {
     return <Grid container>

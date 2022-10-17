@@ -1,13 +1,7 @@
 import React from 'react'
-import { Grid } from '@mui/material'
-import HomeLayout from '../../designs/HomeLayout';
+import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { useState } from 'react'
-import { CustomListItem } from '../../components/CustomListItem'
-import { KnowledgeTree } from '../../designs/KnowledgeTreeBox'
-import { UpgradeBox } from '../../designs/UpgradeBox'
-import { SubjectSelector } from '../../designs/SubjectSelector'
-import { FilterByStatus } from '../../components/FilterByStatus'
-import { DashboardLayout } from '../../designs/DashboardLayout';
+import { DashboardLayout } from '../../designs/Dashboard/DashboardLayout';
 
 const Dashboard = () => {
     const [drawerFlag, setDrawerFlag] = useState(false);

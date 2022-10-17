@@ -1,8 +1,8 @@
 import { Grid, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { CustomButton } from "../components/CustomButton"
-import { CustomSnackbar } from "../components/CustomSnackbar"
-import { CustomTextField } from "../components/CustomTextField"
+import { CustomButton } from "../../components/CustomButton"
+import { CustomSnackbar } from "../../components/CustomSnackbar"
+import { CustomTextField } from "../../components/CustomTextField"
 
 export const SignUpLayout = (props) => {
     return <Box>

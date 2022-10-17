@@ -1,7 +1,7 @@
 import { ArrowBackIos, FiberManualRecord, Memory, Refresh } from "@mui/icons-material"
 import { Box, Grid, List, Typography } from "@mui/material"
-import { CustomButton } from "../components/CustomButton"
-import Header from "./Header"
+import { CustomButton } from "../../components/CustomButton"
+import Header from "../Dashboard/Header"
 
 export const TestScreenLayout = () => {
     return <Grid container>

@@ -1,14 +1,10 @@
-import { Box, Grid, Link, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CustomButton } from '../../components/CustomButton';
-import { CustomSnackbar } from '../../components/CustomSnackbar';
-import { CustomOtp } from '../../components/CustomOtp';
 import { afterValidate } from '../../services/commonService';
-import { AuthLayout } from '../../designs/AuthLayout';
+import { AuthLayout } from '../../designs/Auth/AuthLayout';
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
-import { MobileVerificationLayout } from '../../designs/MobileVerificationLayout';
+import { MobileVerificationLayout } from '../../designs/Auth/MobileVerificationLayout';
 
 
 const MobileVerification = (props) => {

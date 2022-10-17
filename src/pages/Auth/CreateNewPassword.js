@@ -1,16 +1,12 @@
-import { Box, Grid, Link, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { CustomButton } from '../../components/CustomButton'
-import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
-import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { AuthLayout } from '../../designs/AuthLayout'
+import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { NewPasswordLayout } from '../../designs/NewPasswordLayout'
+import { NewPasswordLayout } from '../../designs/Auth/NewPasswordLayout'
 export default function ResetPassword() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)

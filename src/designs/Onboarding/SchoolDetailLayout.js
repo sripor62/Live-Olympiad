@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { CustomButton } from '../components/CustomButton';
-import { CustomSnackbar } from '../components/CustomSnackbar';
-import { CustomTextField } from '../components/CustomTextField';
+import { CustomButton } from '../../components/CustomButton';
+import { CustomSnackbar } from '../../components/CustomSnackbar';
+import { CustomTextField } from '../../components/CustomTextField';
 
 export const SchoolDetailLayout = (props) => {
     return <Grid container>

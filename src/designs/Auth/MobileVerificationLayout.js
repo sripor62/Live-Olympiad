@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import { Link } from "react-router-dom"
-import { CustomButton } from "../components/CustomButton"
-import { CustomOtp } from "../components/CustomOtp"
-import { CustomSnackbar } from "../components/CustomSnackbar"
+import { CustomButton } from "../../components/CustomButton"
+import { CustomOtp } from "../../components/CustomOtp"
+import { CustomSnackbar } from "../../components/CustomSnackbar"
 
 export const MobileVerificationLayout = (props) => {
     return <Grid container mt={4} justifyContent="center" alignItems="center">

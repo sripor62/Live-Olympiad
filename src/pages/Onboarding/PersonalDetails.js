@@ -1,14 +1,9 @@
-import { Box, Grid, Select, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { CustomButton } from '../../components/CustomButton'
-import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
-import MenuItem from '@mui/material/MenuItem';
-import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { responsiveStype } from '../../beautifiers/responsive';
-import { OnboardingLayout } from '../../designs/OnboardingLayout';
-import { PersonalDetailLayout } from '../../designs/PersonalDetailLayout'
+import { OnboardingLayout } from '../../designs/Onboarding/OnboardingLayout';
+import { PersonalDetailLayout } from '../../designs/Onboarding/PersonalDetailLayout'
 
 
 export default function PersonalDetails() {
