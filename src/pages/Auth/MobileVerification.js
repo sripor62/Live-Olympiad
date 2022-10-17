@@ -63,7 +63,7 @@ const MobileVerification = (props) => {
                 <Typography variant='h2' fontSize="40px" fontWeight="bold"><Box mb={1}  width="160px" sx={responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' fontSize="14px" fontHeight="medium"><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
+                <Typography variant='body2' fontSize="14px" fontHeight="medium" sx={{color:"rgba(131,139,161,1)"}}><Box mb={3} sx={responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{mobNum} over WhatsApp</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
