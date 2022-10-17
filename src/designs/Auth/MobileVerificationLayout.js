@@ -19,7 +19,7 @@ export const MobileVerificationLayout = (props) => {
             </Box>
         </Grid>
         <Grid xs={12}>
-            <Box mb={2} sx={props.responsiveStype.Mobilever.Typo}>
+            <Box mb={2} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Box>
         </Grid>

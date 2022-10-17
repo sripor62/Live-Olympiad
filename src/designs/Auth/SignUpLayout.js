@@ -30,7 +30,7 @@ export const SignUpLayout = (props) => {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={15} sx={props.responsiveStype.Signup.Typo}>
+                <Box mb={15} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                     <CustomButton btnText="Sign up" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
                 </Box>
             </Grid>

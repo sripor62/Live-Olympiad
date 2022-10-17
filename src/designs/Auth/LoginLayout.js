@@ -11,7 +11,7 @@ export const LoginLayout = (props) => {
                 <Typography variant='h3'><Box fontWeight="bold" mb={2} mt={6} sx={props.responsiveStype.Login.Typo}>Log In</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"  fontSize="14px"  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Login.Typo}>Existing User? Enter your login details below</Box></Typography>
+                <Typography variant='body2' color="#838BA1"  fontSize="14px"  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Login.Typo}>Existing User? Enter your login details below.</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
@@ -42,11 +42,11 @@ export const LoginLayout = (props) => {
                 </Box>
             </Grid>
             <Grid xs={12}>
-                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"400"}}>
-                    <Link href="" underline="none" color='inherit' onClick={() => props.navigate('/forgotpassword')}>Forgot Password?</Link>
+                <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"600"}} >
+                    <Link href="" style={{textDecoration:"none",color:"#1E232C"}} onClick={() => props.navigate('/forgotpassword')}>Forgot Password?</Link>
                 </Box>
             </Grid>
-            <Grid xs={16} sx={props.responsiveStype.Login.Typo}>
+            <Grid xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Grid>
         </Grid>
