@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-// import { Endpoints } from "../constants/endpoints";
-// import { environment } from "../environments/environment";
 import axiosInstance from "../services/api.service";
 
  const useAuthHelper = () => {
