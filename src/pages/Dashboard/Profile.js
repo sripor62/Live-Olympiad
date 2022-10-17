@@ -1,16 +1,16 @@
 import { Box, Grid, Select, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { CustomButton } from '../../components/Button'
-import { CustomTextField } from '../../components/TextField'
+import { CustomButton } from '../../components/CustomButton'
+import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import MenuItem from '@mui/material/MenuItem';
 import { CustomSnackbar } from '../../components/CustomSnackbar'
-import DashboardLayout from '../../components/Auth/DashboardLayout';
+import DashboardLayout from '../../designs/DashboardLayout';
 import { Avatar } from '@mui/material';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import { UserDetails } from '../../components/Profile/UserDetails'
-import { UserProfileForm } from '../../components/Profile/UserProfileForm'
+import { UserDetails } from '../../designs/UserDetails'
+import { UserProfileForm } from '../../designs/UserProfileForm'
 const category = [
     {
         label: "F",

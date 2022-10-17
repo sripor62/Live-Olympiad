@@ -1,12 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { CustomButton } from '../../components/Button';
+import { CustomButton } from '../../components/CustomButton';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
-import { CustomTextField } from '../../components/TextField';
+import { CustomTextField } from '../../components/CustomTextField';
 import { afterValidate } from '../../utils/commonService';
 import { getErrorMsz } from '../../utils/validator';
-import { OnboardingLayout } from './layout/OnboardingLayout';
+import { OnboardingLayout } from './OnboardingLayout';
 import { responsiveStype } from '../../theme/responsive';
 
 const SchoolDetails = () => {

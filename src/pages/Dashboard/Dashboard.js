@@ -1,22 +1,12 @@
 import React from 'react'
-import { Chip, Box, Grid, Link, Typography, Stack, Button, MenuList, MenuItem, Menu, IconButton, Tooltip } from '@mui/material'
-import { AuthLayout } from '.'
-import { CustomButton } from '../../components/Button'
-import { CustomTextField } from '../../components/TextField'
-import DashboardLayout from '../../components/Auth/DashboardLayout';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import MenuDrawer from '../../components/Auth/MenuDrawer'
+import { Grid } from '@mui/material'
+import DashboardLayout from '../../designs/DashboardLayout';
 import { useState } from 'react'
-import { TestBox } from '../../components/TestBox'
-import { SubjectBox } from '../../components/SubjectBox'
-import { CenterButton } from '../../components/CenterButton'
-import { CenterText } from '../../components/CenterText'
-import { KnowledgeTree } from '../../components/Dashboard/KnowledgeTreeBox'
-import { UpgradeBox } from '../../components/Dashboard/UpgradeBox'
-import { SubjectSelector } from '../../components/Dashboard/SubjectSelector'
-import { FilterByStatus } from '../../components/Dashboard/FilterByStatus'
+import { CustomListItem } from '../../components/CustomListItem'
+import { KnowledgeTree } from '../../designs/KnowledgeTreeBox'
+import { UpgradeBox } from '../../designs/UpgradeBox'
+import { SubjectSelector } from '../../designs/SubjectSelector'
+import { FilterByStatus } from '../../components/FilterByStatus'
 
 const Dashboard = () => {
     const [drawerFlag, setDrawerFlag] = useState(false);
@@ -66,7 +56,7 @@ const Dashboard = () => {
                 </Grid>
                 {
                     [1, 1, 1, 1, 1, 1].map((option) => {
-                        return <TestBox/>
+                        return <CustomListItem/>
                     })
                 }
             </Grid>

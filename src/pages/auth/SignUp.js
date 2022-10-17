@@ -1,15 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { CustomButton } from '../../components/Button';
-import { CustomTextField } from '../../components/TextField';
-import { afterValidate } from '../../utils/commonService';
+import { CustomButton } from '../../components/CustomButton';
+import { CustomTextField } from '../../components/CustomTextField';
 import { getErrorMsz } from '../../utils/validator';
 import { useNavigate } from 'react-router-dom'
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { responsiveStype } from '../../theme/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
-import MobileVerification from './MobileVerification';
-import LoginPage from './LoginPage';
 const SignUp = () => {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
@@ -19,8 +16,6 @@ const SignUp = () => {
     const [otpSent,setOtpSent]=useState(false);
 
     const { generateOTP } = useAuthHelper();
-
-
 
     const submitHandler = async() => {
             console.log("pageData>>>",pageData)
@@ -34,28 +29,6 @@ const SignUp = () => {
                navigate("/mobileverification/"+pageData.phoneNumber)
             };
                  
-        // setsubmitFlag(true);
-        // afterValidate(afterValidateCallBack)
-    
-    // const onPhoneNumberSubmit = async () => {
-    //     setOtpSent(true);
-    //     // phoneNumber.setShowError(true);
-        
-    //     // setOtpSent(true);
-  
-    //     if(res.data?.success)
-    //     window.location.href = "/mobileverification/" + pageData.phoneNumber
-    // //     else if (!pageData.phoneNumber?.isValid)
-    // //    {
-    // //     setSnakeBarProps({ snackbarFlag: true, msz: "Enter your correct Phone Number", type: "error" })
-    // //     setPageData({...pageData,phoneNumber:""})
-    // //    }
-    //    else
-    //    setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
-   
-  
-    //   };
-
     const afterValidateCallBack = (second) => {
         console.log('pageData', pageData)
         setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })

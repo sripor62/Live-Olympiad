@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import React from 'react'
 import Header from './Header'
-import Sidebar from './Sidebar'
+import Sidebar from '../components/Sidebar'
 
 export default function DashboardLayout(props) {
     return <Grid container>

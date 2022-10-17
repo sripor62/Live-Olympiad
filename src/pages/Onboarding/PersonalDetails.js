@@ -1,12 +1,12 @@
 import { Box, Grid, Select, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { CustomButton } from '../../components/Button'
-import { CustomTextField } from '../../components/TextField'
+import { CustomButton } from '../../components/CustomButton'
+import { CustomTextField } from '../../components/CustomTextField'
 import { afterValidate } from '../../utils/commonService'
 import { getErrorMsz } from '../../utils/validator'
 import MenuItem from '@mui/material/MenuItem';
 import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { OnboardingLayout } from './layout/OnboardingLayout'
+import { OnboardingLayout } from './OnboardingLayout'
 import { responsiveStype } from '../../theme/responsive';
 
 

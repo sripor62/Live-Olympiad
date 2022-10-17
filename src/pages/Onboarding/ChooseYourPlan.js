@@ -1,8 +1,8 @@
 import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
-import { CustomButton } from '../../components/Button';
-import { OnboardingLayout } from './layout/OnboardingLayout';
+import { CustomButton } from '../../components/CustomButton';
+import { OnboardingLayout } from './OnboardingLayout';
 import { responsiveStype } from '../../theme/responsive';
 
 

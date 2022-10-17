@@ -1,5 +1,5 @@
 import { Box, Grid, MenuItem, Typography } from "@mui/material"
-import { CustomTextField } from "../TextField"
+import { CustomTextField } from "../components/CustomTextField"
 
 export const UserProfileForm = (props) => {
     return <Grid xs={12} sm={12} md={8} lg={8} p={2}>
