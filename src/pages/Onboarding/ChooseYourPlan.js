@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react'
 import { CustomButton } from '../../components/CustomButton';
 import { OnboardingLayout } from './OnboardingLayout';
-import { responsiveStype } from '../../theme/responsive';
+import { responsiveStype } from '../../beautifiers/responsive';
 
 
 const ChooseYourPlan = () => {

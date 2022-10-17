@@ -2,10 +2,10 @@ import { Box, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { CustomButton } from '../../components/CustomButton';
 import { CustomTextField } from '../../components/CustomTextField';
-import { afterValidate } from '../../utils/commonService';
-import { getErrorMsz } from '../../utils/validator';
+import { afterValidate } from '../../services/commonService';
+import { getErrorMsz } from '../../services/validator';
 import { AuthLayout } from '../../designs/AuthLayout';
-import { responsiveStype } from '../../theme/responsive';
+import { responsiveStype } from '../../beautifiers/responsive';
 
 const ForgotPassword = () => {
     const [submitFlag, setsubmitFlag] = useState(false)

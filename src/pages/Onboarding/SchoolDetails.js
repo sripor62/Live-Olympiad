@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { CustomButton } from '../../components/CustomButton';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomTextField } from '../../components/CustomTextField';
-import { afterValidate } from '../../utils/commonService';
-import { getErrorMsz } from '../../utils/validator';
+import { afterValidate } from '../../services/commonService';
+import { getErrorMsz } from '../../services/validator';
 import { OnboardingLayout } from './OnboardingLayout';
-import { responsiveStype } from '../../theme/responsive';
+import { responsiveStype } from '../../beautifiers/responsive';
 
 const SchoolDetails = () => {
     const navigate = useNavigate();

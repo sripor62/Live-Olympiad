@@ -4,7 +4,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import './index.css';
 import App from './App';
-import { customTheme } from './theme/light/customTheme';
+import { customTheme } from './beautifiers/light/customTheme';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorFallback } from './components/ErrorPage';
 import { render } from 'react-dom';

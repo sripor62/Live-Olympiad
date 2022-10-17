@@ -4,9 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { CustomButton } from '../../components/CustomButton';
 import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomOtp } from '../../components/CustomOtp';
-import { afterValidate } from '../../utils/commonService';
+import { afterValidate } from '../../services/commonService';
 import { AuthLayout } from '../../designs/AuthLayout';
-import { responsiveStype } from '../../theme/responsive';
+import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 
 

@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { CustomButton } from '../../components/CustomButton'
 import { CustomSnackbar } from '../../components/CustomSnackbar'
 import { CustomTextField } from '../../components/CustomTextField'
-import { afterValidate } from '../../utils/commonService'
-import { getErrorMsz } from '../../utils/validator'
-import { responsiveStype } from '../../theme/responsive';
+import { afterValidate } from '../../services/commonService'
+import { getErrorMsz } from '../../services/validator'
+import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 
 export default function Login() {
