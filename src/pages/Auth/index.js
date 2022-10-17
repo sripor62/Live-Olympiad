@@ -9,8 +9,8 @@ export const AuthPage = () => {
     const [val,setVal]=useState(params.index?0:1);
 
     const tabArr = [
-        { label: "Login", component: <Login /> },
-        { label: "Signup", component: <SignUp /> },
+        { label: "Log In", component: <Login /> },
+        { label: "Sign Up", component: <SignUp /> },
     ]
 
     return <AuthLayout>
