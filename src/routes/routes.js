@@ -16,7 +16,7 @@ import TestScreen from '../pages/Test/TestScreen';
 export const routes = [
   {
     path: "/",
-    element: <AuthPage />,
+    element: <AuthPage /login>,
   },
   {
     path: "/:index",
