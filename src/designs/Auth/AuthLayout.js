@@ -22,7 +22,7 @@ export const AuthLayout = (props) => {
             </Grid>
             <Grid item xs={12} lg={5}>
                 <Grid container xs={12} lg={12} direction="row" justifyContent="center" alignItems="center" className="height_100">
-                    <Grid item xs={10} lg={10}>
+                    <Grid item xs={10} lg={8}>
                         {props.children}
                     </Grid>
                 </Grid>
