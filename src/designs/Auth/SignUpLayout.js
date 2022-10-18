@@ -11,7 +11,7 @@ export const SignUpLayout = (props) => {
                 <Typography variant='h3'><Box mb={2} mt={6} fontWeight="bold" sx={props.responsiveStype.Signup.Typo}>Sign Up</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1" fontSize="14px"  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Signup.Typo}>New User? Enter your phone number below,</Box></Typography>
+                <Typography variant='body2' color="#838BA1" fontSize="14px"  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Signup.Typo}>Existing User? Enter your phone number below,</Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={2} width={1}>
