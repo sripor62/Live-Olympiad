@@ -12,13 +12,13 @@ const LoStepper = (props) => {
         <Grid xs={5} sx={{display:{xs:'none',lg:"block"}}}>
             <Stepper orientation="vertical" activeStep={activeStep}>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}  sx={{color:"white"}}><Typography variant='subtitle2' color="white"><Box>School Details</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}  sx={{color:"rgba(255,208,0,1)"}}><Typography variant='subtitle2' color="rgba(255,208,0,1)"><Box>School Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={ BadgeOutlinedIcon} sx={{color:"white"}}><Typography variant='subtitle2' color="white"><Box>Personal Details</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={ BadgeOutlinedIcon} sx={{color:"rgba(255,208,0,1)"}}><Typography variant='subtitle2' color="rgba(255,208,0,1)"><Box>Personal Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}  sx={{color:"white"}}><Typography variant='subtitle2'color="white"><Box>Choose Your Plan</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}  sx={{color:"rgba(255,208,0,1)"}}><Typography variant='subtitle2'color="rgba(255,208,0,1)"><Box>Choose Your Plan</Box></Typography></StepLabel>
                 </Step>
             </Stepper>
         </Grid>
