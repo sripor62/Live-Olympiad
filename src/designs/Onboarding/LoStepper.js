@@ -12,26 +12,13 @@ const LoStepper = (props) => {
         <Grid xs={5} sx={{display:{xs:'none',lg:"block"}}}>
             <Stepper orientation="vertical" activeStep={activeStep}>
                 <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon} ><Typography variant='subtitle2'><Box>School Details</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={MenuBookTwoToneIcon}  sx={{color:"white"}}><Typography variant='subtitle2' color="white"><Box>School Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={ BadgeOutlinedIcon}><Typography variant='subtitle2'><Box>Personal Details</Box></Typography></StepLabel>
+                    <StepLabel StepIconComponent={ BadgeOutlinedIcon} sx={{color:"white"}}><Typography variant='subtitle2' color="white"><Box>Personal Details</Box></Typography></StepLabel>
                 </Step>
                 <Step>
-                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}><Typography variant='subtitle2'><Box>Choose Your Plan</Box></Typography></StepLabel>
-                </Step>
-            </Stepper>
-        </Grid>
-        <Grid xs={5} sx={{display:{xs:'block',lg:"none"},mb:1}}>
-            <Stepper orientation="horizontal" activeStep={activeStep}>
-                <Step>
-                    <StepLabel StepIconComponent={MenuBookTwoToneIcon} ></StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel StepIconComponent={ BadgeOutlinedIcon}></StepLabel>
-                </Step>
-                <Step>
-                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}></StepLabel>
+                    <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}  sx={{color:"white"}}><Typography variant='subtitle2'color="white"><Box>Choose Your Plan</Box></Typography></StepLabel>
                 </Step>
             </Stepper>
         </Grid>
