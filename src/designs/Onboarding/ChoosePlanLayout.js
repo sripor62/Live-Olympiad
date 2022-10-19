@@ -34,7 +34,7 @@ export const ChoosePlanLayout = (props) => {
                     </Grid>
                     <Grid xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                         <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"bold"}}>₹550</Box></Typography>
-                        <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{fontFamily:'Urbanist',fontWeight:"bold",color:'rgba(131,139,161,1)'}}>for Year</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{fontFamily:'Urbanist',fontWeight:{xs:400,lg:"bold"},color:'rgba(131,139,161,1)'}}>for Year</Box></Typography>
                     </Grid>
                     <Grid xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Box p={1}>
