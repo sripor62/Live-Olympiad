@@ -7,10 +7,10 @@ export const ResetPasswordLayout = (props) => {
     return <>
         <Grid container justifyContent="center" alignItems="center" >
             <Grid xs={12}>
-                <Typography variant='h3'><Box mb={3} fontWeight="bold" fontSize="40px" sx={props.responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
+                <Typography variant='h3' sx={{fontSize:{xs:"32px",lg:"40px"}}}><Box mb={3} fontWeight="bold" sx={props.responsiveStype.ResetPassword.Typo}>Reset Password</Box></Typography>
             </Grid>
             <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"><Box mb={3} sx={props.responsiveStype.ResetPassword.Typo}>Create on Unique 6 Digit Numeric Password </Box></Typography>
+                <Typography variant='body2' color="#838BA1" sx={{ml:{xs:3,lg:0}}}><Box mb={3} display="flex"  sx={props.responsiveStype.ResetPassword.Typo}>Create on Unique <Typography variant='body2' color="#FF7A00"  ml={0.4} mr={0.4} fontFamily="Urbanist">6 Digit Numeric </Typography> Password </Box></Typography>
             </Grid>
             <Grid xs={12}>
                 <Box mb={3} width={1}>

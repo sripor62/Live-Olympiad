@@ -11,13 +11,13 @@ const MobileStepper = (props) => {
             <Grid item  xs={5} sx={{ display: { xs: 'block', lg: 'none' },p:1}}>
                 <Stepper orientation="horizontal" activeStep={activeStep}>
                     <Step>
-                        <StepLabel StepIconComponent={MenuBookTwoToneIcon} ></StepLabel>
+                        <StepLabel StepIconComponent={MenuBookTwoToneIcon} sx={{color:"rgba(255,208,0,1)"}} ></StepLabel>
                     </Step>
                     <Step>
-                        <StepLabel StepIconComponent={BadgeOutlinedIcon}></StepLabel>
+                        <StepLabel StepIconComponent={BadgeOutlinedIcon} sx={{color:"rgba(255,208,0,1)"}}></StepLabel>
                     </Step>
                     <Step>
-                        <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}></StepLabel>
+                        <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon} sx={{color:"rgba(255,208,0,1)"}}></StepLabel>
                     </Step>
                 </Stepper>
             </Grid>

@@ -17,9 +17,9 @@ export const tabStyle = {
                 minHeight: "40px !important",
                 padding: "0px !important",
                 marginRight: "10px !important",
+                fontFamily:'Urbanist',
                 textTransform:"none",
-                fontWeight:"bold",
-                fontFamily:"Urbanist",
+                fontWeight:700,
                 "&.Mui-selected": {
                     backgroundColor: "#F9BB47 !important",
                     color: "#fff !important",

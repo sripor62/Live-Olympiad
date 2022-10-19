@@ -8,10 +8,10 @@ import { CustomTextField } from '../../components/CustomTextField';
 export const SchoolDetailLayout = (props) => {
     return <Grid container>
         <Grid item xs={12} >
-            <Typography variant='h3'><Box mb={3} mt={5} fontWeight="bold" sx={props.responsiveStype.School.Typo}>School Details</Box></Typography>
+            <Typography variant='h3'sx={{fontSize:{xs:"32px",lg:"40px"}}}><Box mb={3} mt={5} fontWeight="bold" sx={props.responsiveStype.School.Typo}>School Details</Box></Typography>
         </Grid>
         <Grid item xs={12}>
-            <Typography variant='body2' fontWeight="medium" sx={{color:"rgba(131,139,161,1)"}}><Box mb={3} sx={props.responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in.</Box></Typography>
+            <Typography variant='body2' fontWeight="medium"  sx={{color:"rgba(131,139,161,1)",fontSize:{xs:"12px",lg:"14px"}}}><Box mb={3} sx={props.responsiveStype.School.Typo}>Enter the details of the school the student is enrolled in.</Box></Typography>
         </Grid>
         <Grid item xs={12}>
             <Box mb={2} width={1}>

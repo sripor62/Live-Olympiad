@@ -11,6 +11,7 @@ export const responsiveStype = {
     },
     CreatePassword: {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        
     },
     ResetPassword: {
         Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
