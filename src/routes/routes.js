@@ -9,6 +9,7 @@ import SchoolDetails from '../pages/Onboarding/SchoolDetails';
 import Dashboard from '../pages/Dashboard/Dashboard';
 
 import Profile from '../pages/Dashboard/Profile';
+import Schedule from '../pages/Dashboard/Schedule'
 import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
 import TestLayout from '../designs/Test/TestLayout';
 import ReportLayout from '../designs/Report/ReportLayout';
@@ -53,6 +54,10 @@ export const routes = [
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/schedule",
+    element: <Schedule />,
   },
   {
     path: "/chooseyourplan",

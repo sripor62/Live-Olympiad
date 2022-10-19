@@ -11,11 +11,11 @@ export const CustomOtp = (props) => {
         <OtpInput
             value={value}
             onChange={handleChange}
-            numInputs={4}
+            numInputs={6}
             isInputNum={true}
             hasErrored={hasErrored}
             errorStyle="error"
-            placeholder={"xxxx"}
+            placeholder={"xxxxxx"}
             separator={<span style={{ margin: "0 10px" }}></span>}
             inputStyle={{ width: 50, height: 50, borderRadius: 10, fontSize: 20,border:"none" ,backgroundColor:'#ECECEC'}}
         />

@@ -1,6 +1,7 @@
 import { Chip, Grid, Typography } from "@mui/material"
 import { Box, Stack } from "@mui/system"
 import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers"
+import React from "react"
 
 export const ScheduleLayout = () => {
     return <Box p={3}>
@@ -76,7 +77,7 @@ export const ScheduleLayout = () => {
                     <Box mb={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
                         <Grid container>
                             <Grid xs={12} sm={12} md={12} lg={12}>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <LocalizationProvider /*dateAdapter={AdapterDayjs}*/>
                                     <CalendarPicker />
                                 </LocalizationProvider>
                             </Grid>

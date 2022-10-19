@@ -40,6 +40,7 @@ const SignUp = () => {
             getErrorMsz={getErrorMsz}
             snakeBarProps={snakeBarProps}
             setSnakeBarProps={setSnakeBarProps}
+            submitHandler={submitHandler}
         />
     );
    

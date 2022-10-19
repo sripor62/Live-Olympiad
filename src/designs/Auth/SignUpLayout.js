@@ -19,12 +19,12 @@ export const SignUpLayout = (props) => {
                         placeholder="Phone Number"
                         type="tel"
                         variant="filled"
-                        value={props.props.pageData.phoneNumber}
-                        onChange={(event) => { props.setPageData({ ...props.props.pageData, phoneNumber: event.target.value }) }}
+                        value={props.pageData.phoneNumber}
+                        onChange={(event) => { props.setPageData({ ...props.pageData, phoneNumber: event.target.value }) }}
                         endIcon={<img src='./images/flag.png' />}
                         required
-                        error={props.submitFlag && props.getErrorMsz('phone_number', props.props.pageData.phoneNumber) != ""}
-                        errorMsz={props.getErrorMsz('phone_number', props.props.pageData.phoneNumber)}
+                        error={props.submitFlag && props.getErrorMsz('phone_number', props.pageData.phoneNumber) != ""}
+                        errorMsz={props.getErrorMsz('phone_number', props.pageData.phoneNumber)}
                         inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                     />
                 </Box>
