@@ -14,6 +14,10 @@ import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
 import TestLayout from '../designs/Test/TestLayout';
 import ReportLayout from '../designs/Report/ReportLayout';
 import TestScreen from '../pages/Test/TestScreen';
+import Subscription from '../designs/Dashboard/Subscription';
+import { SubscriptionSubject } from '../designs/Dashboard/SubscriptionSubject';
+
+
 export const routes = [
   {
     path: "/",
@@ -35,6 +39,15 @@ export const routes = [
     path: "/resetpassword",
     element: <ResetPassword />,
   },
+  {
+    path: "/subscriptionsubject",
+    element: <SubscriptionSubject/>,
+  },
+  {
+    path: "/subscription",
+    element: <Subscription />,
+  },
+  
   {
     path: "/personaldetails",
     element: <PersonalDetails />,
