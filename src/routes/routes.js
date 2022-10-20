@@ -16,6 +16,7 @@ import ReportLayout from '../designs/Report/ReportLayout';
 import TestScreen from '../pages/Test/TestScreen';
 import Subscription from '../designs/Dashboard/Subscription';
 import { SubscriptionSubject } from '../designs/Dashboard/SubscriptionSubject';
+import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 
 
 export const routes = [
@@ -59,6 +60,10 @@ export const routes = [
   {
     path: "/schooldetails",
     element: <SchoolDetails />,
+  },
+  {
+    path: "/mobileupgrade",
+    element: <MobileUpgrade />,
   },
   {
     path: "/dashboard",

@@ -14,7 +14,7 @@ export const CustomListItem = () => {
             </Grid>
             <Grid item xs={8} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>19</Box><Box sx={{ mt: 4 ,mr:4}}>/20</Box></Typography>
-                <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon />} variant="contained"  sx={{width:'105px',height:'36px',fontSize:'12px',backgroundColor:"#838BA1" ,fontWeight:600}}/>
+                <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon/>} variant="contained"  sx={{width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#838BA1" ,fontWeight:600}}/>
             </Grid>
         </Grid>
     </Box>
