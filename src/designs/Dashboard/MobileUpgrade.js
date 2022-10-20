@@ -19,7 +19,7 @@ export const MobileUpgrade = (props) => {
                         <Grid item xs={4}><SubjectBox text="English" color="red" borderRadius="10px" border="1px solid red" /></Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} mt={1}>
+                <Grid item xs={12} sm={12} mt={1} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF', width: "104px", height: "34px" }}>Upgrade</Button>
                 </Grid>
             </Grid>
