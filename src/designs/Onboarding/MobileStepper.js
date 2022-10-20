@@ -11,7 +11,7 @@ const MobileStepper = (props) => {
             <Grid item  xs={5} sx={{ display: { xs: 'block', lg: 'none' },p:1}}>
                 <Stepper orientation="horizontal" activeStep={activeStep}>
                     <Step>
-                        <StepLabel StepIconComponent={<img src='./images/Vector.png'/>} ></StepLabel>
+                        <StepLabel StepIconComponent={MenuBookTwoToneIcon} sx={{color:"rgba(255,208,0,1)"}} ></StepLabel>
                     </Step>
                     <Step>
                         <StepLabel StepIconComponent={BadgeOutlinedIcon} sx={{color:"rgba(255,208,0,1)"}}></StepLabel>

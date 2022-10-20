@@ -15,8 +15,8 @@ export const NewPasswordLayout = (props) => {
         <Grid xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
-                    type="New password"
-                    placeholder="Password"
+                    type=" password"
+                    placeholder="New Password"
                     variant="filled"
                     required
                     error={props.submitFlag && props.getErrorMsz('password', props.pageData.password) != ""}
