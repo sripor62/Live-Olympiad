@@ -57,7 +57,7 @@ export const CustomTextField = (props) => {
                                         onMouseDown={handleMouseDownPassword}
                                         edge="end"
                                     >
-                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        {showPassword ? <img src='./images/Groups.png'/> : <img src='./images/Groups.png' />}
                                     </IconButton>
                                 </InputAdornment>
                                 :
