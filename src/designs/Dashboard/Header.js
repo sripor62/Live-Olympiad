@@ -31,10 +31,10 @@ const Header = () => {
                     <Grid container alignItems='center'>
                         <Grid container md={10} lg={10} pl={3}>
                             <Grid md={12} lg={12}>
-                                <Typography variant='subtitle2'><Box>Emily <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline' }}>|</Typography> VII-A</Box></Typography>
+                                <Typography variant='subtitle2'><Box sx={{fontFamily:"Urbanist"}}>Emily <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline', fontFamily:"Urbanist"}}>|</Typography> VII-A</Box></Typography>
                             </Grid>
                             <Grid md={12} lg={12}>
-                                <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Amity International School, Noida</Box></Typography>
+                                <Typography variant='body2' sx={{ color: '#838BA1',fontFamily:"Urbanist"}}><Box>Amity International School, Noida</Box></Typography>
                             </Grid>
                         </Grid>
                         <Grid md={2} lg={2}>
