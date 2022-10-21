@@ -2,13 +2,13 @@ import React from 'react'
 import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { CustomButton } from '../../components/CustomButton';
-
+import { responsiveStype } from '../../beautifiers/responsive';
 
 export const  SubscriptionSubject=(props)=> {
     return <Grid container>
         <Grid xs={12}>
             <Typography variant='body2' sx={{fontSize:"16px",fontWeight:500,fontFamily:"Urbanist"}}>
-                <Box mb={2} mt={2} sx={props.responsiveStype.CreatePassword.Typo}>You are currently on 1 subject subscription, upgrade to avail more benefits!</Box>
+                <Box mb={2} mt={2} sx={responsiveStype.CreatePassword.Typo}>You are currently on 1 subject subscription, upgrade to avail more benefits!</Box>
             </Typography>
         </Grid>
         <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '20px' }}>

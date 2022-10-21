@@ -4,5 +4,6 @@ export const environment = {
     domain: "liveolympiad.org",
     cookieDomain: "localhost",
     authUrl: "http://localhost:3000",
+    learnerUrl: "http://localhost:3001",
   };
   

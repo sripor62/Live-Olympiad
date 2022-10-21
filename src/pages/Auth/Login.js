@@ -4,9 +4,10 @@ import { getErrorMsz } from '../../services/validator'
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 import { LoginLayout } from '../../designs/Auth/LoginLayout'
-
+import { useStore } from "../../stores";
 export default function Login() {
     const navigate = useNavigate();
+    const setCurrentUser = useStore((state) => state.setCurrentUser);
     const [snakeBarProps, setSnakeBarProps] = useState({});
 
     const [submitFlag, setsubmitFlag] = useState(false)
@@ -26,7 +27,9 @@ export default function Login() {
   
         if(res.data?.success) {
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
-            navigate("/dashboard")
+            setCurrentUser(res.data?.data);
+        
+        window.location.href="/dashboard/"
         }
         else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         // afterValidate(afterValidateCallBack)

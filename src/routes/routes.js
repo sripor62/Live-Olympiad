@@ -21,7 +21,7 @@ import { SubscriptionSubject } from '../designs/Dashboard/SubscriptionSubject';
 export const routes = [
   {
     path: "/",
-    element: <AuthPage />,
+    element: <AuthPage replace />,
   },
   {
     path: "/:index",
