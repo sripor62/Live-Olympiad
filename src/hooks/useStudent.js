@@ -1,5 +1,5 @@
 
-import { Endpoints } from "../constants/endpoints";
+import { Endpoints } from "../environments/endpoints";
 import { environment } from "../environments/environment";
 
 import axiosInstance from "../services/api.service";

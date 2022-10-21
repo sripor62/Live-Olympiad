@@ -4,7 +4,7 @@ import React, {useState,useEffect} from 'react'
 import { useMutation, useQuery } from 'react-query';
 import { Button} from '@mui/material';
 import {useStudent} from "../../hooks/useStudent"
-import { AppConstants } from "../../constants/app-constants";
+import { AppConstants } from "../../environments/app-constants";
 export const UserProfileForm = (props) => {
     const [pageData,setPageData]=useState({
     "fullName": "",

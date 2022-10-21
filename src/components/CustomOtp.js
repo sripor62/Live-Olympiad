@@ -11,7 +11,7 @@ export const CustomOtp = (props) => {
         <OtpInput
             value={value}
             onChange={handleChange}
-            numInputs={4}
+            numInputs={6}
             isInputNum={true}
             hasErrored={hasErrored}
             errorStyle="error"

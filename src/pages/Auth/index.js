@@ -4,7 +4,7 @@ import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import {useParams} from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';
-import { checkAuthCookie } from "../../utils/helpers";
+import { checkAuthCookie } from "../../services/helpers";
 
 
 export const AuthPage = () => {

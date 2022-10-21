@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { useState } from 'react'
 import { DashboardLayout } from '../../designs/Dashboard/DashboardLayout';
-import { checkAuthCookie } from "../../utils/helpers";
+import { checkAuthCookie } from "../../services/helpers";
 const Dashboard = () => {
     useEffect(() => {
         checkAuthCookie();

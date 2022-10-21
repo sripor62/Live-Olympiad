@@ -1,7 +1,7 @@
 import { User } from "../models/user";
-import { AppConstants } from "../constants/app-constants";
+import { AppConstants } from "../environments/app-constants";
 import { environment } from "../environments/environment";
-import { checkAuthCookie } from "../utils/helpers";
+import { checkAuthCookie } from "../services/helpers";
 
 let authStore = (set) => ({
   currentUserSubject: User,

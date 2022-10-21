@@ -1,6 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { AppConstants } from "../constants/app-constants";
+import { AppConstants } from "../environments/app-constants";
 const axiosInstance = ({secure = true, showToast = true} = {}) => {
   let headers = {};
   

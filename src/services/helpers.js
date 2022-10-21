@@ -1,4 +1,4 @@
-import { AppConstants } from "../constants/app-constants";
+import { AppConstants } from "../environments/app-constants";
 import { environment } from "../environments/environment";
 import jwt_decode from "jwt-decode";
 import { WindowSharp } from "@mui/icons-material";
