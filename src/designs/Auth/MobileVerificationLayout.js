@@ -11,7 +11,7 @@ export const MobileVerificationLayout = (props) => {
             <Typography variant='h2' fontSize="40px" fontWeight="bold"><Box mb={1} sx={props.responsiveStype.Mobilever.Typo} >Mobile Verification</Box></Typography>
         </Grid>
         <Grid item xs={12}>
-            <Typography variant='body2' fontSize="14px" fontHeight="medium" color="rgba(131,139,161,1)"><Box mb={3} sx={props.responsiveStype.Mobilever.Typo}>Enter the 4-Digit OTP recieved on +91-{props.mobNum} over WhatsApp</Box></Typography>
+            <Typography variant='body2' fontSize="14px" fontHeight="medium" color="rgba(131,139,161,1)"><Box mb={3} sx={props.responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{props.mobNum} over WhatsApp</Box></Typography>
         </Grid>
         <Grid item xs={12} sm={5} lg={12}>
             <Box mb={2} width={1}  >

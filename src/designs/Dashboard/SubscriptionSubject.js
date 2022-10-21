@@ -5,7 +5,7 @@ import { CustomButton } from '../../components/CustomButton';
 
 
 export const  SubscriptionSubject=(props)=> {
-    return <Grid container style={{ p:2,border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
+    return <Grid container style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
         <Grid xs={12}>
             <Typography variant='body2' sx={{fontSize:"16px",fontWeight:500,fontFamily:"Urbanist"}}>
                 <Box mb={2}  sx={{textAlign:"center"}}>You are Currently on 1 Subject Subscription, upgrade license to avail more benefits!</Box>
@@ -48,7 +48,7 @@ export const  SubscriptionSubject=(props)=> {
                     </Grid>
                 </Grid>
     
-                <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: ' 25px 30px', marginBottom: '10px',border: '3px solid #FCBD42' }}>
+                <Grid container xs={12} style={{ border: '2px solid lightGray', borderRadius: '20px', padding: ' 20px 25px', marginBottom: '10px',border: '3px solid #FCBD42' }}>
                     <Grid xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{fontSize:{xs:"14px",lg:"16px"},fontFamily:"Urbanist"}}>All Three Subjects</Box></Typography>
                     </Grid>
