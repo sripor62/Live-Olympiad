@@ -1,13 +1,16 @@
 import { Grid } from '@mui/material'
-import React from 'react'
+import React,{useEffect} from 'react'
 import Header from './Header'
 import Sidebar from '../../components/Sidebar'
 import { KnowledgeTree } from './KnowledgeTreeBox'
 import { ChoosePlanLayout } from '../Onboarding/ChoosePlanLayout'
 import {  Typography } from "@mui/material"
 import { SubscriptionSubject } from './SubscriptionSubject'
-
+import { checkAuthCookie } from "../../services/helpers";
 export default function Subscription(props) {
+    useEffect(() => {
+        checkAuthCookie();
+    });
     return <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}>
             <Header/>
