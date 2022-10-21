@@ -15,7 +15,7 @@ export default function Subscription(props) {
         <Grid item xs={12} sm={12} md={2} lg={2}>
             <Sidebar />
         </Grid>
-        <Grid item xs={12} sm={12} md={10} lg={5} p={2}>
+        <Grid item xs={12} sm={12} md={10} lg={5} p={4}>
         < SubscriptionSubject/>
         </Grid>
         <Grid item xs={12} sm={12} md={10} lg={4} mt={3} p={2}>

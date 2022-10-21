@@ -29,7 +29,7 @@ export const TestScreenLayout = () => {
                             <Typography sx={{ fontSize: "20px", display: 'flex' }}><Box sx={{ fontSize: '50px', color: 'green' }}>18</Box><Box sx={{ mt: 1,fontFamily:'Urbanist',fontWeight:600,fontSize:'28px' }}>/20</Box></Typography>
                         </Grid>
                         <Grid container spacing={2} alignItems='center' mt={2}>
-                            <Grid item xs={1.5}>
+                            <Grid item xs={12} lg={1.5}>
                                 <Typography variant='Subtitle2' align='center'>
                                     <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2,fontSize:'14px',fontFamily:'Urbanist',fontWeight:600,alignItems:'center' }}><QuizOutlinedIcon />Questions</Box>
                                 </Typography>
@@ -37,7 +37,7 @@ export const TestScreenLayout = () => {
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>30</Box>
                                 </Typography>
                             </Grid>
-                            <Grid item xs={1.5}>
+                            <Grid item xs={12} lg={1.5}>
                                 <Typography variant='Subtitle2' align='center'>
                                     <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2,fontSize:'14px',fontFamily:'Urbanist' ,fontWeight:600,alignItems:'center' }}><AccessAlarmsOutlinedIcon />Time Limit</Box>
                                 </Typography>
@@ -45,7 +45,7 @@ export const TestScreenLayout = () => {
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>30 Min</Box>
                                 </Typography>
                             </Grid>
-                            <Grid item xs={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                            <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                                 <CustomButton btnText="RE-TAKE" endIcon={<Refresh />} variant="contained" sx={{width:'170px',height:'54px',backgroundColor:"#838BA1",fontFamily:"Urbanist"}}/>
                             </Grid>
                         </Grid>
