@@ -1,10 +1,19 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import { AppConstants } from "../constants/app-constants";
 const axiosInstance = ({secure = true, showToast = true} = {}) => {
   let headers = {};
   
+  const cookieServiceValue_USER_INFO = document.cookie.split(";").filter((item)=> item.trim().startsWith(AppConstants.SESSION_STORAGE_ITEMS.USER_INFO));
+    let userInfoVal=""
+    if(cookieServiceValue_USER_INFO.length>0){
+      userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];}
+      console.log(userInfoVal)
+      let curentUser = JSON.parse(localStorage.current_user);
 
+  if (secure && (curentUser?.state?.currentUser?.access_token)) {
+    headers.Authorization = `Bearer ${userInfoVal?.access_token}`;
+  }
   const axiosInstance = axios.create({
     headers,
   });

@@ -22,7 +22,7 @@ import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 export const routes = [
   {
     path: "/",
-    element: <AuthPage />,
+    element: <AuthPage replace />,
   },
   {
     path: "/:index",

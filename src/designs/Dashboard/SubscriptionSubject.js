@@ -2,7 +2,7 @@ import React from 'react'
 import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { CustomButton } from '../../components/CustomButton';
-
+import { responsiveStype } from '../../beautifiers/responsive';
 
 export const  SubscriptionSubject=(props)=> {
     return <Grid container style={{ p:2,border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
