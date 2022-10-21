@@ -1,5 +1,5 @@
 import { ArrowBackIos, FiberManualRecord, Memory, Refresh } from "@mui/icons-material"
-import { Box, Grid, List, Typography } from "@mui/material"
+import { Box, Grid, List, Typography,Button } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import Header from "../Dashboard/Header"
 import AccessAlarmsOutlinedIcon from '@mui/icons-material/AccessAlarmsOutlined';
@@ -46,7 +46,7 @@ export const TestScreenLayout = () => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <CustomButton btnText="RE-TAKE" endIcon={<Refresh />} variant="contained" sx={{width:'170px',height:'54px',backgroundColor:"#838BA1",fontFamily:"Urbanist"}}/>
+                                <Button endIcon={<Refresh />} variant="contained" sx={{width:'170px',height:'54px',backgroundColor:"#838BA1",color:"white",fontFamily:"Urbanist",borderRadius:"5px"}}>RE-TAKE</Button>
                             </Grid>
                         </Grid>
                     </Grid>
