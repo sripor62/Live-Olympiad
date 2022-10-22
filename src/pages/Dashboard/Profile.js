@@ -3,6 +3,7 @@ import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
 import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { ProfileLayout } from '../../designs/Dashboard/ProfileLayout'
+import { checkAuthCookie } from "../../services/helpers";
 const category = [
     {
         label: "F",
@@ -15,6 +16,9 @@ const category = [
 ]
 
 const Profile = () => {
+    useEffect(() => {
+        checkAuthCookie();
+    });
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ fullname: "", gender: "", rollno: "", dob: "", email: "" });
