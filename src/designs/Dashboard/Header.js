@@ -27,18 +27,20 @@ const Header = () => {
                 </Box>
             </Grid>
             <Grid xs={12} sm={12} md={5} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
-                <Box  sx={{ backgroundColor: "white", borderRadius: '50px', padding:'4px' }}>
+                <Box sx={{ backgroundColor: "white", borderRadius: '50px', padding: '7px,7px,7px,14px', width: "283px", height: "70px" }}>
                     <Grid container alignItems='center'>
-                        <Grid container md={10} lg={10} pl={3}>
-                            <Grid md={12} lg={12}>
-                                <Typography variant='subtitle2'><Box>Emily <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline' }}>|</Typography> VII-A</Box></Typography>
-                            </Grid>
-                            <Grid md={12} lg={12}>
-                                <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Amity International School, Noida</Box></Typography>
+                        <Grid item md={10} lg={9}>
+                            <Grid container>
+                                <Grid item md={12} lg={12} pl={2}>
+                                    <Typography variant='subtitle2'><Box sx={{ fontFamily: "Urbanist", fontWeight: 400, fontSize: "16px" }}>Emily <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline', fontFamily: "Urbanist", fontWeight: 400, fontSize: "16px" }}>|</Typography> VII-A</Box></Typography>
+                                </Grid>
+                                <Grid item md={12} lg={12} pl={2}>
+                                    <Typography variant='body2' sx={{ color: '#838BA1', fontFamily: "Urbanist", fontWeight: 500, fontSize: "12px" }}><Box>Amity International School, Noida</Box></Typography>
+                                </Grid>
                             </Grid>
                         </Grid>
-                        <Grid md={2} lg={2}>
-                            <Box sx={{ width: '100%', height: '100%' }}>
+                        <Grid item md={2} lg={3}>
+                            <Box sx={{mt:"6px",ml:"6px"}}>
                                 <Avatar sx={{ width: '56px', height: '56px' }} />
                             </Box>
                         </Grid>

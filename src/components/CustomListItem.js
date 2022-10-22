@@ -5,7 +5,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 export const CustomListItem = () => {
     return <Box>
-        <Chip label="Science" color="primary" className='brb_0' />
+        <Chip label="Science" color="primary" className='brb_0' sx={{fontFamily:'Urbantist',fontSize:"16px",fontWeight:600,width:"106px",height:"30px"}} />
         <Grid container item xs={12} sm={12} md={12} lg={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>
 
             <Grid item xs={4} sm={6} md={6} lg={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
