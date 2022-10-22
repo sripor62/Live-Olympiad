@@ -4,13 +4,13 @@ import { CustomTextField } from "../../components/CustomTextField"
 
 export const ForgotPWLayout = (props) => {
     return <Grid container justifyContent="center" alignItems="center">
-        <Grid xs={12} >
+        <Grid item xs={12} >
             <Typography variant='h3'><Box fontWeight="bold" mb={3} mt={9} sx={props.responsiveStype.ForgotPassword.Typo}>Forgot Password?</Box></Typography>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Typography variant='body2' color="#838BA1"  fontSize="14px"  fontWeight={500}><Box mb={3} sx={props.responsiveStype.ForgotPassword.Typo}>No worries, You can reset your password by verifying your Phone Number with an OTP.</Box></Typography>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
                     placeholder="Phone Number"
@@ -26,7 +26,7 @@ export const ForgotPWLayout = (props) => {
                 />
             </Box>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Box mb={20} width={1} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
             </Box>

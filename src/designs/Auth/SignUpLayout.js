@@ -7,13 +7,13 @@ import { CustomTextField } from "../../components/CustomTextField"
 export const SignUpLayout = (props) => {
     return <Box>
         <Grid container>
-            <Grid xs={12} >
+            <Grid  item xs={12} >
                 <Typography variant='h3'  sx={{fontSize:{xs:"32px",lg:"40px"}}}><Box mb={2} mt={6} fontWeight="bold"  sx={props.responsiveStype.Signup.Typo}>Sign Up</Box></Typography>
             </Grid>
-            <Grid xs={12}>
-                <Typography variant='body2' color="#838BA1"  sx={{fontSize:{xs:"12px",lg:"14px"}}}  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Signup.Typo}>Existing User? Enter your phone number below.</Box></Typography>
+            <Grid  item xs={12}>
+                <Typography variant='body2'   sx={{fontSize:{xs:"12px",lg:"14px"},color:"#838BA1"}}  fontWeight={600}><Box mb={3} sx={props.responsiveStype.Signup.Typo}>Existing User? Enter your phone number below.</Box></Typography>
             </Grid>
-            <Grid xs={12}>
+            <Grid  item xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
                         placeholder="Phone Number"
@@ -29,7 +29,7 @@ export const SignUpLayout = (props) => {
                     />
                 </Box>
             </Grid>
-            <Grid xs={12}>
+            <Grid  item xs={12}>
                 <Box mb={15} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                     <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
                 </Box>

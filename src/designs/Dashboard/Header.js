@@ -12,12 +12,12 @@ const Header = () => {
     return (
 
         <Grid container px={4} py={2} alignItems='center' sx={{ backgroundColor: "#4545A5" }}>
-            <Grid xs={6} sm={9} md={5} lg={7}>
+            <Grid item xs={6} sm={9} md={5} lg={7}>
                 <Box>
                     <img src='../images/brand.svg' style={{ minWidth: '100px', width: '70%', maxWidth: '180px' }} />
                 </Box>
             </Grid>
-            <Grid xs={4} sm={2} md={2} lg={2} alignItems='center'>
+            <Grid item xs={4} sm={2} md={2} lg={2} alignItems='center'>
                 <Box mr={2}>
                     <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end' }} >
                         <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' }} />
@@ -26,7 +26,7 @@ const Header = () => {
                     </Stack>
                 </Box>
             </Grid>
-            <Grid xs={12} sm={12} md={5} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+            <Grid item xs={12} sm={12} md={5} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                 <Box sx={{ backgroundColor: "white", borderRadius: '50px', padding: '7px,7px,7px,14px', width: "283px", height: "70px" }}>
                     <Grid container alignItems='center'>
                         <Grid item md={10} lg={9}>
@@ -47,7 +47,7 @@ const Header = () => {
                     </Grid>
                 </Box>
             </Grid>
-            <Grid xs={2} sm={1} md={1} lg={1} sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' } }}>
+            <Grid item xs={2} sm={1} md={1} lg={1} sx={{ display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' } }}>
                 <IconButton onClick={() => { setDrawerFlag(true) }}>
                     <MenuIcon sx={{ color: '#FFFFFF', fontSize: '40px' }} />
                 </IconButton>
