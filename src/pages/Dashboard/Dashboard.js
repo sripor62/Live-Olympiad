@@ -2,10 +2,10 @@ import React,{useEffect} from 'react'
 import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { useState } from 'react'
 import { DashboardLayout } from '../../designs/Dashboard/DashboardLayout';
-import { checkAuthCookie } from "../../services/helpers";
+import { navigateAsPerSessionValidity } from "../../services/helpers";
 const Dashboard = () => {
     useEffect(() => {
-        checkAuthCookie();
+        navigateAsPerSessionValidity(true);
       });
     const [drawerFlag, setDrawerFlag] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
