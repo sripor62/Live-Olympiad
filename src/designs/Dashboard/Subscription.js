@@ -7,10 +7,8 @@ import { ChoosePlanLayout } from '../Onboarding/ChoosePlanLayout'
 import {  Typography } from "@mui/material"
 import { SubscriptionSubject } from './SubscriptionSubject'
 import { checkAuthCookie } from "../../services/helpers";
-export default function Subscription(props) {
-    useEffect(() => {
-        checkAuthCookie();
-    });
+export default function SubscriptionLayout(props) {
+    
     return <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}>
             <Header/>
