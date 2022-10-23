@@ -84,7 +84,7 @@ const CustomTabs = (props) => {
                 indicatorColor={indicatorColor}
                 textColor={textColor}
                 aria-label={tabLabel}
-                centered
+                centered ={false}
             >
                 {
                     tabArr.map((option, index) => <Tab key={`${option.label}_label`} label={renderLabel(option)} {...a11yProps(index)} />)

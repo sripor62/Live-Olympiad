@@ -6,13 +6,13 @@ import { CustomTextField } from "../../components/CustomTextField"
 export const NewPasswordLayout = (props) => {
     return <>
         <Grid container justifyContent="center" alignItems="center">
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Typography variant='h3'  sx={{fontSize:{xs:"32px",lg:"40px"},p:{xs:3,lg:0}}}><Box  mb={3} fontWeight="bold" sx={props.responsiveStype.CreatePassword.Typo}>Create New Password</Box></Typography>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Typography variant='body2' color="#838BA1" sx={{ml:{xs:3,lg:0}}}><Box display="flex" mb={3} sx={props.responsiveStype.ResetPassword.Typo}>Create on Unique <Typography variant='body2' color="#FF7A00" ml={0.4} mr={0.4} fontFamily="Urbanist">6 Digit Numeric </Typography> Password </Box></Typography>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
                     type=" password"
@@ -26,7 +26,7 @@ export const NewPasswordLayout = (props) => {
                 />
             </Box>
         </Grid>
-        <Grid xs={12}>
+        <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
                     type="Password"
@@ -40,7 +40,7 @@ export const NewPasswordLayout = (props) => {
                      />
             </Box>
         </Grid>
-        <Grid xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
+        <Grid item xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
             <CustomButton  btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
         </Grid>
         </Grid>
