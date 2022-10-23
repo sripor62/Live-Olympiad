@@ -1,9 +1,9 @@
 import SubscriptionLayout from "../../designs/Dashboard/Subscription";
 import {useEffect} from 'react';
-import { checkAuthCookie } from "../../services/helpers";
+import { navigateAsPerSessionValidity } from "../../services/helpers";
 const Subscription=()=>{
     useEffect(() => {
-        checkAuthCookie();
+        navigateAsPerSessionValidity(true);
     });
 
     return (

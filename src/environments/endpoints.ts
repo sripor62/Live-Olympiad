@@ -7,4 +7,5 @@ export class Endpoints {
   static GENERATE_OTP = "/auth/sendOTP";
   static VALIDATE_OTP = "/auth/verifyOTP";
   static UPLOAD_FILE = "/file/upload";
+  static SCHOOL_PINCODE="/school/pincode"
 }

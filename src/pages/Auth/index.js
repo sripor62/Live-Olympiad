@@ -4,13 +4,13 @@ import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import {useParams} from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';
-import { checkAuthCookie } from "../../services/helpers";
+import { navigateAsPerSessionValidity } from "../../services/helpers";
 
 
 export const AuthPage = () => {
     useEffect(() => {
-        checkAuthCookie();
-      });
+        navigateAsPerSessionValidity(false);
+    });
     const params=useParams();
     const [val,setVal]=useState(params.index?0:1);
 

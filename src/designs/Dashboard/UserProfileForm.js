@@ -1,4 +1,5 @@
-import { Box, Grid, MenuItem, Typography } from "@mui/material"
+import { Box, Grid, MenuItem, Typography,Select } from "@mui/material"
+
 import { CustomTextField } from "../../components/CustomTextField"
 import React, { useState, useEffect } from 'react'
 import { useMutation, useQuery } from 'react-query';
@@ -24,19 +25,16 @@ export const UserProfileForm = (props) => {
 
     const { profileDataDetails } = useStudent();
     useEffect(() => {
-
-
         var pdata = {
             ...profileData?.data.data,
         }
+
         setPageData({ ...pageData, ...pdata })
     }, [profileData])
 
 
-
-
     const profileSubmit = () => {
-        alert("hey")
+     
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -45,7 +43,7 @@ export const UserProfileForm = (props) => {
             dob: pageData.dob,
             gender: pageData.gender,
             pinCode: pageData.pinCode,
-            school: "8bbcf6c6-3255-43b3-a17c-4dfa6ba5c690",
+            school:pageData.school,
             grade: pageData.grade,
             section: pageData.section
 
@@ -54,8 +52,29 @@ export const UserProfileForm = (props) => {
         addProfileMutate({ data: pdata })
 
     }
-    const { mutate: addProfileMutate, isLoading: addProfileLoading } = useMutation(profileDataDetails)
+  
+    const { mutate: addProfileMutate, isLoading: addProfileLoading } = useMutation(profileDataDetails, {
+        onSuccess: (data, variables, context) => onSuccessAddAssessment(data, variables, context),
+        onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
+    })
+    const onSuccessAddAssessment=()=> {
+        refetch();
+    }
+    const onErrorAddAssessment=()=> {
+        
+    }
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(517002), { enabled: true, retry: false })
 
+    useEffect(()=>{
+        schoolFetch();  
+        setSchoolsList(schoolData?.data.data) 
+    
+    },[pinCode])
+
+    const selectionChangeHandler=(event)=>{
+    
+    setPageData({...pageData,school:event.target.value})
+    
 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
@@ -81,6 +100,7 @@ export const UserProfileForm = (props) => {
                         placeholder="Gender"
                         variant="filled"
                         value={pageData.gender}
+                      
                         required
                         onChange={(event) => { setPageData({ ...pageData, gender: event.target.value }) }}
                         error={props.submitFlag && props.getErrorMsz('gender', props.pageData.gender) !== ""}
@@ -164,7 +184,8 @@ export const UserProfileForm = (props) => {
                     placeholder="School Area Postal Code"
                     variant="filled"
                     value={pageData.pinCode}
-                    onChange={(event) => { setPageData({ ...pageData, pinCode: event.target.value }) }}
+                    onChange={(event) => { setPageData({ ...pageData, pinCode: event.target.value });setPinCode(event.target.value); }}
+                    
                     required
                     error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.pinCode) !== ""}
                     errorMsz={props.getErrorMsz('student_section', props.pageData.pinCode)}
