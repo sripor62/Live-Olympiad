@@ -15,7 +15,7 @@ const SignUp = () => {
     const { generateOTP } = useAuthHelper();
 
     const submitHandler = async() => {
-            console.log("pageData>>>",pageData)
+            
             
                 let res = await generateOTP({
                     phoneNumber: "+91" + pageData.phoneNumber,
@@ -27,7 +27,7 @@ const SignUp = () => {
             };
                  
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData)
+        
         setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
     }
  

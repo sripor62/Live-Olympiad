@@ -16,7 +16,7 @@ export default function Login() {
    
     const { login } = useAuthHelper();
     const submitHandler = async() => {
-        console.log("pageData>>>",pageData)
+       
 
         let res = await login({
             userName: "+91" + pageData.phoneNumber,
