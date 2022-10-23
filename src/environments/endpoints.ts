@@ -8,4 +8,6 @@ export class Endpoints {
   static VALIDATE_OTP = "/auth/verifyOTP";
   static UPLOAD_FILE = "/file/upload";
   static SCHOOL_PINCODE="/school/pincode"
+  static PAYMENT_INFO="/payments";
+  static SUBSCRIPTION_INFO="/subscriptions";
 }

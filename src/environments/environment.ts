@@ -5,5 +5,6 @@ export const environment = {
     cookieDomain: "localhost",
     authUrl: "http://localhost:3000",
     learnerUrl: "http://localhost:3001",
+    paymentUrl:"https://payments.aimlearn.co",
   };
   
