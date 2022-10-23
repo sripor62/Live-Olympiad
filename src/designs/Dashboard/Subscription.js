@@ -20,6 +20,11 @@ export default function SubscriptionLayout(props) {
         </Grid>
         <Grid item xs={12} sm={12} md={10} lg={4} mt={3} p={2}>
             <Typography variant="body1" fontSize="20px" fontWeight={600} ml={2} fontFamily="Urbanist">Past order details </Typography>
+            <Typography>Subjects : {props.subscriptionList?.subscribedCourses.map((item)=> (item + ","))}</Typography>
+            <Typography>Amount: {props.paymentInfo ? props.paymentInfo?.amount : 0}</Typography>
+            <Typography>Date: {props.paymentInfo?.updatedAt}</Typography>
+            <Typography>Mode: {props.paymentInfo?.paymentType}</Typography>
         </Grid>
+       
     </Grid>
 }
