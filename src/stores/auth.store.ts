@@ -1,7 +1,7 @@
 import { User } from "../models/user";
 import { AppConstants } from "../environments/app-constants";
 import { environment } from "../environments/environment";
-import { checkAuthCookie } from "../services/helpers";
+import { navigateAsPerSessionValidity } from "../services/helpers";
 
 let authStore = (set) => ({
   currentUserSubject: User,
@@ -17,7 +17,7 @@ let authStore = (set) => ({
     console.log("userDetails",userDetails);
     document.cookie = (AppConstants.SESSION_STORAGE_ITEMS.USER_INFO + "=" + userDetails + ";domain=" + environment.cookieDomain + "; path=/").trim();
     console.log("domaincookie",document.cookie)
-    checkAuthCookie();
+    navigateAsPerSessionValidity(false);
   },
 
   clearCurrentUser: (redirect=true) => {

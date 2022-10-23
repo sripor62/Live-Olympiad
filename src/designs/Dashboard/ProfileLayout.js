@@ -5,10 +5,10 @@ import { UserProfileForm } from "./UserProfileForm"
 
 export const ProfileLayout = (props) => {
     return <>
-    <Grid container p={4}>
-        <UserDetails/>
-        <UserProfileForm 
-        category={props.category}
+
+    <Grid container p={4} spacing={2}>
+        <Grid item xs={12} sm={12} md={4} lg={4}><UserDetails/></Grid>
+        <Grid item xs={12} sm={12} md={8} lg={8}><UserProfileForm  category={props.category}
                 getErrorMsz={props.getErrorMsz}
                 submitFlag={props.submitFlag}
                 profileSubmit={props.profileSubmit}
@@ -20,7 +20,7 @@ export const ProfileLayout = (props) => {
                 pinCode={props.pinCode}
                 selectionChangeHandler={props.selectionChangeHandler}
                 schoolsList={props.schoolsList}
-                setSchoolsList={props.setSchoolsList}/>
+                setSchoolsList={props.setSchoolsList}/></Grid>
     </Grid>
     {
         Object.keys(props.snakeBarProps).length > 0 &&

@@ -3,7 +3,7 @@ import { CenterButton } from "../../components/CenterButton"
 import { SubjectBox } from "../../components/SubjectBox"
 
 export const UpgradeBox = () => {
-    return <Grid container item md={12} lg={12} mt={2} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '24px', marginBottom: '20px' }}>
+    return <Grid container item  mt={2} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '24px', marginBottom: '20px' }}>
         <Grid item md={12} lg={12} >
             <Typography variant='subtitle' justifyContent="center" alignItems="center"><Box mb={3} mt={1} sx={{fontFamily:"Urbantist",fontWeight:500,fontSize:'14px'}}>You're Currently on 2 Subjects Subscription,   upgrade license to avail more benefits!</Box></Typography>
         </Grid>

@@ -9,7 +9,7 @@ export const AuthLayout = (props) => {
         <Grid container className="height_100">
             <Grid item xs={12} lg={7} sx={responsiveStype.default.hide_mobile}>
                 <Box width={1} height={1} sx={{ backgroundColor: "#4545A5" }}>
-                    <Grid container xs={12} lg={12} className="height_100" alignItems="center" justifyContent="center">
+                    <Grid container  className="height_100" alignItems="center" justifyContent="center">
                         <Grid item xs={10} lg={10}>
                             <img src='../images/unauthbg.svg' className="width_100"/>
                         </Grid>
@@ -21,7 +21,7 @@ export const AuthLayout = (props) => {
                <MobileHeader/>
             </Grid>
             <Grid item xs={12} lg={5}>
-                <Grid container xs={12} lg={12} direction="row" justifyContent="center" alignItems="center" className="height_100">
+                <Grid container  direction="row" justifyContent="center" alignItems="center" className="height_100">
                     <Grid item xs={10} lg={8}>
                         {props.children}
                     </Grid>

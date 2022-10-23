@@ -6,7 +6,6 @@ import { KnowledgeTree } from './KnowledgeTreeBox'
 import { ChoosePlanLayout } from '../Onboarding/ChoosePlanLayout'
 import {  Typography } from "@mui/material"
 import { SubscriptionSubject } from './SubscriptionSubject'
-import { checkAuthCookie } from "../../services/helpers";
 export default function SubscriptionLayout(props) {
     
     return <Grid container>
