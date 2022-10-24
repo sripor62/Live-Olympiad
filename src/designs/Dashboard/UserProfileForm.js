@@ -8,10 +8,6 @@ import { AppConstants } from "../../environments/app-constants";
 import { CustomButton } from "../../components/CustomButton"
 export const UserProfileForm = (props) => {
 
-   
-
-   
- 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -138,23 +134,16 @@ export const UserProfileForm = (props) => {
                     />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
-                <Select style={{width:"757px"}} selected={props.pageData.school} onChange={props.selectionChangeHandler}>
+                <Select style={{width:"660px"}} selected={props.pageData.school} onChange={props.selectionChangeHandler}>
                 {props.schoolsList?.map((option) => (
                         <MenuItem key={option.id} value={option.id}>
                             {option.name}
                         </MenuItem>
                     ))
-                }   
-                
-       
-        
-      </Select>
-            </Grid>
-           
-           
-           
-            <CustomButton btnText="Save" className="minWidth240"variant="contained" onClick={props.profileSubmit} style={{ marginRight: 10 }}/>
-
+                }           
+                </Select>
+            </Grid> 
+            <Grid item xs={12} mt={2}  sx={{justifyContent:  'center',alignItems: 'center',display:"flex"}}><CustomButton btnText="Save" className="minWidth240"variant="contained" onClick={props.profileSubmit} style={{ marginRight: 10 }}/></Grid>
         </Grid>
     </>
 }
