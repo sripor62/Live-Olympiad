@@ -13,7 +13,7 @@ export const MobileVerificationLayout = (props) => {
         <Grid item xs={12}>
             <Typography variant='body2' fontSize="14px" fontHeight="medium" color="rgba(131,139,161,1)"><Box mb={3} sx={props.responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{props.mobNum} over WhatsApp</Box></Typography>
         </Grid>
-        <Grid item xs={12} sm={5} lg={12}>
+        <Grid item xs={12} sm={12} lg={12}>
             <Box mb={2} width={1}  >
                 <CustomOtp value={props.otp} handleChange={props.handleChangeOtp} hasErrored={props.hasErrored} errorMsz={props.errorMsz} />
             </Box>
