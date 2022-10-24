@@ -16,7 +16,7 @@ export const UserProfileForm = (props) => {
         <Grid container p={4} alignItems='center' justifyContent='center' >
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
 
-                <Typography variant='h6' fontWeight="bold"><Box>Edit Information</Box></Typography>
+                <Typography variant='h6' fontWeight="bold" ><Box sx={{fontFamily:"Urbanist"}}>Edit Information</Box></Typography>
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
