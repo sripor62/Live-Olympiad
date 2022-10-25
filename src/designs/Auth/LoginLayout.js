@@ -16,6 +16,7 @@ export const LoginLayout = (props) => {
             <Grid item  xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
+                        type="tel"
                         placeholder="Phone Number"
                         variant="filled"
                         endIcon={<img src='./images/flag.png' />}
@@ -30,7 +31,7 @@ export const LoginLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
-                        type="password"
+                       
                         placeholder="Password"
                         variant="filled"
                         required
