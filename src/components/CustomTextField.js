@@ -41,7 +41,7 @@ export const CustomTextField = (props) => {
                 </TextField>
                 : <TextField
 
-                    type={type!=="tel" ? showPassword ? "text" : "password" : "tel"}
+                    type={type!=="tel"&&type!=="date"&&type!=="email" ? showPassword ? "text" : "password" : "tel"}
                     InputProps={{
                         readOnly: readOnlyValue,
                         startAdornment: startIcon && (
@@ -50,7 +50,7 @@ export const CustomTextField = (props) => {
                             </InputAdornment>
                         ),
                         endAdornment: (
-                            type !== "tel" ?
+                            type!=="tel"&&type!=="date"&&type!=="email" ?
                                 <InputAdornment position="end" >
                                     <IconButton
                                         aria-label="toggle password visibility"

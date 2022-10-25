@@ -18,7 +18,7 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
 
                     <CustomTextField
-
+                    type="tel"
                     placeholder="Full Name"
                     variant="filled"
                     value={props.pageData.fullName}
@@ -35,7 +35,7 @@ export const UserProfileForm = (props) => {
                         placeholder="Gender"
                         variant="filled"
                         value={props.pageData.gender}
-                      
+                        type="tel"
                         required
                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
                         error={props.submitFlag && props.getErrorMsz('gender', props.pageData.gender) !== ""}
@@ -50,6 +50,7 @@ export const UserProfileForm = (props) => {
 
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
+                    type="tel"
                     placeholder="Roll No."
                     variant="filled"
                     value={props.pageData.rollNumber}
@@ -64,7 +65,7 @@ export const UserProfileForm = (props) => {
 
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                     <CustomTextField
-
+                    type="tel"
                     placeholder="Class"
                     variant="filled"
                     value={props.pageData.grade}
@@ -77,6 +78,7 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                 <CustomTextField
+                    type="tel"
                     placeholder="Section"
                     variant="filled"
                     value={props.pageData.section}
@@ -120,6 +122,7 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
+                    type="tel"
                     placeholder="School Area Postal Code"
                     variant="filled"
                     value={props.pageData.pinCode}
@@ -134,7 +137,7 @@ export const UserProfileForm = (props) => {
                     />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
-                <Select style={{width:"660px"}} selected={props.pageData.school} onChange={props.selectionChangeHandler}>
+                <Select style={{width:"737px"}} selected={props.pageData.school} onChange={props.selectionChangeHandler}>
                 {props.schoolsList?.map((option) => (
                         <MenuItem key={option.id} value={option.id}>
                             {option.name}
