@@ -35,7 +35,6 @@ export const UserProfileForm = (props) => {
                         placeholder="Gender"
                         variant="filled"
                         value={props.pageData.gender}
-
                         required
                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
                         error={props.submitFlag && props.getErrorMsz('gender', props.pageData.gender) !== ""}
