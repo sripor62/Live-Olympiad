@@ -2,7 +2,7 @@ export const buttonStyle = {
     MuiButtonBase: {
         styleOverrides: {
             root: {
-                borderRadius: "50px !important",
+                borderRadius: "50px",
                 padding: "9px 16px !important",
                 '&.minWidth240': {
                     minWidth: "240px !important",

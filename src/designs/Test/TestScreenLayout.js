@@ -46,7 +46,7 @@ export const TestScreenLayout = () => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <Button endIcon={<Refresh />} variant="contained" sx={{width:'170px',height:'54px',backgroundColor:"#838BA1",color:"white",fontFamily:"Urbanist",borderRadius:"5px"}}>RE-TAKE</Button>
+                                <Button endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{width:'170px',height:'54px',backgroundColor:"(255,255,255,1)",color:"white",fontFamily:"Urbanist",borderRadius:"15px"}}>RE-TAKE</Button>
                             </Grid>
                         </Grid>
                     </Grid>

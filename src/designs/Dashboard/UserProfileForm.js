@@ -92,10 +92,8 @@ export const UserProfileForm = (props) => {
                     type="date"
                     required
                     variant="filled"
-
                     value={props.pageData.dob}
                     onChange={(event) => { props.setPageData({ ...props.pageData, dob: event.target.value }) }}
-
                     error={props.submitFlag && props.getErrorMsz('dob', props.pageData.dob) !== ""}
                     errorMsz={props.getErrorMsz('dob', props.pageData.dob)}
                     inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
@@ -132,7 +130,7 @@ export const UserProfileForm = (props) => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
-                <Select style={{ width: "660px" }} lable="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
+                <Select style={{ width: "660px" }} label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
                     {props.schoolsList?.map((option) => (
                         <MenuItem key={option.id} value={option.id}>
                             {option.name}
@@ -141,7 +139,7 @@ export const UserProfileForm = (props) => {
                     }
                 </Select>
             </Grid>
-            <Grid item xs={12} mt={2} sx={{ justifyContent: 'center', alignItems: 'center', display: "flex" }}><CustomButton btnText="Save" className="minWidth240" variant="contained" onClick={props.profileSubmit} style={{ marginRight: 10 }} /></Grid>
+            <Grid item xs={12} mt={2} sx={{ justifyContent: 'center', alignItems: 'center', display: "flex" }}><CustomButton btnText="Save" className="minWidth240" variant="contained" onClick={props.profileSubmit} style={{ marginRight: 10 }} sx={{borderRadius:"50px"}}/></Grid>
         </Grid >
     </>
 }

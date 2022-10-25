@@ -20,11 +20,11 @@ export const MobileDashboard = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={4} sm={3}>
-                        <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF', width: "104px", height: "34px" }}>Upgrade</Button>
+                        <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF', width: "104px", height: "34px",borderRadius:"50px" }}>Upgrade</Button>
                     </Grid>
                 </Grid>
                 <Grid container mb={4} pl={2} alignItems='center' sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' }, backgroundColor: '#F7F8F9', borderRadius: '20px' }}>
-                    <Grid item xs={7} sm={11} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Grid item xs={7} sm={11} sx={{ display: 'flex', alignItems: 'center',p:"2" }}>
                         <Typography variant='subtitle' sx={{ color: '#4545A5', fontWeight: '600' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                 KNOWLEDGE TREE
@@ -37,7 +37,7 @@ export const MobileDashboard = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={5} sm={1} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                        <Button sx={{ backgroundColor: '#4545A5', color: '#FFFFFF' }}><ArrowForwardIosIcon /></Button>
+                        <Button sx={{ backgroundColor: '#4545A5', color: '#FFFFFF',borderRadius:"50px" }}><ArrowForwardIosIcon /></Button>
                     </Grid>
                 </Grid>
             </Grid>

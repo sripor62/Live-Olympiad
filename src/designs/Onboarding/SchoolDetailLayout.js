@@ -74,7 +74,7 @@ export const SchoolDetailLayout = (props) => {
 
         <Grid item xs={12}>
             <Box mb={16} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
+                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
             </Box>
         </Grid>
         {
