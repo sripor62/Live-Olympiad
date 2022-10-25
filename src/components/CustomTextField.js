@@ -1,17 +1,18 @@
 import { Box, Grid, IconButton, InputAdornment, MenuItem, TextField, Typography } from '@mui/material'
-import React from 'react'
+
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
+import React, {useState} from 'react';
 
 export const CustomTextField = (props) => {
     const { required, type, readOnlyValue, errorMsz, error, startIcon = false, endIcon, inputLabel, select, options, selectDefaultOption } = props;
 
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)
+        console.log("check1",showPassword)
     };
 
     const handleMouseDownPassword = (event) => {
@@ -40,7 +41,7 @@ export const CustomTextField = (props) => {
                 </TextField>
                 : <TextField
 
-                    type={type == "password" ? showPassword ? 'text' : 'password' : type}
+                    type={type!=="tel" ? showPassword ? "text" : "password" : "tel"}
                     InputProps={{
                         readOnly: readOnlyValue,
                         startAdornment: startIcon && (
@@ -49,7 +50,7 @@ export const CustomTextField = (props) => {
                             </InputAdornment>
                         ),
                         endAdornment: (
-                            type == "password" ?
+                            type !== "tel" ?
                                 <InputAdornment position="end" >
                                     <IconButton
                                         aria-label="toggle password visibility"
@@ -57,13 +58,13 @@ export const CustomTextField = (props) => {
                                         onMouseDown={handleMouseDownPassword}
                                         edge="end"
                                     >
-                                        {showPassword ? <img src='./images/Groups.png'/> : <img src='./images/Groups.png' />}
+                                        {showPassword ? <img src='./images/Groups.png'/> : <VisibilityOff/>}
                                     </IconButton>
                                 </InputAdornment>
-                                :
+                                : 
                                 endIcon && <InputAdornment position="start">
                                     {endIcon}
-                                </InputAdornment>
+                                </InputAdornment> 
                         )
                     }}
                     {...props}
