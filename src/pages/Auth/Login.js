@@ -9,7 +9,7 @@ export default function Login() {
     const navigate = useNavigate();
     const setCurrentUser = useStore((state) => state.setCurrentUser);
     const [snakeBarProps, setSnakeBarProps] = useState({});
-
+   
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
 
@@ -17,7 +17,7 @@ export default function Login() {
     const { login } = useAuthHelper();
     const submitHandler = async() => {
        
-
+        
         let res = await login({
             userName: "+91" + pageData.phoneNumber,
             password: pageData.password,
@@ -29,7 +29,7 @@ export default function Login() {
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
             setCurrentUser(res.data?.data);
         
-        window.location.href="/dashboard/"
+            window.location.href="/dashboard/"
         }
         else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         // afterValidate(afterValidateCallBack)
@@ -38,8 +38,12 @@ export default function Login() {
     const afterValidateCallBack = (second) => {
       
     }
-
+    const forgotPage=()=>{
+       
+        window.location.href="/forgotpassword"
+    }
     return <LoginLayout
+    forgotPage={forgotPage}
         responsiveStype={responsiveStype}
         submitFlag={submitFlag}
         getErrorMsz={getErrorMsz}
@@ -49,5 +53,6 @@ export default function Login() {
         submitHandler={submitHandler}
         snakeBarProps={snakeBarProps}
         setSnakeBarProps={setSnakeBarProps}
+        
     />
 }

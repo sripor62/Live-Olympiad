@@ -19,16 +19,20 @@ const SignUp = () => {
             
                 let res = await generateOTP({
                     phoneNumber: "+91" + pageData.phoneNumber,
-                  signUp: true,
+                    signUp: true,
               
                 });
-                if(res.data?.success)
-               navigate("/mobileverification/"+pageData.phoneNumber)
-            };
+                if(res.data?.success){
+                    setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
+                    navigate("/mobileverification/"+pageData.phoneNumber)
+                }else{
+                setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+                }
+                };
                  
-    const afterValidateCallBack = (second) => {
+                const afterValidateCallBack = (second) => {
         
-        setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
+                setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
     }
  
     return (

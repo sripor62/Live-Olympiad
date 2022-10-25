@@ -19,7 +19,7 @@ const navigate=useNavigate();
 const params=useParams();
     const submitHandler = async() => {
 
-if(pageData.password===pageData.confirmpassword)
+if(pageData.password===pageData.confirmpassword && pageData.password.length===6)
 {
     let res = await setPassword(pageData.password, params.token);
     if (res.data?.success) {
