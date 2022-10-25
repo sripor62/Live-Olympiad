@@ -9,14 +9,14 @@ export const UserDetails = (props) => {
                 <Grid container>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <Avatar sx={{ width: '133px', height: '133px' }} />
+                            <Avatar sx={{ width: '133px', height: '133px'}} />
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline' }}>|</Typography>{props.pageData.grade}</Box></Typography>
+                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>|</Typography>{props.pageData.grade}</Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography variant='body2' sx={{ color: '#838BA1' }}><Box>Amity International School, Noida</Box></Typography>
+                        <Typography variant='body2' sx={{ color: '#838BA1' ,fontFamily:"Urbanist"}}><Box>Amity International School, Noida</Box></Typography>
                     </Grid>
                 </Grid>
             </Grid>

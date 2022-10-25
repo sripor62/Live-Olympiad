@@ -69,7 +69,7 @@ export const  SubscriptionSubject=(props)=> {
         
         <Grid container justifyContent="center" alignItems="center">
             <Grid item xs={12} lg={6} sx={{justifyContent:'center',alignItems:'center',display:"flex"}}>
-                <CustomButton btnText="UPGRADE" color="primary" variant="contained" sx={{width:"228px",height:"48px",fontSize:"14px",fontWeight:"700",fontFamily:'Urbanist'}}/>
+                <CustomButton btnText="UPGRADE" color="primary" variant="contained" sx={{width:"228px",height:"48px",fontSize:"14px",fontWeight:"700",fontFamily:'Urbanist',borderRadius:"50px"}}/>
             </Grid>
         </Grid>
         

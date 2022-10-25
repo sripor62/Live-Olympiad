@@ -19,8 +19,8 @@ export const MobileVerificationLayout = (props) => {
             </Box>
         </Grid>
         <Grid item xs={12}>
-            <Box mb={2} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
+            <Box mb={2} mt={2} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
+                <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
             </Box>
         </Grid>
         <Grid item xs={12}>

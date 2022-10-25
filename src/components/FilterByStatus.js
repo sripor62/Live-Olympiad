@@ -4,7 +4,7 @@ import { Button, Grid, Menu, MenuItem } from "@mui/material"
 export const FilterByStatus = (props) => {
     return <Grid container mt={2}>
         <Grid item>
-            <Button id="dropbtn" endIcon={<KeyboardArrowDown />} sx={{ backgroundColor: '#F7F8F9', color: '#6A707C', fontFamily: 'Urbantist', fontWeight: 700 }}
+            <Button id="dropbtn" endIcon={<KeyboardArrowDown />} sx={{ borderRadius:"50px",backgroundColor: '#F7F8F9', color: '#6A707C', fontFamily: 'Urbantist', fontWeight: 700 }}
                 onClick={props.handleClick}
             >Filter by Status
             </Button>
