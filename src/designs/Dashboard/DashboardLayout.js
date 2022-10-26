@@ -20,7 +20,7 @@ export const DashboardLayout = (props) => {
             </Grid>
             {
                 props?.testsLists?.map((option) => {
-                    return <CustomListItem option={option} testScreen={props.testScreen}/>
+                    return <CustomListItem option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
         </Grid>
