@@ -21,6 +21,7 @@ export const UserProfileForm = (props) => {
 
                         placeholder="Full Name"
                         variant="filled"
+                        type="tel"
                         value={props.pageData.fullName}
                         onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
                         required
@@ -33,6 +34,7 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <CustomTextField
                         placeholder="Gender"
+                        type="tel"
                         variant="filled"
                         value={props.pageData.gender}
                         required
@@ -48,6 +50,7 @@ export const UserProfileForm = (props) => {
                 <CustomTextField
                     placeholder="Roll No."
                     variant="filled"
+                    type="tel"
                     value={props.pageData.rollNumber}
                     onChange={(event) => { props.setPageData({ ...props.pageData, rollNumber: event.target.value }) }}
                     required
@@ -62,6 +65,7 @@ export const UserProfileForm = (props) => {
                     <CustomTextField
 
                         placeholder="Class"
+                        type="tel"  
                         variant="filled"
                         value={props.pageData.grade}
                         onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
@@ -74,6 +78,7 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <CustomTextField
                         placeholder="Section"
+                        type="tel"
                         variant="filled"
                         value={props.pageData.section}
                         onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}
@@ -89,7 +94,7 @@ export const UserProfileForm = (props) => {
                 <CustomTextField
                     placeholder="Date of Birth"
                     id="date"
-                    type="date"
+                    type="tel"
                     required
                     variant="filled"
                     value={props.pageData.dob}
@@ -101,7 +106,7 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
-                    type="email"
+                    type="tel"
                     placeholder="Email Address (Optional)"
                     variant="filled"
                     value={props.pageData.email}
@@ -116,6 +121,7 @@ export const UserProfileForm = (props) => {
                 <CustomTextField
                     placeholder="School Area Postal Code"
                     variant="filled"
+                    type="tel"
                     value={props.pageData.pinCode}
                     onChange={(event) => {
                         props.setPageData({ ...props.pageData, pinCode: event.target.value });

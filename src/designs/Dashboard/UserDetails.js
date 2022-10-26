@@ -13,7 +13,7 @@ export const UserDetails = (props) => {
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>|</Typography>{props.pageData.grade}</Box></Typography>
+                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>| </Typography>{props.pageData.grade}</Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Typography variant='body2' sx={{ color: '#838BA1' ,fontFamily:"Urbanist"}}><Box>Amity International School, Noida</Box></Typography>
