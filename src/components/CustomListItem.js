@@ -13,9 +13,9 @@ export const CustomListItem = (props) => {
                 <Typography variant='body2'><Box mb={1} sx={{fontFamily:'Urbantist',fontWeight:500,color:'rgba(106,112,124,1)'}}>Practice Test</Box></Typography>
             </Grid>
             <Grid item xs={8} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-
-            <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}></Box><Box sx={{ mt: 4 ,mr:4}}>/{props.option.totalMarks}</Box></Typography>
+         <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}></Box><Box sx={{ mt: 4 ,mr:4}}>/{props.option.totalMarks}</Box></Typography>
                 <CustomButton onClick={props.testScreen} btnText="RE-TAKE" endIcon={<RefreshIcon/>} variant="contained"  sx={{width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#838BA1" ,fontWeight:600}}/>
+
 
             </Grid>
         </Grid>
