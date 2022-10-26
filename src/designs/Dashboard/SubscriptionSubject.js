@@ -11,12 +11,12 @@ export const  SubscriptionSubject=(props)=> {
                 <Box mb={2}  sx={{textAlign:"center"}}>You are Currently on 1 Subject Subscription, upgrade license to avail more benefits!</Box>
             </Typography>
         </Grid>
-        <Grid container  style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
+        <Grid container  style={{ backgroundColor: 'rgba(255,252,237,1)', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{fontSize:{xs:"14px",lg:"16px"},fontFamily:"Urbanist"}}>Any Two Subjects</Box></Typography>
                     </Grid>
                     <Grid item  xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"700",display:{xs:"center",sm:"center",lg:"left"}}}>₹550</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"400",display:{xs:"center",sm:"center",lg:"left"}}}>₹550</Box></Typography>
                         <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{fontFamily:'Urbanist',fontWeight:"700",color:'rgba(131,139,161,1)'}}>for Year</Box></Typography>
                     </Grid>
                     <Grid item xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -29,12 +29,12 @@ export const  SubscriptionSubject=(props)=> {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid container style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
+                <Grid container style={{ backgroundColor: 'rgba(255,252,237,1)', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{fontSize:{xs:"14px",lg:"16px"},fontFamily:"Urbanist"}}>All Three Subjects</Box></Typography>
                     </Grid>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"700"}}>₹800</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"400"}}>₹800</Box></Typography>
                         <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{fontFamily:'Urbanist',fontWeight:"700",color:'rgba(131,139,161,1)'}}>for Year</Box></Typography>
                     </Grid>
                     <Grid item xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -48,12 +48,12 @@ export const  SubscriptionSubject=(props)=> {
                     </Grid>
                 </Grid>
     
-                <Grid container  style={{ borderRadius: '20px', padding: ' 20px 25px', marginBottom: '10px',border: '3px solid #FCBD42' }}>
+                <Grid container  style={{ borderRadius: '20px', padding: ' 20px 25px', marginBottom: '10px',border: '3px solid rgba(222,221,210,1)' }}>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{fontSize:{xs:"14px",lg:"16px"},fontFamily:"Urbanist"}}>All Three Subjects</Box></Typography>
                     </Grid>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"bold"}}>₹800</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} sx={{fontSize:{xs:"14px",lg:'20px'},fontFamily:'Urbanist',fontWeight:"400"}}>₹800</Box></Typography>
                         <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{fontFamily:'Urbanist',fontWeight:"700",color:'rgba(131,139,161,1)'}}>for Year</Box></Typography>
                     </Grid>
                     <Grid item xs={10} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
