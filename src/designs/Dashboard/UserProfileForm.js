@@ -19,16 +19,18 @@ export const UserProfileForm = (props) => {
 
                     <CustomTextField
 
-                        placeholder="Full Name"
-                        variant="filled"
-                        type="tel"
-                        value={props.pageData.fullName}
-                        onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
-                        required
-                        error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
-                        errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
-                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                    type="tel"
+                    placeholder="Full Name"
+                    variant="filled"
+                    value={props.pageData.fullName}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
+                    errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
+                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
 
+
+                       
                     />
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
@@ -37,6 +39,9 @@ export const UserProfileForm = (props) => {
                         type="tel"
                         variant="filled"
                         value={props.pageData.gender}
+
+                        type="tel"
+
                         required
                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
                         error={props.submitFlag && props.getErrorMsz('gender', props.pageData.gender) !== ""}
@@ -48,6 +53,7 @@ export const UserProfileForm = (props) => {
 
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
+                    type="tel"
                     placeholder="Roll No."
                     variant="filled"
                     type="tel"
@@ -64,30 +70,31 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                     <CustomTextField
 
-                        placeholder="Class"
-                        type="tel"  
-                        variant="filled"
-                        value={props.pageData.grade}
-                        onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
-                        required
-                        error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.grade) !== ""}
-                        errorMsz={props.getErrorMsz('student_section', props.pageData.grade)}
-                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                    type="tel"
+                    placeholder="Class"
+                    variant="filled"
+                    value={props.pageData.grade}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.grade) !== ""}
+                    errorMsz={props.getErrorMsz('student_section', props.pageData.grade)}
+                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
                     />
-                </Grid>
-                <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
-                    <CustomTextField
-                        placeholder="Section"
-                        type="tel"
-                        variant="filled"
-                        value={props.pageData.section}
-                        onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}
-                        required
-                        error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.section) !== ""}
-                        errorMsz={props.getErrorMsz('student_section', props.pageData.section)}
-                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
-                    />
-                </Grid>
+            </Grid>
+            <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
+                <CustomTextField
+                    type="tel"
+                    placeholder="Section"
+                    variant="filled"
+                    value={props.pageData.section}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.section) !== ""}
+                    errorMsz={props.getErrorMsz('student_section', props.pageData.section)}
+                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontSize:'16px',fontWeight:600}}}
+                />
+            </Grid>
+
 
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
@@ -119,6 +126,7 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
+                    type="tel"
                     placeholder="School Area Postal Code"
                     variant="filled"
                     type="tel"
@@ -136,8 +144,10 @@ export const UserProfileForm = (props) => {
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
+
                 <Select style={{ width: "660px" }} label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
                     {props.schoolsList?.map((option) => (
+
                         <MenuItem key={option.id} value={option.id}>
                             {option.name}
                         </MenuItem>
