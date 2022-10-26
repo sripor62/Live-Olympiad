@@ -30,7 +30,7 @@ const SignUp = () => {
                 }
                 };
                  
-                const afterValidateCallBack = (second) => {
+                 const afterValidateCallBack = (second) => {
         
                 setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
     }
