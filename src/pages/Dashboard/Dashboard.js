@@ -34,8 +34,7 @@ const Dashboard = () => {
         
     },[testList])
     const testScreen=(item)=>{
-        
-    window.location.href="/TestScreen"
+        navigate("/TestScreen/"+item)
     }
     return <HomeLayout>
        <DashboardLayout
