@@ -23,7 +23,23 @@ const MobileVerification = (props) => {
     const handleChangeOtp = (value) => {
         setOtp(value)
     }
-
+    const submitOtpAgain = async() => {
+            
+            
+        let res = await generateOTP({
+            phoneNumber: "+91" + params.phoneNumber,
+            signUp: false,
+      
+        });
+        if(res.data?.success){
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
+            navigate("/mobileverification/"+params.phoneNumber)
+        }else{
+        setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        }
+        };
+         
+        
     const submitHandler = async () => {
         setsubmitFlag(true);
         setHasErrored(otp == undefined ? true : otp.length == 6 ? false : true);
@@ -65,6 +81,7 @@ const MobileVerification = (props) => {
             snakeBarProps={snakeBarProps}
             setSnakeBarProps={setSnakeBarProps}
             submitHandler={submitHandler}
+            submitOtpAgain={submitOtpAgain}
         />
     </AuthLayout>
 };

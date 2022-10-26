@@ -5,7 +5,7 @@ import Header from "../Dashboard/Header"
 import AccessAlarmsOutlinedIcon from '@mui/icons-material/AccessAlarmsOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 
-export const TestScreenLayout = () => {
+export const TestScreenLayout = (props) => {
     return <Grid container>
         <Grid item xs={12} mb={2}>
             <Header />
@@ -22,7 +22,7 @@ export const TestScreenLayout = () => {
                 <Grid item xs={12}>
                     <Grid container item xs={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '20px', marginBottom: '20px' }}>
                         <Grid item xs={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                            <Typography variant='h4'><Box sx={{fontFamily:'Urbanist',fontWeight:'bold',fontSize:"36px"}} mb={1}>Test Name</Box></Typography>
+                            <Typography variant='h4'><Box sx={{fontFamily:'Urbanist',fontWeight:'bold',fontSize:"36px"}} mb={1}>{props.pageData?.packageName}</Box></Typography>
                             <Typography variant='subtitle2'><Box sx={{fontFamily:'Urbanist',fontWeight:'medium',fontSize:'20px'}} mb={1}>Practice Test</Box></Typography>
                         </Grid>
                         <Grid item xs={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
