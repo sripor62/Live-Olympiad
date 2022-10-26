@@ -20,7 +20,7 @@ export const MobileUpgrade = (props) => {
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={12} mt={1} sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF', width: "104px", height: "34px" }}>Upgrade</Button>
+                    <Button endIcon={<KeyboardArrowDownIcon />} sx={{ backgroundColor: '#FCBD42', color: '#FFFFFF', width: "104px", height: "34px",borderRadius:"50px" }}>Upgrade</Button>
                 </Grid>
             </Grid>
         </Grid>

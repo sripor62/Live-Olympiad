@@ -31,7 +31,7 @@ export const SignUpLayout = (props) => {
             </Grid>
             <Grid  item xs={12}>
                 <Box mb={15} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                    <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
+                    <CustomButton btnText="Sign Up" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
                 </Box>
             </Grid>
         </Grid>

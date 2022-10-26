@@ -41,7 +41,7 @@ export const NewPasswordLayout = (props) => {
             </Box>
         </Grid>
         <Grid item xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-            <CustomButton  btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} />
+            <CustomButton  btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
         </Grid>
         </Grid>
         {

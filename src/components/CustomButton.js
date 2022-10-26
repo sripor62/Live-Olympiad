@@ -4,7 +4,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
 
 export const CustomButton = (props) => {
-    const { btnText, btnHandler, startIcon, endIcon, upload, loading, onUpload, multiple, btnClass } = props
+    const { btnText, btnHandler, startIcon, endIcon, upload, loading, onUpload, multiple, btnClass,...otherProps } = props
     return <>
         {
             upload ?
@@ -16,7 +16,7 @@ export const CustomButton = (props) => {
                         endIcon={endIcon && endIcon}
                         style={btnClass}
                         component="span"
-                        {...props}
+                        {...otherProps}
                     >
                         {btnText}
 
@@ -24,7 +24,7 @@ export const CustomButton = (props) => {
                 </label>
                 : loading ?
                     <LoadingButton
-                        {...props}
+                        {...otherProps}
                         startIcon={startIcon && startIcon}
                         endIcon={endIcon && endIcon}
                         style={btnClass}
@@ -33,7 +33,7 @@ export const CustomButton = (props) => {
                         Save
                     </LoadingButton>
                     : <Button
-                        {...props}
+                        {...otherProps}
                         startIcon={startIcon && startIcon}
                         endIcon={endIcon && endIcon}
                         style={btnClass}

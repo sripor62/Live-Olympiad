@@ -22,6 +22,8 @@ export const KnowledgeTree = () => {
             height='48px' 
             buttonColor="primary"
             color='#FFFFFF'
+            borderRadius="50px"
+
         />
         </Grid>
     </Grid>

@@ -6,6 +6,7 @@ import { KnowledgeTree } from './KnowledgeTreeBox'
 import { ChoosePlanLayout } from '../Onboarding/ChoosePlanLayout'
 import { Typography ,Box} from "@mui/material"
 import { SubscriptionSubject } from './SubscriptionSubject'
+import { PastOrder } from '../../components/PastOrder'
 export default function SubscriptionLayout(props) {
 
     return <Grid container>
@@ -18,6 +19,7 @@ export default function SubscriptionLayout(props) {
         <Grid item xs={12} sm={12} md={10} lg={5} p={4}>
             < SubscriptionSubject />
         </Grid>
+
         <Grid item xs={12} sm={12} md={10} lg={4} mt={3} p={2}>
             <Typography variant="body1" fontSize="20px" fontWeight={600} ml={2} fontFamily="Urbanist">Past order details </Typography>
             {props.paymentInfo?.map((item)=> {return(

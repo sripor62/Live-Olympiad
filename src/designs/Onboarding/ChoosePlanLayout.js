@@ -67,7 +67,7 @@ export const ChoosePlanLayout = (props) => {
         
         <Grid container xs={12} justifyContent="center" alignItems="center">
             <Grid xs={12} lg={6} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" />
+                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" sx={{borderRadius:"50px"}}/>
             </Grid>
             <Grid xs={5} sx={{ mt:{xs:1,lg:0},ml:3 }}>
                 <Typography variant='body2' ><Box sx={{fontFamily:'Urbanist',fontSize:'16px'}}><Link href="#" underline="none" fontWeight="bold">Skip</Link> for now</Box></Typography>
