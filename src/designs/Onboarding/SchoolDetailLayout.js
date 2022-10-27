@@ -8,6 +8,11 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 
 export const SchoolDetailLayout = (props) => {
+    const [classes, setClasses] = React.useState('');
+
+    const handleChange = (event) => {
+        setClasses(event.target.value);
+    };
     return <Grid container>
         <Grid item xs={12} >
             <Typography variant='h3' sx={{ fontSize: { xs: "32px", lg: "40px" } }}><Box mb={3} mt={5} fontWeight="bold" sx={props.responsiveStype.School.Typo}>School Details</Box></Typography>
@@ -34,14 +39,10 @@ export const SchoolDetailLayout = (props) => {
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                        {props.schoolsList?.map((option) => (
-
-                            <MenuItem key={option.id} value={option.id}>
-                                {option.name}
-                            </MenuItem>
-                        ))
-                        }
+                    <Select label="School"  value={classes} onChange={handleChange}>
+                        <MenuItem value={10}>Convent School</MenuItem>
+                        <MenuItem value={20}>MPS</MenuItem>
+                        <MenuItem value={30}>KVS</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
@@ -51,10 +52,10 @@ export const SchoolDetailLayout = (props) => {
                 <Box mb={2} width={1}>
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
-                        <Select label="Class">
-                            <MenuItem>10th</MenuItem>
-                            <MenuItem>11th</MenuItem>
-                            <MenuItem>12th</MenuItem>
+                        <Select label="Class" value={classes} onChange={handleChange}>
+                            <MenuItem value={10}>10th</MenuItem>
+                            <MenuItem value={20}>11th</MenuItem>
+                            <MenuItem value={30}>12th</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
@@ -63,10 +64,10 @@ export const SchoolDetailLayout = (props) => {
                 <Box mb={3} width={1}>
                     <FormControl fullWidth>
                         <InputLabel>Section</InputLabel>
-                        <Select label="Section">
-                            <MenuItem>A</MenuItem>
-                            <MenuItem>B</MenuItem>
-                            <MenuItem>C</MenuItem>
+                        <Select label="Section" value={classes} onChange={handleChange}>
+                            <MenuItem value={10}>A</MenuItem>
+                            <MenuItem value={20}>B</MenuItem>
+                            <MenuItem value={30}>C</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
