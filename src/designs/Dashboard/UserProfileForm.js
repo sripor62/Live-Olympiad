@@ -43,7 +43,10 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <FormControl fullWidth>
                         <InputLabel>Gender</InputLabel>
-                        <Select label="Gender"  value={classes} onChange={handleChange}>
+                        <Select label="Gender" 
+                         value={classes} 
+                         onChange={handleChange}
+                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
                             <MenuItem value={10}>F</MenuItem>
                             <MenuItem value={20}>M</MenuItem>
                     </Select>
@@ -69,7 +72,10 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
-                        <Select label="Class" value={classes} onChange={handleChange}>
+                        <Select label="Class" 
+                        value={classes} 
+                        onChange={handleChange}
+                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
                             <MenuItem value={10}>10th</MenuItem>
                             <MenuItem value={20}>11th</MenuItem>
                             <MenuItem value={30}>12th</MenuItem>
@@ -79,7 +85,10 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <FormControl fullWidth>
                         <InputLabel>Section</InputLabel>
-                        <Select label="Section" value={classes} onChange={handleChange}>
+                        <Select label="Section"
+                         value={classes} 
+                         onChange={handleChange}
+                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
                             <MenuItem value={10}>A</MenuItem>
                             <MenuItem value={20}>B</MenuItem>
                             <MenuItem value={30}>C</MenuItem>
@@ -105,7 +114,7 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
-                    type="tel"
+                    type="email"
                     placeholder="Email Address (Optional)"
                     variant="filled"
                     value={props.pageData.email}
