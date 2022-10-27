@@ -13,6 +13,11 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 
 export const UserProfileForm = (props) => {
+    const [classes, setClasses] = React.useState('');
+
+    const handleChange = (event) => {
+        setClasses(event.target.value);
+    };
 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
@@ -24,7 +29,6 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
 
                     <CustomTextField
-
                         type="tel"
                         placeholder="Full Name"
                         variant="filled"
@@ -34,23 +38,15 @@ export const UserProfileForm = (props) => {
                         error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
                         errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
-
-
-
                     />
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <FormControl fullWidth>
-                        <InputLabel>School</InputLabel>
-                        <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                            {props.schoolsList?.map((option) => (
-
-                                <MenuItem key={option.id} value={option.id}>
-                                    {option.name}
-                                </MenuItem>
-                            ))
-                            }
-                        </Select>
+                        <InputLabel>Gender</InputLabel>
+                        <Select label="Gender"  value={classes} onChange={handleChange}>
+                            <MenuItem value={10}>F</MenuItem>
+                            <MenuItem value={20}>M</MenuItem>
+                    </Select>
                     </FormControl>
                 </Grid>
             </Grid>
@@ -73,28 +69,20 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
-                        <Select label="Class" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                            {props.schoolsList?.map((option) => (
-
-                                <MenuItem key={option.id} value={option.id}>
-                                    {option.name}
-                                </MenuItem>
-                            ))
-                            }
+                        <Select label="Class" value={classes} onChange={handleChange}>
+                            <MenuItem value={10}>10th</MenuItem>
+                            <MenuItem value={20}>11th</MenuItem>
+                            <MenuItem value={30}>12th</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <FormControl fullWidth>
                         <InputLabel>Section</InputLabel>
-                        <Select label="Section" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                            {props.schoolsList?.map((option) => (
-
-                                <MenuItem key={option.id} value={option.id}>
-                                    {option.name}
-                                </MenuItem>
-                            ))
-                            }
+                        <Select label="Section" value={classes} onChange={handleChange}>
+                            <MenuItem value={10}>A</MenuItem>
+                            <MenuItem value={20}>B</MenuItem>
+                            <MenuItem value={30}>C</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
