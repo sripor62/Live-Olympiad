@@ -5,14 +5,19 @@ import {useQuery} from 'react-query'
 import { DashboardLayout } from '../../designs/Dashboard/DashboardLayout';
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 import useTests from '../../hooks/useTests';
+import TestScreen from '../Test/TestScreen'
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     
     useEffect(() => {
         navigateAsPerSessionValidity(true);
       });
-    const [drawerFlag, setDrawerFlag] = useState(false);
+      const navigate=useNavigate();
+   
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [testsLists,setTestsList]=useState([])
+    
+    const [flagShow,setFlagShow]=useState(false)
     const {getTestList}=useTests();
     const open = Boolean(anchorEl);
 
@@ -28,16 +33,21 @@ const Dashboard = () => {
         setTestsList(testList?.data);
         
     },[testList])
+    const testScreen=(item)=>{
+        navigate("/TestScreen/"+item)
+    }
     return <HomeLayout>
-        <DashboardLayout
+       <DashboardLayout
             open={open}
             anchorEl={anchorEl}
             handleClick={handleClick}
             handleClose={handleClose}
             testsLists={testsLists}
             setTestsList={setTestsList}
+            testScreen={testScreen}
         />
     </HomeLayout>
+
 }
 
 export default Dashboard

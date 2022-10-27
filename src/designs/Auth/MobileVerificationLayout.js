@@ -27,7 +27,7 @@ export const MobileVerificationLayout = (props) => {
             <Typography variant='body2' fontWeight='bold' fontSize='12px'><Box mb={8} sx={props.responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
         </Grid>
         <Grid item xs={12}>
-            <Typography variant='body2'  fontWeight='medium'><Box mb={3} mt={15} sx={props.responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" style={{textDecoration:"none" ,fontWeight:"bold"}} fontWeight="bold">Resend</Link></Box></Typography>
+            <Typography variant='body2'  fontWeight='medium'><Box mb={3} mt={15} sx={props.responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" onClick={props.submitOtpAgain} style={{textDecoration:"none" ,fontWeight:"bold"}} fontWeight="bold">Resend</Link></Box></Typography>
         </Grid>
         {
             Object.keys(props.snakeBarProps).length > 0 &&

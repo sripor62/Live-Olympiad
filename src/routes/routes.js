@@ -86,7 +86,7 @@ export const routes = [
     path: "/ReportLayout",
     element: <ReportLayout />},  
   {
-    path: "/TestScreen",
+    path: "/TestScreen/:packageId",
     element: <TestScreen />,
   },
 ];
