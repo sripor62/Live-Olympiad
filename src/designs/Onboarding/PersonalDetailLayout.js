@@ -2,6 +2,8 @@ import { Box, Grid, MenuItem, Select, Typography } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 export const PersonalDetailLayout = (props) => {
     return <>
@@ -16,7 +18,7 @@ export const PersonalDetailLayout = (props) => {
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
                     <CustomTextField
-                        type="text"
+                        type="tel"
                         placeholder="Full Name"
                         variant="filled"
                         required
@@ -28,19 +30,13 @@ export const PersonalDetailLayout = (props) => {
             </Grid>
             <Grid item xs={4}>
                 <Box mb={3} width={1}>
-                    <CustomTextField
-                        placeholder="Gender"
-                        variant="filled"
-                        required
-                        onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
-                        error={props.submitFlag && props.getErrorMsz('gender', props.pageData.gender) != ""}
-                        errorMsz={props.getErrorMsz('gender', props.pageData.gender)}
-                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}>
-                        <Select>
+                    <FormControl fullWidth>
+                    <InputLabel>Gender</InputLabel>
+                    <Select label="School">
                             <MenuItem>F</MenuItem>
                             <MenuItem>M</MenuItem>
-                        </Select>
-                    </CustomTextField>
+                    </Select>
+                </FormControl>
                 </Box>
             </Grid>
         </Grid>
@@ -50,6 +46,7 @@ export const PersonalDetailLayout = (props) => {
                     placeholder="RollNo"
                     variant="filled"
                     required
+                    type="tel"
                     onChange={(event) => { props.setPageData({ ...props.pageData, rollno: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('rollno', props.pageData.rollno) != ""}
                     errorMsz={props.getErrorMsz('rollno', props.pageData.rollno)} 

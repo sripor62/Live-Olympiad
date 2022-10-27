@@ -6,10 +6,9 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 export const ScheduleLayout = () => {
     return <Box p={3}>
-        <Grid container>
-            <Grid container xs={12} sm={12} md={12} lg={12} p={1}>
-                <Grid container xs={12} sm={12} md={7} lg={7} p={1}>
-                    <Grid xs={12} sm={12} md={12} lg={12} mb={3}>
+            <Grid container p={1}>
+                <Grid item  xs={12} sm={12} md={7} lg={7} p={1}>
+                    <Grid container mb={3}>
                         <Stack direction="row" spacing={2}>
                             <Chip label="All" variant="outlined" sx={{ backgroundColor: '#F9BB47', color: '#ffffff', border: '2px solid #F9BB47' }} />
                             <Chip label="Mock Tests" variant="outlined" sx={{ color: '#F9BB47', border: '2px solid #F9BB47' }} />
@@ -17,20 +16,20 @@ export const ScheduleLayout = () => {
                         </Stack>
                     </Grid>
                     <Chip label="Maths" className='brb_0' sx={{ backgroundColor: '#4545A5', color: '#ffffff', display:{xs:'block', sm:'block', md:'none', lg:'none'}}}/>
-                    <Grid xs={12} sm={12} md={12} lg={12} mb={2}>                                
+                    <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>                                
                         <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                             <Grid container p={3}>
-                                <Grid container xs={12} sm={12} md={12} lg={12} mb={2}>
-                                    <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Mock Test</Box></Typography></Grid>
-                                    <Grid xs={4} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+                                <Grid container mb={2}>
+                                    <Grid item xs={6} sm={9} md={3} lg={2.3}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold',fontSize:"24px",width:"111px"}}>Mock Test</Box></Typography></Grid>
+                                    <Grid item xs={4} sm={2} md={4} lg={2} sx={{display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                         <Stack direction="row">
-                                            <Chip label="Mathematics" variant="filled" sx={{ color: 'white', backgroundColor: "#4545A5" }} />
+                                            <Chip label="Mathematics" variant="filled" sx={{ color: 'white', backgroundColor: "#4545A5" ,fontWeight:"bold"}} />
                                         </Stack>
                                     </Grid>
-                                    <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
+                                    <Grid item  xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                 </Grid>
-                                <Grid xs={12}>
-                                    <Typography variant='body2' color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
+                                <Grid item xs={12}>
+                                    <Typography variant='body2' color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
                                 </Grid>
                             </Grid>
                         </Box>
@@ -40,16 +39,16 @@ export const ScheduleLayout = () => {
                         <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                             <Grid container p={3}>
                                 <Grid container xs={12} sm={12} md={12} lg={12} mb={2} >
-                                    <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Olympiad</Box></Typography></Grid>
+                                    <Grid xs={6} sm={9} md={3} lg={2.3}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold',fontSize:"24px"}}>Olympiad</Box></Typography></Grid>
                                     <Grid xs={12} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                         <Stack direction="row">
-                                            <Chip label="Science" variant="filled" sx={{ color: 'white', backgroundColor: "#42BBEF" }} />
+                                            <Chip label="Science" variant="filled" sx={{ color: 'white', backgroundColor: "#42BBEF" ,fontWeight:"bold" }} />
                                         </Stack>
                                     </Grid>
-                                    <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
+                                    <Grid xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                 </Grid>
                                 <Grid xs={12}>
-                                    <Typography variant='body2'  color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
+                                    <Typography variant='body2'  color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
                                 </Grid>
                             </Grid>
                         </Box>
@@ -59,16 +58,16 @@ export const ScheduleLayout = () => {
                         <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '0 15px 15px 15px' }}>
                             <Grid container p={3}>
                                 <Grid container xs={12} sm={12} md={12} lg={12} mb={2} >
-                                    <Grid xs={6} sm={9} md={3} lg={2}><Typography variant='subtitle2'><Box sx={{fontFamily:'Urbantist',fontWeight:'bold'}}>Olympiad</Box></Typography></Grid>
-                                    <Grid xs={4} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+                                    <Grid item xs={6} sm={9} md={3} lg={2.3}><Typography variant='subtitle2'><Box sx={{width:"107px", fontFamily:'Urbantist',fontWeight:'bold',fontSize:"24px"}}>Olympiad</Box></Typography></Grid>
+                                    <Grid item  xs={4} sm={2} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                                         <Stack direction="row">
-                                            <Chip label="English" variant="filled" sx={{ color: 'white', backgroundColor: "#EF4255" }} />
+                                            <Chip label="English" variant="filled" sx={{ color: 'white', backgroundColor: "#EF4255"  ,fontWeight:"bold"}} />
                                         </Stack>
                                     </Grid>
-                                    <Grid xs={8} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>To be Scheduled</Box></Typography></Grid>
+                                    <Grid item  xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>To be Scheduled</Box></Typography></Grid>
                                 </Grid>
-                                <Grid xs={12}>
-                                    <Typography variant='body2'  color="#838BA1"><Box>Venue : School Auditorium</Box></Typography>
+                                <Grid item xs={12}>
+                                    <Typography variant='body2'  color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
                                 </Grid>
                             </Grid>
                         </Box>
@@ -94,6 +93,5 @@ export const ScheduleLayout = () => {
                     </Box>
                 </Grid>
             </Grid>
-        </Grid>
     </Box>
 }

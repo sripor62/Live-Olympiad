@@ -39,14 +39,14 @@ export const TestScreenLayout = (props) => {
                             </Grid>
                             <Grid item xs={12} lg={1.5}>
                                 <Typography variant='Subtitle2' align='center'>
-                                    <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2,fontSize:'14px',fontFamily:'Urbanist' ,fontWeight:600,alignItems:'center' }}><AccessAlarmsOutlinedIcon />Time Limit</Box>
+                                    <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 1,fontSize:'14px',fontFamily:'Urbanist' ,fontWeight:600,alignItems:'center' }}><AccessAlarmsOutlinedIcon />Time Limit</Box>
                                 </Typography>
                                 <Typography variant='Subtitle2' align='center'>
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>30 Min</Box>
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <Button endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{width:'170px',height:'54px',backgroundColor:"(255,255,255,1)",color:"white",fontFamily:"Urbanist",borderRadius:"15px"}}>RE-TAKE</Button>
+                                <Button endIcon={<Refresh />} variant="contained"  sx={{width:'170px',height:'54px',backgroundColor:"(255,255,255,1)",color:"white",fontFamily:"Urbanist",borderRadius:"15px"}}>RE-TAKE</Button>
                             </Grid>
                         </Grid>
                     </Grid>
