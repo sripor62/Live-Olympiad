@@ -11,4 +11,7 @@ export class Endpoints {
   static SCHOOL_PINCODE="/school/pincode"
   static PAYMENT_INFO="/payments";
   static SUBSCRIPTION_INFO="/subscriptions";
+  static ORDER = "/order";
+  static PAYMENT_KEY = "/paymentkey"
+  static COURSES = "/courses";
 }

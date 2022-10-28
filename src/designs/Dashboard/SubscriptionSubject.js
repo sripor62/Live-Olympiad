@@ -1,14 +1,17 @@
 import React from 'react'
-import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
+import { Button, Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { CustomButton } from '../../components/CustomButton';
 import { responsiveStype } from '../../beautifiers/responsive';
 
-export const  SubscriptionSubject=(props)=> {
+export const SubscriptionSubject = ({ subscriptionList,
+    loadRazorpay,
+    subjectList,
+    setSubjects }) => {
     return <Grid container style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
         <Grid item xs={12}>
             <Typography variant='body2' sx={{fontSize:"16px",fontWeight:500,fontFamily:"Urbanist"}}>
-                <Box mb={2}  sx={{textAlign:"center"}}>You are Currently on 1 Subject Subscription, upgrade license to avail more benefits!</Box>
+                <Box mb={2}  sx={{textAlign:"center"}}>You are Currently on {subscriptionList?subscriptionList.subscribedCourses.length:0} Subject{subscriptionList?subscriptionList.length>1?"s":"":""} Subscription, upgrade license to avail more benefits!</Box>
             </Typography>
         </Grid>
         <Grid container  style={{ backgroundColor: 'rgba(255,252,237,1)', borderRadius: '20px', padding: '20px', marginBottom: '10px' }}>
@@ -22,9 +25,9 @@ export const  SubscriptionSubject=(props)=> {
                     <Grid item xs={12} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Box p={1}>
                             <Stack direction="row" spacing={2}>
-                                <Chip label="Mathematics" sx={{fontSize:'12px', color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1',fontSize:'12px' ,fontFamily:"Urbanist" ,fontWeight:600}}/>
-                                <Chip label="English" variant="outlined" sx={{fontSize:'12px',fontFamily:"Urbanist", color: '#838BA1', border: '3px solid #838BA1',fontWeight:600}}/>
-                                <Chip label="Science" variant="outlined" sx={{fontSize:'12px',fontFamily:"Urbanist", color: '#838BA1', border: '3px solid #838BA1',fontWeight:600}} />
+                                {subjectList && subjectList.map((subject) => {
+                                    return (<Chip label={subject.name} sx={{fontSize:'12px', color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1',fontSize:'12px' ,fontFamily:"Urbanist" ,fontWeight:600}}/>)
+                                })}
                             </Stack>
                         </Box>
                     </Grid>
