@@ -10,8 +10,8 @@ const Subscription = () => {
 
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
-  const [subjects, setSubjects] = useState();
   const [subjectList,setSubjectList] = useState();
+
 
   const {
     getUserPaymentInfo,
@@ -33,10 +33,10 @@ const Subscription = () => {
     };
     script.onload = async () => {
       try {
-        let order = subjects.length * 300 - (subjects.length - 1) * 50;
+        let order = subjectList.length * 300 - (subjectList.length - 1) * 50;
         const result = await createOrder({
           amount: order * 100,
-          courseIds: subjects.map((crs) => crs.id),
+          courseIds: subjectList.map((crs) => crs.id),
         });
         const { amount, orderId, currency } = result.data.data;
         const { data } = await getPaymentKey();
@@ -62,7 +62,6 @@ const Subscription = () => {
             color: "#03b2cb",
           },
         };
-
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
       } catch (err) {
@@ -106,7 +105,6 @@ const Subscription = () => {
       paymentInfo={paymentInfo}
       subscriptionList={subscriptionList}
       loadRazorpay={loadRazorpay}
-      setSubjects={setSubjects}
       subjectList={subjectList}
     />
   );
