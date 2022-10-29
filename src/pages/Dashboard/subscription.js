@@ -10,7 +10,9 @@ const Subscription = () => {
 
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
-  const [subjectList,setSubjectList] = useState();
+  const [subjectList, setSubjectList] = useState();
+  const [subjectMode, setSubjectMode] = useState();
+  const [subjects, setSubjects] = useState([]);
 
 
   const {
@@ -25,7 +27,42 @@ const Subscription = () => {
     navigateAsPerSessionValidity(true);
   });
 
+  const handleModeChange = (mode) => {
+    if (mode != subjectMode) {
+      setSubjectMode(mode);
+      if (mode == 3) {
+        setSubjects(subjectList.map((subject) => subject.id))
+      } else {
+        setSubjects([])
+      }
+
+    }
+  }
+
+  const handleSubjectSelect = (subjectId) => {
+    if(subscriptionList?.subscribedCourses.includes(subjectId)){
+      return;
+    }
+    if (subjects.includes(subjectId)) {
+      setSubjects(subjects.filter((subject) => subject !== subjectId));
+    } else {
+      if (subjectMode == 1) {
+        setSubjects([subjectId])
+      } else if (subjectMode == 2) {
+        if (subjects.length < 2) {
+          setSubjects([...subjects, subjectId])
+        }
+      }
+    }
+  }
+
   function loadRazorpay() {
+    if (
+      !((subjectMode == 3 && subjects.length == 3) ||
+        (subjectMode == 2 && subjects.length == 2) ||
+        (subjectMode == 1 && subjects.length == 1))) {
+      return;
+    }
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
     script.onerror = () => {
@@ -33,10 +70,10 @@ const Subscription = () => {
     };
     script.onload = async () => {
       try {
-        let order = subjectList.length * 300 - (subjectList.length - 1) * 50;
+        let order = subjects.length * 300 - (subjects.length - 1) * 50;
         const result = await createOrder({
           amount: order * 100,
-          courseIds: subjectList.map((crs) => crs.id),
+          courseIds: subjects.map((crs) => crs.id),
         });
         const { amount, orderId, currency } = result.data.data;
         const { data } = await getPaymentKey();
@@ -89,7 +126,7 @@ const Subscription = () => {
 
   useEffect(() => {
     console.log(PaymentData?.data?.data);
-    setPaymentInfo(PaymentData?.data?.data);
+    setPaymentInfo(PaymentData?.data?.data.filter((item) => item.status !== "created"));
   }, [PaymentData]);
 
   useEffect(() => {
@@ -106,6 +143,10 @@ const Subscription = () => {
       subscriptionList={subscriptionList}
       loadRazorpay={loadRazorpay}
       subjectList={subjectList}
+      handleModeChange={handleModeChange}
+      subjectMode={subjectMode}
+      subjects={subjects}
+      handleSubjectSelect={handleSubjectSelect}
     />
   );
 };
