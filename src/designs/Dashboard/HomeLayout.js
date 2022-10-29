@@ -11,8 +11,12 @@ import { CustomListItem } from '../../components/CustomListItem'
 export default function HomeLayout(props) {
     return <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Header />
-        </Grid>
+
+            <Header logOutHandler={props.logOutHandler} stuName={props.stuName}/>
+
+       
+</Grid>
+    
         <Grid item xs={12} sm={12} md={2} lg={2}>
             <Sidebar />
         </Grid>

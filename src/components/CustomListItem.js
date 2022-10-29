@@ -2,7 +2,7 @@ import { Chip, Grid, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import { CustomButton } from "./CustomButton"
 import RefreshIcon from '@mui/icons-material/Refresh';
-
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 export const CustomListItem = (props) => {
     
     return <Box>
@@ -14,8 +14,10 @@ export const CustomListItem = (props) => {
                 <Typography variant='body2'><Box mb={1} sx={{fontFamily:'Urbantist',fontWeight:500,color:'rgba(106,112,124,1)'}}>Practice Test</Box></Typography>
             </Grid>
             <Grid item xs={8} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>9</Box><Box sx={{ mt: 4 ,mr:4}}>/{props.option.totalMarks}</Box></Typography>
-                <CustomButton btnText="RE-TAKE" endIcon={<RefreshIcon/>} variant="contained"  sx={{borderRadius:"50px",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#838BA1" ,fontWeight:600}}/>
+
+            <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>{props.option.attemptedQuestions ? props.option.attemptedQuestions : 0}</Box><Box sx={{ mt: 4 ,mr:4}}>/{props.option.totalMarks}</Box></Typography>
+           {props.option.attemptedQuestions &&  <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="RESUME" endIcon={<RefreshIcon/>} variant="contained"  sx={{color:"white",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#F9BB47" ,fontWeight:600}}/>}
+           {!props.option.attemptedQuestions &&  <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="START" endIcon={<PlayArrowOutlinedIcon/>} variant="contained"  sx={{color:"white",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#53D064" ,fontWeight:600}}/>}
             </Grid>
         </Grid>
     </Box>
