@@ -25,12 +25,12 @@ export const UserDetails = (props) => {
                 <Grid container  p={1} mb={3} justifyContent='center' alignItems='center'>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                         <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontFamily: 'Urbanist', fontWeight: "bold" }}>Total Fees Paid</Box></Typography>
-                        <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ fontFamily: 'Urbanist', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupee sx={{ fontSize: '16px' }} />{props.paymentInfo ? props.paymentInfo?.amount : 0}</Box></Typography>
+                        <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ fontFamily: 'Urbanist', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupee sx={{ fontSize: '16px' }} />{props.subscriptionList ? (props.subscriptionList.length*300)-((props.subscriptionList.length-1)*50): 0}</Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                         <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontWeight: "bold" }}>Subject Subscriptions</Box></Typography>
                         <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ display: 'flex', alignItems: 'center', fontFamily: 'Urbanist', justifyContent: 'center' }}>
-                            {props.subscriptionList?.subscribedCourses.map((item) =>(item + ",") )}
+                            {props.subscriptionList?.join(',')}
                             </Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>

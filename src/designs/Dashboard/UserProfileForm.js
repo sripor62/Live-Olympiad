@@ -14,10 +14,16 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 export const UserProfileForm = (props) => {
     const [classes, setClasses] = React.useState('');
+    const [gender, setGender] = React.useState('');
+
 
     const handleChange = (event) => {
         setClasses(event.target.value);
-    };
+    };  
+
+    const handleGenderChange = (event) => {
+        setGender(event.target.value)
+    }
 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
@@ -44,11 +50,11 @@ export const UserProfileForm = (props) => {
                     <FormControl fullWidth>
                         <InputLabel>Gender</InputLabel>
                         <Select label="Gender" 
-                         value={classes} 
-                         onChange={handleChange}
+                         value={gender} 
+                         onChange={handleGenderChange}
                          inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
-                            <MenuItem value={10}>F</MenuItem>
-                            <MenuItem value={20}>M</MenuItem>
+                            <MenuItem value={"Female"}>F</MenuItem>
+                            <MenuItem value={"Male"}>M</MenuItem>
                     </Select>
                     </FormControl>
                 </Grid>
@@ -76,27 +82,32 @@ export const UserProfileForm = (props) => {
                         value={classes} 
                         onChange={handleChange}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
-                            <MenuItem value={10}>10th</MenuItem>
-                            <MenuItem value={20}>11th</MenuItem>
-                            <MenuItem value={30}>12th</MenuItem>
+                            <MenuItem value={"1"}>1st</MenuItem>
+                            <MenuItem value={"2"}>2nd</MenuItem>
+                            <MenuItem value={"3"}>3rd</MenuItem>
+                            <MenuItem value={"4"}>4th</MenuItem>
+                            <MenuItem value={"5"}>5th</MenuItem>
+                            <MenuItem value={"6"}>6th</MenuItem>
+                            <MenuItem value={"7"}>7th</MenuItem>
+                            <MenuItem value={"8"}>8th</MenuItem>
+                            <MenuItem value={"9"}>9th</MenuItem>
+                            <MenuItem value={"9"}>10th</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
-                    <FormControl fullWidth>
-                        <InputLabel>Section</InputLabel>
-                        <Select label="Section"
-                         value={classes} 
-                         onChange={handleChange}
-                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
-                            <MenuItem value={10}>A</MenuItem>
-                            <MenuItem value={20}>B</MenuItem>
-                            <MenuItem value={30}>C</MenuItem>
-                        </Select>
-                    </FormControl>
+                <CustomTextField
+                    type="tel"
+                    placeholder="Section."
+                    variant="filled"
+                    value={props.pageData.section}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.section) !== ""}
+                    errorMsz={props.getErrorMsz('student_section', props.pageData.section)}
+                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                />
                 </Grid>
-
-
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <CustomTextField
