@@ -71,7 +71,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `http://school.liveolympiad.org:4002/landing/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `http://test.liveolympiad.org/landing/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
