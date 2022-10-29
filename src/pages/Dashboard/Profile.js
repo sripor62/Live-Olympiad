@@ -13,7 +13,6 @@ import { useStore } from "../../stores";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 
 
-
 const category = [
     {
         label: "F",
@@ -26,7 +25,7 @@ const category = [
 ]
 
 const Profile = (props) => {
-
+    const { getSubjects } = usePayment();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
     const [subscriptionList,setSubscriptionList]=useState();
@@ -57,6 +56,7 @@ const Profile = (props) => {
     const [pinCode,setPinCode]=useState(208017);
     const [schoolsList,setSchoolsList]=useState( []);
     const [schoolsId,setSchoolsId]=useState("")
+    const [subscribedSubjects,setSubscribedSubjects] = useState();
     const {getProfile}=useStudent();
     const {getSchool}=useSchool();
 
@@ -101,6 +101,20 @@ const Profile = (props) => {
         
     }
   
+    const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
+        [`SubjectData`],
+        () => getSubjects(),
+        { enabled: true, retry: false }
+      );
+
+    useEffect(()=>{
+        let subjectMap = {}
+        SubjectData?.data?.data.forEach((subject)=>{
+            subjectMap[subject.id] = subject.name;
+        })
+        setSubscribedSubjects(SubscriptionData?.data?.data?.subscribedCourses.map((sub)=>subjectMap[sub]))
+    },[SubjectData,subscriptionList])
+      
     const { mutate: addProfileMutate, isLoading: addProfileLoading } = useMutation(profileDataDetails, {
         onSuccess: (data, variables, context) => onSuccessAddAssessment(data, variables, context),
         onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
@@ -134,7 +148,7 @@ const Profile = (props) => {
     return (
         <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
             <ProfileLayout
-            subscriptionList={subscriptionList}
+            subscriptionList={subscribedSubjects}
                 category={category}
                 getErrorMsz={getErrorMsz}
                 submitFlag={submitFlag}
