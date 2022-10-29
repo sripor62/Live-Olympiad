@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PROJECT = "liveolympiad-lo-webapp"
+        PROJECT = "edulabs-lo-webapp"
         USER = "ec2-user"
         AWS_ACCOUNT = sh(script: 'aws sts get-caller-identity --query Account --output text', , returnStdout: true).trim()
         AWS_REGION = sh(script: 'aws configure get region', , returnStdout: true).trim()
