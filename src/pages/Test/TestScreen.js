@@ -43,20 +43,16 @@ const TestScreen = () => {
         setTestsList(TestList?.data);
         let newTestList = []
         let map = {}
-        assessmentList?.forEach((item) => map[item.assessmentId] = item.attemptedQuestions)
+        assessmentList?.forEach((item) => map[item.assessmentId] = item)
 
         newTestList = TestList?.data.map((data) => {
-
-
-            var pData = { ...data, attemptedQuestions: map[data._id] }
-
+            var pData = { ...data, attemptedQuestions: map[data._id]?.attemptedQuestions, testStatus:map[data._id]?.testStatus, testId:map[data._id]?.testId }
             return pData
         })
         if (newTestList) {
             let pData = newTestList?.filter((item) => item._id === packageId)
             if (pData) {
                 setPageData(pData[0]);
-
             }
         }
         setPassAssessData(newTestList)
@@ -64,14 +60,18 @@ const TestScreen = () => {
 
     const clearCurrentUser = useStore((state) => state.clearCurrentUser)
     const startTest = async (pageData) => {
-        const test = await createTest({
-            packageId: pageData._id,
-            totalQuestions: pageData?.questions.length,
-            totalMarks: pageData?.totalMarks,
-            totalDurationMin: pageData?.totalDurationMin,
-            at: new Date().toISOString()
-        });
-        window.location.href = `http://school.liveolympiad.org:4002/landing/${test?.data?.testId}?token=${currentUser.access_token}`;
+        let testId=pageData.testId;
+        if(!testId||pageData.testStatus==true){
+            const test = await createTest({
+                packageId: pageData._id,
+                totalQuestions: pageData?.questions.length,
+                totalMarks: pageData?.totalMarks,
+                totalDurationMin: pageData?.totalDurationMin,
+                at: new Date().toISOString()
+            });
+            testId=test?.data?.testId
+        }
+        window.location.href = `http://school.liveolympiad.org:4002/landing/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
