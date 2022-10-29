@@ -4,8 +4,14 @@ import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import * as React from 'react';
 
 export const PersonalDetailLayout = (props) => {
+    const [gender, setGender] = React.useState('');
+
+    const handleChange = (event) => {
+      setGender(event.target.value);
+    };
     return <>
     <Grid container xs="12">
         <Grid xs={12}>
@@ -32,9 +38,9 @@ export const PersonalDetailLayout = (props) => {
                 <Box mb={3} width={1}>
                     <FormControl fullWidth>
                     <InputLabel>Gender</InputLabel>
-                    <Select label="School">
-                            <MenuItem>F</MenuItem>
-                            <MenuItem>M</MenuItem>
+                    <Select label="Gender"  value={gender} onChange={handleChange}>
+                            <MenuItem value={10}>F</MenuItem>
+                            <MenuItem value={20}>M</MenuItem>
                     </Select>
                 </FormControl>
                 </Box>
