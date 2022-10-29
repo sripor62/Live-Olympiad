@@ -11,21 +11,21 @@ const TestScreen = () => {
     const currentUser = useStore((state) => state.currentUser)
     const [testsLists, setTestsList] = useState([])
     const [pageData, setPageData] = useState({})
-    const { getTestList, createTest,getPackageList } = useTests();
-    const [assessmentList,setAssessmentList]=useState([]);
-    const [passAssessData,setPassAssessData]=useState();
+    const { getTestList, createTest, getPackageList } = useTests();
+    const [assessmentList, setAssessmentList] = useState([]);
+    const [passAssessData, setPassAssessData] = useState();
     const params = useParams();
     let packageId = params.packageId;
     const { data: PackageData } = useQuery([`AssessmentData`], () => getPackageList(), { enabled: true, retry: false })
-    useEffect(()=>{
-     
+    useEffect(() => {
+
         setAssessmentList(PackageData?.data?.data)
-       
-    },[PackageData])
+
+    }, [PackageData])
     const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(), { enabled: true, retry: false })
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
-    let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
+    let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
     // useEffect(() => {
     //     console.log("packageId", TestList)
     //     if (TestList) {
@@ -39,29 +39,29 @@ const TestScreen = () => {
     //         }
     //     }
     // }, [TestList])
-    useEffect(()=>{
+    useEffect(() => {
         setTestsList(TestList?.data);
-        let newTestList=[]
-        let map={}
-        assessmentList?.forEach((item)=>map[item.assessmentId]=item.attemptedQuestions)
-        
-        newTestList=TestList?.data.map((data)=>{
-           
-       
-        var pData={...data,attemptedQuestions:map[data._id]}
-            
+        let newTestList = []
+        let map = {}
+        assessmentList?.forEach((item) => map[item.assessmentId] = item.attemptedQuestions)
+
+        newTestList = TestList?.data.map((data) => {
+
+
+            var pData = { ...data, attemptedQuestions: map[data._id] }
+
             return pData
         })
         if (newTestList) {
-                        let pData = newTestList?.filter((item) => item._id === packageId)
-                        if (pData) {
-                            setPageData(pData[0]);
-                            
-                        }
-                    }
+            let pData = newTestList?.filter((item) => item._id === packageId)
+            if (pData) {
+                setPageData(pData[0]);
+
+            }
+        }
         setPassAssessData(newTestList)
-    },[TestList,assessmentList])
-  
+    }, [TestList, assessmentList])
+
     const clearCurrentUser = useStore((state) => state.clearCurrentUser)
     const startTest = async (pageData) => {
         const test = await createTest({
@@ -73,10 +73,10 @@ const TestScreen = () => {
         });
         window.location.href = `http://school.liveolympiad.org:4002/landing/${test?.data?.testId}?token=${currentUser.access_token}`;
     };
-    const navigateBack=()=> navigate("/dashboard")
+    const navigateBack = () => navigate("/dashboard")
     return (
         <>
-            <TestScreenLayout logOutHandler={clearCurrentUser} pageData={pageData} startTest={startTest} navigateBack={navigateBack} stuName={stuName}/>
+            <TestScreenLayout logOutHandler={clearCurrentUser} pageData={pageData} startTest={startTest} navigateBack={navigateBack} stuName={stuName} />
         </>
     )
 }
