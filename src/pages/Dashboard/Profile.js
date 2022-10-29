@@ -9,7 +9,7 @@ import {useStudent} from "../../hooks/useStudent"
 import {useSchool} from "../../hooks/useSchool"
 import { useMutation, useQuery } from 'react-query';
 import { ControlPointDuplicateRounded } from '@mui/icons-material';
-
+import { useStore } from "../../stores";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 
 
@@ -25,10 +25,10 @@ const category = [
     }
 ]
 
-const Profile = () => {
+const Profile = (props) => {
 
-  let curentUser = JSON.parse(localStorage.current_user);
-  
+    let curentUser = JSON.parse(localStorage.current_user);
+    let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
     const [subscriptionList,setSubscriptionList]=useState();
 
     useEffect(() => {
@@ -130,9 +130,9 @@ const Profile = () => {
     const afterValidateCallBack = (second) => {
         setSnakeBarProps({ snackbarFlag: true, msz: "Profile Submitted Successfully", type: "success" })
     }
-
+    const clearCurrentUser = useStore((state) => state.clearCurrentUser)
     return (
-        <HomeLayout >
+        <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
             <ProfileLayout
             subscriptionList={subscriptionList}
                 category={category}

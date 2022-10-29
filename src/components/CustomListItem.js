@@ -16,8 +16,8 @@ export const CustomListItem = (props) => {
             <Grid item xs={8} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
 
             <Typography sx={{ fontSize: "18px", display: 'flex'}} ><Box sx={{ fontSize: '50px', color: 'green' }}>{props.option.attemptedQuestions ? props.option.attemptedQuestions : 0}</Box><Box sx={{ mt: 4 ,mr:4}}>/{props.option.totalMarks}</Box></Typography>
-           {props.option.attemptedQuestions &&  <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="RESUME" endIcon={<RefreshIcon/>} variant="contained"  sx={{color:"white",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#F9BB47" ,fontWeight:600}}/>}
-           {!props.option.attemptedQuestions &&  <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="START" endIcon={<PlayArrowOutlinedIcon/>} variant="contained"  sx={{color:"white",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#53D064" ,fontWeight:600}}/>}
+           {props.option.attemptedQuestions ? <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="RESUME" endIcon={<RefreshIcon/>} variant="contained"  sx={{color:"white",borderRadius:"20px",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#F9BB47" ,fontWeight:600}}/> : null}
+           {!props.option.attemptedQuestions ?  <CustomButton onClick={()=>{props.testScreen(props.option._id)}} btnText="START" endIcon={<PlayArrowOutlinedIcon/>} variant="contained"  sx={{color:"white",borderRadius:"20px",width:'105px',height:{xs:"34px",lg:'36px'},fontSize:{xs:"8px",lg:'12px'},backgroundColor:"#53D064" ,fontWeight:600}}/> :null}
             </Grid>
         </Grid>
     </Box>
