@@ -61,16 +61,16 @@ export const TestScreenLayout = ({
                     <Grid container alignItems="center">
                         <Grid item>
                             <Typography variant='h4' sx={{ fontFamily: 'Urbanist' }}>Instructions</Typography>
-                            <List sx={{ ml: 1 }}>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}><FiberManualRecord sx={{ fontSize: '8px' }} />This assessment has {pageData?.questions?.length} questions</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />The allotted duration for this assessment is  {pageData?.totalDurationMin} minute and the timer will be visible on the top to show remaining time</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} /> This is Objective type of assessment</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}>  <FiberManualRecord sx={{ fontSize: '8px' }} /> Different question carries different marks which are visible when you attempt, plan your time accordingly to score maximum marks</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} /> In subjective questions, you need to either type in your responses in as detail as possible or write your solution on paper and take a picture and attach it to the question</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} /> You can toggle between questions as you wish and you will see which questions you have attempted and which are remaining</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} /> After you submit the assessment, you can see your scores and speed and accuracy in the report card</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} /> You can also see detailed "answer key" to check solutions and where you went wrong</Typography>
-                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />For subjective assessments, teachers will first check and give you marks, that might take some time after you submit your assessment.</Typography>
+                            <List sx={{ ml:1 }}>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}><FiberManualRecord sx={{ fontSize: '8px' }} />  This assessment has {pageData?.questions?.length} questions</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  The allotted duration for this assessment is  {pageData?.totalDurationMin} minute and the timer will be visible on the top to show remaining time</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  This is Objective type of assessment</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}>  <FiberManualRecord sx={{ fontSize: '8px' }} />  Different question carries different marks which are visible when you attempt, plan your time accordingly to score maximum marks</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  In subjective questions, you need to either type in your responses in as detail as possible or write your solution on paper and take a picture and attach it to the question</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  You can toggle between questions as you wish and you will see which questions you have attempted and which are remaining</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  After you submit the assessment, you can see your scores and speed and accuracy in the report card</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  You can also see detailed "answer key" to check solutions and where you went wrong</Typography>
+                                <Typography variant='body1' sx={{ fontFamily: 'Urbanist' }}> <FiberManualRecord sx={{ fontSize: '8px' }} />  For subjective assessments, teachers will first check and give you marks, that might take some time after you submit your assessment.</Typography>
                             </List>
                         </Grid>
                     </Grid>
