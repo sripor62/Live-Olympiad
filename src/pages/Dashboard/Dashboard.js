@@ -84,7 +84,6 @@ const Dashboard = () => {
 
 
        <DashboardLayout
-            
             open={open}
             anchorEl={anchorEl}
             handleClick={handleClick}
