@@ -2,8 +2,9 @@ import { Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react'
 import { CustomButton } from '../../components/CustomButton';
-
+import { useNavigate } from 'react-router-dom';
 export const ChoosePlanLayout = (props) => {
+    const navigate=useNavigate();
     return <Grid container>
         <Grid xs={12}>
             <Typography variant='h3' sx={{fontSize:{xs:"32px",lg:"40px"}}}>
@@ -67,10 +68,10 @@ export const ChoosePlanLayout = (props) => {
         
         <Grid container xs={12} justifyContent="center" alignItems="center">
             <Grid xs={12} lg={6} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" sx={{borderRadius:"50px"}}/>
+                <CustomButton onClick={props.submitHandler} btnText="Next" color="primary" variant="contained" className="minWidth240" sx={{borderRadius:"50px"}}/>
             </Grid>
             <Grid xs={5} sx={{ mt:{xs:1,lg:0},ml:3 }}>
-                <Typography variant='body2' ><Box sx={{fontFamily:'Urbanist',fontSize:'16px'}}><Link href="#" underline="none" fontWeight="bold">Skip</Link> for now</Box></Typography>
+                <Typography variant='body2' ><Box sx={{fontFamily:'Urbanist',fontSize:'16px'}}><Link onClick={()=> navigate("/dasboard/")} href="#" underline="none" fontWeight="bold">Skip</Link> for now</Box></Typography>
             </Grid>
         </Grid>
     </Grid>

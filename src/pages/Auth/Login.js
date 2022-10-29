@@ -28,8 +28,8 @@ export default function Login() {
         if(res.data?.success) {
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
             setCurrentUser(res.data?.data);
-        
-            window.location.href="/dashboard/"
+            navigate("/schooldetails/"+res.data.data.id)
+            
         }
         else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         // afterValidate(afterValidateCallBack)

@@ -21,6 +21,9 @@ export default function ResetPassword() {
             let res = await setPassword(pageData.password, params.token);
             if (res.data?.success) {
                 navigate("/"+0)
+            
+           
+                
             }
         } else setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "error" })
         setsubmitFlag(true);

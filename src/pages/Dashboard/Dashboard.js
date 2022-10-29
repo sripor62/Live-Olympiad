@@ -38,7 +38,7 @@ const Dashboard = () => {
     let curentUser = JSON.parse(localStorage.current_user);
    
     // setStuName(curentUser?.state?.currentUser.fullName)
-    let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
+    let stuName=curentUser?.state?.currentUser?.fullName.split(' ')[0]
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -47,7 +47,7 @@ const Dashboard = () => {
     };
     const { data: PackageData } = useQuery([`AssessmentData`], () => getPackageList(), { enabled: true, retry: false })
     useEffect(()=>{
-     
+        
         setAssessmentList(PackageData?.data?.data)
        
     },[PackageData])
