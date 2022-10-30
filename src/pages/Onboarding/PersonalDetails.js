@@ -20,9 +20,9 @@ export default function PersonalDetails() {
     useEffect(() => {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
-            // if(personalData?.data.data.id!==null){
-            //     navigate("/dashboard")
-            // }
+            if(personalData?.data.data.id!==null){
+                navigate("/dashboard")
+            }
             var pdata = {
                 ...personalData?.data.data,
             }

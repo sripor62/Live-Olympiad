@@ -61,9 +61,9 @@ const SchoolDetails = () => {
     useEffect(()=>{console.log("EduData",EducationData?.data?.data[0])
         setPageData(EducationData?.data?.data[0]);
     
-        // if(EducationData?.data?.data.length>0){
-        //         navigate("/personaldetails/"+userId)
-        // }
+        if(EducationData?.data?.data.length>0){
+                navigate("/personaldetails/"+userId)
+        }
     },[EducationData])
     
     const selectionChangeHandler=(event)=>{
