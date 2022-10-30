@@ -19,7 +19,8 @@ export function navigateAsPerSessionValidity(authenticate) {
     if (decodedToken.exp * 1000 >= currentDate.getTime()) {    
       if (userInfo.userRole === "STUDENT") {
         if (!authenticate) {
-          window.location.href="/dashboard";
+          // window.location.href="/dashboard";
+          return;
         } else {
           return;
         }
