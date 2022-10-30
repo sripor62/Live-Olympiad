@@ -1,6 +1,6 @@
 export class Endpoints {
   static TESTS="/tests"
-  static PACKAGES="/packages/tags?searchType=any&tagNames=Class%203"
+  static PACKAGES="/packages/tags?searchType=any&tagNames="
   static ADD_PROFILE="/profile";
   static LOGIN_USER = "/auth/login";
   static LOGOUT_USER = "/auth/logout";

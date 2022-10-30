@@ -8,14 +8,13 @@ export function navigateAsPerSessionValidity(authenticate) {
   if(cookieServiceValue_USER_INFO.length>0){
     userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];
   }
-  console.log(userInfoVal)
+  
   if (userInfoVal !== "logged-out" && userInfoVal!=="") {
     const userInfo = JSON.parse(userInfoVal);
     let decodedToken = jwt_decode(userInfo.access_token);
-    console.log("Decoded Token", decodedToken);
+   
     let currentDate = new Date();
-    console.log(currentDate.getTime);
-    console.log(decodedToken.exp*1000);
+   
     if (decodedToken.exp * 1000 >= currentDate.getTime()) {    
       if (userInfo.userRole === "STUDENT") {
         if (!authenticate) {

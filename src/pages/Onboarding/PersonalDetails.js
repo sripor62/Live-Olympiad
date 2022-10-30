@@ -14,14 +14,15 @@ export default function PersonalDetails() {
     const navigate = useNavigate();
     const params = useParams();
     var userId = params.userId
+    const grade=params.grade
     const { getPersonalData, sendPersonalData } = useStudent();
     const { data: personalData, isLoading: contentLoader, refetch } = useQuery([`PersonalData`], () => getPersonalData(userId), { enabled: true, retry: false })
     useEffect(() => {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
-            if(personalData?.data.data.id!==null){
-                navigate("/dashboard")
-            }
+            // if(personalData?.data.data.id!==null){
+            //     navigate("/dashboard")
+            // }
             var pdata = {
                 ...personalData?.data.data,
             }
@@ -43,7 +44,7 @@ export default function PersonalDetails() {
 
         }
         PersonalMutate({ data: pdata, id: userId })
-        navigate("/subscription")
+        navigate("/subscription/")
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
 

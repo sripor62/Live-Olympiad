@@ -16,20 +16,19 @@ export default function Login() {
    
     const { login } = useAuthHelper();
     const submitHandler = async() => {
-       
-        
         let res = await login({
             userName: "+91" + pageData.phoneNumber,
             password: pageData.password,
             loginForced:true,
 
         });
-  
         if(res.data?.success) {
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
             setCurrentUser(res.data?.data);
+
             navigate("/schooldetails/"+res.data.data.id)
             
+
         }
         else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         // afterValidate(afterValidateCallBack)
@@ -39,11 +38,10 @@ export default function Login() {
       
     }
     const forgotPage=()=>{
-       
         window.location.href="/forgotpassword"
     }
     return <LoginLayout
-    forgotPage={forgotPage}
+        forgotPage={forgotPage}
         responsiveStype={responsiveStype}
         submitFlag={submitFlag}
         getErrorMsz={getErrorMsz}
