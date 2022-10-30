@@ -49,9 +49,10 @@ const SchoolDetails = () => {
     const onErrorAddAssessment=()=>{}
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(userId), { enabled: true, retry: false })
     useEffect(()=>{
-     
         setPageData(EducationData?.data);
-       
+        if(EducationData?.data?.data.length>0){
+            navigate("/personaldetails/"+userId)
+        }
     },[EducationData])
     return <OnboardingLayout stepperIndex="0">
         <SchoolDetailLayout
