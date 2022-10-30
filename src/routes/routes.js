@@ -47,7 +47,7 @@ export const routes = [
   },
   
   {
-    path: "/personaldetails",
+    path: "/personaldetails/:userId/:grade",
     element: <PersonalDetails />,
   },
   {
@@ -55,7 +55,7 @@ export const routes = [
     element: <MobileVerification />,
   },
   {
-    path: "/schooldetails",
+    path: "/schooldetails/:userId",
     element: <SchoolDetails />,
   },
   {

@@ -9,6 +9,8 @@ import TestScreen from '../Test/TestScreen'
 import { useNavigate } from 'react-router-dom';
 import { useStore } from "../../stores";
 import {useStudent} from "../../hooks/useStudent"
+import { AppConstants } from '../../environments/app-constants';
+import jwt_decode from "jwt-decode";
 const Dashboard = () => {
     
     useEffect(() => {
@@ -35,10 +37,12 @@ const Dashboard = () => {
     const open = Boolean(anchorEl);
     const [assessmentList,setAssessmentList]=useState([]);
     const [passAssessData,setPassAssessData]=useState();
+    const [grade,setGrade]=useState("")
+    const {getEducation}=useStudent();
     let curentUser = JSON.parse(localStorage.current_user);
    
     // setStuName(curentUser?.state?.currentUser.fullName)
-    let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
+    let stuName=curentUser?.state?.currentUser?.fullName.split(' ')[0]
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -47,12 +51,22 @@ const Dashboard = () => {
     };
     const { data: PackageData } = useQuery([`AssessmentData`], () => getPackageList(), { enabled: true, retry: false })
     useEffect(()=>{
-     
+        
         setAssessmentList(PackageData?.data?.data)
        
     },[PackageData])
+    const cookieServiceValue_USER_INFO = document.cookie.split(";").filter((item)=> item.trim().startsWith(AppConstants.SESSION_STORAGE_ITEMS.USER_INFO));
+    let userInfoVal=""
+    if(cookieServiceValue_USER_INFO.length>0){
+      userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];
+    }
+    const userInfo = JSON.parse(userInfoVal);
+    let decodedToken = jwt_decode(userInfo.access_token);
+    console.log("dashboardddddddddddd",decodedToken.jti)
+    const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
+    
 
-    const { data: testList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(), { enabled: true, retry: false })
+    const { data: testList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     useEffect(()=>{
         setTestsList(testList?.data);
         let newTestList=[]
