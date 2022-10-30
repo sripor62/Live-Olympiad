@@ -47,7 +47,7 @@ export const routes = [
   },
   
   {
-    path: "/personaldetails/:userId/:grade",
+    path: "/personaldetails/:userId",
     element: <PersonalDetails />,
   },
   {
