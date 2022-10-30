@@ -43,7 +43,7 @@ export default function PersonalDetails() {
 
         }
         PersonalMutate({ data: pdata, id: userId })
-        navigate("/dashboard")
+        navigate("/subscription")
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
 
