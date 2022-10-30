@@ -64,12 +64,9 @@ const Dashboard = () => {
     let decodedToken = jwt_decode(userInfo.access_token);
     console.log("dashboardddddddddddd",decodedToken.jti)
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
-    useEffect(()=>{console.log("EduData",EducationData?.data?.data[0])
-        setGrade(EducationData?.data?.data[0]?.grade);
     
-    },[EducationData])
 
-    const { data: testList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(grade), { enabled: true, retry: false })
+    const { data: testList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     useEffect(()=>{
         setTestsList(testList?.data);
         let newTestList=[]
