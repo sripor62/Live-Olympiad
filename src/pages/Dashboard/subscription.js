@@ -72,10 +72,11 @@ const Subscription = () => {
     };
     script.onload = async () => {
       try {
+        console.log(subjects)
         let order = subjects.length * 300 - (subjects.length - 1) * 50;
         const result = await createOrder({
           amount: order * 100,
-          courseIds: subjects.map((crs) => crs.id),
+          courseIds: subjects,
         });
         const { amount, orderId, currency } = result.data.data;
         const { data } = await getPaymentKey();
