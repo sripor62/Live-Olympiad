@@ -143,7 +143,7 @@ export const UserProfileForm = (props) => {
                     variant="filled"
                     value={props.pageData.pinCode}
                     onChange={(event) => {
-                        props.setPageData({ ...props.pageData, pinCode: event.target.value });
+                        props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
                         props.setPinCode(event.target.value)
                     }}
 
@@ -157,8 +157,8 @@ export const UserProfileForm = (props) => {
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                        {props.schoolsList?.map((option) => (
+                    <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
+                    {props.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}

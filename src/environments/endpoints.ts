@@ -20,4 +20,5 @@ export class Endpoints {
   static GET_EDUCATION="/admin";
   static GET_EDUCATION_END="/education-info"
   static GET_PERSONAL_INFO="/admin/personal-info"
+  static SCHOOL="/school"
 }
