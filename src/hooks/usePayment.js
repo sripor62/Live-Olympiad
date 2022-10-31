@@ -17,6 +17,11 @@ export const usePayment = () => {
         return await axiosInstance().get(endpoint);
     };
 
+    const payOrder = async (body) => {
+        const endpoint = environment.paymentUrl + Endpoints.CAPTURE;
+        return await axiosInstance().post(endpoint,body);
+    };
+
     const getPaymentKey = async (body) => {
         const endpoint = environment.paymentUrl + Endpoints.PAYMENT_KEY;
         return await axiosInstance().get(endpoint);
@@ -32,5 +37,6 @@ export const usePayment = () => {
         getPaymentKey,
         getUserPaymentInfo,
         getSubscriptions,
+        payOrder
     }
 };

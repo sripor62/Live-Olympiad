@@ -22,6 +22,7 @@ const Subscription = () => {
     getPaymentKey,
     createOrder,
     getSubjects,
+    payOrder,
   } = usePayment();
 
   useEffect(() => {
@@ -86,8 +87,11 @@ const Subscription = () => {
           description: "LiveOlympiad Transaction",
           order_id: orderId,
           handler: async function (response) {
-            console.log(response.razorpay_payment_id);
-            console.log(response.razorpay_order_id);
+            const result = await payOrder({
+              paymentId: response.razorpay_payment_id,
+              orderId: response.razorpay_order_id,
+            });
+            console.log(result)
           },
           prefill: {
             email: user.email,
