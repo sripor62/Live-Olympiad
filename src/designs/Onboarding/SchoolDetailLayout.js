@@ -53,9 +53,16 @@ export const SchoolDetailLayout = (props) => {
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
                         <Select label="Class" value={classes} onChange={handleChange}>
-                            <MenuItem value={10}>10th</MenuItem>
-                            <MenuItem value={20}>11th</MenuItem>
-                            <MenuItem value={30}>12th</MenuItem>
+                            <MenuItem value={10}>1st</MenuItem>
+                            <MenuItem value={20}>2nd</MenuItem>
+                            <MenuItem value={30}>3rd</MenuItem>
+                            <MenuItem value={40}>4th</MenuItem>
+                            <MenuItem value={50}>5th</MenuItem>
+                            <MenuItem value={60}>6th</MenuItem>
+                            <MenuItem value={70}>7th</MenuItem>
+                            <MenuItem value={80}>8th</MenuItem>
+                            <MenuItem value={90}>9th</MenuItem>
+                            <MenuItem value={100}>10th</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
