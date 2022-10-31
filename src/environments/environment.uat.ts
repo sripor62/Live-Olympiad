@@ -3,6 +3,7 @@ export const environment = {
     userBaseUrl: "https://users.aimlearn.co",
     domain: "liveolympiad.org",
     cookieDomain: ".liveolympiad.org",
+    paymentUrl:"https://payments.aimlearn.co",
     testLiveolympiad:"https://api.liveolympiad.org"
   };
   
