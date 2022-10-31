@@ -21,9 +21,7 @@ export const UserProfileForm = (props) => {
         setClasses(event.target.value);
     };  
 
-    const handleGenderChange = (event) => {
-        setGender(event.target.value)
-    }
+    
 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
@@ -50,11 +48,11 @@ export const UserProfileForm = (props) => {
                     <FormControl fullWidth>
                         <InputLabel>Gender</InputLabel>
                         <Select label="Gender" 
-                         value={gender} 
-                         onChange={handleGenderChange}
+                         selected={props.pageData?.gender} value={props.pageData?.gender} 
+                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
                          inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
-                            <MenuItem value={"Female"}>F</MenuItem>
-                            <MenuItem value={"Male"}>M</MenuItem>
+                            <MenuItem value={"FEMALE"}>Female</MenuItem>
+                            <MenuItem value={"MALE"}>Male</MenuItem>
                     </Select>
                     </FormControl>
                 </Grid>
@@ -79,8 +77,8 @@ export const UserProfileForm = (props) => {
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
                         <Select label="Class" 
-                        value={classes} 
-                        onChange={handleChange}
+                        selected={props.pageData?.grade} value={props.pageData?.grade} 
+                        onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
                             <MenuItem value={"1"}>1st</MenuItem>
                             <MenuItem value={"2"}>2nd</MenuItem>
@@ -91,7 +89,7 @@ export const UserProfileForm = (props) => {
                             <MenuItem value={"7"}>7th</MenuItem>
                             <MenuItem value={"8"}>8th</MenuItem>
                             <MenuItem value={"9"}>9th</MenuItem>
-                            <MenuItem value={"9"}>10th</MenuItem>
+                            <MenuItem value={"10"}>10th</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>
