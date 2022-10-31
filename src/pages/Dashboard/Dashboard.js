@@ -65,8 +65,11 @@ const Dashboard = () => {
     console.log("dashboardddddddddddd",decodedToken.jti)
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
     
-
-    const { data: testList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    
+    const { data: testList, isLoading: TestListLoader,refetch } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    useEffect(()=>{
+refetch();
+    },[EducationData?.data?.data[0]?.grade])
     useEffect(()=>{
         setTestsList(testList?.data);
         let newTestList=[]

@@ -14,9 +14,14 @@ export const useSchool = () => {
         const endpoint = environment.userBaseUrl + Endpoints.SCHOOL_PINCODE + "/" + body ;
         return await axiosInstance().get(endpoint);
     };
-
+    const getSchoolById = async (body) => {
+       
+        const endpoint = environment.userBaseUrl + Endpoints.SCHOOL+ "/" + body ;
+        return await axiosInstance().get(endpoint);
+    };
     return {
     
         getSchool,
+        getSchoolById
     }
 };

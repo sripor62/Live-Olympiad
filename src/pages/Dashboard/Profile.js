@@ -53,12 +53,12 @@ const Profile = (props) => {
         "section": ""
     
         })
-    const [pinCode,setPinCode]=useState(208017);
+    
     const [schoolsList,setSchoolsList]=useState( []);
     const [schoolsId,setSchoolsId]=useState("")
     const [subscribedSubjects,setSubscribedSubjects] = useState();
     const {getProfile}=useStudent();
-    const {getSchool}=useSchool();
+    const {getSchool,getSchoolById}=useSchool();
 
     
     const { data: profileData, isLoading: contentLoader, refetch } = useQuery([`ProfileData`], () => getProfile(), { enabled: true, retry: false })
@@ -67,16 +67,23 @@ const Profile = (props) => {
     useEffect(()=>{
         setPinCode(pageData.pinCode)
          
-        setSchoolsId()
+      
         var pdata = {
             ...profileData?.data.data,
         }
-
+        console.log("profileData?.data?.data?.school",profileData?.data?.data?.school)
+        setSchoolsId(profileData?.data?.data?.school)
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
+    const { data: schoolByIdData, isLoading: schoolIdLoader, refetch:schoolByIdFetch } = useQuery([`SchoolData`], () => getSchoolById(profileData?.data?.data?.school), { enabled: true, retry: false })
 
-    
+    useEffect(()=>{
+        
+   setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
+    },[schoolByIdData])
+
+    const [pinCode,setPinCode]=useState(pageData?.pinCode);
     const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.state?.currentUser?.id), { enabled: true, retry: false })
     useEffect(()=>{
         setSubscriptionList(SubscriptionData?.data.data)
@@ -119,18 +126,19 @@ const Profile = (props) => {
         onSuccess: (data, variables, context) => onSuccessAddAssessment(data, variables, context),
         onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
     })
-    const onSuccessAddAssessment=()=> {
-        refetch();
+    const onSuccessAddAssessment=(data, variables, context)=> {
+      setSchoolsId()
     }
     const onErrorAddAssessment=()=> {
         
     }
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(517002), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
-        schoolFetch();  
-        setSchoolsList(schoolData?.data.data) 
-    
+    console.log("pincode",pinCode)
+    schoolFetch();
+    setSchoolsList(schoolData?.data.data) 
+    console.log("schoolsList",schoolsList)
     },[pinCode])
 
     const selectionChangeHandler=(event)=>{
@@ -160,7 +168,7 @@ const Profile = (props) => {
                 setPinCode={setPinCode}
                 pinCode={pinCode}
                 selectionChangeHandler={selectionChangeHandler}
-                schoolsList={schoolsList}
+                schoolsList={schoolData?.data?.data}
                 setSchoolsList={setSchoolsList}
                 paymentInfo={paymentInfo}
             />
