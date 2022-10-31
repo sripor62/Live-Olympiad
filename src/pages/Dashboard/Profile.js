@@ -51,7 +51,7 @@ const Profile = (props) => {
         "school": "",
         "grade": "",
         "section": ""
-    
+        
         })
     
     const [schoolsList,setSchoolsList]=useState([]);
@@ -65,7 +65,7 @@ const Profile = (props) => {
     
     const {profileDataDetails}=useStudent();
     useEffect(()=>{
-        let pincode = (""+pageData.pinCode).substring(0,6);
+        let pincode = (""+profileData?.data.data.schoolCode).substring(0,6);
         setPinCode(pincode)
         var pdata = {
             ...profileData?.data.data,
@@ -75,15 +75,14 @@ const Profile = (props) => {
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
-    const { data: schoolByIdData, isLoading: schoolIdLoader, refetch:schoolByIdFetch } = useQuery([`SchoolData`], () => getSchoolById(profileData?.data?.data?.school), { enabled: true, retry: false })
+    const { data: schoolByIdData, isLoading: schoolIdLoader, refetch:schoolByIdFetch } = useQuery([`SchoolByIdData`], () => getSchoolById(profileData?.data?.data?.school), { enabled: true, retry: false })
 
     useEffect(()=>{
         setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
     },[schoolByIdData])
 
     useEffect(()=>{
-        
-   setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
+        setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
     },[schoolByIdData])
 
     const [pinCode,setPinCode]=useState(pageData?.pinCode);
@@ -103,11 +102,9 @@ const Profile = (props) => {
             school:pageData.school,
             grade: pageData.grade,
             section: pageData.section
-
         }
         afterValidate(afterValidateCallBack)
         addProfileMutate({ data: pdata })
-        
     }
   
     const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
@@ -134,7 +131,7 @@ const Profile = (props) => {
     const onErrorAddAssessment=()=> {
         
     }
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolsData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
         console.log("pincode",pinCode)
@@ -170,7 +167,7 @@ const Profile = (props) => {
                 setPinCode={setPinCode}
                 pinCode={pinCode}
                 selectionChangeHandler={selectionChangeHandler}
-                schoolsList={schoolData?.data?.data}
+                schoolsList={schoolsList}
                 setSchoolsList={setSchoolsList}
                 paymentInfo={paymentInfo}
             />
