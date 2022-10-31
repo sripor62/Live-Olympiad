@@ -129,9 +129,11 @@ const Profile = (props) => {
 
     useEffect(()=>{
         schoolFetch();  
-        setSchoolsList(schoolData?.data.data) 
-    
     },[pinCode])
+
+    useEffect(() => {
+        setSchoolsList(schoolData?.data.data) 
+    }, [schoolData])
 
     const selectionChangeHandler=(event)=>{
     
