@@ -5,6 +5,7 @@ import { navigateAsPerSessionValidity } from "../../services/helpers";
 import { usePayment } from "../../hooks/usePayment";
 import { useQuery } from "react-query";
 import { useStore } from "../../stores";
+import { useParams } from "react-router-dom";
 const Subscription = () => {
   const user = useStore((state) => state.currentUser);
 
@@ -13,8 +14,8 @@ const Subscription = () => {
   const [subjectList, setSubjectList] = useState();
   const [subjectMode, setSubjectMode] = useState();
   const [subjects, setSubjects] = useState([]);
-
-
+  const params=useParams();
+  const grade=params.grade
   const {
     getUserPaymentInfo,
     getSubscriptions,

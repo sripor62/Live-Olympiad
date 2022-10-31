@@ -100,7 +100,7 @@ export const SubscriptionSubject = ({ subscriptionList,
                 </Grid>
             </Grid>
         </Box>}
-        {subscriptionList?.subscribedCourses.length<0 && <Box onClick={() => handleModeChange(3)}>
+        {subscriptionList?.subscribedCourses.length<1 && <Box onClick={() => handleModeChange(3)}>
             <Grid container style={subjectMode == 3 ? selectedStyle : unSelectedStyle}>
                 <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>All Three Subjects</Box></Typography>

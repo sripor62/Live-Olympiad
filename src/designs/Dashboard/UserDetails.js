@@ -13,7 +13,7 @@ export const UserDetails = (props) => {
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>| </Typography>{props.pageData.grade}</Box></Typography>
+                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>| </Typography>{props.pageData.grade?"Class-"+props.pageData.grade:null}</Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Typography variant='body2' sx={{ color: '#838BA1' ,fontFamily:"Urbanist"}}><Box>Amity International School, Noida</Box></Typography>
@@ -25,7 +25,7 @@ export const UserDetails = (props) => {
                 <Grid container  p={1} mb={3} justifyContent='center' alignItems='center'>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                         <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontFamily: 'Urbanist', fontWeight: "bold" }}>Total Fees Paid</Box></Typography>
-                        <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ fontFamily: 'Urbanist', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupee sx={{ fontSize: '16px' }} />{props.subscriptionList ? (props.subscriptionList.length*300)-((props.subscriptionList.length-1)*50): 0}</Box></Typography>
+                        <Typography variant='body1' align="center" sx={{ fontWeight: '600' }}><Box sx={{ fontFamily: 'Urbanist', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><CurrencyRupee sx={{ fontSize: '16px' }} />{props.subscriptionList?.lenght>0 ? (props.subscriptionList.length*300)-((props.subscriptionList.length-1)*50): 0}</Box></Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                         <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontWeight: "bold" }}>Subject Subscriptions</Box></Typography>

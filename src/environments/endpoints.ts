@@ -1,6 +1,6 @@
 export class Endpoints {
   static TESTS="/tests"
-  static PACKAGES="/packages/tags?searchType=any&tagNames=Class%203"
+  static PACKAGES="/packages/tags?searchType=any&mock=true&tagNames=Class%20"
   static ADD_PROFILE="/profile";
   static LOGIN_USER = "/auth/login";
   static LOGOUT_USER = "/auth/logout";
@@ -16,4 +16,9 @@ export class Endpoints {
   static PAYMENT_KEY = "/paymentkey"
   static COURSES = "/courses";
   static PACKAGE_LIST="/tests/all";
+  static ADD_EDUCATiON="/admin/education-info"
+  static GET_EDUCATION="/admin";
+  static GET_EDUCATION_END="/education-info"
+  static GET_PERSONAL_INFO="/admin/personal-info"
+  static SCHOOL="/school"
 }
