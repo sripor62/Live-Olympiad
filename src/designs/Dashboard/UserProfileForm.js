@@ -156,7 +156,7 @@ export const UserProfileForm = (props) => {
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
                     <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
-                    {props.schoolsList?.map((option) => (
+                    {props?.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}
