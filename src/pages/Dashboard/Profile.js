@@ -125,7 +125,7 @@ const Profile = (props) => {
     const onErrorAddAssessment=()=> {
         
     }
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(517002), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
         schoolFetch();  
