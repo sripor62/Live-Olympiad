@@ -141,7 +141,7 @@ export const UserProfileForm = (props) => {
                     type="tel"
                     placeholder="School Area Postal Code"
                     variant="filled"
-                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode.substring(0,6)}
+                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode?.substring(0,6)}
                     onChange={(event) => {
                         props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
                         props.setPinCode(event.target.value)

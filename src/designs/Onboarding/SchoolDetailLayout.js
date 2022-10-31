@@ -26,8 +26,11 @@ export const SchoolDetailLayout = (props) => {
                     placeholder="School Area Postal Code"
                     type="tel"
                     variant="filled"
-                    value={props.pageData?.postalCode}
-                    onChange={(event) => { props.setPageData({ ...props.pageData, postalCode: event.target.value }) }}
+                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode?.substring(0,6)}
+                    onChange={(event) => {
+                        props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
+                        props.setPinCode(event.target.value)
+                    }}
                     required
                     error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.postalCode) != ""}
                     errorMsz={props.getErrorMsz('postal_code', props.pageData?.postalCode)}
@@ -39,8 +42,8 @@ export const SchoolDetailLayout = (props) => {
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}onChange={props.selectionChangeHandler}>
-                        {props.schoolsList?.map((option) => (
+                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}>
+                    {props?.schoolsList?.length>0 && props?.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}
