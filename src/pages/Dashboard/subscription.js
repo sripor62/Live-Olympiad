@@ -127,7 +127,7 @@ const Subscription = () => {
 
   useEffect(() => {
     console.log(PaymentData?.data?.data);
-    setPaymentInfo(PaymentData?.data?.data.filter((item) => item.status !== "created"));
+    setPaymentInfo(PaymentData?.data?.data?.filter((item) => item.status !== "created"));
   }, [PaymentData]);
 
   useEffect(() => {

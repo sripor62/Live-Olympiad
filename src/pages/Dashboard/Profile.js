@@ -47,11 +47,11 @@ const Profile = (props) => {
         "rollNumber": "",
         "dob": "",
         "gender": "",
-        "pinCode": "",
+        "pincode": "",
         "school": "",
         "grade": "",
-        "section": ""
-        
+        "section": "",
+        "schoolCode":""
         })
     
     const [schoolsList,setSchoolsList]=useState([]);
@@ -59,33 +59,35 @@ const Profile = (props) => {
     const [subscribedSubjects,setSubscribedSubjects] = useState();
     const {getProfile}=useStudent();
     const {getSchool,getSchoolById}=useSchool();
-
-    
-    const { data: profileData, isLoading: contentLoader, refetch } = useQuery([`ProfileData`], () => getProfile(), { enabled: true, retry: false })
-    
+    const [pinCode,setPinCode]=useState("");
     const {profileDataDetails}=useStudent();
+    const [schoolCurrent,setCurrentSchool]=useState([])
+    const { data: profileData, isLoading: contentLoader, refetch } = useQuery([`ProfileData`], () => getProfile(), { enabled: true, retry: false })
+   
+        var currentSchool=[]
     useEffect(()=>{
         let pincode = (""+profileData?.data.data.schoolCode).substring(0,6);
+        console.log("pincode",pincode)
         setPinCode(pincode)
         var pdata = {
             ...profileData?.data.data,
         }
-        console.log("profileData?.data?.data?.school",profileData?.data?.data?.school)
-        setSchoolsId(profileData?.data?.data?.school)
+        
+        currentSchool=schoolData?.data?.data?.filter((item)=> {return profileData?.data?.data?.school===item.id});
+       
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
-    const { data: schoolByIdData, isLoading: schoolIdLoader, refetch:schoolByIdFetch } = useQuery([`SchoolByIdData`], () => getSchoolById(profileData?.data?.data?.school), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
-        setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
-    },[schoolByIdData])
+        schoolFetch();
+    },[pinCode])
 
-    useEffect(()=>{
-        setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
-    },[schoolByIdData])
-
-    const [pinCode,setPinCode]=useState(pageData?.pinCode);
+    useEffect(() => {
+        setSchoolsList(schoolData?.data.data) 
+    }, [schoolData])
+    
     const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.state?.currentUser?.id), { enabled: true, retry: false })
     useEffect(()=>{
         setSubscriptionList(SubscriptionData?.data.data)
@@ -115,7 +117,7 @@ const Profile = (props) => {
 
     useEffect(()=>{
         let subjectMap = {}
-        SubjectData?.data?.data.forEach((subject)=>{
+        SubjectData?.data?.data?.forEach((subject)=>{
             subjectMap[subject.id] = subject.name;
         })
         setSubscribedSubjects(SubscriptionData?.data?.data?.subscribedCourses.map((sub)=>subjectMap[sub]))
@@ -126,23 +128,15 @@ const Profile = (props) => {
         onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
     })
     const onSuccessAddAssessment=(data, variables, context)=> {
-      setSchoolsId()
+      
     }
     const onErrorAddAssessment=()=> {
         
     }
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
-
-    useEffect(()=>{
-        schoolFetch();
-    },[pinCode])
-
-    useEffect(() => {
-        setSchoolsList(schoolData?.data.data) 
-    }, [schoolData])
+    
 
     const selectionChangeHandler=(event)=>{
-    
+    console.log("schoooool",event.target.value)
     setPageData({...pageData,school:event.target.value})
     
 
@@ -171,6 +165,7 @@ const Profile = (props) => {
                 schoolsList={schoolsList}
                 setSchoolsList={setSchoolsList}
                 paymentInfo={paymentInfo}
+                currentSchool={currentSchool}
             />
         </HomeLayout>
 
