@@ -13,10 +13,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 
 export const UserProfileForm = (props) => {
-    const [classes, setClasses] = React.useState('');
+    const [classes, setClasses] = React.useState(props.pageData.grade);
     const [gender, setGender] = React.useState('');
 
-
+    console.log(props?.schoolsList);
     const handleChange = (event) => {
         setClasses(event.target.value);
     };  
@@ -141,24 +141,22 @@ export const UserProfileForm = (props) => {
                     type="tel"
                     placeholder="School Area Postal Code"
                     variant="filled"
-                    value={props.pageData.pinCode}
+                    value={(props.pageData.schoolCode+"").substring(0,6)}
                     onChange={(event) => {
                         props.setPageData({ ...props.pageData, pinCode: event.target.value });
                         props.setPinCode(event.target.value)
                     }}
-
                     required
                     error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.pinCode) !== ""}
                     errorMsz={props.getErrorMsz('student_section', props.pageData.pinCode)}
-
                     inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
-                        {props.schoolsList?.map((option) => (
+                    <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
+                    {props?.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}

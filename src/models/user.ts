@@ -28,4 +28,5 @@ export class User {
     email?:string
     percentProfile: number;
     userRole: string;
+    grade: string
 }

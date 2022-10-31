@@ -53,8 +53,8 @@ const Profile = (props) => {
         "section": ""
     
         })
-    const [pinCode,setPinCode]=useState(208017);
-    const [schoolsList,setSchoolsList]=useState( []);
+    
+    const [schoolsList,setSchoolsList]=useState([]);
     const [schoolsId,setSchoolsId]=useState("")
     const [subscribedSubjects,setSubscribedSubjects] = useState();
     const {getProfile}=useStudent();
@@ -65,9 +65,8 @@ const Profile = (props) => {
     
     const {profileDataDetails}=useStudent();
     useEffect(()=>{
-        setPinCode(pageData.pinCode)
-         
-        setSchoolsId()
+        let pincode = (""+pageData.pinCode).substring(0,6);
+        setPinCode(pincode)
         var pdata = {
             ...profileData?.data.data,
         }
@@ -75,6 +74,11 @@ const Profile = (props) => {
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
+    const { data: schoolByIdData, isLoading: schoolIdLoader, refetch:schoolByIdFetch } = useQuery([`SchoolData`], () => getSchoolById(profileData?.data?.data?.school), { enabled: true, retry: false })
+
+    useEffect(()=>{
+        setPageData({...pageData,school:schoolByIdData?.data?.data?.name,pincode:schoolByIdData?.data?.data?.pincode})
+    },[schoolByIdData])
 
     
     const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.state?.currentUser?.id), { enabled: true, retry: false })
@@ -82,7 +86,6 @@ const Profile = (props) => {
         setSubscriptionList(SubscriptionData?.data.data)
     },[SubscriptionData])
     const profileSubmit = () => {
-        
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -128,9 +131,10 @@ const Profile = (props) => {
     const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(517002), { enabled: true, retry: false })
 
     useEffect(()=>{
-        schoolFetch();  
-        setSchoolsList(schoolData?.data.data) 
-    
+        console.log("pincode",pinCode)
+        schoolFetch();
+        setSchoolsList([schoolData?.data.data]) 
+        console.log("schoolsList",schoolsList)
     },[pinCode])
 
     const selectionChangeHandler=(event)=>{
