@@ -16,7 +16,7 @@ const SchoolDetails = () => {
    
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pinCode,setPinCode]=useState(208017);
-    const [schoolsList,setSchoolsList]=useState( []);
+    const [schoolsList,setSchoolsList]=useState([]);
     const [pageData, setPageData] = useState({
     
         school: "",
@@ -47,10 +47,13 @@ const SchoolDetails = () => {
     const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
-        schoolFetch();  
-        setSchoolsList(schoolData?.data.data) 
-    
+        schoolFetch();
     },[pinCode])
+
+    useEffect(() => {
+        setSchoolsList(schoolData?.data.data) 
+    }, [schoolData])
+
     const { mutate: addEducationMutate} = useMutation(sendEducation, {
         onSuccess: (data, variables, context) => onSuccessAddAssessment(data, variables, context),
         onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
@@ -68,7 +71,7 @@ const SchoolDetails = () => {
     
     const selectionChangeHandler=(event)=>{
     
-        setPageData({...pageData,school:event.target.value})
+         setPageData({...pageData,school:event.target.value})
         
     
         }

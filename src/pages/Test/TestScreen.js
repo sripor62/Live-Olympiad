@@ -6,7 +6,8 @@ import useTests from '../../hooks/useTests';
 import { AppConstants } from '../../environments/app-constants'
 import { useStore } from '../../stores';
 import { useNavigate } from "react-router-dom";
-
+import jwt_decode from "jwt-decode";
+import { useStudent } from '../../hooks/useStudent';
 const TestScreen = () => {
     const currentUser = useStore((state) => state.currentUser)
     const [testsLists, setTestsList] = useState([])
@@ -15,6 +16,7 @@ const TestScreen = () => {
     const [assessmentList, setAssessmentList] = useState([]);
     const [passAssessData, setPassAssessData] = useState();
     const params = useParams();
+    const {getEducation}=useStudent();
     let packageId = params.packageId;
     const { data: PackageData } = useQuery([`AssessmentData`], () => getPackageList(), { enabled: true, retry: false })
     useEffect(() => {
@@ -22,7 +24,16 @@ const TestScreen = () => {
         setAssessmentList(PackageData?.data?.data)
 
     }, [PackageData])
-    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(), { enabled: true, retry: false })
+    const cookieServiceValue_USER_INFO = document.cookie.split(";").filter((item)=> item.trim().startsWith(AppConstants.SESSION_STORAGE_ITEMS.USER_INFO));
+    let userInfoVal=""
+    if(cookieServiceValue_USER_INFO.length>0){
+      userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];
+    }
+    const userInfo = JSON.parse(userInfoVal);
+    let decodedToken = jwt_decode(userInfo.access_token);
+    console.log("dashboardddddddddddd",decodedToken.jti)
+    const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
+    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]

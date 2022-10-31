@@ -16,7 +16,7 @@ export const UserProfileForm = (props) => {
     const [classes, setClasses] = React.useState(props.pageData.grade);
     const [gender, setGender] = React.useState('');
 
-    console.log(props?.schoolsList);
+  
     const handleChange = (event) => {
         setClasses(event.target.value);
     };  
@@ -141,7 +141,7 @@ export const UserProfileForm = (props) => {
                     type="tel"
                     placeholder="School Area Postal Code"
                     variant="filled"
-                    value={(props.pageData.schoolCode+"").substring(0,6)}
+                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode?.substring(0,6)}
                     onChange={(event) => {
                         props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
                         props.setPinCode(event.target.value)
@@ -155,8 +155,8 @@ export const UserProfileForm = (props) => {
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
-                    {props?.schoolsList.length>0 && props?.schoolsList?.map((option) => (
+                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}>
+                    {props?.schoolsList?.length>0 && props?.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}
