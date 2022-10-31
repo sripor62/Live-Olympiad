@@ -1,6 +1,7 @@
 import { Role } from './roles';
 
 export class User {
+    phoneNumber: string;
     id: string;
     access_token: string;
     firstName: string;

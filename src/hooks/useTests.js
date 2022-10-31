@@ -7,7 +7,6 @@ import axiosInstance from "../services/api.service";
 const useTests=()=>{
 
     const getTestList = async (grade) => {
-        console.log(grade)
         const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + grade ;
         return await axiosInstance().get(endpoint);
     };

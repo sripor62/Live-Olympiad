@@ -28,9 +28,9 @@ export const PersonalDetailLayout = (props) => {
                         placeholder="Full Name"
                         variant="filled"
                         required
-                        onChange={(event) => { props.setPageData({ ...props.pageData, fullname: event.target.value }) }}
-                        error={props.submitFlag && props.getErrorMsz('fullname', props.pageData.fullname) != ""}
-                        errorMsz={props.getErrorMsz('fullname', props.pageData.fullname)}
+                        onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
+                        error={props.submitFlag && props.getErrorMsz('fullname', props.pageData.fullName) != ""}
+                        errorMsz={props.getErrorMsz('fullName', props.pageData.fullName)}
                         inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}} />
                 </Box>
             </Grid>
@@ -90,7 +90,7 @@ export const PersonalDetailLayout = (props) => {
             </Box>
         </Grid>
         <Grid xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-            <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
+            <CustomButton  btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
         </Grid>
     </Grid>
     {

@@ -26,11 +26,11 @@ export const SchoolDetailLayout = (props) => {
                     placeholder="School Area Postal Code"
                     type="tel"
                     variant="filled"
-                    value={props.pageData.postalCode}
+                    value={props.pageData?.postalCode}
                     onChange={(event) => { props.setPageData({ ...props.pageData, postalCode: event.target.value }) }}
                     required
                     error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.postalCode) != ""}
-                    errorMsz={props.getErrorMsz('postal_code', props.pageData.postalCode)}
+                    errorMsz={props.getErrorMsz('postal_code', props.pageData?.postalCode)}
                     inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                 />
             </Box>
@@ -39,10 +39,14 @@ export const SchoolDetailLayout = (props) => {
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School"  value={classes} onChange={handleChange}>
-                        <MenuItem value={10}>Convent School</MenuItem>
-                        <MenuItem value={20}>MPS</MenuItem>
-                        <MenuItem value={30}>KVS</MenuItem>
+                    <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
+                        {props.schoolsList?.map((option) => (
+
+                            <MenuItem key={option.id} value={option.id}>
+                                {option.name}
+                            </MenuItem>
+                        ))
+                        }
                     </Select>
                 </FormControl>
             </Box>
@@ -52,7 +56,7 @@ export const SchoolDetailLayout = (props) => {
                 <Box mb={2} width={1}>
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
-                        <Select label="Class" value={classes} onChange={handleChange}>
+                        <Select label="Class" value={props.pageData?.grade} onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}>
                             <MenuItem value={10}>10th</MenuItem>
                             <MenuItem value={20}>11th</MenuItem>
                             <MenuItem value={30}>12th</MenuItem>
@@ -61,16 +65,19 @@ export const SchoolDetailLayout = (props) => {
                 </Box>
             </Grid>
             <Grid item xs={12} lg={6}>
-                <Box mb={3} width={1}>
-                    <FormControl fullWidth>
-                        <InputLabel>Section</InputLabel>
-                        <Select label="Section" value={classes} onChange={handleChange}>
-                            <MenuItem value={10}>A</MenuItem>
-                            <MenuItem value={20}>B</MenuItem>
-                            <MenuItem value={30}>C</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
+            <Box mb={2} width={1}>
+                <CustomTextField
+                    placeholder="Section"
+                    type="tel"
+                    variant="filled"
+                    value={props.pageData?.section}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.section) != ""}
+                    errorMsz={props.getErrorMsz('postal_code', props.pageData?.section)}
+                    inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                />
+            </Box>
             </Grid>
         </Grid>
 

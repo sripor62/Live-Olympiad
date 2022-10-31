@@ -17,9 +17,30 @@ export const useStudent = () => {
         const endpoint = environment.userBaseUrl + Endpoints.ADD_PROFILE ;
         return await axiosInstance().get(endpoint);
     };
+    const sendEducation = async (body) => {
+        const endpoint = environment.userBaseUrl + Endpoints.ADD_EDUCATiON +"/" + body.userId;
+        return await axiosInstance().post(endpoint, (body.data));
+    };
 
+    const getEducation = async (body) => {
+        const endpoint = environment.userBaseUrl + Endpoints.GET_EDUCATION + "/" + body + Endpoints.GET_EDUCATION_END;
+        return await axiosInstance().get(endpoint);
+    };
+    const getPersonalData = async (body) => {
+        const endpoint = environment.userBaseUrl + Endpoints.GET_PERSONAL_INFO + "/" + body ;
+        return await axiosInstance().get(endpoint);
+    };
+    const sendPersonalData = async (body) => {
+        const endpoint = environment.userBaseUrl + Endpoints.GET_PERSONAL_INFO + "/" + body.id;
+        return await axiosInstance().post(endpoint, (body.data));
+    };
     return {
         profileDataDetails,
         getProfile,
+        getEducation,
+        sendEducation,
+        getPersonalData,
+        sendPersonalData
+
     }
 };
