@@ -11,7 +11,7 @@ export default function SubscriptionLayout(props) {
 
     return <Grid container>
         <Grid item xs={12} sm={12} md={12} lg={12}>
-            <Header />
+            <Header logOutHandler={props.logOutHandler} stuName={props.stuName}/>
         </Grid>
         <Grid item xs={12} sm={12} md={2} lg={2}>
             <Sidebar />
