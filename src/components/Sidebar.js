@@ -31,7 +31,7 @@ const Sidebar = () => {
                 <Button onClick={() => {navigate("/schedule")}}><Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><CalendarMonthOutlinedIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} /><Typography><Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Schedule</Box></Typography></Grid></Button> 
                 </Grid>
             </Grid>
-        </Grid>a
+        </Grid>
     </> 
     )
 }
