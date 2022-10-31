@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { useState } from 'react'
-import {useQuery} from 'react-query'
+import { useQuery } from 'react-query'
 import { DashboardLayout } from '../../designs/Dashboard/DashboardLayout';
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 import useTests from '../../hooks/useTests';
@@ -12,15 +12,15 @@ import {useStudent} from "../../hooks/useStudent"
 import { AppConstants } from '../../environments/app-constants';
 import jwt_decode from "jwt-decode";
 const Dashboard = () => {
-    
+
     useEffect(() => {
         navigateAsPerSessionValidity(true);
-      });
-    const navigate=useNavigate();
-    const {getProfile}=useStudent();
+    });
+    const navigate = useNavigate();
+    const { getProfile } = useStudent();
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [testsLists,setTestsList]=useState([])
-    const [pageData,setPageData]=useState({
+    const [testsLists, setTestsList] = useState([])
+    const [pageData, setPageData] = useState({
         "fullName": "",
         "email": "",
         "rollNumber": "",
@@ -30,17 +30,17 @@ const Dashboard = () => {
         "school": "",
         "grade": "",
         "section": ""
-    
-        })
-    const [flagShow,setFlagShow]=useState(false)
-    const {getTestList,getPackageList}=useTests();
+
+    })
+    const [flagShow, setFlagShow] = useState(false)
+    const { getTestList, getPackageList } = useTests();
     const open = Boolean(anchorEl);
     const [assessmentList,setAssessmentList]=useState([]);
     const [passAssessData,setPassAssessData]=useState();
     const [grade,setGrade]=useState("")
     const {getEducation}=useStudent();
     let curentUser = JSON.parse(localStorage.current_user);
-   
+
     // setStuName(curentUser?.state?.currentUser.fullName)
     let stuName=curentUser?.state?.currentUser?.fullName.split(' ')[0]
     const handleClick = (event) => {
@@ -72,35 +72,22 @@ refetch();
     },[EducationData?.data?.data[0]?.grade])
     useEffect(()=>{
         setTestsList(testList?.data);
-        let newTestList=[]
-        let map={}
-        assessmentList?.forEach((item)=>map[item.assessmentId]=item.attemptedQuestions)
-        
-        newTestList=testList?.data.map((data)=>{
-           
-       
-        var pData={...data,attemptedQuestions:map[data._id]}
-            
+        let newTestList = []
+        let map = {}
+        assessmentList?.forEach((item) => map[item.assessmentId] = item.attemptedQuestions)
+        newTestList = testList?.data.map((data) => {
+            var pData = { ...data, attemptedQuestions: map[data._id] }
             return pData
         })
- 
         setPassAssessData(newTestList)
-    },[testList,assessmentList])
-  
+    }, [testList, assessmentList])
 
-
-
-
-
-    const testScreen=(item)=>{
-        navigate("/TestScreen/"+item)
+    const testScreen = (item) => {
+        navigate("/TestScreen/" + item)
     }
     const clearCurrentUser = useStore((state) => state.clearCurrentUser)
-
     return <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
-
-
-       <DashboardLayout
+        <DashboardLayout
             open={open}
             anchorEl={anchorEl}
             handleClick={handleClick}
