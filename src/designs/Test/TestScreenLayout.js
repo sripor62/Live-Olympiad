@@ -28,7 +28,7 @@ export const TestScreenLayout = ({
                             <Typography variant='h4'><Box sx={{ fontFamily: 'Urbanist', fontWeight: 'bold', fontSize: { lg: "36px", xs: "20px" }, display: "flex", width: { xs: "200px", lg: "400px" } }} mb={1}>{pageData?.packageName}</Box></Typography>
                             <Typography variant='subtitle2'><Box sx={{ fontFamily: 'Urbanist', fontWeight: 'medium', fontSize: '20px', display: "flex", width: { xs: "200px", lg: "400px" } }} mb={1}>Practice Test</Box></Typography>
                         </Grid>
-                        {pageData.attemptedQuestions != null && <Grid item xs={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                        {pageData?.attemptedQuestions != null && <Grid item xs={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                             <Typography sx={{ fontSize: "20px", display: 'flex' }}><Box sx={{ fontSize: '50px', color: 'green' }}>{pageData.attemptedQuestions ? pageData?.attemptedQuestions : 0}</Box><Box sx={{ mt: 1, fontFamily: 'Urbanist', fontWeight: 600, fontSize: '28px' }}>/{pageData?.totalMarks}</Box></Typography>
                         </Grid>}
                         <Grid container spacing={2} alignItems='center' mt={2}>
@@ -45,11 +45,11 @@ export const TestScreenLayout = ({
                                     <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2, fontSize: '14px', fontFamily: 'Urbanist', fontWeight: 600, alignItems: 'center' }}><AccessAlarmsOutlinedIcon />Time Limit</Box>
                                 </Typography>
                                 <Typography variant='Subtitle2' align='center'>
-                                    <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>{pageData.totalDurationMin} Min</Box>
+                                    <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>{pageData?.totalDurationMin} Min</Box>
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                {pageData.attemptedQuestions != null
+                                {pageData?.attemptedQuestions != null
                                     ? <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#F9BB47", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RESUME</Button>
                                     : <Button onClick={() => startTest(pageData)} endIcon={<PlayArrowOutlinedIcon />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#53D064", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>START</Button>
                                 }
