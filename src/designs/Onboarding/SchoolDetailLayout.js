@@ -39,7 +39,7 @@ export const SchoolDetailLayout = (props) => {
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData?.school} onChange={props.selectionChangeHandler}>
+                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}onChange={props.selectionChangeHandler}>
                         {props.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
