@@ -131,14 +131,15 @@ const Profile = (props) => {
     const onErrorAddAssessment=()=> {
         
     }
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolsData`], () => getSchool(pinCode), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 
     useEffect(()=>{
-        console.log("pincode",pinCode)
         schoolFetch();
-        setSchoolsList([schoolData?.data.data]) 
-        console.log("schoolsList",schoolsList)
     },[pinCode])
+
+    useEffect(() => {
+        setSchoolsList(schoolData?.data.data) 
+    }, [schoolData])
 
     const selectionChangeHandler=(event)=>{
     
