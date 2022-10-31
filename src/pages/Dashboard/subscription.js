@@ -22,6 +22,7 @@ const Subscription = () => {
     getPaymentKey,
     createOrder,
     getSubjects,
+    payOrder,
   } = usePayment();
 
   useEffect(() => {
@@ -71,10 +72,11 @@ const Subscription = () => {
     };
     script.onload = async () => {
       try {
+        console.log(subjects)
         let order = subjects.length * 300 - (subjects.length - 1) * 50;
         const result = await createOrder({
           amount: order * 100,
-          courseIds: subjects.map((crs) => crs.id),
+          courseIds: subjects,
         });
         const { amount, orderId, currency } = result.data.data;
         const { data } = await getPaymentKey();
@@ -86,8 +88,11 @@ const Subscription = () => {
           description: "LiveOlympiad Transaction",
           order_id: orderId,
           handler: async function (response) {
-            console.log(response.razorpay_payment_id);
-            console.log(response.razorpay_order_id);
+            const result = await payOrder({
+              paymentId: response.razorpay_payment_id,
+              orderId: response.razorpay_order_id,
+            });
+            console.log(result)
           },
           prefill: {
             email: user.email,
