@@ -8,7 +8,8 @@ import { useStore } from "../../stores";
 import { useParams } from "react-router-dom";
 const Subscription = () => {
   const user = useStore((state) => state.currentUser);
-
+  let curentUser = JSON.parse(localStorage.current_user);
+  let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
   const [subjectList, setSubjectList] = useState();
@@ -142,9 +143,11 @@ const Subscription = () => {
   useEffect(() => {
     setSubjectList(SubjectData?.data?.data);
   }, [SubjectData]);
-
+  const clearCurrentUser = useStore((state) => state.clearCurrentUser)
   return (
     <SubscriptionLayout
+      logOutHandler={clearCurrentUser} 
+      stuName={stuName}
       paymentInfo={paymentInfo}
       subscriptionList={subscriptionList}
       loadRazorpay={loadRazorpay}
