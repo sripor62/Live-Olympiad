@@ -7,7 +7,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 export const ScheduleLayout = () => {
     return <Box p={3}>
             <Grid container p={1}>
-                <Grid item  xs={12} sm={12} md={7} lg={7} p={1}>
+                <Grid item  xs={12} sm={12} md={7} lg={8} p={1}>
                     <Grid container mb={3}>
                         <Stack direction="row" spacing={2}>
                             <Chip label="All" variant="outlined" sx={{ backgroundColor: '#F9BB47', color: '#ffffff', border: '2px solid #F9BB47' }} />
@@ -73,12 +73,12 @@ export const ScheduleLayout = () => {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid xs={12} sm={12} md={5} lg={5} p={1}>
+                <Grid xs={12} sm={12} md={5} lg={4} p={1}>
                     <Box mb={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
                         <Grid container>
                             <Grid xs={12} sm={12} md={12} lg={12}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <CalendarPicker />
+                                    <CalendarPicker showDaysOutsideCurrentMonth={true}/>
                                 </LocalizationProvider>
                             </Grid>
                         </Grid>
