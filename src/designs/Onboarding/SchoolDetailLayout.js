@@ -59,7 +59,9 @@ export const SchoolDetailLayout = (props) => {
                 <Box mb={2} width={1}>
                     <FormControl fullWidth>
                         <InputLabel>Class</InputLabel>
-                        <Select label="Class" value={classes} onChange={handleChange}>
+                        <Select label="Class" selected={props.pageData?.grade}
+                            value={props.pageData?.grade} 
+                            onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}>
                             <MenuItem value={10}>1st</MenuItem>
                             <MenuItem value={20}>2nd</MenuItem>
                             <MenuItem value={30}>3rd</MenuItem>
