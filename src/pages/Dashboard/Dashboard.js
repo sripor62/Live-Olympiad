@@ -85,7 +85,11 @@ refetch();
     const testScreen = (item) => {
         navigate("/TestScreen/" + item)
     }
-    const clearCurrentUser = useStore((state) => state.clearCurrentUser)
+    
+        
+        const clearCurrentUser = useStore((state) => state.clearCurrentUser)
+    
+    
     return <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
         <DashboardLayout
             open={open}

@@ -62,16 +62,16 @@ export const SchoolDetailLayout = (props) => {
                         <Select label="Class" selected={props.pageData?.grade}
                             value={props.pageData?.grade} 
                             onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}>
-                            <MenuItem value={10}>1st</MenuItem>
-                            <MenuItem value={20}>2nd</MenuItem>
-                            <MenuItem value={30}>3rd</MenuItem>
-                            <MenuItem value={40}>4th</MenuItem>
-                            <MenuItem value={50}>5th</MenuItem>
-                            <MenuItem value={60}>6th</MenuItem>
-                            <MenuItem value={70}>7th</MenuItem>
-                            <MenuItem value={80}>8th</MenuItem>
-                            <MenuItem value={90}>9th</MenuItem>
-                            <MenuItem value={100}>10th</MenuItem>
+                            <MenuItem value={1}>1st</MenuItem>
+                            <MenuItem value={2}>2nd</MenuItem>
+                            <MenuItem value={3}>3rd</MenuItem>
+                            <MenuItem value={4}>4th</MenuItem>
+                            <MenuItem value={5}>5th</MenuItem>
+                            <MenuItem value={6}>6th</MenuItem>
+                            <MenuItem value={7}>7th</MenuItem>
+                            <MenuItem value={8}>8th</MenuItem>
+                            <MenuItem value={9}>9th</MenuItem>
+                            <MenuItem value={10}>10th</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
