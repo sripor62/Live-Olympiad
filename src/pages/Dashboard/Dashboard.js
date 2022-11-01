@@ -66,7 +66,7 @@ const Dashboard = () => {
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
     
     
-    const { data: testList, isLoading: TestListLoader,refetch } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    const { data: testList, isLoading: TestListLoader,refetch } = useQuery([`TestListData`], () => getTestList(window.localStorage.getItem("grade")), { enabled: true, retry: false })
     useEffect(()=>{
 refetch();
     },[EducationData?.data?.data[0]?.grade])

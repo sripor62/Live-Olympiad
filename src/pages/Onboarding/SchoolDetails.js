@@ -58,13 +58,15 @@ const SchoolDetails = () => {
         onSuccess: (data, variables, context) => onSuccessAddAssessment(data, variables, context),
         onError: (data, variables, context) => onErrorAddAssessment(data, variables, context)
     })
-    const onSuccessAddAssessment=()=>{}
+    const onSuccessAddAssessment=(data, variables, context)=>{
+    }
     const onErrorAddAssessment=()=>{}
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(userId), { enabled: true, retry: false })
-    useEffect(()=>{console.log("EduData",EducationData?.data?.data[0])
+    useEffect(()=>{
         setPageData(EducationData?.data?.data[0]);
     
         if(EducationData?.data?.data.length>0){
+            window.localStorage.setItem("grade",EducationData?.data?.data[0].grade)
                 navigate("/personaldetails/"+userId)
         }
     },[EducationData])
