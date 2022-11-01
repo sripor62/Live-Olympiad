@@ -23,24 +23,29 @@ export const PersonalDetailLayout = (props) => {
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
-                    <CustomTextField
+                <CustomTextField
                         type="tel"
                         placeholder="Full Name"
                         variant="filled"
-                        required
+                        value={props.pageData.fullName}
                         onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
-                        error={props.submitFlag && props.getErrorMsz('fullname', props.pageData.fullName) != ""}
-                        errorMsz={props.getErrorMsz('fullName', props.pageData.fullName)}
-                        inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}} />
+                        required
+                        error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
+                        errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
+                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                    />
                 </Box>
             </Grid>
             <Grid item xs={4}>
                 <Box mb={3} width={1}>
                     <FormControl fullWidth>
                     <InputLabel>Gender</InputLabel>
-                    <Select label="Gender"  value={gender} onChange={handleChange}>
-                            <MenuItem value={10}>F</MenuItem>
-                            <MenuItem value={20}>M</MenuItem>
+                    <Select label="Gender" 
+                         selected={props.pageData?.gender} value={props.pageData?.gender} 
+                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
+                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
+                            <MenuItem value={"FEMALE"}>Female</MenuItem>
+                            <MenuItem value={"MALE"}>Male</MenuItem>
                     </Select>
                 </FormControl>
                 </Box>
@@ -48,15 +53,17 @@ export const PersonalDetailLayout = (props) => {
         </Grid>
         <Grid item xs={12}>
             <Box mb={3} width={1}>
-                <CustomTextField
-                    placeholder="RollNo"
-                    variant="filled"
-                    required
+            <CustomTextField
                     type="tel"
-                    onChange={(event) => { props.setPageData({ ...props.pageData, rollno: event.target.value }) }}
-                    error={props.submitFlag && props.getErrorMsz('rollno', props.pageData.rollno) != ""}
-                    errorMsz={props.getErrorMsz('rollno', props.pageData.rollno)} 
-                    inputProps={{sx:{color:"rgba(131,145,161,1)",fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}/>
+                    placeholder="Roll No."
+                    variant="filled"
+                    value={props.pageData.rollNumber}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, rollNumber: event.target.value }) }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.rollNumber) !== ""}
+                    errorMsz={props.getErrorMsz('student_section', props.pageData.rollNumber)}
+                    inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                />
             </Box>
         </Grid>
         <Grid item xs={12}>

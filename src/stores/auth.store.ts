@@ -21,6 +21,7 @@ let authStore = (set) => ({
   },
 
   clearCurrentUser: (redirect=true) => {
+    window.localStorage.removeItem("grade")
     set({ currentUser: null });
     document.cookie = (AppConstants.SESSION_STORAGE_ITEMS.USER_INFO + "=logged-out;domain=" + environment.cookieDomain + "; path=/").trim();
     if (redirect) window.location.replace("/");
