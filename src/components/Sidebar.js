@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Sidebar = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(location.pathname == "/dashboard" ? 0 : 2)
 
     useEffect(() => {
         console.log("PAGE: ", page, location.pathname)

@@ -25,6 +25,19 @@ const category = [
 ]
 
 const Profile = (props) => {
+    useEffect(() => {
+        if (window.localStorage) {
+    
+    
+          if (!localStorage.getItem('reload')) {
+            localStorage['reload'] = true;
+            window.location.reload();
+          } else {
+    
+            localStorage.removeItem('reload');
+          }
+        }
+      }, [])
     const { getSubjects } = usePayment();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]

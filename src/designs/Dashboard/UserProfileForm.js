@@ -47,9 +47,7 @@ export const UserProfileForm = (props) => {
         setClasses(event.target.value);
     };  
 
-    const handleGenderChange = (event) => {
-        setGender(event.target.value)
-    }
+    
 
     return <>
         <Grid container p={4} alignItems='center' justifyContent='center' >
@@ -76,12 +74,14 @@ export const UserProfileForm = (props) => {
                     <FormControl fullWidth>
                         <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Gender</InputLabel>
                         <Select label="Gender" 
-                         value={gender} 
-                         onChange={handleGenderChange}
-                         inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+
+                         selected={props.pageData?.gender} value={props.pageData?.gender} 
+                         onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
+                        inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                          input={<BootstrapInput />}>
-                            <MenuItem value={"Female"}>F</MenuItem>
-                            <MenuItem value={"Male"}>M</MenuItem>
+                            <MenuItem value={"FEMALE"}>Female</MenuItem>
+                            <MenuItem value={"MALE"}>Male</MenuItem>
+
                     </Select>
                     </FormControl>
                 </Grid>
@@ -106,10 +106,12 @@ export const UserProfileForm = (props) => {
                     <FormControl fullWidth>
                         <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
                         <Select label="Class" 
-                        value={classes} 
-                        onChange={handleChange}
+
+                        selected={props.pageData?.grade} value={props.pageData?.grade} 
+                        onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
                         inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                         input={<BootstrapInput />}>
+
                             <MenuItem value={"1"}>1st</MenuItem>
                             <MenuItem value={"2"}>2nd</MenuItem>
                             <MenuItem value={"3"}>3rd</MenuItem>
@@ -119,7 +121,7 @@ export const UserProfileForm = (props) => {
                             <MenuItem value={"7"}>7th</MenuItem>
                             <MenuItem value={"8"}>8th</MenuItem>
                             <MenuItem value={"9"}>9th</MenuItem>
-                            <MenuItem value={"9"}>10th</MenuItem>
+                            <MenuItem value={"10"}>10th</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

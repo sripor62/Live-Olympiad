@@ -31,7 +31,7 @@ export const useStudent = () => {
         return await axiosInstance().get(endpoint);
     };
     const sendPersonalData = async (body) => {
-        const endpoint = environment.userBaseUrl + Endpoints.GET_PERSONAL_INFO + "/" + body.id;
+        const endpoint = environment.userBaseUrl + Endpoints.GET_PERSONAL_INFO + "/" + body.userId;
         return await axiosInstance().post(endpoint, (body.data));
     };
     return {
