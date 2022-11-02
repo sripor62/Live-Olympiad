@@ -112,7 +112,7 @@ export const SchoolDetailLayout = (props) => {
             <Box mb={2} width={1}>
                 <CustomTextField
                     placeholder="Section"
-                    type="tel"
+                    type="text"
                     variant="filled"
                     value={props.pageData?.section}
                     onChange={(event) => { props.setPageData({ ...props.pageData, section: event.target.value }) }}

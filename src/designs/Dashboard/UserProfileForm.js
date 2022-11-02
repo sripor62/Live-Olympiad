@@ -59,7 +59,7 @@ export const UserProfileForm = (props) => {
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
 
                     <CustomTextField
-                        type="tel"
+                        type="text"
                         placeholder="Full Name"
                         variant="filled"
                         value={props.pageData.fullName}
@@ -127,7 +127,7 @@ export const UserProfileForm = (props) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                 <CustomTextField
-                    type="tel"
+                    type="text"
                     placeholder="Section."
                     variant="filled"
                     value={props.pageData.section}
@@ -185,7 +185,7 @@ export const UserProfileForm = (props) => {
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}
+                    <Select label="School" selected={props.pageData.school} value={props.pageData.school} onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}
                      inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                      input={<BootstrapInput />}>
                         {props.schoolsList?.map((option) => (

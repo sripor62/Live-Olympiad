@@ -50,7 +50,7 @@ export const PersonalDetailLayout = (props) => {
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
                 <CustomTextField
-                        type="tel"
+                        type="text"
                         placeholder="Full Name"
                         variant="filled"
                         value={props.pageData.fullName}
