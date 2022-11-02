@@ -35,9 +35,10 @@ const SchoolDetails = () => {
         }
         console.log("pdata",pdata)
         afterValidate(afterValidateCallBack)
+        if(pdata.school!="" && pdata.grade!=""){
         addEducationMutate({ data: pdata ,userId:userId})
-        console.log("grade",pageData.grade)
-        navigate("/personaldetails/"+ userId)
+        
+        navigate("/personaldetails/"+ userId)}
     };
 
     const afterValidateCallBack = (second) => {

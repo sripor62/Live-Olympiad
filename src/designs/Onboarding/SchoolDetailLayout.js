@@ -48,7 +48,7 @@ export const SchoolDetailLayout = (props) => {
         </Grid>
         <Grid item xs={12}>
             <Box mb={2} width={1}>
-                <CustomTextField
+                <CustomTextField style={{width:"526px"}}
                     placeholder="School Area Postal Code"
                     type="tel"
                     variant="filled"
@@ -61,12 +61,12 @@ export const SchoolDetailLayout = (props) => {
                     error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.postalCode) != ""}
                     errorMsz={props.getErrorMsz('postal_code', props.pageData?.postalCode)}
                     inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
-                />
+                /><span style={{color:"red", fontWeight:"bold"}}>*</span>
             </Box>
         </Grid>
         <Grid item xs={12}>
             <Box mb={2} width={1}>
-                <FormControl fullWidth>
+                <FormControl style={{width:"526px"}}>
                     <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
                     <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  
                     onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}
@@ -81,13 +81,13 @@ export const SchoolDetailLayout = (props) => {
                         ))
                         }
                     </Select>
-                </FormControl>
+                </FormControl><span style={{color:"red", fontWeight:"bold"}}>*</span>
             </Box>
         </Grid>
         <Grid container spacing={1}>
             <Grid item xs={12} lg={6}>
                 <Box mb={2} width={1}>
-                    <FormControl fullWidth>
+                    <FormControl style={{width:"255px"}}>
                         <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
                         <Select label="Class" selected={props.pageData?.grade}
                             value={props.pageData?.grade} 
@@ -105,7 +105,7 @@ export const SchoolDetailLayout = (props) => {
                             <MenuItem value={9}>9th</MenuItem>
                             <MenuItem value={10}>10th</MenuItem>
                         </Select>
-                    </FormControl>
+                    </FormControl><span style={{color:"red", fontWeight:"bold"}}>*</span>
                 </Box>
             </Grid>
             <Grid item xs={12} lg={6}>
