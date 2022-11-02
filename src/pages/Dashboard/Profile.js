@@ -175,7 +175,7 @@ const Profile = (props) => {
                 setPinCode={setPinCode}
                 pinCode={pinCode}
                 selectionChangeHandler={selectionChangeHandler}
-                schoolsList={schoolsList}
+                schoolsList={schoolData?.data.data}
                 setSchoolsList={setSchoolsList}
                 paymentInfo={paymentInfo}
                 currentSchool={currentSchool}
