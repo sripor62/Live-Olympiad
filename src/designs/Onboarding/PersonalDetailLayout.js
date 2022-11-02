@@ -5,6 +5,32 @@ import { CustomTextField } from "../../components/CustomTextField"
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import * as React from 'react';
+import InputBase from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
+
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    'label + &': {
+        marginTop: theme.spacing(0),
+    },
+    '& .MuiInputBase-input': {
+        borderRadius: "10px",
+        position: 'relative',
+        backgroundColor: "#F7F8F9",
+        border: 'none',
+        fontSize: 16,
+        padding: "15px 24px",
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            'Urbanist',
+        ].join(','),
+        '&:focus': {
+            borderRadius: "10px",
+            border: "none"
+        },
+    },
+
+}));
 
 export const PersonalDetailLayout = (props) => {
     const [gender, setGender] = React.useState('');
@@ -39,13 +65,15 @@ export const PersonalDetailLayout = (props) => {
             <Grid item xs={4}>
                 <Box mb={3} width={1}>
                     <FormControl fullWidth>
-                    <InputLabel>Gender</InputLabel>
+
+                    <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Gender</InputLabel>
                     <Select label="Gender" 
                          selected={props.pageData?.gender} value={props.pageData?.gender} 
                          onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
-                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
+                         inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
                             <MenuItem value={"FEMALE"}>Female</MenuItem>
                             <MenuItem value={"MALE"}>Male</MenuItem>
+
                     </Select>
                 </FormControl>
                 </Box>

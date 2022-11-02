@@ -10,6 +10,32 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import InputBase from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    'label + &': {
+        marginTop: theme.spacing(0),
+    },
+    '& .MuiInputBase-input': {
+        borderRadius: "10px",
+        position: 'relative',
+        backgroundColor: "#F7F8F9",
+        border: 'none',
+        fontSize: 16,
+        padding: "15px 24px",
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            'Urbanist',
+        ].join(','),
+        '&:focus': {
+            borderRadius: "10px",
+            border: "none"
+        },
+    },
+
+}));
+
 
 
 export const UserProfileForm = (props) => {
@@ -46,13 +72,16 @@ export const UserProfileForm = (props) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
                     <FormControl fullWidth>
-                        <InputLabel>Gender</InputLabel>
+                        <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Gender</InputLabel>
                         <Select label="Gender" 
+
                          selected={props.pageData?.gender} value={props.pageData?.gender} 
                          onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
-                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
+                        inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                         input={<BootstrapInput />}>
                             <MenuItem value={"FEMALE"}>Female</MenuItem>
                             <MenuItem value={"MALE"}>Male</MenuItem>
+
                     </Select>
                     </FormControl>
                 </Grid>
@@ -75,11 +104,14 @@ export const UserProfileForm = (props) => {
 
                 <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
                     <FormControl fullWidth>
-                        <InputLabel>Class</InputLabel>
+                        <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
                         <Select label="Class" 
+
                         selected={props.pageData?.grade} value={props.pageData?.grade} 
                         onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
-                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}>
+                        inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                        input={<BootstrapInput />}>
+
                             <MenuItem value={"1"}>1st</MenuItem>
                             <MenuItem value={"2"}>2nd</MenuItem>
                             <MenuItem value={"3"}>3rd</MenuItem>
@@ -153,8 +185,8 @@ export const UserProfileForm = (props) => {
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}>
-                    {props?.schoolsList?.length>0 && props?.schoolsList?.map((option) => (
+                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
+                        {props.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
                                 {option.name}

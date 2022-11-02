@@ -6,6 +6,32 @@ import { CustomSnackbar } from '../../components/CustomSnackbar';
 import { CustomTextField } from '../../components/CustomTextField';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import InputBase from '@mui/material/InputBase';
+import { styled } from '@mui/material/styles';
+const BootstrapInput = styled(InputBase)(({ theme }) => ({
+    'label + &': {
+        marginTop: theme.spacing(0),
+    },
+    '& .MuiInputBase-input': {
+        borderRadius: "10px",
+        position: 'relative',
+        backgroundColor: "#F7F8F9",
+        border: 'none',
+        fontSize: 16,
+        padding: "15px 24px",
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
+        // Use the system font instead of the default Roboto font.
+        fontFamily: [
+            'Urbanist',
+        ].join(','),
+        '&:focus': {
+            borderRadius: "10px",
+            border: "none"
+        },
+    },
+
+}));
+
 
 export const SchoolDetailLayout = (props) => {
     const [classes, setClasses] = React.useState('');
@@ -41,8 +67,12 @@ export const SchoolDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
-                    <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}>
+                    <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
+                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  
+                    onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}
+                    inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                    input={<BootstrapInput />}
+                    >
                     {props?.schoolsList?.length>0 && props?.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
@@ -58,10 +88,32 @@ export const SchoolDetailLayout = (props) => {
             <Grid item xs={12} lg={6}>
                 <Box mb={2} width={1}>
                     <FormControl fullWidth>
-                        <InputLabel>Class</InputLabel>
+
+                        <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
+                        <Select
+                            label="Class"
+                            value={classes}
+                            onChange={handleChange}
+                            input={<BootstrapInput />}
+                            inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                        >
+                            <MenuItem value={10}>1st</MenuItem>
+                            <MenuItem value={20}>2nd</MenuItem>
+                            <MenuItem value={30}>3rd</MenuItem>
+                            <MenuItem value={40}>4th</MenuItem>
+                            <MenuItem value={50}>5th</MenuItem>
+                            <MenuItem value={60}>6th</MenuItem>
+                            <MenuItem value={70}>7th</MenuItem>
+                            <MenuItem value={80}>8th</MenuItem>
+                            <MenuItem value={90}>9th</MenuItem>
+                            <MenuItem value={100}>10th</MenuItem>
+
+                        <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
                         <Select label="Class" selected={props.pageData?.grade}
                             value={props.pageData?.grade} 
-                            onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}>
+                            onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
+                             input={<BootstrapInput />}
+                            inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
                             <MenuItem value={1}>1st</MenuItem>
                             <MenuItem value={2}>2nd</MenuItem>
                             <MenuItem value={3}>3rd</MenuItem>
@@ -72,6 +124,7 @@ export const SchoolDetailLayout = (props) => {
                             <MenuItem value={8}>8th</MenuItem>
                             <MenuItem value={9}>9th</MenuItem>
                             <MenuItem value={10}>10th</MenuItem>
+
                         </Select>
                     </FormControl>
                 </Box>
@@ -98,9 +151,9 @@ export const SchoolDetailLayout = (props) => {
                 <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{ borderRadius: "50px" }} />
             </Box>
         </Grid>
-        {
-            Object.keys(props.snakeBarProps).length > 0 &&
+    {
+        Object.keys(props.snakeBarProps).length > 0 &&
             <CustomSnackbar {...props.snakeBarProps} setSnakeBarProps={props.setSnakeBarProps} />
-        }
-    </Grid>
+    }
+    </Grid >
 }
