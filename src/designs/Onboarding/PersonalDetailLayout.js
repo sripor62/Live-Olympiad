@@ -49,7 +49,7 @@ export const PersonalDetailLayout = (props) => {
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
-                <CustomTextField
+                <CustomTextField style={{width:"336px"}}
                         type="text"
                         placeholder="Full Name"
                         variant="filled"
@@ -59,7 +59,7 @@ export const PersonalDetailLayout = (props) => {
                         error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
                         errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
-                    />
+                    /><span style={{color:"red", fontWeight:"bold"}}>*</span>
                 </Box>
             </Grid>
             <Grid item xs={4}>
@@ -83,6 +83,7 @@ export const PersonalDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
             <CustomTextField
+                    style={{width:"526px"}}
                     type="tel"
                     placeholder="Roll No."
                     variant="filled"
@@ -92,7 +93,7 @@ export const PersonalDetailLayout = (props) => {
                     error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.rollNumber) !== ""}
                     errorMsz={props.getErrorMsz('student_section', props.pageData.rollNumber)}
                     inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
-                />
+                /><span style={{color:"red", fontWeight:"bold"}}>*</span>
             </Box>
         </Grid>
         <Grid item xs={12}>
