@@ -70,6 +70,7 @@ export const PersonalDetailLayout = (props) => {
                     <Select label="Gender" 
                          selected={props.pageData?.gender} value={props.pageData?.gender} 
                          onChange={(event) => { props.setPageData({ ...props.pageData, gender: event.target.value }) }}
+                         input={<BootstrapInput />}
                          inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
                             <MenuItem value={"FEMALE"}>Female</MenuItem>
                             <MenuItem value={"MALE"}>Male</MenuItem>

@@ -11,7 +11,7 @@ export const DashboardLayout = (props) => {
         <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
             <Grid container mb={5}  alignItems='center'>
                 <Grid item xs={12} md={12} lg={8}><SubjectSelector /></Grid>
-                {/* <Grid item  xs={12} md={12} lg={4}><FilterByStatus open={props.open} anchorEl={props.anchorEl} handleClick={props.handleClick} handleClose={props.handleClose} /></Grid> */}
+                { <Grid item  xs={12} md={12} lg={4}><FilterByStatus open={props.open} anchorEl={props.anchorEl} handleClick={props.handleClick} handleClose={props.handleClose} /></Grid> }
             </Grid>
             {
                 props?.testsLists?.map((option) => {
