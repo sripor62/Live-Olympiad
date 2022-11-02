@@ -91,7 +91,7 @@ const Profile = (props) => {
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: !!pinCode, retry: false })
 
     useEffect(()=>{
         schoolFetch();
@@ -175,7 +175,7 @@ const Profile = (props) => {
                 setPinCode={setPinCode}
                 pinCode={pinCode}
                 selectionChangeHandler={selectionChangeHandler}
-                schoolsList={schoolData?.data.data}
+                schoolsList={schoolsList}
                 setSchoolsList={setSchoolsList}
                 paymentInfo={paymentInfo}
                 currentSchool={currentSchool}
