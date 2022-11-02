@@ -74,9 +74,10 @@ refetch();
         setTestsList(testList?.data);
         let newTestList = []
         let map = {}
-        assessmentList?.forEach((item) => map[item.assessmentId] = item.attemptedQuestions)
+        assessmentList?.forEach((item) => map[item.assessmentId] = item)
+
         newTestList = testList?.data.map((data) => {
-            var pData = { ...data, attemptedQuestions: map[data._id] }
+            var pData = { ...data, attemptedQuestions: map[data._id]?.attemptedQuestions, testStatus:map[data._id]?.testStatus, testId:map[data._id]?.testId }
             return pData
         })
         setPassAssessData(newTestList)

@@ -38,7 +38,8 @@ export default function PersonalDetails() {
 
 
     const submitHandler = async () => {
-        console.log("pageData",pageData)
+        
+
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -49,8 +50,9 @@ export default function PersonalDetails() {
 
         }
         console.log("pDataaa",pdata)
+        if(pdata.fullName!="" && pdata.rollNumber!="" && pdata.dob!="" && pdata.gender!=""){
         PersonalMutate({ data: pdata, userId: userId })
-        navigate("/subscription/")
+        navigate("/subscription/")}
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
 
