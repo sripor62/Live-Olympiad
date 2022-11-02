@@ -88,26 +88,6 @@ export const SchoolDetailLayout = (props) => {
             <Grid item xs={12} lg={6}>
                 <Box mb={2} width={1}>
                     <FormControl fullWidth>
-
-                        <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
-                        <Select
-                            label="Class"
-                            value={classes}
-                            onChange={handleChange}
-                            input={<BootstrapInput />}
-                            inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
-                        >
-                            <MenuItem value={10}>1st</MenuItem>
-                            <MenuItem value={20}>2nd</MenuItem>
-                            <MenuItem value={30}>3rd</MenuItem>
-                            <MenuItem value={40}>4th</MenuItem>
-                            <MenuItem value={50}>5th</MenuItem>
-                            <MenuItem value={60}>6th</MenuItem>
-                            <MenuItem value={70}>7th</MenuItem>
-                            <MenuItem value={80}>8th</MenuItem>
-                            <MenuItem value={90}>9th</MenuItem>
-                            <MenuItem value={100}>10th</MenuItem>
-
                         <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>Class</InputLabel>
                         <Select label="Class" selected={props.pageData?.grade}
                             value={props.pageData?.grade} 
@@ -124,7 +104,6 @@ export const SchoolDetailLayout = (props) => {
                             <MenuItem value={8}>8th</MenuItem>
                             <MenuItem value={9}>9th</MenuItem>
                             <MenuItem value={10}>10th</MenuItem>
-
                         </Select>
                     </FormControl>
                 </Box>

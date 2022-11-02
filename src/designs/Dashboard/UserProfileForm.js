@@ -184,8 +184,10 @@ export const UserProfileForm = (props) => {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
-                    <InputLabel>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}>
+                    <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
+                    <Select label="School" selected={props.pageData.school} onChange={props.selectionChangeHandler}
+                     inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                     input={<BootstrapInput />}>
                         {props.schoolsList?.map((option) => (
 
                             <MenuItem key={option.id} value={option.id}>
