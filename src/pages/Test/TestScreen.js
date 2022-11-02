@@ -31,25 +31,12 @@ const TestScreen = () => {
     }
     const userInfo = JSON.parse(userInfoVal);
     let decodedToken = jwt_decode(userInfo.access_token);
-    console.log("dashboardddddddddddd",decodedToken.jti)
+   
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
     const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
-    // useEffect(() => {
-    //     console.log("packageId", TestList)
-    //     if (TestList) {
-    //         setTestsList(TestList?.data);
-    //         if (TestList?.data) {
-    //             let pData = TestList?.data.filter((item) => item._id === packageId)
-    //             if (pData) {
-    //                 setPageData(pData[0]);
-    //                 console.log("pageData", pageData)
-    //             }
-    //         }
-    //     }
-    // }, [TestList])
     useEffect(() => {
         setTestsList(TestList?.data);
         let newTestList = []
@@ -91,5 +78,4 @@ const TestScreen = () => {
         </>
     )
 }
-
 export default TestScreen
