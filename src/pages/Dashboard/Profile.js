@@ -91,7 +91,7 @@ const Profile = (props) => {
         setPageData({ ...pageData, ...pdata })
         
     },[profileData])
-    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
+    const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`,pinCode], () => getSchool(pinCode), { enabled: !!pinCode, retry: false })
 
     useEffect(()=>{
         schoolFetch();
