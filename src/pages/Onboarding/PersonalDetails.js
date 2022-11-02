@@ -50,7 +50,7 @@ export default function PersonalDetails() {
 
         }
         console.log("pDataaa",pdata)
-        if(pdata.fullName!="" && pdata.rollNumber!="" && pdata.dob!="" && pdata.gender!=""){
+        if(pdata.fullName!="" && pdata.rollNumber!=""){
         PersonalMutate({ data: pdata, userId: userId })
         navigate("/subscription/")}
     };
