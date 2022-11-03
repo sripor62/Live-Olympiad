@@ -12,6 +12,8 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
         marginTop: theme.spacing(0),
@@ -50,7 +52,7 @@ export const UserProfileForm = (props) => {
     
 
     return <>
-        <Grid container p={4} alignItems='center' justifyContent='center' >
+        <Grid container  alignItems='center' justifyContent='center' >
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
 
                 <Typography variant='h6' fontWeight="bold" ><Box sx={{ fontFamily: "Urbanist" }}>Edit Information</Box></Typography>
@@ -146,6 +148,7 @@ export const UserProfileForm = (props) => {
                     type="tel"
                     required
                     variant="filled"
+                    endIcon={<CalendarMonthOutlinedIcon/>}
                     value={props.pageData.dob}
                     onChange={(event) => { props.setPageData({ ...props.pageData, dob: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('dob', props.pageData.dob) !== ""}

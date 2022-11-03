@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import * as React from 'react';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -107,6 +108,7 @@ export const PersonalDetailLayout = (props) => {
                         shrink: true,
                     }}
                     variant="filled"
+                    endIcon={<CalendarMonthOutlinedIcon/>}
                     onChange={(event) => { props.setPageData({ ...props.pageData, dob: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('dob', props.pageData.dob) != ""}
                     errorMsz={props.getErrorMsz('dob', props.pageData.dob)} 
