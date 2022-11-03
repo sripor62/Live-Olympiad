@@ -44,7 +44,7 @@ const MobileVerification = (props) => {
         setsubmitFlag(true);
         setHasErrored(otp == undefined ? true : otp.length == 6 ? false : true);
         setErrorMsz(otp == undefined ? "Enter Otp" : otp.length == 6 ? "" : "Enter empty otp")
-        console.log(params.phoneNumber);
+        
         let validateOtpReqBody = { otp: +otp ,phoneNumber: "+91" + params.phoneNumber};
 
         let res = await validateOTP({
@@ -52,9 +52,10 @@ const MobileVerification = (props) => {
             loginAfterVerify: true,
           });
           if (res.data?.success){
-            console.log("Hey yoy got it")
-            console.log(res.data.data.access_token)
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
             window.location.href= "/createnewpassword/" + res.data.data.access_token
+          }else{
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
           }
         //   if (res.data?.success) {
         //     setCurrentUser(res.data?.data);
@@ -67,7 +68,7 @@ const MobileVerification = (props) => {
 
     const afterValidateCallBack = (second) => {
         console.log('otp', otp)
-        setSnakeBarProps({ snackbarFlag: true, msz: "Mobile number verified", type: "success" })
+        
     }
 
     return <AuthLayout>
