@@ -10,7 +10,12 @@ import { useStudent } from '../../hooks/useStudent';
 export default function PersonalDetails() {
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
-    const [pageData, setPageData] = useState({ fullName: "", email: "", rollNumber: "", dob: "", gender: "" });
+    const [pageData, setPageData] = useState({
+        fullName: "", 
+        email: "",
+        rollNumber: "",
+        dob: "",
+        gender: "" });
     const navigate = useNavigate();
     const params = useParams();
     var userId = params.userId
@@ -21,7 +26,7 @@ export default function PersonalDetails() {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
             if(personalData?.data.data.id!==null){
-                navigate("/dashboard")
+                // navigate("/dashboard")
             }
             var pdata = {
                 ...personalData?.data.data,
@@ -33,7 +38,8 @@ export default function PersonalDetails() {
 
 
     const submitHandler = async () => {
-        console.log("clickedd")
+        
+
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -43,8 +49,10 @@ export default function PersonalDetails() {
             gender: pageData.gender
 
         }
-        PersonalMutate({ data: pdata, id: userId })
-        navigate("/subscription/")
+        console.log("pDataaa",pdata)
+        if(pdata.fullName!="" && pdata.rollNumber!=""){
+        PersonalMutate({ data: pdata, userId: userId })
+        navigate("/subscription/")}
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
 
