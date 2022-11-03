@@ -6,7 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 export const ScheduleLayout = () => {
     return <Box p={3}>
-            <Grid container p={1}>
+            <Grid container spacing={2}>
                 <Grid item  xs={12} sm={12} md={7} lg={8} p={1}>
                     <Grid container mb={3}>
                         <Stack direction="row" spacing={2}>
@@ -26,7 +26,7 @@ export const ScheduleLayout = () => {
                                             <Chip label="Mathematics" variant="filled" sx={{ color: 'white', backgroundColor: "#4545A5" ,fontWeight:"bold"}} />
                                         </Stack>
                                     </Grid>
-                                    <Grid item  xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
+                                    <Grid item  xs={6} lg={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Typography variant='body2' color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
@@ -45,7 +45,7 @@ export const ScheduleLayout = () => {
                                             <Chip label="Science" variant="filled" sx={{ color: 'white', backgroundColor: "#42BBEF" ,fontWeight:"bold" }} />
                                         </Stack>
                                     </Grid>
-                                    <Grid xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
+                                    <Grid xs={6} lg={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>3 October 2022</Box></Typography></Grid>
                                 </Grid>
                                 <Grid xs={12}>
                                     <Typography variant='body2'  color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
@@ -64,7 +64,7 @@ export const ScheduleLayout = () => {
                                             <Chip label="English" variant="filled" sx={{ color: 'white', backgroundColor: "#EF4255"  ,fontWeight:"bold"}} />
                                         </Stack>
                                     </Grid>
-                                    <Grid item  xs={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>To be Scheduled</Box></Typography></Grid>
+                                    <Grid item xs={6} lg={7.7} sx={{ display: 'flex', justifyContent: 'flex-end' }}><Typography variant='body2' color="#838BA1"><Box>To be Scheduled</Box></Typography></Grid>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Typography variant='body2'  color="#838BA1"><Box sx={{fontWeight:"bold"}}>Venue : School Auditorium</Box></Typography>
@@ -73,10 +73,10 @@ export const ScheduleLayout = () => {
                         </Box>
                     </Grid>
                 </Grid>
-                <Grid xs={12} sm={12} md={5} lg={4} p={1}>
-                    <Box mb={2} sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
+                <Grid item xs={12} sm={12} md={5} lg={4}>
+                    <Box sx={{ backgroundColor: "#F7F8F9", borderRadius: '15px' }}>
                         <Grid container>
-                            <Grid xs={12} sm={12} md={12} lg={12}>
+                            <Grid item xs={12} sm={12} md={12} lg={12}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <CalendarPicker showDaysOutsideCurrentMonth={true}/>
                                 </LocalizationProvider>
@@ -85,10 +85,10 @@ export const ScheduleLayout = () => {
                     </Box>
                     <Box ml={2} p={2}>
                         <Grid container alignItems='center'>
-                            <Grid xs={1} sm={1} md={1} lg={1}><Box sx={{ height: '20px', width: '20px', backgroundColor: '#53D064', borderRadius: '50%' }} /></Grid>
-                            <Grid xs={5} sm={5} md={5} lg={5}><Typography variant='body2'><Box>Mock Test</Box></Typography></Grid>
-                            <Grid xs={1} sm={1} md={1} lg={1}><Box sx={{ height: '20px', width: '20px', backgroundColor: '#FCBD42', borderRadius: '50%' }} /></Grid>
-                            <Grid xs={1} sm={5} md={5} lg={5}><Typography variant='body2'><Box>Olympiad</Box></Typography></Grid>
+                            <Grid item xs={1} sm={1} md={1} lg={1}><Box sx={{ height: '20px', width: '20px', backgroundColor: '#53D064', borderRadius: '50%' }} /></Grid>
+                            <Grid item xs={5} sm={5} md={5} lg={5}><Typography variant='body2'><Box>Mock Test</Box></Typography></Grid>
+                            <Grid item xs={1} sm={1} md={1} lg={1}><Box sx={{ height: '20px', width: '20px', backgroundColor: '#FCBD42', borderRadius: '50%' }} /></Grid>
+                            <Grid item xs={1} sm={5} md={5} lg={5}><Typography variant='body2'><Box>Olympiad</Box></Typography></Grid>
                         </Grid>
                     </Box>
                 </Grid>
