@@ -55,7 +55,7 @@ export const PersonalDetailLayout = (props) => {
                         variant="filled"
                         value={props.pageData.fullName}
                         onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
-                        required
+                        required={true}
                         error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
                         errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
@@ -83,6 +83,7 @@ export const PersonalDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
             <CustomTextField
+                    inputLabel={true}
                     style={{width:"526px"}}
                     type="tel"
                     placeholder="Roll No."

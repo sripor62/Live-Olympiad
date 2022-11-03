@@ -15,7 +15,7 @@ const SchoolDetails = () => {
     const [snakeBarProps, setSnakeBarProps] = useState({});
    
     const [submitFlag, setsubmitFlag] = useState(false)
-    const [pinCode,setPinCode]=useState(208017);
+    const [pinCode,setPinCode]=useState("");
     const [schoolsList,setSchoolsList]=useState([]);
     const [pageData, setPageData] = useState({
     
@@ -35,14 +35,16 @@ const SchoolDetails = () => {
         }
         console.log("pdata",pdata)
         afterValidate(afterValidateCallBack)
-        if(pdata.school!="" && pdata.grade!=""){
+        if(pdata.school!="" && pdata.grade!=undefined){
+            console.log("pdata",pdata.school,pdata.grade)
         addEducationMutate({ data: pdata ,userId:userId})
         
-        navigate("/personaldetails/"+ userId)}
+        navigate("/personaldetails/"+ userId)
+    }
     };
 
     const afterValidateCallBack = (second) => {
-        console.log('pageData', pageData);
+        
         setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
     }
     const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
@@ -68,7 +70,7 @@ const SchoolDetails = () => {
     
         if(EducationData?.data?.data.length>0){
             window.localStorage.setItem("grade",EducationData?.data?.data[0].grade)
-                navigate("/personaldetails/"+userId)
+                // navigate("/personaldetails/"+userId)
         }
     },[EducationData])
     
