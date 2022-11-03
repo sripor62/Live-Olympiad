@@ -45,7 +45,7 @@ const SchoolDetails = () => {
 
     const afterValidateCallBack = (second) => {
         
-        setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
+        // setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
     }
     const { data: schoolData, isLoading: schoolLoader, refetch:schoolFetch } = useQuery([`SchoolData`], () => getSchool(pinCode), { enabled: true, retry: false })
 

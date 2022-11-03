@@ -49,7 +49,7 @@ export const PersonalDetailLayout = (props) => {
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
-                <CustomTextField style={{width:"336px"}}
+                <CustomTextField 
                         type="text"
                         placeholder="Full Name"
                         variant="filled"
@@ -84,7 +84,7 @@ export const PersonalDetailLayout = (props) => {
             <Box mb={3} width={1}>
             <CustomTextField
                     inputLabel={true}
-                    style={{width:"526px"}}
+                    
                     type="tel"
                     placeholder="Roll No."
                     variant="filled"
