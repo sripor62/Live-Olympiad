@@ -33,7 +33,7 @@ const TestScreen = () => {
     let decodedToken = jwt_decode(userInfo.access_token);
    
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
-    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, EducationData], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
