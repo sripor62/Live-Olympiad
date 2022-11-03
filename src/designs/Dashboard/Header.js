@@ -38,7 +38,7 @@ const Header = (props) => {
                 </Box>
             </Grid>
             <Grid item xs={1} sm={1} md={1} lg={1} alignItems='center'>
-                <Box mr={2}>
+                <Box>
                     <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end'}} >
                     <LogoutOutlinedIcon style={{color:"#F9BB47"}} onClick={props.logOutHandler}/>
                         {/* <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' ,fontFamily:"Urbanist"}} /> */}
