@@ -26,7 +26,7 @@ export default function PersonalDetails() {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
             if(personalData?.data.data.id!==null){
-                // navigate("/dashboard")
+                navigate("/dashboard")
             }
             var pdata = {
                 ...personalData?.data.data,

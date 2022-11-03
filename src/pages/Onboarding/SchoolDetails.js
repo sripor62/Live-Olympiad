@@ -70,7 +70,7 @@ const SchoolDetails = () => {
     
         if(EducationData?.data?.data.length>0){
             window.localStorage.setItem("grade",EducationData?.data?.data[0].grade)
-                // navigate("/personaldetails/"+userId)
+                navigate("/personaldetails/"+userId)
         }
     },[EducationData])
     
