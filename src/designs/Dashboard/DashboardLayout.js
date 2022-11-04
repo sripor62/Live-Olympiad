@@ -10,11 +10,26 @@ export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
         <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
             <Grid container mb={5}  alignItems='center'>
-                <Grid item xs={12} md={12} lg={8}><SubjectSelector /></Grid>
+                <Grid item xs={12} md={12} lg={8}><SubjectSelector setPage={props.setPage} /></Grid>
                 { <Grid item  xs={12} md={12} lg={4}><FilterByStatus open={props.open} anchorEl={props.anchorEl} handleClick={props.handleClick} handleClose={props.handleClose} /></Grid> }
             </Grid>
-            {
+            {props.page===0 &&
                 props?.testsLists?.map((option) => {
+                    return <CustomListItem option={option} key={option._id} testScreen={props.testScreen}/>
+                })
+            }
+            {props.page===1 && props?.testsLists.filter((item)=> {return item.subject[0]==="Science"}).map((option) => {
+                    return <CustomListItem option={option} key={option._id} testScreen={props.testScreen}/>
+                })
+
+            }
+            {
+                props.page===2 && props?.testsLists.filter((item)=> {return item.subject[0]==="Math"}).map((option) => {
+                    return <CustomListItem option={option} key={option._id} testScreen={props.testScreen}/>
+                })
+            }
+            {
+                props.page===3 && props?.testsLists.filter((item)=> {return item.subject[0]==="English"}).map((option) => {
                     return <CustomListItem option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
