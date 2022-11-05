@@ -29,7 +29,6 @@ export const NewPasswordLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
-                    type="tel"
                     placeholder="Confirm Password"
                     variant="filled"
                     required
