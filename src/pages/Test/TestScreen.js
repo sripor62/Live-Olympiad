@@ -8,6 +8,7 @@ import { useStore } from '../../stores';
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useStudent } from '../../hooks/useStudent';
+import {testAppUrl} from "../../environments/environment"
 const TestScreen = () => {
     useEffect(() => {
         if (window.localStorage) {
@@ -82,7 +83,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `http://localhost:5000/landing/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `${testAppUrl}/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
