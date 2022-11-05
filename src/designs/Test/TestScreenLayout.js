@@ -48,7 +48,7 @@ export const TestScreenLayout = ({
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>{pageData?.totalDurationMin} Min</Box>
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                            <Grid item xs={10} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                                 {pageData?.testStatus
                                     ? pageData.attemptedQuestions===pageData.totalMarks ? <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "rgba(131, 139, 161, 1)" , color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RETAKE</Button>
                                     : <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#F9BB47", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RESUME</Button> : 
