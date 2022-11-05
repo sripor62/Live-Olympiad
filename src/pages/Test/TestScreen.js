@@ -9,6 +9,19 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useStudent } from '../../hooks/useStudent';
 const TestScreen = () => {
+    useEffect(() => {
+        if (window.localStorage) {
+    
+    
+          if (!localStorage.getItem('reload')) {
+            localStorage['reload'] = true;
+            window.location.reload();
+          } else {
+    
+            localStorage.removeItem('reload');
+          }
+        }
+      }, [])
     const currentUser = useStore((state) => state.currentUser)
     const [testsLists, setTestsList] = useState([])
     const [pageData, setPageData] = useState({})
@@ -69,7 +82,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `http://test.liveolympiad.org/landing/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `http://localhost:5000/landing/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
