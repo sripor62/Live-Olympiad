@@ -40,6 +40,7 @@ const Dashboard = () => {
     const [grade,setGrade]=useState("")
     const {getEducation}=useStudent();
     let curentUser = JSON.parse(localStorage.current_user);
+    const [page,setPage]=useState(0)
 
     // setStuName(curentUser?.state?.currentUser.fullName)
     let stuName=curentUser?.state?.currentUser?.fullName.split(' ')[0]
@@ -62,7 +63,7 @@ const Dashboard = () => {
     }
     const userInfo = JSON.parse(userInfoVal);
     let decodedToken = jwt_decode(userInfo.access_token);
-    console.log("dashboardddddddddddd",decodedToken.jti)
+  
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
     
     
@@ -93,6 +94,8 @@ refetch();
     
     return <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
         <DashboardLayout
+            setPage={setPage}
+            page={page}
             open={open}
             anchorEl={anchorEl}
             handleClick={handleClick}

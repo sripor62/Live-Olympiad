@@ -1,10 +1,10 @@
 export const environment = {
     production: false,
-    userBaseUrl: "https://users-uat.aimlearn.co",
+    userBaseUrl: "https://users.aimlearn.co",
     domain: "liveolympiad.org",
     cookieDomain: ".liveolympiad.org",
-    paymentUrl:"https://payments-uat.aimlearn.co",
-    testLiveolympiad:"https://content-uat.liveolympiad.org",
+    paymentUrl:"https://payments.aimlearn.co",
+    testLiveolympiad:"https://content.liveolympiad.org",
     testAppUrl:"https://test.liveolympiad.org/landing"
   };
   

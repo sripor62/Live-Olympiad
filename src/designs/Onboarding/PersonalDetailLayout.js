@@ -109,7 +109,6 @@ export const PersonalDetailLayout = (props) => {
                         shrink: true,
                     }}
                     variant="filled"
-                    endIcon={<CalendarMonthOutlinedIcon/>}
                     onChange={(event) => { props.setPageData({ ...props.pageData, dob: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('dob', props.pageData.dob) != ""}
                     errorMsz={props.getErrorMsz('dob', props.pageData.dob)} 

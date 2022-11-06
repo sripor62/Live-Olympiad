@@ -8,7 +8,21 @@ import { useStore } from '../../stores';
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useStudent } from '../../hooks/useStudent';
+import { environment } from "../../environments/environment"
 const TestScreen = () => {
+    useEffect(() => {
+        if (window.localStorage) {
+    
+    
+          if (!localStorage.getItem('reload')) {
+            localStorage['reload'] = true;
+            window.location.reload();
+          } else {
+    
+            localStorage.removeItem('reload');
+          }
+        }
+      }, [])
     const currentUser = useStore((state) => state.currentUser)
     const [testsLists, setTestsList] = useState([])
     const [pageData, setPageData] = useState({})
@@ -20,19 +34,10 @@ const TestScreen = () => {
     let packageId = params.packageId;
     const { data: PackageData } = useQuery([`AssessmentData`], () => getPackageList(), { enabled: true, retry: false })
     useEffect(() => {
-
         setAssessmentList(PackageData?.data?.data)
-
     }, [PackageData])
-    const cookieServiceValue_USER_INFO = document.cookie.split(";").filter((item)=> item.trim().startsWith(AppConstants.SESSION_STORAGE_ITEMS.USER_INFO));
-    let userInfoVal=""
-    if(cookieServiceValue_USER_INFO.length>0){
-      userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];
-    }
-    const userInfo = JSON.parse(userInfoVal);
-    let decodedToken = jwt_decode(userInfo.access_token);
    
-    const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
+    const { data: EducationData } = useQuery([`EducationData`], () => getEducation(currentUser.id), { enabled: true, retry: false })
     const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, EducationData], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
@@ -69,7 +74,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `http://test.liveolympiad.org/landing/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `${environment.testAppUrl}/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
