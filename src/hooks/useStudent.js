@@ -22,8 +22,8 @@ export const useStudent = () => {
         return await axiosInstance().post(endpoint, (body.data));
     };
 
-    const getEducation = async (body) => {
-        const endpoint = environment.userBaseUrl + Endpoints.GET_EDUCATION + "/" + body + Endpoints.GET_EDUCATION_END;
+    const getEducation = async (userId) => {
+        const endpoint = environment.userBaseUrl + Endpoints.GET_EDUCATION + "/" + userId + Endpoints.GET_EDUCATION_END;
         return await axiosInstance().get(endpoint);
     };
     const getPersonalData = async (body) => {
