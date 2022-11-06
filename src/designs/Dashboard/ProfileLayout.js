@@ -6,7 +6,7 @@ import { UserProfileForm } from "./UserProfileForm"
 export const ProfileLayout = (props) => {
     return <>
 
-    <Grid container p={4} spacing={2}>
+    <Grid container p={4} spacing={3}>
         <Grid item xs={12} sm={12} md={4} lg={4}><UserDetails pageData={props.pageData} paymentInfo={props.paymentInfo} subscriptionList={props.subscriptionList}/></Grid>
         <Grid item xs={12} sm={12} md={8} lg={8}><UserProfileForm  category={props.category}
                 getErrorMsz={props.getErrorMsz}

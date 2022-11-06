@@ -26,7 +26,7 @@ export default function PersonalDetails() {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
             if(personalData?.data.data.id!==null){
-                // navigate("/dashboard")
+                navigate("/dashboard")
             }
             var pdata = {
                 ...personalData?.data.data,
@@ -50,7 +50,8 @@ export default function PersonalDetails() {
 
         }
         console.log("pDataaa",pdata)
-        if(pdata.fullName!="" && pdata.rollNumber!=""){
+        if(pdata.fullName!="" && pdata.rollNumber!=undefined && pdata.rollNumber!=""){
+            console.log("pdata.fullName",pdata.fullName)
         PersonalMutate({ data: pdata, userId: userId })
         navigate("/subscription/")}
     };

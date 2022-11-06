@@ -41,7 +41,7 @@ export const CustomTextField = (props) => {
                 </TextField>
                 : <TextField
 
-                    type={type!=="tel"&&type!=="date"&&type!=="email"&&type!="text" ? showPassword ? "text" : "password" : "tel"}
+                    type={type!=="tel"&&type!=="date"&&type!=="email"&&type!="text" ? showPassword ? "text" : "password" : type}
                     InputProps={{
                         readOnly: readOnlyValue,
                         startAdornment: startIcon && (
@@ -58,7 +58,7 @@ export const CustomTextField = (props) => {
                                         onMouseDown={handleMouseDownPassword}
                                         edge="end"
                                     >
-                                        {showPassword ? <img src='./images/Groups.png'/> : <VisibilityOff/>}
+                                        {showPassword ? <img src='../images/Groups.png'/> : <VisibilityOff/>}
                                     </IconButton>
                                 </InputAdornment>
                                 : 

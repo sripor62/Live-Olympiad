@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import * as React from 'react';
 import InputBase from '@mui/material/InputBase';
 import { styled } from '@mui/material/styles';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -49,13 +50,13 @@ export const PersonalDetailLayout = (props) => {
         <Grid container spacing={2}>
             <Grid item xs={8}>
                 <Box mb={3} width={1}>
-                <CustomTextField style={{width:"336px"}}
+                <CustomTextField 
                         type="text"
                         placeholder="Full Name"
                         variant="filled"
                         value={props.pageData.fullName}
                         onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
-                        required
+                        required={true}
                         error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
                         errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
@@ -83,7 +84,8 @@ export const PersonalDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
             <CustomTextField
-                    style={{width:"526px"}}
+                    inputLabel={true}
+                    
                     type="tel"
                     placeholder="Roll No."
                     variant="filled"

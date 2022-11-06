@@ -8,7 +8,21 @@ import { useStore } from '../../stores';
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { useStudent } from '../../hooks/useStudent';
+import {testAppUrl} from "../../environments/environment"
 const TestScreen = () => {
+    useEffect(() => {
+        if (window.localStorage) {
+    
+    
+          if (!localStorage.getItem('reload')) {
+            localStorage['reload'] = true;
+            window.location.reload();
+          } else {
+    
+            localStorage.removeItem('reload');
+          }
+        }
+      }, [])
     const currentUser = useStore((state) => state.currentUser)
     const [testsLists, setTestsList] = useState([])
     const [pageData, setPageData] = useState({})
@@ -33,7 +47,7 @@ const TestScreen = () => {
     let decodedToken = jwt_decode(userInfo.access_token);
    
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(decodedToken.jti), { enabled: true, retry: false })
-    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, EducationData], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
@@ -69,7 +83,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `http://test.liveolympiad.org/landing/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `${testAppUrl}/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (
