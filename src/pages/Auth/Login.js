@@ -5,6 +5,7 @@ import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
 import { LoginLayout } from '../../designs/Auth/LoginLayout'
 import { useStore } from "../../stores";
+
 export default function Login() {
     const navigate = useNavigate();
     const setCurrentUser = useStore((state) => state.setCurrentUser);
@@ -31,7 +32,7 @@ export default function Login() {
 
         }
         else {if(res.data?.message.includes("not found"))
-                    navigate("/"+1)
+        window.location.href="/1"
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         }
         // afterValidate(afterValidateCallBack)
