@@ -39,7 +39,7 @@ const TestScreen = () => {
     }, [PackageData])
    
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(currentUser.id), { enabled: true, retry: false })
-    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, grade], () => getTestList(grade), { enabled: true, retry: false })
+    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, grade], () => getTestList(grade), { enabled: !!grade, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
