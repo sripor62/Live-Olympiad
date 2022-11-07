@@ -97,7 +97,7 @@ const Dashboard = () => {
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
 
   return (
-    <HomeLayout logOutHandler={clearCurrentUser} stuName={curentUser.fullName}>
+    <HomeLayout logOutHandler={clearCurrentUser} stuName={curentUser?.fullName}>
       <DashboardLayout
         setPage={setPage}
         page={page}

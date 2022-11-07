@@ -7,9 +7,7 @@ import { useQuery } from "react-query";
 import { useStore } from "../../stores";
 import { useParams } from "react-router-dom";
 const Subscription = () => {
-  const user = useStore((state) => state.currentUser);
-  let curentUser = JSON.parse(localStorage.current_user);
-  let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
+  const currentUser = useStore((state) => state.currentUser);
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
   const [subjectList, setSubjectList] = useState();
@@ -96,8 +94,8 @@ const Subscription = () => {
             console.log(result)
           },
           prefill: {
-            email: user.email,
-            contact: user.phoneNum,
+            email: currentUser?.email,
+            contact: currentUser?.phoneNum,
           },
           notes: {
             address: "example address",
@@ -117,7 +115,7 @@ const Subscription = () => {
 
   const { data: PaymentData, isLoading: PaymentLoader } = useQuery(
     [`PaymentData`],
-    () => getUserPaymentInfo(user?.id),
+    () => getUserPaymentInfo(currentUser?.id),
     { enabled: true, retry: false }
   );
   const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
@@ -127,7 +125,7 @@ const Subscription = () => {
   );
   const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery(
     [`SubscriptionData`],
-    () => getSubscriptions(user?.id),
+    () => getSubscriptions(currentUser?.id),
     { enabled: true, retry: false }
   );
 
@@ -147,7 +145,7 @@ const Subscription = () => {
   return (
     <SubscriptionLayout
       logOutHandler={clearCurrentUser} 
-      stuName={stuName}
+      stuName={currentUser?.fullName}
       paymentInfo={paymentInfo}
       subscriptionList={subscriptionList}
       loadRazorpay={loadRazorpay}
