@@ -1,11 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../services/api.service";
+import { environment } from "../environments/environment";
 
  const useAuthHelper = () => {
   const navigate = useNavigate();
-
-const environment={userBaseUrl:"https://users.aimlearn.co"};
-
 
 const Endpoints={VALIDATE_OTP:"/auth/verifyOTP",
                   GENERATE_OTP : "/auth/sendOTP",
