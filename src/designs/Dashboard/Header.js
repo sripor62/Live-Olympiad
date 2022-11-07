@@ -4,7 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import MenuDrawer from './MenuDrawer';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-
+import { CustomButton } from "../../components/CustomButton"
 const Header = (props) => {
 
     const [drawerFlag, setDrawerFlag] = useState(false);
@@ -40,7 +40,8 @@ const Header = (props) => {
             <Grid item xs={4} sm={4} md={1} lg={1} alignItems='center'>
                 <Box>
                     <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end'}} >
-                    <LogoutOutlinedIcon style={{color:"#F9BB47"}} onClick={props.logOutHandler}/>
+                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT"  variant="contained" sx={{ color: "white", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor:"#F9BB47", fontWeight: 600 }} />
+                    
                         {/* <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' ,fontFamily:"Urbanist"}} /> */}
                         {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}

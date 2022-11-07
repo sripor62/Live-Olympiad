@@ -12,7 +12,7 @@ export const AuthPage = () => {
         navigateAsPerSessionValidity(false);
     });
     const params=useParams();
-    const [val,setVal]=useState(params.index?0:1);
+    const [val,setVal]=useState(params.index? 1:0);
 
     const tabArr = [
         { label: "Log In", component: <Login /> },
