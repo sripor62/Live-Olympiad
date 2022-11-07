@@ -7,8 +7,10 @@ import axiosInstance from "../services/api.service";
 const useTests=()=>{
 
     const getTestList = async (grade) => {
-        const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&grade=${grade}` ;
-        return await axiosInstance().get(endpoint);
+        if(grade){
+            const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&grade=${grade}` ;
+            return await axiosInstance().get(endpoint);
+        }
     };
     const createTest = async (body) => {
         const endpoint = environment.testLiveolympiad + Endpoints.TESTS ;
