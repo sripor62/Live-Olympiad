@@ -24,6 +24,7 @@ const TestScreen = () => {
         }
       }, [])
     const currentUser = useStore((state) => state.currentUser)
+    const [grade,setGrade] = useState();
     const [testsLists, setTestsList] = useState([])
     const [pageData, setPageData] = useState({})
     const { getTestList, createTest, getPackageList } = useTests();
@@ -38,10 +39,14 @@ const TestScreen = () => {
     }, [PackageData])
    
     const { data: EducationData } = useQuery([`EducationData`], () => getEducation(currentUser.id), { enabled: true, retry: false })
-    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, EducationData], () => getTestList(EducationData?.data?.data[0]?.grade), { enabled: true, retry: false })
+    const { data: TestList, isLoading: TestListLoader } = useQuery([`TestListData`, grade], () => getTestList(grade), { enabled: !!grade, retry: false })
     const navigate = useNavigate();
     let curentUser = JSON.parse(localStorage.current_user);
     let stuName = curentUser?.state?.currentUser.fullName.split(' ')[0]
+
+    useEffect(()=>{
+        setGrade(EducationData?.data?.data[0]?.grade);
+    },[EducationData])
     useEffect(() => {
         setTestsList(TestList?.data);
         let newTestList = []
