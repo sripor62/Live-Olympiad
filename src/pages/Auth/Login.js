@@ -30,7 +30,10 @@ export default function Login() {
             
 
         }
-        else setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        else {if(res.data?.message.includes("not found"))
+                    navigate("/"+1)
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        }
         // afterValidate(afterValidateCallBack)
     };
 
