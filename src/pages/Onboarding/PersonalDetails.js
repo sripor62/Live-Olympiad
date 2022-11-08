@@ -7,7 +7,10 @@ import { PersonalDetailLayout } from '../../designs/Onboarding/PersonalDetailLay
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation } from 'react-query';
 import { useStudent } from '../../hooks/useStudent';
+import { useStore } from '../../stores';
+
 export default function PersonalDetails() {
+    const setCurrentUser = useStore((state) => state.setCurrentUser);
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({
@@ -26,6 +29,8 @@ export default function PersonalDetails() {
         if (personalData) {
             console.log("personalData",personalData?.data?.data)
             if(personalData?.data.data.id!==null){
+                setCurrentUser(personalData?.data.data.fullName);
+
                 navigate("/dashboard")
             }
             var pdata = {

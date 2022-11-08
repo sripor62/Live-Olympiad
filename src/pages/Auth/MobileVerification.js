@@ -83,6 +83,7 @@ const MobileVerification = (props) => {
             setSnakeBarProps={setSnakeBarProps}
             submitHandler={submitHandler}
             submitOtpAgain={submitOtpAgain}
+            phoneNumber={params.phoneNumber}
         />
     </AuthLayout>
 };
