@@ -181,8 +181,10 @@ const Profile = (props) => {
     });
   };
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
+  let stuName=curentUser?.fullName;
+  const  [fName,LName]=stuName.split(" ")
   return (
-    <HomeLayout logOutHandler={clearCurrentUser} stuName={curentUser?.fullName}>
+    <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
       <ProfileLayout
         subscriptionList={subscribedSubjects}
         category={category}
