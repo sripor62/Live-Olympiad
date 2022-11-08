@@ -12,12 +12,12 @@ const Header = (props) => {
     return (
 
         <Grid container px={4} py={2} alignItems='center' sx={{ backgroundColor: "#4545A5" }}>
-            <Grid item xs={7} sm={7} md={7} lg={9}>
+            <Grid item xs={11} sm={11} md={8} lg={8} >
                 <Box>
                     <img src='../images/brand.svg' style={{ minWidth: '100px', width: '70%', maxWidth: '180px' }} />
                 </Box>
             </Grid>
-            <Grid item xs={5} sm={4} md={4} lg={2} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+            <Grid item xs={5} sm={4} md={3} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' }}}>
                 <Box sx={{ backgroundColor: "white", borderRadius: '50px', padding: '7px,7px,7px,14px', width: {lg:"283px",xs:"115px",sm:"235px"}, height: {lg:"70px",xs:"50px"} }}>
                     <Grid container alignItems='center'>
                         <Grid item xs={7} md={10} lg={9} sm={9}>
@@ -37,15 +37,12 @@ const Header = (props) => {
                     </Grid>
                 </Box>
             </Grid>
-            <Grid item xs={4} sm={4} md={1} lg={1} alignItems='center'>
+            <Grid item xs={4} sm={4} md={1} lg={1}  sx={{ display: 'flex', justifyContent: 'flex-end',display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' }}} >
                 <Box>
-                    <Stack direction="row" spacing={1} sx={{ display: 'flex', justifyContent: 'flex-end'}} >
-                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT"  variant="contained" sx={{ color: "white", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor:"#F9BB47", fontWeight: 600 }} />
-                    
+                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT"  variant="contained" sx={{p:1, fontFamily:"Urbanist",color: "black", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor:"#F9BB47", fontWeight: 600 }} />
                         {/* <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' ,fontFamily:"Urbanist"}} /> */}
                         {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}
-                    </Stack>
                 </Box>
             </Grid>
            

@@ -18,7 +18,7 @@ export const TestScreenLayout = ({
                 <Grid item xs={12} >
                     <Grid container>
                         <Grid item xs={12} alignItems='center'>
-                            <CustomButton btnText="BACK" onClick={navigateBack} variant="outlined" startIcon={<ArrowBackIos />} sx={{ color: 'rgba(106,112,124,1)', border: '1px solid rgba(106,112,124,1)' }} />
+                            <CustomButton btnText="BACK" onClick={navigateBack} variant="outlined" startIcon={<ArrowBackIos />} sx={{ color: 'rgba(106,112,124,1)', border: '1px solid rgba(106,112,124,1)',borderRadius:"50px" }} />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -32,7 +32,7 @@ export const TestScreenLayout = ({
                             <Typography sx={{ fontSize: "20px", display: 'flex' }}><Box sx={{ fontSize: '50px', color: 'green' }}>{pageData.attemptedQuestions ? pageData?.attemptedQuestions : 0}</Box><Box sx={{ mt: 1, fontFamily: 'Urbanist', fontWeight: 600, fontSize: '28px' }}>/{pageData?.totalMarks}</Box></Typography>
                         </Grid>}
                         <Grid container spacing={2} alignItems='center' mt={2}>
-                            <Grid item xs={12} lg={1.5}>
+                            <Grid item xs={12} sm={12} md={3} lg={1.5}>
                                 <Typography variant='Subtitle2' align='center'>
                                     <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2, fontSize: '14px', fontFamily: 'Urbanist', fontWeight: 600, alignItems: 'center' }}><QuizOutlinedIcon />Questions</Box>
                                 </Typography>
@@ -40,15 +40,15 @@ export const TestScreenLayout = ({
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>{pageData?.questions?.length}</Box>
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} lg={1.5}>
-                                <Typography variant='Subtitle2' align='center'>
+                            <Grid item xs={12} sm={12} md={3} lg={1.5} sx={{mt:{xs:2,sm:2,md:0,lg:0}}}>
+                                <Typography variant='Subtitle2' align='center' >
                                     <Box sx={{ borderRadius: "10px 10px 0px 0px", backgroundColor: 'white', display: 'flex', p: 2, fontSize: '14px', fontFamily: 'Urbanist', fontWeight: 600, alignItems: 'center' }}><AccessAlarmsOutlinedIcon />Time Limit</Box>
                                 </Typography>
                                 <Typography variant='Subtitle2' align='center'>
                                     <Box sx={{ borderRadius: "10px", backgroundColor: "#F9BB47", color: 'white', p: 2 }}>{pageData?.totalDurationMin} Min</Box>
                                 </Typography>
                             </Grid>
-                            <Grid item xs={10} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                            <Grid item xs={10} sm={8} md={6} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
                                 {pageData?.testStatus
                                     ? pageData.attemptedQuestions===pageData.totalMarks ? <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "rgba(131, 139, 161, 1)" , color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RETAKE</Button>
                                     : <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#F9BB47", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RESUME</Button> : 
