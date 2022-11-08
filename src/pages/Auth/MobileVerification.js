@@ -28,7 +28,7 @@ const MobileVerification = (props) => {
             
         let res = await generateOTP({
             phoneNumber: "+91" + params.phoneNumber,
-            signUp: false,
+            signUp: true,
       
         });
         if(res.data?.success){
