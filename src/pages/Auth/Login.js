@@ -44,6 +44,7 @@ export default function Login() {
         type: "success",
       });
       setCurrentUser(res.data?.data);
+     
     } else {
       if (res.data?.message.includes("not found")) window.location.href = "/1";
       setSnakeBarProps({
@@ -56,7 +57,9 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (EducationData?.data?.data.length == 0) {
+    
+    if (EducationData?.data?.data.length===0 ) {
+
         navigate("/schooldetails/" + currentUser?.id);
       } else if (personalData?.data.data.id === null) {
         navigate("/personaldetails/" + currentUser?.id);

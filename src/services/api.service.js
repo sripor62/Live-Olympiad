@@ -8,9 +8,9 @@ const axiosInstance = ({secure = true, showToast = true} = {}) => {
     let userInfoVal=""
     if(cookieServiceValue_USER_INFO.length>0){
       userInfoVal =cookieServiceValue_USER_INFO[0].trim().split("=")[1];}
-      console.log("userInfoVal>>",userInfoVal.access_token)
+     
       let curentUser = JSON.parse(localStorage.current_user);
-console.log(curentUser?.state?.currentUser?.access_token)
+
   if (secure &&  curentUser?.state?.currentUser?.access_token) {
     headers.Authorization = `Bearer ${curentUser?.state?.currentUser?.access_token}`;
   }

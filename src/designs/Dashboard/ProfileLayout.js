@@ -20,7 +20,8 @@ export const ProfileLayout = (props) => {
                 pinCode={props.pinCode}
                 selectionChangeHandler={props.selectionChangeHandler}
                 schoolsList={props.schoolsList}
-                setSchoolsList={props.setSchoolsList}/></Grid>
+                setSchoolsList={props.setSchoolsList}
+                /></Grid>
     </Grid>
     {
         Object.keys(props.snakeBarProps).length > 0 &&
