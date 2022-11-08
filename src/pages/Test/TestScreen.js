@@ -79,7 +79,7 @@ const TestScreen = () => {
             });
             testId=test?.data?.testId
         }
-        window.location.href = `${environment.testAppUrl}/${testId}?token=${currentUser.access_token}`;
+        window.location.href = `${environment.testAppUrl}/landing/${testId}?token=${currentUser.access_token}`;
     };
     const navigateBack = () => navigate("/dashboard")
     return (

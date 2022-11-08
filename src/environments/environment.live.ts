@@ -5,6 +5,6 @@ export const environment = {
     cookieDomain: ".liveolympiad.org",
     paymentUrl:"https://payments.aimlearn.co",
     testLiveolympiad:"https://content.liveolympiad.org",
-    testAppUrl:"https://test.liveolympiad.org/landing"
+    testAppUrl:"https://test.liveolympiad.org"
   };
   
