@@ -11,6 +11,8 @@ import { useStore } from "../../stores";
 import { useStudent } from "../../hooks/useStudent";
 import { AppConstants } from "../../environments/app-constants";
 import jwt_decode from "jwt-decode";
+import { environment } from "../../environments/environment";
+import { Endpoints } from "../../environments/endpoints";
 const Dashboard = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
@@ -95,10 +97,13 @@ const Dashboard = () => {
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
-
+  const testSend=(Id)=>{
+window.location.href=`${environment.testAppUrl + Endpoints.REPORT + Id}`
+  }
   return (
     <HomeLayout logOutHandler={clearCurrentUser} stuName={curentUser?.fullName}>
       <DashboardLayout
+
         setPage={setPage}
         page={page}
         open={open}
@@ -109,6 +114,7 @@ const Dashboard = () => {
         setTestsList={setTestsList}
         testScreen={testScreen}
         passAssessData={passAssessData}
+        testSend={testSend}
       />
     </HomeLayout>
   );
