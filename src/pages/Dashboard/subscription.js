@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { useStore } from "../../stores";
 import { useParams } from "react-router-dom";
 const Subscription = () => {
+  const curentUser = useStore((state)=>state.currentUser)
   const currentUser = useStore((state) => state.currentUser);
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
@@ -142,10 +143,12 @@ const Subscription = () => {
     setSubjectList(SubjectData?.data?.data);
   }, [SubjectData]);
   const clearCurrentUser = useStore((state) => state.clearCurrentUser)
+  let stuName=curentUser?.fullName;
+  const  [fName,LName]=stuName.split(" ")
   return (
     <SubscriptionLayout
       logOutHandler={clearCurrentUser} 
-      stuName={currentUser?.fullName}
+      stuName={fName}
       paymentInfo={paymentInfo}
       subscriptionList={subscriptionList}
       loadRazorpay={loadRazorpay}
