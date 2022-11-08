@@ -20,7 +20,7 @@ export default function ResetPassword() {
         if (pageData.password===pageData.confirmpassword && pageData.password.length>=6) {
             let res = await setPassword(pageData.password, params.token);
             if (res.data?.success) {
-                navigate("/"+0)
+                navigate("/")
             
            
                 
