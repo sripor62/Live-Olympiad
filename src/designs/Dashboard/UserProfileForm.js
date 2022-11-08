@@ -145,10 +145,10 @@ export const UserProfileForm = (props) => {
                 <CustomTextField
                     placeholder="Date of Birth"
                     id="date"
-                    type="tel"
+                    type="date"
                     required
                     variant="filled"
-                    endIcon={<CalendarMonthOutlinedIcon/>}
+                    
                     value={props.pageData.dob}
                     onChange={(event) => { props.setPageData({ ...props.pageData, dob: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('dob', props.pageData.dob) !== ""}

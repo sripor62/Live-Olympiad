@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { afterValidate } from '../../services/commonService'
 import { getErrorMsz } from '../../services/validator'
 import { AuthLayout } from '../../designs/Auth/AuthLayout'
 import { responsiveStype } from '../../beautifiers/responsive';
 import useAuthHelper from "../../hooks/useAuthHelper";
-
+import { useStore } from "../../stores";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { NewPasswordLayout } from '../../designs/Auth/NewPasswordLayout'
 export default function ResetPassword() {
@@ -15,12 +15,17 @@ export default function ResetPassword() {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const params = useParams();
+    const setCurrentUser = useStore((state) => state.setCurrentUser);
+  const currentUser = useStore((state) => state.currentUser);
+    useEffect(()=>{
 
+    },[currentUser])
     const submitHandler = async() => {
         if (pageData.password===pageData.confirmpassword && pageData.password.length>=6) {
             let res = await setPassword(pageData.password, params.token);
             if (res.data?.success) {
-                navigate("/")
+                setCurrentUser(res.data?.data);
+                navigate("/schooldetails/" + res.data?.data.id)
             
            
                 

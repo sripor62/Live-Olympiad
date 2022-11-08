@@ -25,7 +25,7 @@ const SchoolDetails = () => {
   const { getSchool } = useSchool();
   const { getEducation, sendEducation } = useStudent();
   const submitHandler = () => {
-    console.log("submittttt");
+    
     var pdata = {
       ...pageData,
       school: pageData?.school,
@@ -78,7 +78,7 @@ const SchoolDetails = () => {
   useEffect(() => {
     setPageData(EducationData?.data?.data[0]);
 
-    if (EducationData?.data?.data.length > 0) {
+    if (EducationData?.data?.data[0]) {
       window.localStorage.setItem("grade", EducationData?.data?.data[0].grade);
       navigate("/personaldetails/" + userId);
     }
