@@ -22,12 +22,12 @@ export default function Login() {
   const { data: personalData } = useQuery(
     [`PersonalData`, currentUser],
     () => getPersonalData(currentUser?.id),
-    { enabled: true, retry: false }
+    { enabled: !!currentUser?.id, retry: false }
   );
   const { data: EducationData } = useQuery(
     [`EducationData`, currentUser],
     () => getEducation(currentUser?.id),
-    { enabled: true, retry: false }
+    { enabled: !!currentUser?.id, retry: false }
   );
 
   const { login } = useAuthHelper();
