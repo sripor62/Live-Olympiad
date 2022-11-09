@@ -57,8 +57,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-      if (!EducationData?.data ) {
-
+      if (!EducationData?.data?.data?.length>0 ) {
         navigate("/schooldetails/" + currentUser?.id);
       } else if (personalData?.data.data.id === null) {
         console.log("EducationData",EducationData?.data)
