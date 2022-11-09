@@ -22,7 +22,7 @@ const SchoolDetails = () => {
     section: "",
     grade: "",
   });
-  const { getSchool } = useSchool();
+  const { getSchool,getSchools } = useSchool();
   const { getEducation, sendEducation } = useStudent();
   const submitHandler = () => {
     
@@ -53,14 +53,22 @@ const SchoolDetails = () => {
     enabled: true,
     retry: false,
   });
+  const {
+    data: schoolsData,
+    isLoading: schoolsLoader,
+    refetch: schoolsFetch,
+  } = useQuery([`SchoolsData`], () => getSchools(), {
+    enabled: true,
+    retry: false,
+  });
 
   useEffect(() => {
     schoolFetch();
   }, [pinCode]);
 
   useEffect(() => {
-    setSchoolsList(schoolData?.data.data);
-  }, [schoolData]);
+    pinCode ? setSchoolsList(schoolData?.data.data) : setSchoolsList(schoolsData?.data.data);
+  }, [schoolData,schoolsData]);
 
   const { mutate: addEducationMutate } = useMutation(sendEducation, {
     onSuccess: (data, variables, context) =>

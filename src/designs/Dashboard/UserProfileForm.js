@@ -188,7 +188,7 @@ export const UserProfileForm = (props) => {
             <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                 <FormControl fullWidth>
                     <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
-                    <Select label="School" selected={props.pageData.school} value={props.pageData.school} onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}
+                    <Select label="School" selected={props.pageData.school} value={props.pageData.school} onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value});props.getSchoolId(props.pageData.school); }}
                      inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                      input={<BootstrapInput />}>
                         {props.schoolsList?.map((option) => (

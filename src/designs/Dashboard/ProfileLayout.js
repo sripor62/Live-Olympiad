@@ -21,6 +21,7 @@ export const ProfileLayout = (props) => {
                 selectionChangeHandler={props.selectionChangeHandler}
                 schoolsList={props.schoolsList}
                 setSchoolsList={props.setSchoolsList}
+                getSchoolId={props.getSchoolId}
                 /></Grid>
     </Grid>
     {
