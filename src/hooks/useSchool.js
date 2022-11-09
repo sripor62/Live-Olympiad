@@ -9,7 +9,10 @@ import axiosInstance from "../services/api.service";
 export const useSchool = () => {
     
     
-
+    const getSchools= async () => {
+        const endpoint = environment.userBaseUrl + Endpoints.SCHOOLS ;
+        return await axiosInstance().get(endpoint);
+    };
     const getSchool = async (body) => {
         const endpoint = environment.userBaseUrl + Endpoints.SCHOOL_PINCODE + "/" + body ;
         return await axiosInstance().get(endpoint);
@@ -22,6 +25,7 @@ export const useSchool = () => {
     return {
     
         getSchool,
-        getSchoolById
+        getSchoolById,
+        getSchools
     }
 };

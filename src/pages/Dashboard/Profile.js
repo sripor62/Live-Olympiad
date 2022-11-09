@@ -70,7 +70,7 @@ const Profile = (props) => {
   const [schoolsId, setSchoolsId] = useState("");
   const [subscribedSubjects, setSubscribedSubjects] = useState();
   const { getProfile } = useStudent();
-  const { getSchool, getSchoolById } = useSchool();
+  const { getSchool, getSchoolById ,getSchools} = useSchool();
   const [pinCode, setPinCode] = useState("");
   const { profileDataDetails } = useStudent();
   const [schoolCurrent, setCurrentSchool] = useState([]);
@@ -99,6 +99,14 @@ const Profile = (props) => {
     setPageData({ ...pageData, ...pdata });
   }, [profileData]);
   const {
+    data: schoolsData,
+    isLoading: schoolsLoader,
+    refetch: schoolsFetch,
+  } = useQuery([`SchoolsData`], () => getSchools(), {
+    enabled: true,
+    retry: false,
+  });
+  const {
     data: schoolData,
     isLoading: schoolLoader,
     refetch: schoolFetch,
@@ -112,8 +120,8 @@ const Profile = (props) => {
   }, [pinCode]);
 
   useEffect(() => {
-    setSchoolsList(schoolData?.data.data);
-  }, [schoolData]);
+    pinCode ? setSchoolsList(schoolData?.data.data) : setSchoolsList(schoolsData?.data.data);
+  }, [schoolData,schoolsData]);
 
   const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery(
     [`SubscriptionData`],
@@ -183,6 +191,13 @@ const Profile = (props) => {
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
   let stuName=curentUser?.fullName;
   const  [fName,LName]=stuName.split(" ")
+  const getSchoolId=(schoolId)=>{
+    var school=schoolsData?.data?.data?.filter((item)=>{
+      return item.id===schoolId
+    })
+    setPageData({...pageData,pinCode:school.pincode})
+    
+  }
   return (
     <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
       <ProfileLayout
