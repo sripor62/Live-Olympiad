@@ -101,7 +101,7 @@ const Dashboard = () => {
 window.location.href=`${environment.testAppUrl + Endpoints.REPORT + Id}`
   }
   let stuName=curentUser?.fullName;
-  const  [fName,LName]=stuName.split(" ")
+  const  [fName,LName]=stuName?.split(" ")
   return (
     <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
       <DashboardLayout

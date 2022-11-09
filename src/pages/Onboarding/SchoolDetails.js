@@ -22,7 +22,7 @@ const SchoolDetails = () => {
     section: "",
     grade: "",
   });
-  const { getSchool } = useSchool();
+  const { getSchool,getSchools } = useSchool();
   const { getEducation, sendEducation } = useStudent();
   const submitHandler = () => {
     
@@ -53,14 +53,22 @@ const SchoolDetails = () => {
     enabled: true,
     retry: false,
   });
+  const {
+    data: schoolsData,
+    isLoading: schoolsLoader,
+    refetch: schoolsFetch,
+  } = useQuery([`SchoolsData`], () => getSchools(), {
+    enabled: true,
+    retry: false,
+  });
 
   useEffect(() => {
     schoolFetch();
   }, [pinCode]);
 
   useEffect(() => {
-    setSchoolsList(schoolData?.data.data);
-  }, [schoolData]);
+    pinCode ? setSchoolsList(schoolData?.data.data) : setSchoolsList(schoolsData?.data.data);
+  }, [schoolData,schoolsData]);
 
   const { mutate: addEducationMutate } = useMutation(sendEducation, {
     onSuccess: (data, variables, context) =>
@@ -78,7 +86,7 @@ const SchoolDetails = () => {
   useEffect(() => {
     setPageData(EducationData?.data?.data[0]);
 
-    if (EducationData?.data?.data[0]) {
+    if (EducationData?.data?.data.length>0) {
       window.localStorage.setItem("grade", EducationData?.data?.data[0].grade);
       navigate("/personaldetails/" + userId);
     }
@@ -88,7 +96,7 @@ const SchoolDetails = () => {
     setPageData({ ...pageData, school: event.target.value });
   };
   return (
-    <OnboardingLayout stepperIndex="0">
+    <OnboardingLayout >
       <SchoolDetailLayout
         responsiveStype={responsiveStype}
         pageData={pageData}

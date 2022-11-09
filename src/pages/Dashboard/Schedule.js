@@ -3,11 +3,14 @@ import HomeLayout from '../../designs/Dashboard/HomeLayout';
 import { ScheduleLayout } from '../../designs/Dashboard/ScheduleLayout';
 import { useStore } from "../../stores";
 const Schedule = () => {
-    let curentUser = JSON.parse(localStorage.current_user);
-    let stuName=curentUser?.state?.currentUser.fullName.split(' ')[0]
+   
+    const curentUser = useStore((state)=>state.currentUser)
     const clearCurrentUser = useStore((state) => state.clearCurrentUser)
+    let stuName=curentUser?.fullName;
+  const  [fName,LName]=stuName.split(" ")
+    console.log()
     return (
-        <HomeLayout logOutHandler={clearCurrentUser} stuName={stuName}>
+        <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
             <ScheduleLayout/>
         </HomeLayout>
     );

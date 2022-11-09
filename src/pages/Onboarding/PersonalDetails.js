@@ -75,7 +75,7 @@ export default function PersonalDetails() {
         setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
     }
 
-    return <OnboardingLayout stepperIndex="1">
+    return <OnboardingLayout >
         <PersonalDetailLayout
             responsiveStype={responsiveStype}
             pageData={pageData}
