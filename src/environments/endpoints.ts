@@ -23,4 +23,5 @@ export class Endpoints {
   static GET_PERSONAL_INFO="/admin/personal-info"
   static SCHOOL="/school"
   static REPORT="/report/"
+  static SCHOOLS="/school/all"
 }
