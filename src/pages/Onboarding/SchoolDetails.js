@@ -88,7 +88,7 @@ const SchoolDetails = () => {
     setPageData({ ...pageData, school: event.target.value });
   };
   return (
-    <OnboardingLayout stepperIndex="0">
+    <OnboardingLayout >
       <SchoolDetailLayout
         responsiveStype={responsiveStype}
         pageData={pageData}
