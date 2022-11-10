@@ -18,33 +18,33 @@ export const DashboardLayout = (props) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
-            {props.page===1 && props?.testsLists.filter((item)=> {return item.subject[0]==="Science"}).map((option) => {
+            {props.page===1 && props?.testsLists.filter((item)=> {return item.subject[0].search("Science")!=-1}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
 
             }
             {
-                props.page===2 && props?.testsLists.filter((item)=> {return item.subject[0]==="Math"}).map((option) => {
+                props.page===2 && props?.testsLists.filter((item)=> {return item.subject[0].search("Math")!=-1}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
             {
-                props.page===3 && props?.testsLists.filter((item)=> {return item.subject[0]==="English"}).map((option) => {
+                props.page===3 && props?.testsLists.filter((item)=> {return item.subject[0].search("English")!=-1}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
             {
-                props.page===4 && props?.testsLists.filter((item)=> {return item.testStatus && item.attemptedQuestions===item.totalMarks}).map((option) => {
+                props.page===4 && props?.testsLists.filter((item)=> {return item.testStatus==true}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
             {
-                props.page===5 && props?.testsLists.filter((item)=> {return item.testStatus && item.attemptedQuestions!==item.totalMarks}).map((option) => {
+                props.page===5 && props?.testsLists.filter((item)=> {return item.testStatus==false}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
             {
-                props.page===6 && props?.testsLists.filter((item)=> {return item.testStatus==false || item.testStatus===undefined}).map((option) => {
+                props.page===6 && props?.testsLists.filter((item)=> {return item.testStatus==null || item.testStatus===undefined}).map((option) => {
                     return <CustomListItem testSend={props.testSend} option={option} key={option._id} testScreen={props.testScreen}/>
                 })
             }
