@@ -37,13 +37,12 @@ const SchoolDetails = () => {
     if (pdata.school != "" && pdata.grade != undefined) {
       console.log("pdata", pdata.school, pdata.grade);
       addEducationMutate({ data: pdata, userId: userId });
-
       navigate("/personaldetails/" + userId);
     }
   };
 
   const afterValidateCallBack = (second) => {
-    // setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
+    setSnakeBarProps({ snackbarFlag: true, msz: "School Details saved.", type: "success" })
   };
   const {
     data: schoolData,
@@ -76,7 +75,9 @@ const SchoolDetails = () => {
     onError: (data, variables, context) =>
       onErrorAddAssessment(data, variables, context),
   });
-  const onSuccessAddAssessment = (data, variables, context) => {};
+  const onSuccessAddAssessment = (data, variables, context) => {
+    afterValidateCallBack(null)
+  };
   const onErrorAddAssessment = () => {};
   const { data: EducationData } = useQuery(
     [`EducationData`],
