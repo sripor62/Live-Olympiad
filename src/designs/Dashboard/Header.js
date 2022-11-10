@@ -58,7 +58,7 @@ const Header = (props) => {
             {
                 drawerFlag &&
                  <MenuDrawer
-                    logOutHandler={props.logOutHandler}
+                    ogOutHandler={props.logOutHandler}
                      open={drawerFlag}
                      setDrawerFlag={setDrawerFlag}
                  />
