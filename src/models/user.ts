@@ -4,7 +4,7 @@ export class User {
     phoneNumber: string;
     id: string;
     access_token: string;
-    firstName: string;
+    fullName: string;
     roles?: Role[];
     token: string;
     communityList?: any;
