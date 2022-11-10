@@ -57,13 +57,15 @@ export default function Login() {
   };
 
   useEffect(() => {
-      if (!EducationData.data.data.length>0 ) {
+    if(EducationData!==undefined && personalData!==undefined){
+      if (!EducationData?.data.data.length>0 ) {
         navigate("/schooldetails/" + currentUser?.id);
-      } else if (EducationData.data.data.length>0 && personalData.data.data.id === null) {
+      } else if (EducationData?.data.data.length>0 && personalData?.data.data.id === null) {
         navigate("/personaldetails/" + currentUser?.id);
       } else if(EducationData?.data?.data?.length>0 && personalData?.data?.data?.id !== null){
         navigate("/dashboard");
       }
+    }
   }, [currentUser,EducationData,personalData])
   
 
