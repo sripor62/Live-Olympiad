@@ -35,7 +35,7 @@ export const UserDetails = (props) => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
                         <Typography variant='body2' align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Urbanist', fontWeight: "bold" }}>Date of Joining</Box></Typography>
-                        <Typography variant='body1' align="center" sx={{ fontWeight: '600', fontFamily: 'Urbanist' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>14/06/2022</Box></Typography>
+                        <Typography variant='body1' align="center" sx={{ fontWeight: '600', fontFamily: 'Urbanist' }}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{props.pageData?.joinedAt}</Box></Typography>
                     </Grid>
                 </Grid>
             </Grid>
