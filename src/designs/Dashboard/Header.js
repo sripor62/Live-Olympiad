@@ -5,7 +5,10 @@ import { useState } from 'react';
 import MenuDrawer from './MenuDrawer';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { CustomButton } from "../../components/CustomButton"
+import { useStore } from '../../stores';
 const Header = (props) => {
+
+    const currentUser = useStore((state)=>state.currentUser);
 
     const [drawerFlag, setDrawerFlag] = useState(false);
 
@@ -23,7 +26,7 @@ const Header = (props) => {
                         <Grid item xs={7} md={10} lg={9} sm={9}>
                             <Grid container>
                                 <Grid item md={12} lg={12} xs={8} sx={{pl:{lg:4,xs:1,sm:2}}}>
-                                    <Typography variant='subtitle2'><Box sx={{ fontFamily: "Urbanist", fontWeight: 450, fontSize: {lg:"18px",xs:"16px"},marginTop:{lg:"0px",xs:"10px"}}}>{props.stuName}</Box></Typography>
+                                    <Typography variant='subtitle2'><Box sx={{ fontFamily: "Urbanist", fontWeight: 450, fontSize: {lg:"18px",xs:"16px"},marginTop:{lg:"0px",xs:"10px"}}}>{currentUser.firstName}</Box></Typography>
                                 </Grid>
                                
                             </Grid>
