@@ -26,9 +26,6 @@ export default function ResetPassword() {
             if (res.data?.success) {
                 setCurrentUser(res.data?.data);
                 navigate("/schooldetails/" + res.data?.data.id)
-            
-           
-                
             }
         } else setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "error" })
         setsubmitFlag(true);

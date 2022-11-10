@@ -8,12 +8,13 @@ import { SchoolDetailLayout } from "../../designs/Onboarding/SchoolDetailLayout"
 import { useQuery, useMutation } from "react-query";
 import { useStudent } from "../../hooks/useStudent";
 import { useSchool } from "../../hooks/useSchool";
+import { useStore } from "../../stores";
 const SchoolDetails = () => {
   const navigate = useNavigate();
   const params = useParams();
   const userId = params.userId;
   const [snakeBarProps, setSnakeBarProps] = useState({});
-
+  const currentUser = useStore((state) => state.currentUser)
   const [submitFlag, setsubmitFlag] = useState(false);
   const [pinCode, setPinCode] = useState("");
   const [schoolsList, setSchoolsList] = useState([]);
@@ -82,7 +83,7 @@ const SchoolDetails = () => {
   const { data: EducationData } = useQuery(
     [`EducationData`],
     () => getEducation(userId),
-    { enabled: true, retry: false }
+    { enabled: !!currentUser?.id, retry: false }
   );
   useEffect(() => {
     setPageData(EducationData?.data?.data[0]);

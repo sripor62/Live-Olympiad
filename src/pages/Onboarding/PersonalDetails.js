@@ -11,26 +11,26 @@ import { useStore } from '../../stores';
 
 export default function PersonalDetails() {
     const setCurrentUser = useStore((state) => state.setCurrentUser);
+    const currentUser = useStore((state) => state.currentUser);
     const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({
-        fullName: "", 
+        fullName: "",
         email: "",
         rollNumber: "",
         dob: "",
-        gender: "" });
+        gender: ""
+    });
     const navigate = useNavigate();
     const params = useParams();
     var userId = params.userId
-    const grade=params.grade
+    const grade = params.grade
     const { getPersonalData, sendPersonalData } = useStudent();
-    const { data: personalData, isLoading: contentLoader, refetch } = useQuery([`PersonalData`], () => getPersonalData(userId), { enabled: true, retry: false })
+    const { data: personalData, isLoading: contentLoader, refetch } = useQuery([`PersonalData`], () => getPersonalData(userId), { enabled: !!currentUser?.id, retry: false })
     useEffect(() => {
         if (personalData) {
-            
-            if(personalData?.data.data.id!==null){
-                setCurrentUser(personalData?.data.data.fullName);
-
+            if (personalData?.data.data.id !== null) {
+                setCurrentUser({...currentUser, fullName:personalData?.data?.data?.fullName});
                 navigate("/dashboard")
             }
             var pdata = {
@@ -43,8 +43,8 @@ export default function PersonalDetails() {
 
 
     const submitHandler = async () => {
-        
-        console.log("pageData",pageData)
+
+        console.log("pageData", pageData)
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -54,19 +54,19 @@ export default function PersonalDetails() {
             gender: pageData.gender
 
         }
-        console.log("pdata",pdata)
-        
-        
-        if(pdata.fullName!='' && pdata.rollNumber!=''){
-            var userInfoVal=window.localStorage.getItem("current_user")
-            var userInfo = JSON.parse(userInfoVal).state.currentUser;
-            setCurrentUser({...userInfo,fullName:pdata.fullName})
-          console.log(pdata.fullName)
+        console.log("pdata", pdata)
 
-            window.localStorage.setItem("Name",pdata.fullName)
-        PersonalMutate({ data: pdata, userId: userId })
-        navigate("/subscription/")
-    }
+
+        if (pdata.fullName != '' && pdata.rollNumber != '') {
+            var userInfoVal = window.localStorage.getItem("current_user")
+            var userInfo = JSON.parse(userInfoVal).state.currentUser;
+            setCurrentUser({ ...userInfo, fullName: pdata.fullName })
+            console.log(pdata.fullName)
+
+            window.localStorage.setItem("Name", pdata.fullName)
+            PersonalMutate({ data: pdata, userId: userId })
+            navigate("/subscription/")
+        }
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
 

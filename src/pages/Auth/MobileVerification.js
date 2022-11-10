@@ -29,7 +29,6 @@ const MobileVerification = (props) => {
         let res = await generateOTP({
             phoneNumber: "+91" + params.phoneNumber,
             signUp: true,
-      
         });
         if(res.data?.success){
             setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
