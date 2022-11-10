@@ -12,7 +12,6 @@ const ForgotPassword = () => {
     const [pageData, setPageData] = useState({ phoneNumber: "", });
     const { generateOTP } = useAuthHelper();
     const submitHandler = async () => {
-
         afterValidate(afterValidateCallBack)
         let res = await generateOTP({
             phoneNumber: "+91" + pageData.phoneNumber,
@@ -20,7 +19,6 @@ const ForgotPassword = () => {
 
         });
         if (res.data?.success) {
-
             navigate("/mobileverification/" + pageData.phoneNumber)
         }
     };
