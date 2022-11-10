@@ -177,7 +177,7 @@ const Profile = (props) => {
     });
   const onSuccessAddAssessment = (data, variables, context) => {
     console.log(data);
-    setCurrentUser({...curentUser,firstName:pageData.fullName.split(" ")[0]});
+    setCurrentUser({...curentUser,fullName:pageData.fullName});
   };
   const onErrorAddAssessment = () => {};
 
