@@ -53,7 +53,7 @@ const Dashboard = () => {
   const { data: PackageData } = useQuery(
     [`AssessmentData`],
     () => getPackageList(),
-    { enabled: true, retry: false }
+    { enabled: !!curentUser?.id, retry: false }
   );
   useEffect(() => {
     setAssessmentList(PackageData?.data?.data);
@@ -62,13 +62,13 @@ const Dashboard = () => {
   const { data: EducationData } = useQuery(
     [`EducationData`],
     () => getEducation(curentUser.id),
-    { enabled: true, retry: false }
+    { enabled: !!curentUser?.id, retry: false }
   );
 
   const { data: testList, isLoading: TestListLoader } = useQuery(
     [`TestListData`, grade],
     () => getTestList(grade),
-    { enabled: !!grade, retry: false }
+    { enabled: !!grade && !!curentUser?.id, retry: false }
   );
   useEffect(() => {
     console.log(EducationData?.data?.data[0]?.grade)
