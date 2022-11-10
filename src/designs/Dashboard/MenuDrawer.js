@@ -7,7 +7,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CustomButton } from "../../components/CustomButton"
-const MenuDrawer = ({ setDrawerFlag }) => {
+const MenuDrawer = ({ setDrawerFlag,logoutHandler }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [page, setPage] = useState()
@@ -30,7 +30,7 @@ const MenuDrawer = ({ setDrawerFlag }) => {
                                 <Grid onClick={() => {navigate("/profile")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color:(page == 1) ? "#FCBD42": "#1E232C" }} mb={3}><AccountCircleOutlinedIcon /><Typography><Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color:(page == 1) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Profile</Box></Typography></Grid>
                                 <Grid onClick={() => {navigate("/subscription")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color: (page == 2) ? "#FCBD42": "#1E232C" }} mb={3}><WorkspacePremiumOutlinedIcon /><Typography><Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color: (page == 2) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Subscriptions</Box></Typography></Grid>
                                 <Grid onClick={() => {navigate("/schedule")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color: (page == 3) ? "#FCBD42": "#1E232C" }} mb={2}><CalendarMonthOutlinedIcon /><Typography><Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color: (page == 3) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Schedule</Box></Typography></Grid>
-                                <Box sx={{display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' },ml:2,mt:1}}><CustomButton  btnText="LOGOUT"  variant="contained" sx={{ color: "black", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor:"#F9BB47", fontWeight: 600 }}/></Box> 
+                                <Box sx={{display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' },ml:2,mt:1}}><CustomButton  onClick={logoutHandler} btnText="LOGOUT"  variant="contained" sx={{ color: "black", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor:"#F9BB47", fontWeight: 600 }}/></Box> 
                             </Grid>
                         </Grid>
                     </Grid>
