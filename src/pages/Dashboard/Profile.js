@@ -194,8 +194,6 @@ const Profile = (props) => {
     });
   };
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
-  let stuName=curentUser?.fullName;
-  const  [fName,LName]=stuName.split(" ")
   const getSchoolId=(schoolId)=>{
     var school=schoolsData?.data?.data?.filter((item)=>{
       return item.id===schoolId
@@ -204,7 +202,7 @@ const Profile = (props) => {
     
   }
   return (
-    <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
+    <HomeLayout logOutHandler={clearCurrentUser}>
       <ProfileLayout
         subscriptionList={subscribedSubjects}
         category={category}

@@ -97,13 +97,12 @@ const Dashboard = () => {
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
-  const testSend=(Id)=>{
-window.location.href=`${environment.testAppUrl + Endpoints.REPORT + Id}`
+  const testSend = (Id) => {
+    window.location.href = `${environment.testAppUrl + Endpoints.REPORT + Id}`
   }
-  let stuName=curentUser?.fullName;
-  const  [fName,LName]=stuName?.split(" ")
+
   return (
-    <HomeLayout logOutHandler={clearCurrentUser} stuName={fName}>
+    <HomeLayout logOutHandler={clearCurrentUser}>
       <DashboardLayout
 
         setPage={setPage}
