@@ -36,6 +36,8 @@ const Profile = (props) => {
   }, []);
   const { getSubjects } = usePayment();
   const curentUser = useStore((state)=>state.currentUser)
+  const setCurrentUser = useStore((state)=>state.setCurrentUser);
+
   const [subscriptionList, setSubscriptionList] = useState();
 
   useEffect(() => {
@@ -173,7 +175,10 @@ const Profile = (props) => {
       onError: (data, variables, context) =>
         onErrorAddAssessment(data, variables, context),
     });
-  const onSuccessAddAssessment = (data, variables, context) => {};
+  const onSuccessAddAssessment = (data, variables, context) => {
+    console.log(data);
+    setCurrentUser({...curentUser,firstName:pageData.fullName.split(" ")[0]});
+  };
   const onErrorAddAssessment = () => {};
 
   const selectionChangeHandler = (event) => {
