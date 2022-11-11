@@ -42,7 +42,7 @@ const Header = (props) => {
             </Grid>
             <Grid item xs={4} sm={4} md={1} lg={1} sx={{ display: 'flex', justifyContent: 'flex-end', display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }} >
                 <Box>
-                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT" variant="contained" sx={{ p: 1, fontFamily: "Urbanist", color: "black", borderRadius: "20px", width: '70px', height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, backgroundColor: "#F9BB47", fontWeight: 600 }} />
+                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT" variant="contained" sx={{ ':hover': {   bgcolor: '#8B8000',  color: 'white'}, p: 1, fontFamily: "Urbanist", color: "black", borderRadius: "16px", width: '80px', height:'36px', fontSize:'12px', backgroundColor: "#F9BB47", fontWeight: 600 }} />
                     {/* <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' ,fontFamily:"Urbanist"}} /> */}
                     {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}
