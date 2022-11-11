@@ -104,7 +104,6 @@ const Dashboard = () => {
   return (
     <HomeLayout logOutHandler={clearCurrentUser}>
       <DashboardLayout
-
         setPage={setPage}
         page={page}
         open={open}
