@@ -6,6 +6,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CustomButton } from "./CustomButton"
+import { environment } from '../environments/environment';
 
 const Sidebar = (props) => {
     const navigate = useNavigate();
@@ -26,9 +27,9 @@ const Sidebar = (props) => {
             <Grid container  ml={2} mt={4} sx={{ display: { xs: 'none', sm:'none', md:'block', lg: 'block' } }}>
                 <Grid item md={2} lg={2}>
                 <Button onClick={() => {navigate("/dashboard")}}><Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page == 0) ? <img src='../images/space_dashboard.png' />: <img src='../images/space_dashboardblack.png' />}<Typography variant='body2' fontWeight='bold'><Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page == 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Dashboard </Box></Typography></Grid></Button>
-                <Button onClick={() => {navigate("/profile")}}><Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page == 1) ? "#FCBD42": "#1E232C"}}/><Typography><Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 1) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Profile</Box></Typography></Grid></Button>
-                <Button onClick={() => {navigate("/subscription")}}><Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><WorkspacePremiumOutlinedIcon sx={{color:(page == 2) ? "#FCBD42": "#1E232C"}}/><Typography><Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 2) ? "#FCBD42": "#1E232C",textTransform:"none"  }}>Subscriptions</Box></Typography></Grid></Button>
-                <Button onClick={() => {navigate("/schedule")}}><Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><CalendarMonthOutlinedIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} /><Typography><Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Schedule</Box></Typography></Grid></Button>
+                {environment.env!="school" && <Button onClick={() => {navigate("/profile")}}><Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page == 1) ? "#FCBD42": "#1E232C"}}/><Typography><Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 1) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Profile</Box></Typography></Grid></Button>}
+                {environment.env!="school" && <Button onClick={() => {navigate("/subscription")}}><Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><WorkspacePremiumOutlinedIcon sx={{color:(page == 2) ? "#FCBD42": "#1E232C"}}/><Typography><Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 2) ? "#FCBD42": "#1E232C",textTransform:"none"  }}>Subscriptions</Box></Typography></Grid></Button>}
+                {environment.env!="school" && <Button onClick={() => {navigate("/schedule")}}><Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><CalendarMonthOutlinedIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} /><Typography><Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Schedule</Box></Typography></Grid></Button>}
                 </Grid>
             </Grid>
         </Grid>
