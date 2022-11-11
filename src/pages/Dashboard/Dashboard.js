@@ -97,8 +97,10 @@ const Dashboard = () => {
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
+  const currentUser = useStore((state) => state.currentUser);
+
   const testSend = (Id) => {
-    window.location.href = `${environment.testAppUrl + Endpoints.REPORT + Id}`
+    window.location.href = `${environment.testAppUrl}/landing/${Id}?token=${currentUser.access_token}&mock=true&route=report`;
   }
 
   return (
