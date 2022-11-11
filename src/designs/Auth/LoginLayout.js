@@ -5,6 +5,9 @@ import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
 
 export const LoginLayout = (props) => {
+    const activateIt=()=>{
+        alert("Hi")
+    }
     return <Box>
         <Grid container>
             <Grid item xs={12}>
@@ -16,6 +19,14 @@ export const LoginLayout = (props) => {
             <Grid item  xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
+                         onKeyPress={(event) => {
+                           
+                           if(event.code=="Enter")
+                           {
+                           
+                            document.getElementById("clicked").click()
+                           }
+                        }}
                         type="tel"
                         placeholder="Phone Number"
                         variant="filled"
@@ -31,7 +42,8 @@ export const LoginLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
-                       
+                        onkeypress={(event)=>{ if (event.key === "Enter") {
+                            console.log("Heyyyyyyyy")}}}
                         placeholder="Password"
                         variant="filled"
                         required
@@ -48,7 +60,7 @@ export const LoginLayout = (props) => {
                 </Box>
             </Grid>
             <Grid item xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
+                <CustomButton id="clicked" btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
             </Grid>
         </Grid>
         {

@@ -13,6 +13,12 @@ export const ForgotPWLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
+                    onKeyPress={(event) => {
+                        if(event.code=="Enter")
+                         {
+                         document.getElementById("clicked").click()
+                         }
+                      }}
                     placeholder="Phone Number"
                     value={props.pageData.phoneNumber}
                     type="tel"
@@ -28,7 +34,7 @@ export const ForgotPWLayout = (props) => {
         </Grid>
         <Grid item xs={12}>
             <Box mb={20} width={1} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
+                <CustomButton id="clicked" btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
             </Box>
         </Grid>
     </Grid>
