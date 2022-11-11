@@ -1,9 +1,11 @@
 export const environment = {
   production: false,
-  userBaseUrl: "https://users.aimlearn.co",
+  userBaseUrl: "https://users-uat.aimlearn.co",
   domain: "liveolympiad.org",
-  cookieDomain: "localhost",
-  paymentUrl:"https://payments.aimlearn.co",
-  testLiveolympiad:"https://api.liveolympiad.org",
-  testAppUrl:"https://test.liveolympiad.org"
+  cookieDomain: ".liveolympiad.org",
+  paymentUrl:"https://payments-uat.aimlearn.co",
+  testLiveolympiad:"https://content-uat.liveolympiad.org",
+  testAppUrl:"https://test-uat.liveolympiad.org",
+  env:'school'
 };
+

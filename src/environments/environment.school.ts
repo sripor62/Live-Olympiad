@@ -6,6 +6,7 @@ export const environment = {
     paymentUrl:"https://payments-uat.aimlearn.co",
     testLiveolympiad:"https://content-uat.liveolympiad.org",
     testAppUrl:"https://test-uat.liveolympiad.org",
-    env:"uat"
+    env:"school"
   };
+  
   

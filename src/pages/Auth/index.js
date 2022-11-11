@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import Login from './Login';
 import SignUp from './SignUp';
 import { navigateAsPerSessionValidity } from "../../services/helpers";
+import { environment } from '../../environments/environment';
 
 
 export const AuthPage = () => {
@@ -15,9 +16,12 @@ export const AuthPage = () => {
     const [val,setVal]=useState(params.index? 1:0);
 
     const tabArr = [
-        { label: "Log In", component: <Login /> },
-        { label: "Sign Up", component: <SignUp /> },
+        { label: "Log In", component: <Login /> }
     ]
+    if(environment.env!="school"){
+        tabArr.push({ label: "Sign Up", component: <SignUp /> });
+    }
+    
 
     return <AuthLayout>
         <CustomTabs

@@ -93,7 +93,8 @@ const TestScreen = () => {
       });
       testId = test?.data?.testId;
     }
-    window.location.href = `${environment.testAppUrl}/landing/${testId}?token=${currentUser.access_token}&mock=true`;
+    let mock = environment.env!=="school"?'true':"false";
+    window.location.href = `${environment.testAppUrl}/landing/${testId}?token=${currentUser.access_token}&mock=${mock}&route=test`;
   };
   const navigateBack = () => navigate("/dashboard");
   return (

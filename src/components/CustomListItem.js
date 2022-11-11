@@ -4,6 +4,8 @@ import { CustomButton } from "./CustomButton"
 import RefreshIcon from '@mui/icons-material/Refresh';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import { useNavigate } from "react-router-dom";
+import { environment } from "../environments/environment";
+
 export const CustomListItem = (props) => {
     const navigate=useNavigate();
     return <Box>
@@ -12,7 +14,7 @@ export const CustomListItem = (props) => {
 
             <Grid item xs={12} sm={6} md={6} lg={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
                 <Typography variant='body1'><Box mb={1} sx={{ fontFamily: 'Urbantist', fontSize: "18px", fontWeight: 600 }}>{props.option.packageName}</Box></Typography>
-                <Typography variant='body2'><Box mb={1} sx={{ fontFamily: 'Urbantist', fontWeight: 500, color: 'rgba(106,112,124,1)' }}>Practice Test</Box></Typography>
+                {environment.env!="school" && <Typography variant='body2'><Box mb={1} sx={{ fontFamily: 'Urbantist', fontWeight: 500, color: 'rgba(106,112,124,1)' }}>Practice Test</Box></Typography>}
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
 
