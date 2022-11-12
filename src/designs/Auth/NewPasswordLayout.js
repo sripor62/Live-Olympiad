@@ -15,7 +15,14 @@ export const NewPasswordLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
-                    
+                    onKeyPress={(event) => {
+                           
+                        if(event.code=="Enter")
+                        {
+                        
+                         document.getElementById("clicked").click()
+                        }
+                     }}
                     placeholder="New Password"
                     variant="filled"
                     required

@@ -34,7 +34,14 @@ export const ResetPasswordLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
-                        
+                        onKeyPress={(event) => {
+                           
+                            if(event.code=="Enter")
+                            {
+                            
+                             document.getElementById("clicked").click()
+                            }
+                         }}
                         type="tel"
                         placeholder="Confirm Password"
                         variant="filled"
