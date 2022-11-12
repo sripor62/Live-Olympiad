@@ -11,13 +11,23 @@ pipeline {
     }
 
     stages{
+        stage('Avatar setup') {
+            when { anyOf {
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
+            } }
+            steps {
+                sh 'sed "s/4040/4001/g" nginx.conf > tmp'
+                sh 'mv tmp nginx.conf'
+            }
+        }
         stage('Build') {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
-                sh 'mv src/environments/environment.$GIT_BRANCH.ts src/environments/environment.ts'
+		sh 'mv src/environments/environment.$GIT_BRANCH.ts src/environments/environment.ts'
                 sh "docker build -t ${PROJECT}:${GIT_BRANCH} ."
             }
         }
@@ -25,6 +35,7 @@ pipeline {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'docker tag ${PROJECT}:${GIT_BRANCH} ${REPO}:${GIT_BRANCH}'
@@ -36,12 +47,13 @@ pipeline {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'echo \$(${ECR_LOGIN}) > ${GIT_BRANCH}.sh'
                 sh 'echo docker pull $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
                 sh 'echo docker rm -f $PROJECT >> ${GIT_BRANCH}.sh'
-                sh 'echo docker run -e TZ=Asia/Kolkata --net=host -d --name $PROJECT $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
+                sh 'echo docker run -e TZ=Asia/Kolkata --net=host -d --name $PROJECT-$GIT_BRANCH $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
                 sh 'cat ${GIT_BRANCH}.sh'
                 sh 'cat ${GIT_BRANCH}.sh | ssh ${USER}@${GIT_BRANCH}.$MS_DOMAIN' 
             }

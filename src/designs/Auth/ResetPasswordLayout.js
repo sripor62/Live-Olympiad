@@ -15,7 +15,12 @@ export const ResetPasswordLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
-                        
+                        onKeyPress={(event) => {
+                            if(event.code=="Enter")
+                             {
+                             document.getElementById("clicked").click()
+                             }
+                          }}
                         placeholder=" New Password"
                         variant="filled"
                         required
@@ -29,6 +34,7 @@ export const ResetPasswordLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={3} width={1}>
                     <CustomTextField
+                        
                         type="tel"
                         placeholder="Confirm Password"
                         variant="filled"
@@ -42,7 +48,7 @@ export const ResetPasswordLayout = (props) => {
                 </Box>
             </Grid>
             <Grid item xs={12} mb={14} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
-                <CustomButton btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
+                <CustomButton id="clicked" btnText="Confirm Password" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
             </Grid>
         </Grid>
         {
