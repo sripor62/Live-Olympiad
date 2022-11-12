@@ -27,8 +27,7 @@ pipeline {
                 expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
-                sh 'mv src/environments/environment.$GIT_BRANCH.ts src/environments/environment.ts'
-                sh 'mv application.properties src/main/resources/application.properties'
+		sh 'mv src/environments/environment.$GIT_BRANCH.ts src/environments/environment.ts'
                 sh "docker build -t ${PROJECT}:${GIT_BRANCH} ."
             }
         }
