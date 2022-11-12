@@ -52,7 +52,7 @@ pipeline {
             steps {
                 sh 'echo \$(${ECR_LOGIN}) > ${GIT_BRANCH}.sh'
                 sh 'echo docker pull $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
-                sh 'echo docker rm -f $PROJECT >> ${GIT_BRANCH}.sh'
+                sh 'echo docker rm -f $PROJECT-$GIT_BRANCH >> ${GIT_BRANCH}.sh'
                 sh 'echo docker run -e TZ=Asia/Kolkata --net=host -d --name $PROJECT-$GIT_BRANCH $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
                 sh 'cat ${GIT_BRANCH}.sh'
                 sh 'cat ${GIT_BRANCH}.sh | ssh ${USER}@${GIT_BRANCH}.$MS_DOMAIN' 

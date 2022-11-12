@@ -5,13 +5,14 @@ import { KnowledgeTree } from "./KnowledgeTreeBox"
 import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import { UpgradeBox } from "./UpgradeBox"
 import { MobileDashboard } from "./MobileDashboard"
+import { environment } from "../../environments/environment"
 
 export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
         <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
             <Grid container mb={5}  alignItems='center'>
                 <Grid item xs={12} md={12} lg={8}><SubjectSelector setPage={props.setPage} /></Grid>
-                { <Grid item  xs={12} md={12} lg={4}><FilterByStatus setPage={props.setPage} open={props.open} anchorEl={props.anchorEl} handleClick={props.handleClick} handleClose={props.handleClose} /></Grid> }
+                {environment.env!="school" &&  <Grid item  xs={12} md={12} lg={4}><FilterByStatus setPage={props.setPage} open={props.open} anchorEl={props.anchorEl} handleClick={props.handleClick} handleClose={props.handleClose} /></Grid> }
             </Grid>
             {props.page===0 &&
                 props?.testsLists?.map((option) => {

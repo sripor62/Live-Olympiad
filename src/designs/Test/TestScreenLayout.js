@@ -50,12 +50,9 @@ export const TestScreenLayout = ({
                                 </Typography>
                             </Grid>
                             <Grid item xs={10} sm={8} md={6} lg={9} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                {pageData?.testStatus == null
-                                    ? <Button onClick={() => startTest(pageData)} endIcon={<PlayArrowOutlinedIcon />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#53D064", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>START</Button>
-                                    : pageData?.testStatus==true 
-                                        ? <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "rgba(131, 139, 161, 1)" , color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RETAKE</Button>
-                                        : <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#F9BB47", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RESUME</Button> 
-                                }
+                                {pageData?.status == 'retake' && <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "rgba(131, 139, 161, 1)" , color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RETAKE</Button>}
+                                {pageData?.status == 'start' && <Button onClick={() => startTest(pageData)} endIcon={<PlayArrowOutlinedIcon />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#53D064", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>START</Button>}
+                                {pageData?.status == 'resume' && <Button onClick={() => startTest(pageData)} endIcon={<Refresh />} variant="contained" borderRadius="5px" sx={{ width: '170px', height: '54px', backgroundColor: "#F9BB47", color: "white", fontFamily: "Urbanist", borderRadius: "15px" }}>RESUME</Button>}
                             </Grid>
                         </Grid>
                     </Grid>

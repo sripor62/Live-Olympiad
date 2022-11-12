@@ -68,6 +68,7 @@ const TestScreen = () => {
         attemptedQuestions: map[data._id]?.attemptedQuestions,
         testStatus: map[data._id]?.testStatus,
         testId: map[data._id]?.testId,
+        status: map[data._id]?.testStatus==null?'start': map[data._id]?.testStatus==true?'retake':"resume"
       };
       return pData;
     });
