@@ -16,8 +16,8 @@ pipeline {
                 expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
-                sh 'sed "s/4040/4001/g" src/nginx.conf > tmp'
-                sh 'mv tmp src/nginx.conf'
+                sh 'sed "s/4040/4001/g" nginx.conf > tmp'
+                sh 'mv tmp nginx.conf'
             }
         }
         stage('Build') {
