@@ -5,6 +5,7 @@ import { KnowledgeTree } from "./KnowledgeTreeBox"
 import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import { UpgradeBox } from "./UpgradeBox"
 import { MobileDashboard } from "./MobileDashboard"
+import { environment } from "../../environments/environment"
 
 export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
