@@ -11,13 +11,24 @@ pipeline {
     }
 
     stages{
+        stage('Avatar setup') {
+            when { anyOf {
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
+            } }
+            steps {
+                sh 'sed "s/4040/4001/g" src/nginx.conf > tmp'
+                sh 'mv tmp src/nginx.conf'
+            }
+        }
         stage('Build') {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'mv src/environments/environment.$GIT_BRANCH.ts src/environments/environment.ts'
+                sh 'mv application.properties src/main/resources/application.properties'
                 sh "docker build -t ${PROJECT}:${GIT_BRANCH} ."
             }
         }
@@ -25,6 +36,7 @@ pipeline {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'docker tag ${PROJECT}:${GIT_BRANCH} ${REPO}:${GIT_BRANCH}'
@@ -36,6 +48,7 @@ pipeline {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
                 expression { env.GIT_BRANCH == env.BRANCH_TWO }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'echo \$(${ECR_LOGIN}) > ${GIT_BRANCH}.sh'
