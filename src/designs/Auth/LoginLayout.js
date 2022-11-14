@@ -43,8 +43,14 @@ export const LoginLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
-                        onkeypress={(event)=>{ if (event.key === "Enter") {
-                            console.log("Heyyyyyyyy")}}}
+                        onKeyPress={(event) => {
+                           
+                            if(event.code=="Enter")
+                            {
+                            
+                             document.getElementById("clicked").click()
+                            }
+                         }}
                         placeholder="Password"
                         variant="filled"
                         required
