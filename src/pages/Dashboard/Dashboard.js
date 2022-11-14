@@ -13,6 +13,7 @@ import { AppConstants } from "../../environments/app-constants";
 import jwt_decode from "jwt-decode";
 import { environment } from "../../environments/environment";
 import { Endpoints } from "../../environments/endpoints";
+import { usePayment } from "../../hooks/usePayment";
 const Dashboard = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
@@ -34,6 +35,10 @@ const Dashboard = () => {
   });
   const [flagShow, setFlagShow] = useState(false);
   const { getTestList, getPackageList } = useTests();
+  const {
+    getSubscriptions,
+    getSubjects,
+  } = usePayment();
   const open = Boolean(anchorEl);
   const [assessmentList, setAssessmentList] = useState([]);
   const [passAssessData, setPassAssessData] = useState();
@@ -43,6 +48,23 @@ const Dashboard = () => {
   const [page, setPage] = useState(0);
 
   // setStuName(curentUser?.state?.currentUser.fullName)
+  const [subjects,setSubjects] = useState();
+  const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.id), { enabled: !!curentUser?.id, retry: false })
+  const {data : CoursesData} = useQuery(['CoursesData'],() => getSubjects(),{ enabled: true, retry: false })
+
+  useEffect(()=>{
+    if(CoursesData!==undefined){
+        let subs = {}
+        CoursesData.data.data.forEach((course)=>{
+            subs[course.id] = course.name;
+        })
+        console.log(subs);
+        if(SubscriptionData?.data?.data!=null){
+            setSubjects(SubscriptionData?.data?.data.subscribedCourses.map((item)=>subs[item].slice(0,4)));
+        }
+    }
+
+},[SubscriptionData,CoursesData])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -89,7 +111,21 @@ const Dashboard = () => {
       };
       return pData;
     });
-    setPassAssessData(newTestList);
+    console.log(newTestList)
+    let newFilteredList = newTestList?.filter((test)=>{
+        let flag = false;
+        subjects?.forEach((subject) => {
+            flag = flag || test.subject[0].search(subject)!=-1;
+        })
+        return flag
+    })
+    console.log(subjects)
+    console.log(newFilteredList)
+    if(environment.env!=="school"){
+      setPassAssessData(newTestList);
+    } else {
+      setPassAssessData(newFilteredList);
+    }
   }, [testList, assessmentList]);
 
   const testScreen = (item) => {
