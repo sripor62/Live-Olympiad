@@ -10,9 +10,9 @@ export const ScheduleLayout = () => {
                 <Grid item  xs={12} sm={12} md={7} lg={8} p={1}>
                     <Grid container mb={3}>
                         <Stack direction="row" spacing={2}>
-                            <Chip label="All" variant="outlined" sx={{ backgroundColor: '#F9BB47', color: '#ffffff', border: '2px solid #F9BB47' }} />
-                            <Chip label="Mock Tests" variant="outlined" sx={{ color: '#F9BB47', border: '2px solid #F9BB47' }} />
-                            <Chip label="Olympiads" variant="outlined" sx={{ color: '#F9BB47', border: '2px solid #F9BB47' }} />
+                            <Chip label="All" variant="contained" sx={{  ':hover': {   bgcolor: '#F9BB47' ,  color: 'white'},backgroundColor: 'white', color: '#F9BB47', border: '2px solid #F9BB47' }} />
+                            <Chip label="Mock Tests" variant="contained" sx={{ ':hover': {   bgcolor: '#F9BB47' ,  color: 'white'},backgroundColor: 'white', color: '#F9BB47', border: '2px solid #F9BB47' }} />
+                            <Chip label="Olympiads" variant="contained" sx={{  ':hover': {   bgcolor: '#F9BB47' ,  color: 'white'},backgroundColor: 'white',color: '#F9BB47', border: '2px solid #F9BB47' }} />
                         </Stack>
                     </Grid>
                     <Chip label="Maths" className='brb_0' sx={{ backgroundColor: '#4545A5', color: '#ffffff', display:{xs:'block', sm:'block', md:'none', lg:'none'}}}/>

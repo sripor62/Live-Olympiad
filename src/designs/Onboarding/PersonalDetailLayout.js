@@ -107,6 +107,14 @@ export const PersonalDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
+                    onKeyPress={(event) => {
+                           
+                        if(event.code=="Enter")
+                        {
+                        
+                         document.getElementById("clicked").click()
+                        }
+                     }}
                     placeholder="Date of Birth"
                     id="date"
                     type="date"
@@ -124,6 +132,14 @@ export const PersonalDetailLayout = (props) => {
         <Grid item  xs={12}>
             <Box mb={3} width={1}>
                 <CustomTextField
+                    onKeyPress={(event) => {
+                           
+                        if(event.code=="Enter")
+                        {
+                        
+                         document.getElementById("clicked").click()
+                        }
+                     }}
                     type="email"
                     placeholder="Email Address(Optional)"
                     variant="filled"

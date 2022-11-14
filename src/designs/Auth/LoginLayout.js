@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
+import { environment } from "../../environments/environment"
 
 export const LoginLayout = (props) => {
     const activateIt=()=>{
@@ -42,8 +43,14 @@ export const LoginLayout = (props) => {
             <Grid item xs={12}>
                 <Box mb={2} width={1}>
                     <CustomTextField
-                        onkeypress={(event)=>{ if (event.key === "Enter") {
-                            console.log("Heyyyyyyyy")}}}
+                        onKeyPress={(event) => {
+                           
+                            if(event.code=="Enter")
+                            {
+                            
+                             document.getElementById("clicked").click()
+                            }
+                         }}
                         placeholder="Password"
                         variant="filled"
                         required
@@ -54,11 +61,11 @@ export const LoginLayout = (props) => {
                     />
                 </Box>
             </Grid>
-            <Grid item xs={12}>
+            { environment.env!=="school" && <Grid item xs={12}>
                 <Box mb={3} width={1} textAlign="right" sx={{fontSize:"12px",fontFamily:'urbanist',fontWeight:"bold"}} >
                     <Link href="" style={{textDecoration:"none",color:"rgba(30,35,44,1)"}} onClick={props.forgotPage}>Forgot Password?</Link>
                 </Box>
-            </Grid>
+            </Grid>}
             <Grid item xs={12} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton id="clicked" btnText="Log in" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}}/>
             </Grid>
