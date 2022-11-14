@@ -103,7 +103,7 @@ const Subscription = () => {
           },
           prefill: {
             email: currentUser?.email,
-            contact: currentUser?.phoneNum,
+            contact: currentUser?.phoneNumber,
           },
           notes: {
             address: "example address",
