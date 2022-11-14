@@ -64,8 +64,8 @@ export const SubscriptionSubject = ({ subscriptionList,
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Any One Subject</Box></Typography>
                     </Grid>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <Typography variant='body2' ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: '20px' }, fontFamily: 'Urbanist', fontWeight: "400", display: { xs: "center", sm: "center", lg: "left" } }}>₹300</Box></Typography>
-                        <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: '20px' }, fontFamily: 'Urbanist', fontWeight: "400", display: { xs: "center", sm: "center", lg: "left" } }}>{subscriptionList?.subscribedCourses.length>0 ? "₹250": "₹300" }</Box></Typography>
+                        {/* <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography> */}
                     </Grid>
                     <Grid item xs={12}>
                         <Box p={1}>
@@ -86,8 +86,8 @@ export const SubscriptionSubject = ({ subscriptionList,
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Any Two Subjects</Box></Typography>
                     </Grid>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <Typography variant='body2' ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: '20px' }, fontFamily: 'Urbanist', fontWeight: "400" }}>₹550</Box></Typography>
-                        <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography>
+                        <Typography variant='body2' ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: '20px' }, fontFamily: 'Urbanist', fontWeight: "400" }}>{subscriptionList?.subscribedCourses.length>0 ? "₹500": "₹550" }</Box></Typography>
+                        {/* <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography> */}
                     </Grid>
                     <Grid item xs={12}>
                         <Box p={1}>
@@ -112,7 +112,7 @@ export const SubscriptionSubject = ({ subscriptionList,
                     </Grid>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                         <Typography variant='body2' ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: '20px' }, fontFamily: 'Urbanist', fontWeight: "400" }}>₹800</Box></Typography>
-                        <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography>
+                        {/* <Typography variant='body2' ><Box mb={2} mt={0.3} ml={0.5} sx={{ fontFamily: 'Urbanist', fontWeight: "700", color: 'rgba(131,139,161,1)' }}>for Year</Box></Typography> */}
                     </Grid>
                     <Grid item xs={12}>
                         <Box p={1}>
