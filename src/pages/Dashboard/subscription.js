@@ -45,7 +45,7 @@ const Subscription = () => {
     if(subscriptionList?.subscribedCourses.includes(subjectId)){
       return;
     }
-    if (subjects.includes(subjectId)) {
+    if (subjectMode !== 3 && subjects.includes(subjectId)) {
       setSubjects(subjects.filter((subject) => subject !== subjectId));
     } else {
       if (subjectMode == 1) {
@@ -53,6 +53,8 @@ const Subscription = () => {
       } else if (subjectMode == 2) {
         if (subjects.length < 2) {
           setSubjects([...subjects, subjectId])
+        } else {
+          setSubjects([subjectId])
         }
       }
     }
@@ -73,7 +75,12 @@ const Subscription = () => {
     script.onload = async () => {
       try {
         console.log(subjects)
-        let order = subjects.length * 300 - (subjects.length - 1) * 50;
+        let order = 0
+        if(subscriptionList?.subscribedCourses.length>0){
+          order = subjects.length * 250;
+        } else {
+          order = subjects.length * 300 - (subjects.length - 1) * 50;
+        }
         const result = await createOrder({
           amount: order * 100,
           courseIds: subjects,
@@ -96,7 +103,7 @@ const Subscription = () => {
           },
           prefill: {
             email: currentUser?.email,
-            contact: currentUser?.phoneNum,
+            contact: currentUser?.phoneNumber,
           },
           notes: {
             address: "example address",
