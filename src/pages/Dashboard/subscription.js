@@ -13,7 +13,7 @@ const Subscription = () => {
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
   const [subjectList, setSubjectList] = useState();
-  const [subjectMode, setSubjectMode] = useState();
+  const [subjectMode, setSubjectMode] = useState(0);
   const [subjects, setSubjects] = useState([]);
   const [snakeBarProps,setSnakeBarProps] = useState({});
   const params=useParams();
@@ -63,7 +63,15 @@ const Subscription = () => {
   }
 
   function loadRazorpay() {
-    if (subjectMode == 2 || subjects.length !== 2){
+    if(subjectMode == 0 ){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please select a Subscription plan",
+        type: "warning",
+      });
+      return;
+    }
+    if (subjectMode == 2 && subjects.length !== 2){
       setSnakeBarProps({
         snackbarFlag: true,
         msz: "Please select any two subject",
@@ -165,7 +173,6 @@ const Subscription = () => {
   let stuName=curentUser?.fullName;
   const  [fName,LName]=stuName.split(" ")
   return (
-    <>    
     <SubscriptionLayout
       logOutHandler={clearCurrentUser} 
       stuName={fName}
@@ -177,9 +184,9 @@ const Subscription = () => {
       subjectMode={subjectMode}
       subjects={subjects}
       handleSubjectSelect={handleSubjectSelect}
+      snakeBarProps={snakeBarProps}
+      setSnakeBarProps={setSnakeBarProps}
     />
-    <CustomSnackbar {...snakeBarProps} setSnakeBarProps={setSnakeBarProps} />
-    </>
 
   );
 };
