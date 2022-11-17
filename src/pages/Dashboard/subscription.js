@@ -122,7 +122,7 @@ const Subscription = () => {
             console.log(result)
           },
           prefill: {
-            email: currentUser?.email,
+            email: "info@liveolympiad.org",
             contact: currentUser?.phoneNumber,
           },
           notes: {
