@@ -21,19 +21,22 @@ export default function ResetPassword() {
 
     },[currentUser])
     const submitHandler = async() => {
-        if (pageData.password===pageData.confirmpassword && pageData.password.length>=6) {
+        var pass = pageData.password===pageData.confirmpassword 
+        var passlength = pageData.password.length===6
+        if (pageData.password===pageData.confirmpassword && pageData.password.length===6) {
             let res = await setPassword(pageData.password, params.token);
             if (res.data?.success) {
                 setCurrentUser(res.data?.data);
                 navigate("/schooldetails/" + res.data?.data.id)
             }
-        } else setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "error" })
+        } else if(!pass) setSnakeBarProps({ snackbarFlag: true, msz: "Passwords do not match", type: "error" })
+        else if(!passlength) setSnakeBarProps({ snackbarFlag: true, msz: "Passwords length should be 6", type: "error" })
         setsubmitFlag(true);
         afterValidate(afterValidateCallBack)
     };
 
     const afterValidateCallBack = (second) => {
-        setSnakeBarProps({ snackbarFlag: true, msz: "dasdasd", type: "success" })
+        setSnakeBarProps({ snackbarFlag: true, msz: "password must contain 6 digit numbers only", type: "success" })
     }
 
     return <AuthLayout>

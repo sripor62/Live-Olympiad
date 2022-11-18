@@ -9,10 +9,10 @@ export const getErrorMsz = (type, value, value2) => {
             : ""
     }
     if (type == "conrfirm_password") {
-        const validPassword = new RegExp("^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{8,}$");
+        const validPassword = new RegExp("^(?=.*[0-9]){6,}");
         return value == "" ? "Please enter password"
             : value == value2 ? "New password should not be same as old password"
-                : !validPassword.test(value) ? "Password must be of 8 characters and combination of numbers, alphabets & special characters"
+                : !validPassword.test(value) ? "Password must be of 6 characters and combination of numbers only"
                     : ""
     }
     if (type == "mobile" || type == "phone_number") {
