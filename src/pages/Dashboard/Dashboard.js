@@ -58,10 +58,15 @@ const Dashboard = () => {
         CoursesData.data.data.forEach((course)=>{
             subs[course.id] = course.name;
         })
-        console.log(subs);
-        if(SubscriptionData?.data?.data!=null){
-            setSubjects(SubscriptionData?.data?.data?.subscribedCourses.map((item)=>subs[item].slice(0,4)));
+
+        
+
+        if(SubscriptionData?.data?.data?.subscribedCourses?.length!==0){
+            setSubjects(SubscriptionData?.data?.data.subscribedCourses.map((item)=>subs[item].slice(0,4)));
+            
+
         }
+       
     }
 
 },[SubscriptionData,CoursesData])
@@ -109,6 +114,7 @@ const Dashboard = () => {
         testStatus: map[data._id]?.testStatus,
         testId: map[data._id]?.testId,
       };
+     
       return pData;
     });
     console.log(newTestList)
@@ -116,13 +122,14 @@ const Dashboard = () => {
         let flag = false;
         subjects?.forEach((subject) => {
             flag = flag || test.subject[0].search(subject)!=-1;
+
         })
         return flag
     })
     console.log(subjects)
-    console.log(newFilteredList)
+    console.log("newFilteredList",newFilteredList)
     if(environment.env!=="school"){
-      setPassAssessData(newTestList);
+      setPassAssessData(newFilteredList);
     } else {
       setPassAssessData(newFilteredList);
     }
