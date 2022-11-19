@@ -58,11 +58,13 @@ const Dashboard = () => {
         CoursesData.data.data.forEach((course)=>{
             subs[course.id] = course.name;
         })
+
         
 
         if(SubscriptionData?.data?.data?.subscribedCourses?.length!==0){
             setSubjects(SubscriptionData?.data?.data.subscribedCourses.map((item)=>subs[item].slice(0,4)));
-            console.log("subs",subjects)
+            
+
         }
        
     }

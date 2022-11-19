@@ -6,14 +6,16 @@ import { usePayment } from "../../hooks/usePayment";
 import { useQuery } from "react-query";
 import { useStore } from "../../stores";
 import { useParams } from "react-router-dom";
+import { CustomSnackbar } from "../../components/CustomSnackbar";
 const Subscription = () => {
   const curentUser = useStore((state)=>state.currentUser)
   const currentUser = useStore((state) => state.currentUser);
   const [paymentInfo, setPaymentInfo] = useState();
   const [subscriptionList, setSubscriptionList] = useState();
   const [subjectList, setSubjectList] = useState();
-  const [subjectMode, setSubjectMode] = useState();
+  const [subjectMode, setSubjectMode] = useState(0);
   const [subjects, setSubjects] = useState([]);
+  const [snakeBarProps,setSnakeBarProps] = useState({});
   const params=useParams();
   const grade=params.grade
   const {
@@ -61,10 +63,28 @@ const Subscription = () => {
   }
 
   function loadRazorpay() {
-    if (
-      !((subjectMode == 3 && subjects.length == 3) ||
-        (subjectMode == 2 && subjects.length == 2) ||
-        (subjectMode == 1 && subjects.length == 1))) {
+    if(subjectMode == 0 ){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please select a Subscription plan",
+        type: "warning",
+      });
+      return;
+    }
+    if (subjectMode == 2 && subjects.length !== 2){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please select any two subject",
+        type: "warning",
+      });
+      return;
+    }
+    if (subjectMode == 1 && subjects.length !== 1){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please select a subject",
+        type: "warning",
+      });
       return;
     }
     const script = document.createElement("script");
@@ -102,7 +122,7 @@ const Subscription = () => {
             console.log(result)
           },
           prefill: {
-            email: currentUser?.email,
+            email: "info@liveolympiad.org",
             contact: currentUser?.phoneNumber,
           },
           notes: {
@@ -164,7 +184,10 @@ const Subscription = () => {
       subjectMode={subjectMode}
       subjects={subjects}
       handleSubjectSelect={handleSubjectSelect}
+      snakeBarProps={snakeBarProps}
+      setSnakeBarProps={setSnakeBarProps}
     />
+
   );
 };
 export default Subscription;

@@ -7,6 +7,7 @@ import { LoginLayout } from "../../designs/Auth/LoginLayout";
 import { useStore } from "../../stores";
 import { useQuery } from "react-query";
 import { useStudent } from "../../hooks/useStudent";
+import { environment } from "../../environments/environment";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -32,6 +33,26 @@ export default function Login() {
 
   const { login } = useAuthHelper();
   const submitHandler = async () => {
+    let phoneFlag = /^\d{10}$/.test(pageData.phoneNumber);
+    let pinFlag = /^\d{6}$/.test(pageData.password);
+    if(!phoneFlag){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please enter valid phone number",
+        type: "error",
+      });
+      return;
+    }
+
+    if(!pinFlag){
+      setSnakeBarProps({
+        snackbarFlag: true,
+        msz: "Please enter valid 6 digit password",
+        type: "error",
+      });
+      return;
+    }
+
     let res = await login({
       userName: "+91" + pageData.phoneNumber,
       password: pageData.password,
@@ -45,8 +66,8 @@ export default function Login() {
       });
       setCurrentUser(res.data?.data);
      
-    } else {
-      if (res.data?.message.includes("not found")) window.location.href = "/1";
+    } else{
+      if (environment.env!=="school" && res.data?.message.includes("not found")) window.location.href = "/1";
       setSnakeBarProps({
         snackbarFlag: true,
         msz: res.data.message,
@@ -60,7 +81,7 @@ export default function Login() {
     if(EducationData!==undefined && personalData!==undefined){
       if (!EducationData?.data.data.length>0 ) {
         navigate("/schooldetails/" + currentUser?.id);
-      } else if (EducationData?.data.data.length>0 && personalData?.data.data.id === null) {
+      } else if (EducationData?.data?.data?.length>0 && personalData?.data?.data?.id === null) {
         navigate("/personaldetails/" + currentUser?.id);
       } else if(EducationData?.data?.data?.length>0 && personalData?.data?.data?.id !== null){
         navigate("/dashboard");

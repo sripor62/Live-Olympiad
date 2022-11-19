@@ -7,34 +7,39 @@ import { SignUpLayout } from '../../designs/Auth/SignUpLayout';
 const SignUp = () => {
     const navigate = useNavigate();
     const [snakeBarProps, setSnakeBarProps] = useState({});
-
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "" });
-    const [otpSent,setOtpSent]=useState(false);
+    const [otpSent, setOtpSent] = useState(false);
 
     const { generateOTP } = useAuthHelper();
 
-    const submitHandler = async() => {
-            
-            
-                let res = await generateOTP({
-                    phoneNumber: "+91" + pageData.phoneNumber,
-                    signUp: true,
-              
-                });
-                if(res.data?.success){
-                    setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
-                    navigate("/mobileverification/"+pageData.phoneNumber)
-                }else{
-                setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
-                }
-                };
-                 
-                 const afterValidateCallBack = (second) => {
-        
-                setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
+    const submitHandler = async () => {
+        let phoneFlag = /^\d{10}$/.test(pageData.phoneNumber);
+        if(!phoneFlag){
+          setSnakeBarProps({
+            snackbarFlag: true,
+            msz: "Please enter valid phone number",
+            type: "error",
+          });
+          return;
+        }
+    
+        let res = await generateOTP({
+            phoneNumber: "+91" + pageData.phoneNumber,
+            signUp: true,
+        });
+        if (res.data?.success) {
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "success" })
+            navigate("/mobileverification/" + pageData.phoneNumber)
+        } else {
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+        }
+    };
+
+    const afterValidateCallBack = (second) => {
+        setSnakeBarProps({ snackbarFlag: true, msz: "You have sign up successfully.", type: "success" })
     }
- 
+
     return (
         <SignUpLayout
             responsiveStype={responsiveStype}
@@ -47,7 +52,7 @@ const SignUp = () => {
             submitHandler={submitHandler}
         />
     );
-   
+
 
 };
 export default SignUp;
