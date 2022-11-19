@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomTextField } from "../../components/CustomTextField"
+import { CustomSnackbar } from "../../components/CustomSnackbar"
 
 export const ForgotPWLayout = (props) => {
     return <Grid container justifyContent="center" alignItems="center">
@@ -37,5 +38,9 @@ export const ForgotPWLayout = (props) => {
                 <CustomButton id="clicked" btnText="Next" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
             </Box>
         </Grid>
+        {
+            Object.keys(props.snakeBarProps).length > 0 &&
+            <CustomSnackbar {...props.snakeBarProps} setSnakeBarProps={props.setSnakeBarProps} />
+        }
     </Grid>
 }
