@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuthHelper from "../../hooks/useAuthHelper";
 const ForgotPassword = () => {
     const navigate = useNavigate();
+      const [snakeBarProps, setSnakeBarProps] = useState({});
     const [submitFlag, setsubmitFlag] = useState(false)
     const [pageData, setPageData] = useState({ phoneNumber: "", });
     const { generateOTP } = useAuthHelper();
@@ -20,6 +21,10 @@ const ForgotPassword = () => {
         });
         if (res.data?.success) {
             navigate("/mobileverification/" + pageData.phoneNumber)
+
+        }
+        else {
+            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
         }
     };
 
@@ -35,7 +40,8 @@ const ForgotPassword = () => {
             setPageData={setPageData}
             submitFlag={submitFlag}
             getErrorMsz={getErrorMsz}
-
+            snakeBarProps={snakeBarProps}
+            setSnakeBarProps={setSnakeBarProps}
             submitHandler={submitHandler}
         />
     </AuthLayout>
