@@ -60,7 +60,7 @@ const Dashboard = () => {
         })
         console.log(subs);
         if(SubscriptionData?.data?.data!=null){
-            setSubjects(SubscriptionData?.data?.data.subscribedCourses.map((item)=>subs[item].slice(0,4)));
+            setSubjects(SubscriptionData?.data?.data?.subscribedCourses.map((item)=>subs[item].slice(0,4)));
         }
     }
 

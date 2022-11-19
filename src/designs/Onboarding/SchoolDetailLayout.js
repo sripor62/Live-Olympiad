@@ -48,24 +48,6 @@ export const SchoolDetailLayout = (props) => {
         </Grid>
         <Grid item xs={12}>
             <Box mb={2} width={1}>
-                <CustomTextField 
-                    placeholder="School Area Postal Code"
-                    type="tel"
-                    variant="filled"
-                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode?.substring(0,6)}
-                    onChange={(event) => {
-                        props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
-                        props.setPinCode(event.target.value)
-                    }}
-                    required
-                    error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.postalCode) != ""}
-                    errorMsz={props.getErrorMsz('postal_code', props.pageData?.postalCode)}
-                    inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
-                /><span style={{color:"red", fontWeight:"bold"}}>*</span>
-            </Box>
-        </Grid>
-        <Grid item xs={12}>
-            <Box mb={2} width={1}>
                 <FormControl fullWidth>
                     <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
                     <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  
@@ -84,6 +66,24 @@ export const SchoolDetailLayout = (props) => {
                 </FormControl><span style={{color:"red", fontWeight:"bold"}}>*</span>
             </Box>
         </Grid>
+        {/* <Grid item xs={12}>
+            <Box mb={2} width={1}>
+                <CustomTextField 
+                    placeholder="School Area Postal Code"
+                    type="tel"
+                    variant="filled"
+                    value={props.pinCode.length>=0 ? props.pinCode : props.pageData?.schoolCode?.substring(0,6)}
+                    onChange={(event) => {
+                        props.setPageData({ ...props.pageData, pinCode: event.target.value }) 
+                        props.setPinCode(event.target.value)
+                    }}
+                    required
+                    error={props.submitFlag && props.getErrorMsz('postal_code', props.pageData.postalCode) != ""}
+                    errorMsz={props.getErrorMsz('postal_code', props.pageData?.postalCode)}
+                    inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                /><span style={{color:"red", fontWeight:"bold"}}>*</span>
+            </Box>
+        </Grid> */}
         <Grid container spacing={1}>
             <Grid item xs={12} lg={6}>
                 <Box mb={2} width={1}>
