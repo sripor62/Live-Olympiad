@@ -21,8 +21,18 @@ export default function ResetPassword() {
 
     },[currentUser])
     const submitHandler = async() => {
+        let pinFlag = (/^\d{6}$/.test(pageData.password))||(/^\d{6}$/.test(pageData.confirmpassword));
         var pass = pageData.password===pageData.confirmpassword 
         var passlength = pageData.password.length===6
+        
+    if(!pinFlag){
+        setSnakeBarProps({
+          snackbarFlag: true,
+          msz: "Please enter valid 6 digit password",
+          type: "error",
+        }); 
+        return;
+    }
         if (pageData.password===pageData.confirmpassword && pageData.password.length===6) {
             let res = await setPassword(pageData.password, params.token);
             if (res.data?.success) {
