@@ -58,7 +58,7 @@ pipeline {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
             } }
             steps {
-                sh 'echo docker rm -f $PROJECT >> ${GIT_BRANCH}.sh'
+                sh 'echo docker rm -f $PROJECT-${GIT_BRANCH} >> ${GIT_BRANCH}.sh'
                 sh 'echo docker run -e TZ=$TIMEZONE --net=host -d --name $PROJECT-${GIT_BRANCH} $REPO:$GIT_BRANCH >> ${GIT_BRANCH}.sh'
                 sh 'cat ${GIT_BRANCH}.sh | ssh ${USER}@${GIT_BRANCH}.$MS_DOMAIN' 
             }
@@ -69,7 +69,7 @@ pipeline {
                 expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
-                sh 'docker rm -f $PROJECT >> ${GIT_BRANCH}.sh'
+                sh 'docker rm -f $PROJECT-${GIT_BRANCH} >> ${GIT_BRANCH}.sh'
                 sh 'docker run -e TZ=$TIMEZONE --net=host -d --name $PROJECT-${GIT_BRANCH} ${PROJECT}:${GIT_BRANCH}'
             }
         }
