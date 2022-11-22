@@ -25,8 +25,8 @@ export const TestScreenLayout = ({
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container item xs={12} style={{ backgroundColor: '#F7F8F9', borderRadius: '20px', padding: '20px', marginBottom: '20px' }}>
-                        <Grid item xs={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                            <Typography variant='h4'><Box sx={{ fontFamily: 'Urbanist', fontWeight: 'bold', fontSize: { lg: "36px", xs: "20px" }, display: "flex", width: { xs: "200px", lg: "400px" } }} mb={1}>{pageData?.packageName}</Box></Typography>
+                        <Grid item xs={12} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
+                            <Typography variant='h4'><Box sx={{ fontFamily: 'Urbanist', fontWeight: 'bold', fontSize: { lg: "36px", xs: "20px" }, display: "flex" }} mb={1}>{pageData?.packageName}</Box></Typography>
                             { environment.env!=="school" &&<Typography variant='subtitle2'><Box sx={{ fontFamily: 'Urbanist', fontWeight: 'medium', fontSize: '20px', display: "flex", width: { xs: "200px", lg: "400px" } }} mb={1}>Practice Test</Box></Typography>}
                         </Grid>
                         {pageData?.testStatus!=null && pageData.attemptedQuestions.length!==pageData.questions.length && <Grid item xs={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
