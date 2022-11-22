@@ -129,7 +129,7 @@ const Dashboard = () => {
     console.log(subjects)
     console.log("newFilteredList",newFilteredList)
     if(environment.env!=="school"){
-      setPassAssessData(newFilteredList);
+      setPassAssessData(newTestList);
     } else {
       setPassAssessData(newFilteredList);
     }
