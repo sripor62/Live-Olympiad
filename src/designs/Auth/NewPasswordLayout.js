@@ -46,8 +46,8 @@ export const NewPasswordLayout = (props) => {
                     variant="filled"
                     required
                     onChange={(event) => { props.setPageData({ ...props.pageData, confirmpassword: event.target.value }) }}
-                    error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword) != ""}
-                    errorMsz={props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword)}
+                    error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.password,props.pageData.confirmpassword) != ""}
+                    errorMsz={props.getErrorMsz('conrfirm_password',props.pageData.password, props.pageData.confirmpassword)}
                     inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                      />
             </Box>
