@@ -13,8 +13,8 @@ export const MobileVerificationLayout = (props) => {
         <Grid item xs={12}>
             <Typography variant='body2' fontSize="14px" fontHeight="medium" color="rgba(131,139,161,1)"><Box mb={3} sx={props.responsiveStype.Mobilever.Typo}>Enter the 6-Digit OTP recieved on +91-{props.phoneNumber} over sms</Box></Typography>
         </Grid>
-        <Grid item xs={12} sm={12} lg={12}>
-            <Box mb={2} width={1}  >
+        <Grid item xs={12} sm={12} lg={12} >
+            <Box mb={2} width={1}  sx={{justifyContent: { xs: 'center',sm:"center", lg: 'left' },alignItems: { xs: 'center',sm:"center", lg: 'left' },display:"flex"}} >
                 <CustomOtp value={props.otp} handleChange={props.handleChangeOtp} hasErrored={props.hasErrored} errorMsz={props.errorMsz} />
             </Box>
         </Grid>
@@ -22,9 +22,6 @@ export const MobileVerificationLayout = (props) => {
             <Box mb={2} mt={2} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
                 <CustomButton btnText="Verify" color="primary" variant="contained" className="minWidth240" onClick={props.submitHandler} sx={{borderRadius:"50px"}} />
             </Box>
-        </Grid>
-        <Grid item xs={12}>
-            <Typography variant='body2' fontWeight='bold' fontSize='12px'><Box mb={8} sx={props.responsiveStype.Mobilever.Typo}>WhatsApp necessary for OTP to work</Box></Typography>
         </Grid>
         <Grid item xs={12}>
             <Typography variant='body2'  fontWeight='medium'><Box mb={3} mt={15} sx={props.responsiveStype.Mobilever.Typo}>OTP Not Recieved? <Link href="#" onClick={props.submitOtpAgain} style={{textDecoration:"none" ,fontWeight:"bold"}} fontWeight="bold">Resend</Link></Box></Typography>
