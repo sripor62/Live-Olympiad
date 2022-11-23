@@ -29,7 +29,7 @@ export const ForgotPWLayout = (props) => {
                     error={props.submitFlag && props.getErrorMsz('phone_number', props.pageData.phoneNumber) != ""}
                     errorMsz={props.getErrorMsz('phone_number', props.pageData.phoneNumber)}
                     onChange={(event) => { props.setPageData({ ...props.pageData, phoneNumber: event.target.value }) }}
-                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                    inputProps={{ maxLength: 10,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                 />
             </Box>
         </Grid>

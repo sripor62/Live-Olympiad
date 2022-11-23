@@ -9,7 +9,7 @@ export const getErrorMsz = (type, value, value2) => {
             : ""
     }
     if (type == "conrfirm_password") {
-        const validPassword = new RegExp("^(?=.*[0-9])[0-9]{6,}$");
+        const validPassword = new RegExp("^(?=.*[0-9]){6,}$");
         return value == "" ? "Please enter password"
             : value == value2 ? "New password should not be same as old password"
                 : !validPassword.test(value) ? "Password must be of 6 characters and combination of numbers only"
