@@ -34,8 +34,8 @@ export const NewPasswordLayout = (props) => {
                     required
                     error={props.submitFlag && props.getErrorMsz('password', props.pageData.password) != ""}
                     errorMsz={props.getErrorMsz('password', props.pageData.password)}
-                    onChange={(event) => {{ props.setPageData({ ...props.pageData, password: event.target.value }) };NumericOnly(event)}}
-                    inputProps={{ maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                    onChange={(event) => { props.setPageData({ ...props.pageData, password: event.target.value }) }}
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                 />
             </Box>
         </Grid>
@@ -54,8 +54,8 @@ export const NewPasswordLayout = (props) => {
                     onChange={(event) => {{ props.setPageData({ ...props.pageData, password: event.target.value }) };NumericOnly(event)}}
                     error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword) != ""}
                     errorMsz={props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword)}
-                    inputProps={{ maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
-                     />
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                />
             </Box>
         </Grid>
         <Grid item xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>
