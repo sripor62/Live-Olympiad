@@ -29,7 +29,7 @@ export const NewPasswordLayout = (props) => {
                     error={props.submitFlag && props.getErrorMsz('password', props.pageData.password) != ""}
                     errorMsz={props.getErrorMsz('password', props.pageData.password)}
                     onChange={(event) => { props.setPageData({ ...props.pageData, password: event.target.value }) }}
-                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                 />
             </Box>
         </Grid>
@@ -48,7 +48,7 @@ export const NewPasswordLayout = (props) => {
                     onChange={(event) => { props.setPageData({ ...props.pageData, confirmpassword: event.target.value }) }}
                     error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword) != ""}
                     errorMsz={props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword)}
-                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                      />
             </Box>
         </Grid>
