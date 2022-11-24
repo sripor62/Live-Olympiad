@@ -17,6 +17,8 @@ import TestScreen from '../pages/Test/TestScreen';
 import Subscription from '../pages/Dashboard/subscription';
 
 import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
+import Booklet from '../pages/Dashboard/Booklet';
+
 
 
 export const routes = [
@@ -74,6 +76,11 @@ export const routes = [
     path: "/schedule",
     element: <Schedule />,
   },
+  {
+    path: "/booklet",
+    element: <Booklet/>,
+  },
+ 
   {
     path: "/chooseyourplan",
     element: <ChooseYourPlan />,

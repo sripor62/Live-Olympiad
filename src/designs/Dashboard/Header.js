@@ -6,6 +6,48 @@ import MenuDrawer from './MenuDrawer';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { CustomButton } from "../../components/CustomButton"
 import { useStore } from '../../stores';
+function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    /* eslint-disable no-bitwise */
+    for (i = 0; i < string.length; i += 1) {
+        hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = '#';
+
+    for (i = 0; i < 3; i += 1) {
+        const value = (hash >> (i * 8)) & 0xff;
+        color += `00${value.toString(16)}`.slice(-2);
+    }
+    /* eslint-enable no-bitwise */
+
+    return color;
+}
+function stringAvatar(name) {
+    if (name.split(' ')[0] && name.split(' ')[1]) {
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+                width: { lg: "56px", xs: "30px" },
+                height: { lg: "56px", xs: "30px" }
+                
+            },
+            children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+        };
+    }
+    else if (name.split(' ')[0][0]) {
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+                width: { lg: "56px", xs: "30px" }, 
+                height: { lg: "56px", xs: "30px" }
+            },
+            children: `${name.split(' ')[0][0]}`,
+        };
+    }
+}
 const Header = (props) => {
 
     const currentUser = useStore((state) => state.currentUser);
@@ -33,7 +75,7 @@ const Header = (props) => {
                         </Grid>
                         <Grid item md={2} lg={3} xs={5} sm={3}>
                             <Box sx={{ mt: "6px", ml: "6px" }}>
-                                <Avatar sx={{ width: { lg: "56px", xs: "30px" }, height: { lg: "56px", xs: "30px" }, marginTop: { lg: "0px", xs: "10px" } }} />
+                                <Avatar  sx={{marginTop: { lg: "0px", xs: "10px" }}} {...stringAvatar(currentUser?.fullName)} />
 
                             </Box>
                         </Grid>
@@ -42,7 +84,7 @@ const Header = (props) => {
             </Grid>
             <Grid item xs={4} sm={4} md={1} lg={1} sx={{ display: 'flex', justifyContent: 'flex-end', display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }} >
                 <Box>
-                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT" variant="contained" sx={{ ':hover': {   bgcolor: '#8B8000',  color: 'white'}, p: 1, fontFamily: "Urbanist", color: "black", borderRadius: "16px", width: '80px', height:'36px', fontSize:'12px', backgroundColor: "#F9BB47", fontWeight: 600 }} />
+                    <CustomButton onClick={props.logOutHandler} btnText="LOGOUT" variant="contained" sx={{ ':hover': { bgcolor: '#8B8000', color: 'white' }, p: 1, fontFamily: "Urbanist", color: "black", borderRadius: "16px", width: '80px', height: '36px', fontSize: '12px', backgroundColor: "#F9BB47", fontWeight: 600 }} />
                     {/* <Chip label="Free Plan" variant="outlined" sx={{ color: 'white', border: '3px solid white', borderRadius: '10px' ,fontFamily:"Urbanist"}} /> */}
                     {/* <Chip label="1 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} />
                         <Chip label="2 Subjects Subscription" variant="outlined" sx={{color:'white', border:'2px solid white', borderRadius:'10px'}} /> */}
