@@ -49,15 +49,25 @@ let disabledChip = {
   fontWeight: 600
 };
 const BookletLayout = (props) => {
-  const [numPages, setNumPages] = useState(null);
-
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
-
+  
   var grade = window.localStorage.getItem("grade")
   var pdfdwn = JSON.parse(grade)
   console.log(pdfdwn)
+ 
+  const onBClick = () => {
+    fetch('SamplePDF.pdf').then(response => {
+      response.blob().then(blob => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement('a');
+          alink.href = `https://liveolympiad.org/grade-${pdfdwn}`;
+        alink.download = 'SamplePDF.pdf';
+        alink.click();
+      })
+    })
+  }
+
   const onButtonClick = () => {
     // using Java Script method to get PDF file
     fetch('SamplePDF.pdf').then(response => {
@@ -99,11 +109,7 @@ const BookletLayout = (props) => {
             </Grid>
             <Grid item xs={12} mt={1}>
               <Stack direction={{ xs: "column", sm: "row", md: "row", lg: "row" }} spacing={2}>
-                <Chip label="Read" sx={selectdChip}>
-                  <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`}>
-                    <Viewer fileUrl={"https://liveolympiad.org/wp-content/uploads/2022/06/Class-3-31-J-1.1.pdf"} />
-                  </Worker>
-                </Chip>
+                <Chip label="Read" sx={selectdChip}onClick={onBClick}/>
                 <Chip label="Download" onClick={onButtonClick} sx={selectdChip} />
               </Stack>
             </Grid>
