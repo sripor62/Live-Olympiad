@@ -53,21 +53,6 @@ const BookletLayout = (props) => {
   var grade = window.localStorage.getItem("grade")
   var pdfdwn = JSON.parse(grade)
   console.log(pdfdwn)
- 
-  const onBClick = () => {
-    fetch('SamplePDF.pdf').then(response => {
-      response.blob().then(blob => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement('a');
-          alink.href = `https://liveolympiad.org/grade-${pdfdwn}`;
-        alink.download = 'SamplePDF.pdf';
-        alink.click();
-      })
-    })
-  }
-
   const onButtonClick = () => {
     // using Java Script method to get PDF file
     fetch('SamplePDF.pdf').then(response => {
@@ -76,11 +61,11 @@ const BookletLayout = (props) => {
         const fileURL = window.URL.createObjectURL(blob);
         // Setting various property values
         let alink = document.createElement('a');
-        if (pdfdwn === "6")
+        if (pdfdwn === 6)
           alink.href = "https://liveolympiad.org/wp-content/uploads/2022/06/LiveOlympiad-Class-6-Book-1.pdf"
-        else if (pdfdwn === "3")
+        else if (pdfdwn === 3)
           alink.href = "https://liveolympiad.org/wp-content/uploads/2022/06/Class-3-31-J-1.1.pdf"
-        else
+        else if(pdfdwn!==3 && pdfdwn!==6)
           alink.href = `https://liveolympiad.org/wp-content/uploads/2022/06/LO-BOOK-Class-${pdfdwn}.pdf`;
         alink.download = 'SamplePDF.pdf';
         alink.click();
@@ -107,11 +92,8 @@ const BookletLayout = (props) => {
             <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
               <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>English</Box></Typography>
             </Grid>
-            <Grid item xs={12} mt={1}>
-              <Stack direction={{ xs: "column", sm: "row", md: "row", lg: "row" }} spacing={2}>
-                <Chip label="Read" sx={selectdChip}onClick={onBClick}/>
-                <Chip label="Download" onClick={onButtonClick} sx={selectdChip} />
-              </Stack>
+            <Grid item xs={12} mt={1} sx={{ justifyContent:'center', alignItems:'center', display: "flex" }}>
+                <Chip label=" Read & Download" onClick={onButtonClick} sx={selectdChip} />
             </Grid>
           </Grid>
         </Grid>
