@@ -84,6 +84,7 @@ export default function Login() {
       } else if (EducationData?.data?.data?.length>0 && personalData?.data?.data?.id === null) {
         navigate("/personaldetails/" + currentUser?.id);
       } else if(EducationData?.data?.data?.length>0 && personalData?.data?.data?.id !== null){
+        window.localStorage.setItem("grade", EducationData?.data?.data[0].grade);
         navigate("/dashboard");
       }
     }
