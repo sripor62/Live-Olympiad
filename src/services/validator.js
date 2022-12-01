@@ -5,13 +5,14 @@ export const getErrorMsz = (type, value, value2) => {
         return value == "" ? "Please enter email address" : (!validEmail.test(value) || (value.length > 40)) ? "Invalid email address" : ""
     }
     if (type == "password") {
+        const validPassword = new RegExp("^(?=.*[0-9]){6,}$");
         return value == "" ? "Please enter password"
-            : ""
+            : !validPassword.test(value) ? "Password must be of 6 characters and combination of numbers only": ""
     }
     if (type == "conrfirm_password") {
-        const validPassword = new RegExp("^(?=.*[0-9])[0-9]{6,}$");
+        const validPassword = new RegExp("^(?=.*[0-9]){6,}$");
         return value == "" ? "Please enter password"
-            : value == value2 ? "New password should not be same as old password"
+            : value != value2 ? "Confirm password should be same as create password"
                 : !validPassword.test(value) ? "Password must be of 6 characters and combination of numbers only"
                     : ""
     }

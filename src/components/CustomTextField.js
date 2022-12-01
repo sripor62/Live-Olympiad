@@ -40,7 +40,6 @@ export const CustomTextField = (props) => {
                     ))}
                 </TextField>
                 : <TextField
-
                     type={type!=="tel"&&type!=="date"&&type!=="email"&&type!="text" ? showPassword ? "text" : "password" : type}
                     InputProps={{
                         readOnly: readOnlyValue,

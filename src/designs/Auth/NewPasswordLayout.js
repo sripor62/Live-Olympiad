@@ -4,6 +4,12 @@ import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
 
 export const NewPasswordLayout = (props) => {
+    const NumericOnly= (event) => { //angka only
+        const reg = /^[0-9\b]+$/
+        let preval=event.target.value
+        if (event.target.value === '' || reg.test(event.target.value)) return true
+        else event.target.value = preval.substring(0,(preval.length-1))
+   }
     return <>
         <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={12}>
@@ -29,7 +35,7 @@ export const NewPasswordLayout = (props) => {
                     error={props.submitFlag && props.getErrorMsz('password', props.pageData.password) != ""}
                     errorMsz={props.getErrorMsz('password', props.pageData.password)}
                     onChange={(event) => { props.setPageData({ ...props.pageData, password: event.target.value }) }}
-                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
                 />
             </Box>
         </Grid>
@@ -45,11 +51,13 @@ export const NewPasswordLayout = (props) => {
                     placeholder="Confirm Password"
                     variant="filled"
                     required
+
                     onChange={(event) => { props.setPageData({ ...props.pageData, confirmpassword: event.target.value }) }}
-                    error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword) != ""}
-                    errorMsz={props.getErrorMsz('conrfirm_password', props.pageData.confirmpassword)}
-                    inputProps={{sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
-                     />
+                    error={props.submitFlag && props.getErrorMsz('conrfirm_password', props.pageData.password,props.pageData.confirmpassword) != ""}
+                    errorMsz={props.getErrorMsz('conrfirm_password',props.pageData.password, props.pageData.confirmpassword)}
+
+                    inputProps={{maxLength: 6,sx:{color:'#838BA1',fontFamily:'urbanist',fontWeight:600,fontSize:'16px'}}}
+                />
             </Box>
         </Grid>
         <Grid item xs={12} mb={8} sx={{justifyContent: { xs: 'center', lg: 'left' },alignItems: { xs: 'center', lg: 'left' },display:"flex"}}>

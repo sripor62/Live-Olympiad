@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import { CustomButton } from "../../components/CustomButton"
@@ -6,9 +7,16 @@ import { CustomTextField } from "../../components/CustomTextField"
 import { environment } from "../../environments/environment"
 
 export const LoginLayout = (props) => {
+    const [num, setNum] = useState();
     const activateIt = () => {
         alert("Hi")
     }
+    const NumericOnly= (event) => { //angka only
+        const reg = /^[0-9\b]+$/
+        let preval=event.target.value
+        if (event.target.value === '' || reg.test(event.target.value)) return true
+        else event.target.value = preval.substring(0,(preval.length-1))
+   }
     return <Box>
         <Grid container>
             <Grid item xs={12}>
@@ -34,8 +42,8 @@ export const LoginLayout = (props) => {
                         required
                         error={props.submitFlag && props.getErrorMsz('phone_number', props.pageData.phoneNumber) != ""}
                         errorMsz={props.getErrorMsz('phone_number', props.pageData.phoneNumber)}
-                        onChange={(event) => { props.setPageData({ ...props.pageData, phoneNumber: event.target.value }) }}
-                        inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
+                        onChange={(event) => {{ props.setPageData({ ...props.pageData, phoneNumber: event.target.value })};NumericOnly(event)}}
+                        inputProps={{ maxLength: 10,sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                     />
                 </Box>
             </Grid>
