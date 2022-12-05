@@ -57,7 +57,7 @@ export default function PersonalDetails() {
         console.log("pdata", pdata)
 
 
-        if (pdata.fullName != '' && pdata.rollNumber != '') {
+        if (pdata.fullName != null && pdata.fullName != '' && pdata.rollNumber!= null && pdata.rollNumber != '') {
             var userInfoVal = window.localStorage.getItem("current_user")
             var userInfo = JSON.parse(userInfoVal).state.currentUser;
             setCurrentUser({ ...userInfo, fullName: pdata.fullName })
