@@ -16,7 +16,7 @@ const ForgotPassword = () => {
         afterValidate(afterValidateCallBack)
         let res = await generateOTP({
             phoneNumber: "+91" + pageData.phoneNumber,
-            signUp: true,
+            signUp: false,
 
         });
         if (res.data?.success) {
