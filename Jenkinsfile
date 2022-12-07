@@ -37,6 +37,7 @@ pipeline {
         stage('Push to ECR') {
             when { anyOf {
                 expression { env.GIT_BRANCH == env.BRANCH_ONE }
+                expression { env.GIT_BRANCH == env.BRANCH_THREE }
             } }
             steps {
                 sh 'docker tag ${PROJECT}:${GIT_BRANCH} ${REPO}:${GIT_BRANCH}'
