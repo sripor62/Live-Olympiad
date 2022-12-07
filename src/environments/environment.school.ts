@@ -1,12 +1,12 @@
 export const environment = {
-    production: false,
-    userBaseUrl: "https://users-uat.digishaala.com",
-    domain: "liveolympiad.org",
-    cookieDomain: ".liveolympiad.org",
-    paymentUrl:"https://payments-uat.digishaala.com",
-    testLiveolympiad:"https://content-uat.liveolympiad.org",
-    testAppUrl:"https://test-uat.liveolympiad.org",
-    env:"school"
+  production: false,
+  userBaseUrl: "http://10.0.0.10:8081", 
+  paymentUrl: "http://10.0.0.10:8082", 
+  testLiveolympiad:'http://10.0.0.10:8084',
+  domain: "digishaala.com",
+  cookieDomain: "localhost",
+  env:"school",
+  testAppUrl:"http://10.0.0.10:4002",
   };
   
   
