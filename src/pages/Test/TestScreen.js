@@ -90,6 +90,7 @@ const TestScreen = () => {
         totalQuestions: pageData?.questions.length,
         totalMarks: pageData?.totalMarks,
         totalDurationMin: pageData?.totalDurationMin,
+        schoolId: EducationData?.data?.data[0]?.school,
         at: new Date().toISOString(),
       });
       testId = test?.data?.testId;
