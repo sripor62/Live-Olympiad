@@ -24,7 +24,7 @@ export const useSchool = () => {
     };
 
     const getGrades = async () => {
-        const endpoint = environment.userBaseUrl + "/groups"
+        const endpoint = environment.userBaseUrl + `/groups/${environment.institutionDomain}`
         return await axiosInstance().get(endpoint);
     }
     return {
