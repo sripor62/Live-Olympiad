@@ -95,7 +95,7 @@ export const SchoolDetailLayout = (props) => {
                              input={<BootstrapInput />}
                             inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
                             {
-                                props.grades.map((grade)=>{
+                                props.grades?.map((grade)=>{
                                     return (<MenuItem value={grade.groupName}>{grade.groupName}</MenuItem>)
                                 })
                             }
