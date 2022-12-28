@@ -7,6 +7,7 @@ export const environment = {
   cookieDomain: "localhost",
   env:"school",
   testAppUrl:"http://10.0.0.10:4002",
+  institutionDomain:'K12'
   };
   
   

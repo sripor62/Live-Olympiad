@@ -6,6 +6,7 @@ export const environment = {
     paymentUrl:"https://payments.digishaala.com",
     testLiveolympiad:"https://content.liveolympiad.org",
     testAppUrl:"https://test.liveolympiad.org",
-    env:'live'
+    env:'live',
+    institutionDomain:'K12'
   };
   
