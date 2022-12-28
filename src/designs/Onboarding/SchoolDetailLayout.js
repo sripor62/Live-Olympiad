@@ -94,16 +94,11 @@ export const SchoolDetailLayout = (props) => {
                             onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
                              input={<BootstrapInput />}
                             inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
-                            <MenuItem value={1}>1st</MenuItem>
-                            <MenuItem value={2}>2nd</MenuItem>
-                            <MenuItem value={3}>3rd</MenuItem>
-                            <MenuItem value={4}>4th</MenuItem>
-                            <MenuItem value={5}>5th</MenuItem>
-                            <MenuItem value={6}>6th</MenuItem>
-                            <MenuItem value={7}>7th</MenuItem>
-                            <MenuItem value={8}>8th</MenuItem>
-                            <MenuItem value={9}>9th</MenuItem>
-                            <MenuItem value={10}>10th</MenuItem>
+                            {
+                                props.grades.map((grade)=>{
+                                    return (<MenuItem value={grade.groupName}>{grade.groupName}</MenuItem>)
+                                })
+                            }
                         </Select>
                     </FormControl><span style={{color:"red", fontWeight:"bold"}}>*</span>
                 </Box>

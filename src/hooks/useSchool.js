@@ -17,13 +17,18 @@ export const useSchool = () => {
         const endpoint = environment.userBaseUrl + Endpoints.SCHOOL_PINCODE + "/" + body ;
         return await axiosInstance().get(endpoint);
     };
+
     const getSchoolById = async (body) => {
-       
         const endpoint = environment.userBaseUrl + Endpoints.SCHOOL+ "/" + body ;
         return await axiosInstance().get(endpoint);
     };
+
+    const getGrades = async () => {
+        const endpoint = environment.userBaseUrl + "/groups"
+        return await axiosInstance().get(endpoint);
+    }
     return {
-    
+        getGrades,
         getSchool,
         getSchoolById,
         getSchools

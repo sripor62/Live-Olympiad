@@ -23,7 +23,7 @@ const SchoolDetails = () => {
     section: "",
     grade: "",
   });
-  const { getSchool,getSchools } = useSchool();
+  const { getSchool,getSchools,getGrades } = useSchool();
   const { getEducation, sendEducation } = useStudent();
   const submitHandler = () => {
     
@@ -70,6 +70,7 @@ const SchoolDetails = () => {
     pinCode ? setSchoolsList(schoolData?.data.data) : setSchoolsList(schoolsData?.data.data);
   }, [schoolData,schoolsData]);
 
+  const {data: grades} = useQuery(['Grades'],getGrades);
   const { mutate: addEducationMutate } = useMutation(sendEducation, {
     onSuccess: (data, variables, context) =>
       onSuccessAddAssessment(data, variables, context),
@@ -113,6 +114,7 @@ const SchoolDetails = () => {
         selectionChangeHandler={selectionChangeHandler}
         schoolsList={schoolsList}
         setSchoolsList={setSchoolsList}
+        grades={grades?.data?.data}
       />
     </OnboardingLayout>
   );
