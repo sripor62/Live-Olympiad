@@ -96,7 +96,7 @@ export const SchoolDetailLayout = (props) => {
                             inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}>
                             {
                                 props.grades?.map((grade)=>{
-                                    <MenuItem value={grade.groupName}>{grade.groupName}</MenuItem>
+                                    return <MenuItem value={grade.groupName}>{grade.groupName}</MenuItem>
                                 })
                             }
                         </Select>
