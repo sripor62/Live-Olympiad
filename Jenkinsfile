@@ -20,13 +20,6 @@ pipeline {
                 sh 'sed "s/4040/4001/g" nginx.conf > tmp'
                 sh 'mv tmp nginx.conf'
             }
-            when { anyOf {
-                expression { env.GIT_BRANCH == env.BRANCH_FOUR }
-            } }
-            steps {
-                sh 'sed "s/4040/4020/g" nginx.conf > tmp'
-                sh 'mv tmp nginx.conf'
-            }
         }
         stage('Build') {
             when { anyOf {
