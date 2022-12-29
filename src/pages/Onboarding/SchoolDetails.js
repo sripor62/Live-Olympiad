@@ -71,6 +71,7 @@ const SchoolDetails = () => {
   }, [schoolData,schoolsData]);
 
   const {data: grades} = useQuery(['Grades'],getGrades);
+  console.log(grades?.data?.data)
   const { mutate: addEducationMutate } = useMutation(sendEducation, {
     onSuccess: (data, variables, context) =>
       onSuccessAddAssessment(data, variables, context),

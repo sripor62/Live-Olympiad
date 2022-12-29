@@ -10,7 +10,7 @@ export const useSchool = () => {
     
     
     const getSchools= async () => {
-        const endpoint = environment.userBaseUrl + Endpoints.SCHOOLS +"?resMode=SELF" ;
+        const endpoint = environment.userBaseUrl + Endpoints.SCHOOLS +`?resMode=SELF&type=${environment.institutionDomain}` ;
         return await axiosInstance().get(endpoint);
     };
     const getSchool = async (body) => {
@@ -24,7 +24,7 @@ export const useSchool = () => {
     };
 
     const getGrades = async () => {
-        const endpoint = environment.userBaseUrl + `/groups/${environment.institutionDomain}`
+        const endpoint = environment.userBaseUrl + `/groups?type=${environment.institutionDomain}`
         return await axiosInstance().get(endpoint);
     }
     return {
