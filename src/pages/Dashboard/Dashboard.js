@@ -34,7 +34,7 @@ const Dashboard = () => {
     section: "",
   });
   const [flagShow, setFlagShow] = useState(false);
-  const { getTestList, getPackageList } = useTests();
+  const { getTestList, getUserSessions } = useTests();
   const {
     getSubscriptions,
     getSubjects,
@@ -79,7 +79,7 @@ const Dashboard = () => {
   };
   const { data: PackageData } = useQuery(
     [`AssessmentData`],
-    () => getPackageList(),
+    () => getUserSessions(),
     { enabled: !!curentUser?.id, retry: false }
   );
   useEffect(() => {
@@ -135,15 +135,17 @@ const Dashboard = () => {
     }
   }, [testList, assessmentList]);
 
-  const testScreen = (item) => {
-    navigate("/TestScreen/" + item);
+  const testScreen = (packageId) => {
+    console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
+    window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
   const currentUser = useStore((state) => state.currentUser);
 
-  const testSend = (Id) => {
-    window.location.href = `${environment.testAppUrl}/landing/${Id}?token=${currentUser.access_token}&mock=true&route=report`;
+  const testSend = (packageId) => {
+    console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
+    window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
   }
 
   return (

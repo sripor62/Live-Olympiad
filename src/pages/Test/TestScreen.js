@@ -24,7 +24,7 @@ const TestScreen = () => {
   const [grade, setGrade] = useState();
   const [testsLists, setTestsList] = useState([]);
   const [pageData, setPageData] = useState({});
-  const { getTestList, createTest, getPackageList } = useTests();
+  const { getTestList, createTest, getUserSessions } = useTests();
   const [assessmentList, setAssessmentList] = useState([]);
   const [passAssessData, setPassAssessData] = useState();
   const params = useParams();
@@ -32,7 +32,7 @@ const TestScreen = () => {
   let packageId = params.packageId;
   const { data: PackageData } = useQuery(
     [`AssessmentData`],
-    () => getPackageList(),
+    () => getUserSessions(),
     { enabled: true, retry: false }
   );
   useEffect(() => {
