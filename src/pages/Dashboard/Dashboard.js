@@ -137,7 +137,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
-    window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
+    window.location.replace(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_blank');
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
