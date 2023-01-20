@@ -5,35 +5,15 @@ import { useQuery } from "react-query";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 import useTests from "../../hooks/useTests";
-import TestScreen from "../Test/TestScreen";
-import { useNavigate } from "react-router-dom";
 import { useStore } from "../../stores";
 import { useStudent } from "../../hooks/useStudent";
-import { AppConstants } from "../../environments/app-constants";
-import jwt_decode from "jwt-decode";
 import { environment } from "../../environments/environment";
-import { Endpoints } from "../../environments/endpoints";
 import { usePayment } from "../../hooks/usePayment";
 const Dashboard = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
-  const navigate = useNavigate();
-  const { getProfile } = useStudent();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [testsLists, setTestsList] = useState([]);
-  const [pageData, setPageData] = useState({
-    fullName: "",
-    email: "",
-    rollNumber: "",
-    dob: "",
-    gender: "",
-    pinCode: "",
-    school: "",
-    grade: "",
-    section: "",
-  });
-  const [flagShow, setFlagShow] = useState(false);
   const { getTestList, getUserSessions } = useTests();
   const {
     getSubscriptions,
@@ -47,9 +27,8 @@ const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
   const [page, setPage] = useState(0);
 
-  // setStuName(curentUser?.state?.currentUser.fullName)
   const [subjects,setSubjects] = useState();
-  const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.id), { enabled: !!curentUser?.id, retry: false })
+  const { data: SubscriptionData} = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.id), { enabled: !!curentUser?.id, retry: false })
   const {data : CoursesData} = useQuery(['CoursesData'],() => getSubjects(),{ enabled: true, retry: false })
 
   useEffect(()=>{
@@ -58,18 +37,11 @@ const Dashboard = () => {
         CoursesData.data.data.forEach((course)=>{
             subs[course.id] = course.name;
         })
-
-        
-
         if(SubscriptionData?.data?.data?.subscribedCourses?.length!==0){
             setSubjects(SubscriptionData?.data?.data.subscribedCourses.map((item)=>subs[item].slice(0,4)));
-            
-
         }
-       
     }
-
-},[SubscriptionData,CoursesData])
+  },[SubscriptionData,CoursesData])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -92,7 +64,7 @@ const Dashboard = () => {
     { enabled: !!curentUser?.id, retry: false }
   );
 
-  const { data: testList, isLoading: TestListLoader } = useQuery(
+  const { data: testList} = useQuery(
     [`TestListData`, grade],
     () => getTestList(grade),
     { enabled: !!grade && !!curentUser?.id, retry: false }
@@ -102,7 +74,6 @@ const Dashboard = () => {
     setGrade(EducationData?.data?.data[0]?.grade);
   }, [EducationData]);
   useEffect(() => {
-    setTestsList(testList?.data);
     let newTestList = [];
     let map = {};
     assessmentList?.forEach((item) => (map[item.assessmentId] = item));
@@ -121,23 +92,20 @@ const Dashboard = () => {
     let newFilteredList = newTestList?.filter((test)=>{
         let flag = false;
         subjects?.forEach((subject) => {
-            flag = flag || test.subject[0].search(subject)!=-1;
-
+            flag = flag || test.subject[0].search(subject) !== -1;
         })
         return flag
     })
-    console.log(subjects)
-    console.log("newFilteredList",newFilteredList)
     if(environment.env!=="school"){
       setPassAssessData(newTestList);
     } else {
       setPassAssessData(newFilteredList);
     }
-  }, [testList, assessmentList]);
+  }, [subjects, testList, assessmentList]);
 
   const testScreen = (packageId) => {
     console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
-    window.location.replace(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_blank');
+    window.open(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_blank');
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
@@ -158,7 +126,6 @@ const Dashboard = () => {
         handleClick={handleClick}
         handleClose={handleClose}
         testsLists={passAssessData}
-        setTestsList={setTestsList}
         testScreen={testScreen}
         passAssessData={passAssessData}
         testSend={testSend}
@@ -166,5 +133,4 @@ const Dashboard = () => {
     </HomeLayout>
   );
 };
-
 export default Dashboard;

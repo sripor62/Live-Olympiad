@@ -11,11 +11,7 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import Profile from '../pages/Dashboard/Profile';
 import Schedule from '../pages/Dashboard/Schedule'
 import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
-import TestLayout from '../designs/Test/TestLayout';
-import ReportLayout from '../designs/Report/ReportLayout';
-import TestScreen from '../pages/Test/TestScreen';
 import Subscription from '../pages/Dashboard/subscription';
-
 import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 import Booklet from '../pages/Dashboard/Booklet';
 
@@ -24,7 +20,7 @@ import Booklet from '../pages/Dashboard/Booklet';
 export const routes = [
   {
     path: "/",
-    element: <AuthPage replace />,
+    element: <AuthPage />,
   },
   {
     path: "/:index",
@@ -84,16 +80,5 @@ export const routes = [
   {
     path: "/chooseyourplan",
     element: <ChooseYourPlan />,
-  },
-  {
-    path: "/test",
-    element: <TestLayout />,
-  },
-  {
-    path: "/ReportLayout",
-    element: <ReportLayout />},  
-  {
-    path: "/TestScreen/:packageId",
-    element: <TestScreen />,
-  },
+  }
 ];
