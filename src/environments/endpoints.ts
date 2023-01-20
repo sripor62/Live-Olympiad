@@ -16,7 +16,7 @@ export class Endpoints {
   static ORDER = "/order";
   static PAYMENT_KEY = "/paymentkey"
   static COURSES = "/courses";
-  static PACKAGE_LIST="/tests/all";
+  static SESSIONS="/sessions";
   static ADD_EDUCATiON="/admin/education-info"
   static GET_EDUCATION="/admin";
   static GET_EDUCATION_END="/education-info"

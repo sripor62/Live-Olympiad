@@ -13,15 +13,14 @@ export const AuthPage = () => {
         navigateAsPerSessionValidity(false);
     });
     const params=useParams();
-    const [val,setVal]=useState(params.index? 1:0);
+    const [val]=useState(params.index? 1:0);
 
     const tabArr = [
         { label: "Log In", component: <Login /> }
     ]
-    if(environment.env!="school"){
+    if(environment.env !== "school"){
         tabArr.push({ label: "Sign Up", component: <SignUp /> });
     }
-    
 
     return <AuthLayout>
         <CustomTabs
@@ -29,7 +28,7 @@ export const AuthPage = () => {
             label="auth"
             type="2"
             indicatorColor="red"
-            textColor="white"
+            textColor="inherit"
             scrollButtons="auto"
             activeIndex={val}
         />

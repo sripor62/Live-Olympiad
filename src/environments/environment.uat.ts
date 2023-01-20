@@ -5,7 +5,8 @@ export const environment = {
     cookieDomain: ".liveolympiad.org",
     paymentUrl:"https://payments-uat.digishaala.com",
     testLiveolympiad:"https://content-uat.liveolympiad.org",
-    testAppUrl:"https://test-uat.liveolympiad.org",
     env:"uat",
-    institutionDomain:'K12'
-};
+    institutionDomain:'K12',
+    sessionsUrl:"https://sessions-uat.digishaala.com",  
+    testAppUrl:"https://tab-uat.liveolympiad.org",
+  };  
