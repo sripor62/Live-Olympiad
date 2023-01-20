@@ -9,7 +9,7 @@ export const usePayment = () => {
     };
 
     const getSubjects = async (body) => {
-        const endpoint = environment.paymentUrl + Endpoints.COURSES;
+        const endpoint = environment.paymentUrl + Endpoints.COURSES+`?type=${environment?.institutionDomain}`;
         return await axiosInstance().get(endpoint);
     };
     const getSubscriptions = async (body) => {

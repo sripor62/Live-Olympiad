@@ -7,5 +7,6 @@ export const environment = {
   testLiveolympiad:"https://content-uat.liveolympiad.org",
   testAppUrl:"http://localhost:5002",
   env:'uat',
+  institutionDomain:'K12'
 };
 
