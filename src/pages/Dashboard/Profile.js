@@ -72,7 +72,7 @@ const Profile = (props) => {
   const [schoolsId, setSchoolsId] = useState("");
   const [subscribedSubjects, setSubscribedSubjects] = useState();
   const { getProfile } = useStudent();
-  const { getSchool, getSchoolById ,getSchools} = useSchool();
+  const { getSchool, getSchoolById, getSchools, getGrades } = useSchool();
   const [pinCode, setPinCode] = useState("");
   const { profileDataDetails } = useStudent();
   const [schoolCurrent, setCurrentSchool] = useState([]);
@@ -186,6 +186,8 @@ const Profile = (props) => {
     setPageData({ ...pageData, school: event.target.value });
   };
 
+  const {data: grades} = useQuery(['Grades'],getGrades);
+
   const afterValidateCallBack = (second) => {
     setSnakeBarProps({
       snackbarFlag: true,
@@ -220,6 +222,7 @@ const Profile = (props) => {
         setSchoolsList={setSchoolsList}
         paymentInfo={paymentInfo}
         currentSchool={currentSchool}
+        grades={grades?.data?.data}
       />
     </HomeLayout>
   );
