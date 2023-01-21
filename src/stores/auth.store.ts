@@ -10,11 +10,7 @@ let authStore = (set) => ({
 
   setCurrentUser: (userData: User) => {
     set({ currentUser: userData });
-    console.log("hiiii from cookie",userData)
-    console.log("student",AppConstants.SESSION_STORAGE_ITEMS.USER_INFO)
-    
     const userDetails = JSON.stringify(userData);
-    console.log("userDetails",userDetails);
     document.cookie = (AppConstants.SESSION_STORAGE_ITEMS.USER_INFO + "=" + userDetails + ";domain=" + environment.cookieDomain + "; path=/").trim();
     console.log("domaincookie",document.cookie)
     navigateAsPerSessionValidity(false);

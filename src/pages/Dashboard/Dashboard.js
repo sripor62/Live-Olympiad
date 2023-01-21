@@ -70,7 +70,6 @@ const Dashboard = () => {
     { enabled: !!grade && !!curentUser?.id, retry: false }
   );
   useEffect(() => {
-    console.log(EducationData?.data?.data[0]?.grade)
     setGrade(EducationData?.data?.data[0]?.grade);
   }, [EducationData]);
   useEffect(() => {
@@ -88,7 +87,6 @@ const Dashboard = () => {
      
       return pData;
     });
-    console.log(newTestList)
     let newFilteredList = newTestList?.filter((test)=>{
         let flag = false;
         subjects?.forEach((subject) => {
@@ -104,7 +102,6 @@ const Dashboard = () => {
   }, [subjects, testList, assessmentList]);
 
   const testScreen = (packageId) => {
-    console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
     window.open(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_self');
   };
 
@@ -112,7 +109,6 @@ const Dashboard = () => {
   const currentUser = useStore((state) => state.currentUser);
 
   const testSend = (packageId) => {
-    console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
     window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
   }
 

@@ -13,15 +13,15 @@ export const CustomListItem = (props) => {
         <Grid container style={{ backgroundColor: '#F7F8F9', borderRadius: '0px 20px 20px 20px', padding: '20px', marginBottom: '20px' }}>
 
             <Grid item xs={12} sm={6} md={4} lg={4} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
-                <Typography variant='body2'>
+                <Box variant='body2'>
                     <Box sx={{ fontFamily: 'Urbantist', fontWeight: 500, color: 'rgba(106,112,124,1)' }}>Practice Test</Box>
-                </Typography>
-                <Typography variant='body2' mt={1}>
+                </Box>
+                <Box variant='body2' mt={1}>
                     <Box sx={{ fontFamily: 'Urbantist', fontWeight: 500, color: 'rgba(106,112,124,1)' }}> Total question:20</Box>
-                </Typography>
-                <Typography variant='body2' mt={1}>
+                </Box>
+                <Box variant='body2' mt={1}>
                     <Box sx={{ fontFamily: 'Urbantist', fontWeight: 500, color: 'rgba(106,112,124,1)' }}>Total time:20 Min</Box>
-                </Typography>
+                </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={8} lg={8} style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
 

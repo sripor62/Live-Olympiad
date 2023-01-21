@@ -22,20 +22,21 @@ const Sidebar = (props) => {
     return (<>
         {/* <Grid container mb={1} style={{ backxgroundColor: "red", height: "100%" }}> */}
         <Grid container mb={1} style={{ backgroundColor: "#F7F8F9", height: "100%" }}>
+            <Grid item>
             <Grid container  ml={2} mt={4}>
                 <Grid item md={2} lg={2}>
                     <Button onClick={() => {navigate("/infoboard")}}>
-                        <Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookTwoToneIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
-                            <Typography variant='body2' fontWeight='bold'>
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookTwoToneIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
+                            <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Olympiad</Box>
-                            </Typography>
+                            </Box>
                         </Grid>
                     </Button>
                     <Button onClick={() => {navigate("/dashboard")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page === 1) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
-                            <Typography variant='body2' fontWeight='bold'>
+                            <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Practice</Box>
-                            </Typography>
+                            </Box>
                         </Grid>
                     </Button>
                     {/*environment.env !== "school" && 
@@ -50,9 +51,9 @@ const Sidebar = (props) => {
                     {environment.env !== "school" && 
                         <Button onClick={() => {navigate("/subscription")}}>
                             <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><WorkspacePremiumOutlinedIcon sx={{color:(page === 2) ? "#FCBD42": "#1E232C"}}/>
-                                <Typography>
+                                <Box>
                                     <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 2) ? "#FCBD42": "#1E232C",textTransform:"none"  }}>Subscriptions</Box>
-                                </Typography>
+                                </Box>
                         </Grid>
                         </Button>
                     }
@@ -75,6 +76,7 @@ const Sidebar = (props) => {
                         </Button>
                     */}
                 </Grid>
+            </Grid>
             </Grid>
         </Grid>
     </> 
