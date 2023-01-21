@@ -1,10 +1,7 @@
 import { Grid } from "@mui/material"
 import { CustomListItem } from "../../components/CustomListItem"
 import { FilterByStatus } from "../../components/FilterByStatus"
-import { KnowledgeTree } from "./KnowledgeTreeBox"
 import { SubjectSelector } from "../Onboarding/SubjectSelector"
-import { UpgradeBox } from "./UpgradeBox"
-import { MobileDashboard } from "./MobileDashboard"
 import { environment } from "../../environments/environment"
 
 export const DashboardLayout = (props) => {

@@ -51,7 +51,12 @@ export const UserDetails = (props) => {
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Typography variant='subtitle2'><Box>{props.pageData.fullName} <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}>| </Typography>{props.pageData.grade?"Class-"+props.pageData.grade:null}</Box></Typography>
+                        <Typography variant='subtitle2'>
+                            <Box>{props.pageData.fullName} 
+                                <Typography variant='subtitle2' sx={{ color: '#838BA1', display: 'inline',fontFamily:"Urbanist" }}> | </Typography>
+                                {props.pageData.grade ? props.pageData.grade : null}
+                            </Box>
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Typography variant='body2' sx={{ color: '#838BA1' ,fontFamily:"Urbanist", textAlign:'center'}}><Box>{props?.schoolsList?.find((schoolData)=>schoolData.id==props.pageData?.school)?.name}</Box></Typography>

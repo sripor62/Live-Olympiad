@@ -6,6 +6,7 @@ import { AuthPage } from '../pages/Auth';
 import PersonalDetails from '../pages/Onboarding/PersonalDetails';
 import MobileVerification from '../pages/Auth/MobileVerification';
 import SchoolDetails from '../pages/Onboarding/SchoolDetails';
+import InfoBoard from '../pages/Dashboard/InfoBoard';
 import Dashboard from '../pages/Dashboard/Dashboard';
 
 import Profile from '../pages/Dashboard/Profile';
@@ -59,6 +60,10 @@ export const routes = [
   {
     path: "/mobileupgrade",
     element: <MobileUpgrade />,
+  },
+  {
+    path: "/infoBoard",
+    element: <InfoBoard />,
   },
   {
     path: "/dashboard",
