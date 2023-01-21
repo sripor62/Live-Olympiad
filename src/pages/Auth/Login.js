@@ -25,8 +25,8 @@ export default function Login() {
     () => getPersonalData(currentUser?.id),
     { enabled: !!currentUser?.id, retry: false }
   );
-  const { data: EducationData } = useQuery(
-    [`EducationData`, currentUser],
+  const { data: educationData } = useQuery(
+    [`educationData`, currentUser],
     () => getEducation(currentUser?.id),
     { enabled: !!currentUser?.id, retry: false }
   );
@@ -78,17 +78,18 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if(EducationData!==undefined && personalData!==undefined){
-      if (!EducationData?.data.data.length>0 ) {
-        navigate("/schooldetails/" + currentUser?.id);
-      } else if (EducationData?.data?.data?.length>0 && personalData?.data?.data?.id === null) {
+    if(educationData!==undefined && personalData!==undefined){
+      if (personalData?.data?.data?.id === null) {
         navigate("/personaldetails/" + currentUser?.id);
-      } else if(EducationData?.data?.data?.length>0 && personalData?.data?.data?.id !== null){
-        window.localStorage.setItem("grade", EducationData?.data?.data[0].grade);
+      } else if (!educationData?.data?.data?.length>0) {
+        navigate("/schooldetails/" + currentUser?.id);
+      } else {
+        window.localStorage.setItem("grade", educationData?.data?.data[0].grade);
+        window.localStorage.setItem("school", educationData?.data?.data[0].school);        
         navigate("/dashboard");
       }
     }
-  }, [currentUser,EducationData,personalData])
+  }, [currentUser,educationData,personalData])
   
 
   const afterValidateCallBack = (second) => {};

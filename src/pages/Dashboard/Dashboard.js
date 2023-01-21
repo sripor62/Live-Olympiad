@@ -6,28 +6,26 @@ import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 import useTests from "../../hooks/useTests";
 import { useStore } from "../../stores";
-import { useStudent } from "../../hooks/useStudent";
 import { environment } from "../../environments/environment";
 import { usePayment } from "../../hooks/usePayment";
 const Dashboard = () => {
+  let curentUser = useStore((state) => state.currentUser);
+  let grade = window.localStorage.getItem("grade");
+
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const { getTestList, getUserSessions } = useTests();
-  const {
-    getSubscriptions,
-    getSubjects,
-  } = usePayment();
-  const open = Boolean(anchorEl);
-  const [assessmentList, setAssessmentList] = useState([]);
-  const [passAssessData, setPassAssessData] = useState();
-  const [grade, setGrade] = useState("");
-  const { getEducation } = useStudent();
-  let curentUser = useStore((state) => state.currentUser);
-  const [page, setPage] = useState(0);
 
+  const [passAssessData, setPassAssessData] = useState();
+  const [page, setPage] = useState(0);
   const [subjects,setSubjects] = useState();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const { getTestList } = useTests();
+  const { getSubscriptions, getSubjects } = usePayment();
+
   const { data: SubscriptionData} = useQuery([`SubscriptionData`], () => getSubscriptions(curentUser?.id), { enabled: !!curentUser?.id, retry: false })
   const {data : CoursesData} = useQuery(['CoursesData'],() => getSubjects(),{ enabled: true, retry: false })
 
@@ -46,36 +44,20 @@ const Dashboard = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const { data: PackageData } = useQuery(
-    [`AssessmentData`],
-    () => getUserSessions(),
-    { enabled: !!curentUser?.id, retry: false }
-  );
-  useEffect(() => {
-    setAssessmentList(PackageData?.data?.data);
-  }, [PackageData]);
-
-  const { data: EducationData } = useQuery(
-    [`EducationData`],
-    () => getEducation(curentUser.id),
-    { enabled: !!curentUser?.id, retry: false }
-  );
 
   const { data: testList} = useQuery(
     [`TestListData`, grade],
     () => getTestList(grade),
     { enabled: !!grade && !!curentUser?.id, retry: false }
   );
-  useEffect(() => {
-    setGrade(EducationData?.data?.data[0]?.grade);
-  }, [EducationData]);
+  
   useEffect(() => {
     let newTestList = [];
     let map = {};
-    assessmentList?.forEach((item) => (map[item.assessmentId] = item));
 
     newTestList = testList?.data.map((data) => {
       var pData = {
@@ -99,7 +81,7 @@ const Dashboard = () => {
     } else {
       setPassAssessData(newFilteredList);
     }
-  }, [subjects, testList, assessmentList]);
+  }, [subjects, testList]);
 
   const testScreen = (packageId) => {
     window.open(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_self');

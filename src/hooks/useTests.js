@@ -17,15 +17,10 @@ const useTests=()=>{
         const endpoint = environment.testLiveolympiad + Endpoints.TESTS ;
         return await axiosInstance().post(endpoint,body);
     };
-    const getUserSessions = async () => {
-        const endpoint = environment.sessionsUrl + Endpoints.SESSIONS ;
-        return await axiosInstance().get(endpoint);
-    };
 
     return{
         getTestList,
-        createTest,
-        getUserSessions
+        createTest
     };
 }   
 export default useTests;
