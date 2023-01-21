@@ -12,7 +12,6 @@ let authStore = (set) => ({
     set({ currentUser: userData });
     const userDetails = JSON.stringify(userData);
     document.cookie = (AppConstants.SESSION_STORAGE_ITEMS.USER_INFO + "=" + userDetails + ";domain=" + environment.cookieDomain + "; path=/").trim();
-    console.log("domaincookie",document.cookie)
     navigateAsPerSessionValidity(false);
   },
 
