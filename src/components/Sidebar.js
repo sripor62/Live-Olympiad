@@ -27,14 +27,14 @@ const Sidebar = (props) => {
                     <Button onClick={() => {navigate("/infoboard")}}>
                         <Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookTwoToneIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
                             <Typography variant='body2' fontWeight='bold'>
-                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Level 2 Exam</Box>
+                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Olympiad</Box>
                             </Typography>
                         </Grid>
                     </Button>
                     <Button onClick={() => {navigate("/dashboard")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page === 1) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
                             <Typography variant='body2' fontWeight='bold'>
-                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Dashboard </Box>
+                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Practice</Box>
                             </Typography>
                         </Grid>
                     </Button>
