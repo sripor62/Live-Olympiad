@@ -105,7 +105,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     console.log(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`)
-    window.open(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_blank');
+    window.open(`${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,'_self');
   };
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
