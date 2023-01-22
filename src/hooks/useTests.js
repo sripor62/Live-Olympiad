@@ -6,21 +6,16 @@ import axiosInstance from "../services/api.service";
 
 const useTests=()=>{
 
-    const getTestList = async (grade) => {
-        if(grade){
-            let mock = environment.env!=="school"?'true':"false";
-            const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&grade=${grade}&mock=${mock}` ;
+    const getTestList = async (body) => {
+        if(body.grade){
+            let mock = (body.school !== "5890d4a4-348f-4a1c-98b3-1fc926c30a19" && environment.env !== "school") ? 'true' : "false";
+            const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&grade=${body.grade}&mock=${mock}` ;
             return await axiosInstance().get(endpoint);
         }
     };
-    const createTest = async (body) => {
-        const endpoint = environment.testLiveolympiad + Endpoints.TESTS ;
-        return await axiosInstance().post(endpoint,body);
-    };
 
     return{
-        getTestList,
-        createTest
+        getTestList
     };
 }   
 export default useTests;

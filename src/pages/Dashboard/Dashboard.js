@@ -11,6 +11,7 @@ import { usePayment } from "../../hooks/usePayment";
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
   let grade = window.localStorage.getItem("grade");
+  let school = window.localStorage.getItem("school");
 
   useEffect(() => {
     navigateAsPerSessionValidity(true);
@@ -51,7 +52,10 @@ const Dashboard = () => {
 
   const { data: testList} = useQuery(
     [`TestListData`, grade],
-    () => getTestList(grade),
+    () => getTestList({
+      grade: grade,
+      school : school
+    }),
     { enabled: !!grade && !!curentUser?.id, retry: false }
   );
   

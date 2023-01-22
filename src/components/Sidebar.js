@@ -35,7 +35,7 @@ const Sidebar = (props) => {
                     <Button onClick={() => {navigate("/dashboard")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page === 1) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
                             <Box variant='body2' fontWeight='bold'>
-                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Practice</Box>
+                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Exam</Box>
                             </Box>
                         </Grid>
                     </Button>
