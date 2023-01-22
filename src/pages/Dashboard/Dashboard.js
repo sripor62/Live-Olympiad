@@ -56,29 +56,16 @@ const Dashboard = () => {
   );
   
   useEffect(() => {
-    let newTestList = [];
-    let map = {};
-
-    newTestList = testList?.data.map((data) => {
-      var pData = {
-        ...data,
-        attemptedQuestions: map[data._id]?.attemptedQuestions,
-        testStatus: map[data._id]?.testStatus,
-        testId: map[data._id]?.testId,
-      };
-     
-      return pData;
-    });
-    let newFilteredList = newTestList?.filter((test)=>{
+    if(environment.env!=="school"){
+      setPassAssessData(testList?.data);
+    } else {
+      let newFilteredList = testList?.data.filter((test) => {
         let flag = false;
         subjects?.forEach((subject) => {
             flag = flag || test.subject[0].search(subject) !== -1;
         })
         return flag
-    })
-    if(environment.env!=="school"){
-      setPassAssessData(newTestList);
-    } else {
+      })
       setPassAssessData(newFilteredList);
     }
   }, [subjects, testList]);
