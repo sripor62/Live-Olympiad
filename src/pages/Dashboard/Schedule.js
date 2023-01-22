@@ -4,7 +4,6 @@ import { ScheduleLayout } from '../../designs/Dashboard/ScheduleLayout';
 import { useStore } from "../../stores";
 const Schedule = () => {
     const clearCurrentUser = useStore((state) => state.clearCurrentUser)
-    console.log()
     return (
         <HomeLayout logOutHandler={clearCurrentUser}>
             <ScheduleLayout/>

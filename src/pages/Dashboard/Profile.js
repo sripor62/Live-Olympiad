@@ -88,7 +88,6 @@ const Profile = (props) => {
   var currentSchool = [];
   useEffect(() => {
     let pincode = ("" + profileData?.data.data.schoolCode).substring(0, 6);
-    console.log("pincode", pincode);
     setPinCode(pincode);
     var pdata = {
       ...profileData?.data.data,
@@ -176,13 +175,11 @@ const Profile = (props) => {
         onErrorAddAssessment(data, variables, context),
     });
   const onSuccessAddAssessment = (data, variables, context) => {
-    console.log(data);
     setCurrentUser({...curentUser,fullName:pageData.fullName});
   };
   const onErrorAddAssessment = () => {};
 
   const selectionChangeHandler = (event) => {
-    console.log("schoooool", event.target.value);
     setPageData({ ...pageData, school: event.target.value });
   };
 

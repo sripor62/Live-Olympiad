@@ -33,10 +33,8 @@ const SchoolDetails = () => {
       section: pageData?.section,
       grade: pageData?.grade,
     };
-    console.log("pdata", pdata);
     afterValidate(afterValidateCallBack);
     if (pdata.school != "" && pdata.grade != undefined) {
-      console.log("pdata", pdata.school, pdata.grade);
       addEducationMutate({ data: pdata, userId: userId });
       navigate("/personaldetails/" + userId);
     }
@@ -71,7 +69,6 @@ const SchoolDetails = () => {
   }, [schoolData,schoolsData]);
 
   const {data: grades} = useQuery(['Grades'],getGrades);
-  console.log(grades?.data?.data)
   const { mutate: addEducationMutate } = useMutation(sendEducation, {
     onSuccess: (data, variables, context) =>
       onSuccessAddAssessment(data, variables, context),

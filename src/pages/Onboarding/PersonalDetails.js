@@ -44,7 +44,6 @@ export default function PersonalDetails() {
 
     const submitHandler = async () => {
 
-        console.log("pageData", pageData)
         var pdata = {
             ...pageData,
             fullName: pageData.fullName,
@@ -54,14 +53,12 @@ export default function PersonalDetails() {
             gender: pageData.gender
 
         }
-        console.log("pdata", pdata)
 
 
         if (pdata.fullName != null && pdata.fullName != '' && pdata.rollNumber!= null && pdata.rollNumber != '') {
             var userInfoVal = window.localStorage.getItem("current_user")
             var userInfo = JSON.parse(userInfoVal).state.currentUser;
             setCurrentUser({ ...userInfo, fullName: pdata.fullName })
-            console.log(pdata.fullName)
 
             window.localStorage.setItem("Name", pdata.fullName)
             PersonalMutate({ data: pdata, userId: userId })

@@ -61,7 +61,6 @@ const MobileVerification = (props) => {
 
     const afterValidateCallBack = (second) => {
         console.log('otp', otp)
-
     }
 
     return <AuthLayout>

@@ -6,13 +6,9 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import { useLocation} from 'react-router-dom';
 const LoStepper = (props) => {
     const location = useLocation();
-   
-
-    
-    console.log("page",location.pathname)
     var page=""
     if(location.pathname.includes("/personaldetails"))
-     page="1"
+    page="1"
     const [activeStep, setActiveStep] = useState(props.activeStep);
    
     return <Grid container xs={12} justifyContent='center' alignItems='center'>

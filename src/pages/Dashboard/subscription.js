@@ -94,7 +94,6 @@ const Subscription = () => {
     };
     script.onload = async () => {
       try {
-        console.log(subjects)
         let order = 0
         if(subscriptionList?.subscribedCourses.length>0){
           order = subjects.length * 250;
@@ -119,7 +118,6 @@ const Subscription = () => {
               paymentId: response.razorpay_payment_id,
               orderId: response.razorpay_order_id,
             });
-            console.log(result)
           },
           prefill: {
             email: "info@liveolympiad.org",
@@ -158,7 +156,6 @@ const Subscription = () => {
   );
 
   useEffect(() => {
-    console.log(PaymentData?.data?.data);
     setPaymentInfo(PaymentData?.data?.data?.filter((item) => item.status !== "created"));
   }, [PaymentData]);
 
