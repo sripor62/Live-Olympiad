@@ -1,7 +1,7 @@
 export class Endpoints {
   static TESTS="/tests"
   static CAPTURE = "/capture" 
-  static PACKAGES="/packages/tags?searchType=any"
+  static PACKAGES="/packages/tags?searchType=only"
   static ADD_PROFILE="/profile";
   static LOGIN_USER = "/auth/login";
   static LOGOUT_USER = "/auth/logout";
