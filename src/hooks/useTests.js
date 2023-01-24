@@ -8,8 +8,8 @@ const useTests=()=>{
 
     const getTestList = async (body) => {
         if(body.grade){
-            let mock = (environment.env !== "school") ? 'true' : "false";
-            const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&tagNames=${body.grade}&mock=${mock}` ;
+            let series = (environment.env === "school") ? 'level-2' : "mock";
+            const endpoint = environment.testLiveolympiad + Endpoints.PACKAGES  + `&tagNames=${body.grade},${series}&cindex=false` ;
             return await axiosInstance().get(endpoint);
         }
     };
