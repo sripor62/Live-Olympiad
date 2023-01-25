@@ -78,6 +78,10 @@ export default function Login() {
   };
 
   useEffect(() => {
+    window.sessionStorage.clear();
+  }, [])
+    
+  useEffect(() => {
     if(educationData!==undefined && personalData!==undefined){
       if (personalData?.data?.data?.id === null) {
         navigate("/personaldetails/" + currentUser?.id);
