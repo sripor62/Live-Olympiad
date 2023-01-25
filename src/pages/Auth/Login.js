@@ -13,12 +13,18 @@ export default function Login() {
   const navigate = useNavigate();
   const setCurrentUser = useStore((state) => state.setCurrentUser);
   const currentUser = useStore((state) => state.currentUser);
+  const clearCurrentUser = useStore((state) => state.clearCurrentUser)
 
   const [snakeBarProps, setSnakeBarProps] = useState({});
 
-  const [submitFlag, setsubmitFlag] = useState(false);
   const [pageData, setPageData] = useState({ phoneNumber: "", password: "" });
   const {getEducation,getPersonalData}=useStudent();
+
+
+  useEffect(() => {
+    window.sessionStorage.clear();
+    clearCurrentUser();
+  }, [])
 
   const { data: personalData } = useQuery(
     [`PersonalData`, currentUser],
@@ -74,14 +80,7 @@ export default function Login() {
         type: "error",
       });
     }
-    // afterValidate(afterValidateCallBack)
   };
-
-  useEffect(() => {
-    window.sessionStorage.clear();
-    window.localStorage.removeItem('current_user');
-    window.localStorage.removeItem('token');
-  }, [])
     
   useEffect(() => {
     if(educationData!==undefined && personalData!==undefined){
@@ -97,8 +96,6 @@ export default function Login() {
     }
   }, [currentUser,educationData,personalData])
   
-
-  const afterValidateCallBack = (second) => {};
   const forgotPage = () => {
     window.location.href = "/forgotpassword";
   };
@@ -106,7 +103,7 @@ export default function Login() {
     <LoginLayout
       forgotPage={forgotPage}
       responsiveStype={responsiveStype}
-      submitFlag={submitFlag}
+      submitFlag={false}
       getErrorMsz={getErrorMsz}
       pageData={pageData}
       setPageData={setPageData}
