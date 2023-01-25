@@ -23,7 +23,7 @@ export default function Login() {
 
   useEffect(() => {
     window.sessionStorage.clear();
-    clearCurrentUser();
+    //clearCurrentUser();
   }, [])
 
   const { data: personalData } = useQuery(
