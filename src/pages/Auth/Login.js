@@ -79,6 +79,8 @@ export default function Login() {
 
   useEffect(() => {
     window.sessionStorage.clear();
+    window.localStorage.removeItem('currentUser');
+    window.localStorage.removeItem('token');
   }, [])
     
   useEffect(() => {
