@@ -113,10 +113,9 @@ export const UserProfileForm = (props) => {
                         onChange={(event) => { props.setPageData({ ...props.pageData, grade: event.target.value }) }}
                         inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
                         input={<BootstrapInput />}>
-
                         {
                             props.grades?.map((grade)=>{
-                                return <MenuItem value={grade.groupName}>{grade.groupName}</MenuItem>
+                                return <MenuItem key={grade.id} value={grade.groupName}>{grade.groupName}</MenuItem>
                             })
                         }       
                         </Select>
