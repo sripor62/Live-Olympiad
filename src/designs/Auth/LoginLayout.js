@@ -66,7 +66,7 @@ export const LoginLayout = (props) => {
             </Grid>
             <Grid item xs={12}>
                 <Box mb={3} width={1} textAlign="right" sx={{ fontSize: "12px", fontFamily: 'urbanist', fontWeight: "bold" }} >
-                    <Link href="" style={{ textDecoration: "none", color: "rgba(30,35,44,1)" }} onClick={props.forgotPage}>Forgot Password?</Link>
+                    <Link to="#" href="" style={{ textDecoration: "none", color: "rgba(30,35,44,1)" }} onClick={props.forgotPage}>Forgot Password?</Link>
                 </Box>
             </Grid>
             <Grid item xs={12} sx={{ justifyContent: { xs: 'center', lg: 'left' }, alignItems: { xs: 'center', lg: 'left' }, display: "flex" }}>

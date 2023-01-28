@@ -22,7 +22,7 @@ export const ProfileLayout = (props) => {
                 schoolsList={props.schoolsList}
                 setSchoolsList={props.setSchoolsList}
                 getSchoolId={props.getSchoolId}
-                grade={props.grades}
+                grades={props.grades}
                 /></Grid>
     </Grid>
     {
