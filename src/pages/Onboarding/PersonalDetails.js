@@ -61,7 +61,7 @@ export default function PersonalDetails() {
             setCurrentUser({ ...userInfo, fullName: pdata.fullName })
 
             window.localStorage.setItem("Name", pdata.fullName)
-            PersonalMutate({ ...pdata, userId })
+            PersonalMutate({ data: pdata, userId: userId })
             navigate("/subscription/")
         }
     };
