@@ -8,7 +8,8 @@ const Sidebar = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [page, setPage] = useState(location.pathname === "/dashboard" ? 0 : 2)
-
+    let school = window.localStorage.getItem("school");
+    const [examType] = useState("Practice");
     useEffect(() => {
         //if (location.pathname === "/infoboard") setPage(0)
         if (location.pathname === "/dashboard") setPage(0)
@@ -36,7 +37,7 @@ const Sidebar = (props) => {
                     <Button onClick={() => {navigate("/dashboard")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page === 0) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
                             <Box variant='body2' fontWeight='bold'>
-                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Practice</Box>
+                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>{examType}</Box>
                             </Box>
                         </Grid>
                     </Button>
