@@ -8,6 +8,8 @@ import useTests from "../../hooks/useTests";
 import { useStore } from "../../stores";
 import { environment } from "../../environments/environment";
 import { usePayment } from "../../hooks/usePayment";
+import { Typography } from "@mui/material";
+
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
   let grade = window.localStorage.getItem("grade");
@@ -91,7 +93,9 @@ const Dashboard = () => {
 
   return (
     <HomeLayout logOutHandler={clearCurrentUser}>
+      
       <DashboardLayout
+        
         setPage={setPage}
         page={page}
         open={open}

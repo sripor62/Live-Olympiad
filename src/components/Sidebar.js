@@ -9,7 +9,7 @@ const Sidebar = (props) => {
     const location = useLocation();
     const [page, setPage] = useState(location.pathname === "/dashboard" ? 0 : 2)
     let school = window.localStorage.getItem("school");
-    const [examType] = useState("Practice");
+    const [examType] = useState("Dashboard");
     useEffect(() => {
         //if (location.pathname === "/infoboard") setPage(0)
         if (location.pathname === "/dashboard") setPage(0)
