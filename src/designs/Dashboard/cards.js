@@ -33,7 +33,7 @@ const Card = () => {
           <Grid xs display='flex' justifyContent="center" alignItems="center">
           <Card4/>
           </Grid>
-          </Stack>
+          </Stack>  
         </Grid>
     </Box>
   

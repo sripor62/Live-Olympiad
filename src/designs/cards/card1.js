@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import EastIcon from '@mui/icons-material/East';
 import { Typography } from "@mui/material";
 import { Navigate } from "react-router-dom";
@@ -6,6 +6,11 @@ import ReactCardCarousel from 'react-card-carousel';
 import AwardPage from "../Dashboard/Awards";
 import "./card.css";
 const Card1 = () => {
+    const [expanded,setExpanded]=useState(false);
+
+    const handleExpand=() =>{
+        setExpanded(!expanded);
+    }
     const handleClick=()=>{
         window.location.href="/AwardPage";
     };
@@ -31,9 +36,14 @@ const Card1 = () => {
         </div>
         <div className="bottom-right-section" style={{marginRight:'15px'}}>
             <Typography sx={{color:'#FFFFFF',fontSize:'10px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'12px'}}>Result</Typography>
-          <img src="../images/Arrow6.svg"  sx={{color:'#FFFFFF', fontSize:42}} onClick={handleClick}/>
+          <img src="../images/Arrow6.svg"  sx={{color:'#FFFFFF', fontSize:42}} onClick={handleExpand}/>
         </div>
       </div>
+      {expanded &&(
+      <>
+      <div>Card Description</div>
+      </>
+      )}
     </div>   
     </div> 
     
