@@ -7,9 +7,7 @@ export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
         <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
         <Typography variant="h6">Olympiads</Typography>
-            
             <Card/>
-
             <Typography variant="h6">Practice</Typography>
             <Grid container mb={5}  alignItems='center'>
                 

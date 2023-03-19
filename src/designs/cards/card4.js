@@ -1,15 +1,26 @@
-import React from "react";
-import EastIcon from '@mui/icons-material/East';
 import { Typography } from "@mui/material";
-import { Navigate } from "react-router-dom";
-import ReactCardCarousel from 'react-card-carousel';
-import AwardPage from "../Dashboard/Awards";
+import { AnimateSharedLayout } from "framer-motion";
+import { useState } from "react";
+import {UilTimes} from "@iconscout/react-unicons";
 const Card4 = () => {
-    const handleClick=()=>{
-        window.location.href="/AwardPage";
-    };
+  const [ expanded, setExpanded] = useState(false);
   return (
- <div className="card-container">
+      <AnimateSharedLayout>
+        {
+          expanded? (
+            "Expanded Card"
+            // <ExpandedCard param={props} setExpanded={()=>setExpanded(false)}/>
+          ):(
+            <CompactCard setExpanded={()=>setExpanded(true)}/>
+          )
+        }
+      </AnimateSharedLayout>
+    
+  );
+};
+function CompactCard({setExpanded}){
+  return(
+   <div className="card-container">
      <div className="card" >
       <div className="card-body">
         <div className="left-section">
@@ -35,8 +46,7 @@ const Card4 = () => {
       </div>
     </div>   
     </div> 
-    
-  );
-};
+  )
+}
 
 export default Card4;

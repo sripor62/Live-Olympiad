@@ -15,9 +15,6 @@ import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
 import Subscription from '../pages/Dashboard/subscription';
 import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 import Booklet from '../pages/Dashboard/Booklet';
-
-import AwardPage from '../designs/Dashboard/Awards';
-
 export const routes = [
   {
     path: "/",
@@ -87,8 +84,4 @@ export const routes = [
     element: <ChooseYourPlan />,
   },
 
-  {
-    path: "/AwardPage",
-    element: <AwardPage />,
-  },
 ];
