@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.10.4",
     "@iconscout/react-unicons": "^2.0.0",
     "@material-ui/pickers": "^3.3.10",
+    "@mui-treasury/components": "^1.10.1",
     "@mui/icons-material": "^5.10.3",
     "@mui/lab": "^5.0.0-alpha.99",
     "@mui/material": "^5.10.5",

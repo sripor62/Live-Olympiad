@@ -4,7 +4,7 @@
     justify-content: space-between;
     background-color: #4545A5;
     border-radius: 15px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: '0px 10px 20px 0px';
     overflow: hidden;
     max-height: 150px;
     max-width: 256px;
@@ -110,16 +110,68 @@
     color: white;
     position: relative;
     cursor: pointer;
+    box-shadow: '0px 10px 20px 0px'!important;
+  }
+  .CompactCard:hover{
+    box-shadow: none!important;
   }
   .parentContainer{
     width: 100%;
   }
   .ExpandedCard{
+    width: 1044px;
+    height: 674px!important;
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .card-header{
+    padding: 16px;
+    background-color: #4545A5;
+    border-bottom: 1px solid #e6e6e6;
+    border-radius: 10px 10px 0px 0px;
+    width: 1044px;
+    height: 140px!important;
+    color: #FFFFFF;
+  }
+  .options{
     display: flex;
-    flex:1;
-    height: 7rem!important;
+    flex:0.5;
     border-radius: 0.7rem;
-    color: white;
-    position: relative;
+    background-color: transparent;
     cursor: pointer;
+  }
+  .card-content{
+    text-align: center;
+    overflow: auto;
+  }
+  .opt-btn1{
+    border-radius:  0px 0px 10px 10px;
+    background-color:rgba(69, 69, 165, 0.1);
+    width: 278px;
+    height: 44px;
+    margin-left: 200px;
+  }
+  .opt-btn2{
+    border-radius:  0px 0px 10px 10px;
+    background-color:rgba(69, 69, 165, 0.1);
+    width: 287px;
+    height: 44px;
+    margin-left: 6px;
+  }
+  .cross{
+    color: #FFFFFF;
+    margin-top: 0%!important;
+  }
+  .header-img{
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+  .header-action{
+    display: flex;
+    
+  }
+  .badge{
+    margin-top: 0px;
   }

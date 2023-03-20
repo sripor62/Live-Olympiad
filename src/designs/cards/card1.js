@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { Avatar, CardHeader, IconButton, Typography } from "@mui/material";
 import "./card.css";
 import {AnimateSharedLayout} from 'framer-motion';
 import {UilTimes} from "@iconscout/react-unicons";
-
 const Card1 = (props) => {
     const [ expanded, setExpanded] = useState(false);
   return (
@@ -51,18 +50,64 @@ function CompactCard({param,setExpanded}){
 }
 
   function ExpandedCard({param, setExpanded}){
+
+    const [option,setOption ] = useState('option1');
+
+    function handleOptionChange(newOption){
+      setOption(newOption);
+    }
+    
     return (
         <div className='ExpandedCard'
         style={{
-            background:"#4545A5",
-            boxShadow:"#4545A5",
+            background:"rgba(217, 217, 217, 0.3)",
         }}   
         >
-            <div>
-                <UilTimes onClick={setExpanded}/>
-            </div>
-            
+          
+          <CardHeader className="card-header" sx={{color:"#FFFFFF"}}
+          title={<Typography style={{fontFamily:'Inter', fontSize:'24px',fontStyle:'normal',fontWeight:'700',lineHeight:'29px',color:'#FFFFFF'}}>MATHS OLYMPIAD - Regional</Typography>}
+          subheader={<Typography style={{fontFamily:'Inter', fontSize:'14px',fontStyle:'normal',fontWeight:'400',lineHeight:'17px',color:'#FFFFFF'}}>Cambridge School</Typography>}
+          avatar={
+            <img src="images/maths.png" 
+            alt="Header Image"
+          style={{ width: '100%', height: '100%', }}
+          />
+          }
+          action={
+            <div className="header-action">
+              {/* <img src="images/maths.png"/>  */}
+              <Typography className="header-content">Qualifying Status</Typography>
+              <img className="badge" src="images/badge.png"/>
+              <Typography className="header-content">Qualified for Nationals</Typography>
+             <IconButton>
+              <UilTimes className="cross" onClick={setExpanded}/>
+             </IconButton>
+          </div>
+         }
+        
+        />
+        {/* <CardMedia><img src="images/maths.png"/></CardMedia> */}
+        <div className="options">
+                <button className="opt-btn1" onClick={()=> handleOptionChange('option1')}>Result</button>
+                <button className="opt-btn2" onClick={()=> handleOptionChange('option2')}>Awards & Certificates</button>
+              </div>
+              {option === 'option1' &&(
+                <div className="Result-content">
+                  <div>
+
+                  </div>
+                  <p>Result 1</p>
+                  <p>Result 2</p>
+                  <p>Result 3</p>
+                  </div>
+              )}{option === 'option2' &&(
+                  <div className="Award-content">
+                      <p>Content 1</p>
+                      <p>Content 2</p>
+                      <p>Content 3</p>
+                  </div>
+              )}
         </div>
-    )
+    );
 }
 export default Card1;
