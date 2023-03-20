@@ -63,30 +63,16 @@ function CompactCard({param,setExpanded}){
             background:"rgba(217, 217, 217, 0.3)",
         }}   
         >
-          
-          <CardHeader className="card-header" sx={{color:"#FFFFFF"}}
-          title={<Typography style={{fontFamily:'Inter', fontSize:'24px',fontStyle:'normal',fontWeight:'700',lineHeight:'29px',color:'#FFFFFF'}}>MATHS OLYMPIAD - Regional</Typography>}
-          subheader={<Typography style={{fontFamily:'Inter', fontSize:'14px',fontStyle:'normal',fontWeight:'400',lineHeight:'17px',color:'#FFFFFF'}}>Cambridge School</Typography>}
-          avatar={
-            <img src="images/maths.png" 
-            alt="Header Image"
-          style={{ width: '100%', height: '100%', }}
-          />
-          }
-          action={
-            <div className="header-action">
-              {/* <img src="images/maths.png"/>  */}
-              <Typography className="header-content">Qualifying Status</Typography>
-              <img className="badge" src="images/badge.png"/>
-              <Typography className="header-content">Qualified for Nationals</Typography>
-             <IconButton>
-              <UilTimes className="cross" onClick={setExpanded}/>
-             </IconButton>
-          </div>
-         }
-        
-        />
-        {/* <CardMedia><img src="images/maths.png"/></CardMedia> */}
+        <div className="card-header">
+        <UilTimes  className="cross" onClick={setExpanded}/>
+          <Typography style={{fontFamily:'Inter', fontSize:'24px',fontStyle:'normal',fontWeight:'700',lineHeight:'29px',color:'#FFFFFF'}}>MATHS OLYMPIAD - Regional</Typography>
+          <Typography style={{fontFamily:'Inter', fontSize:'14px',fontStyle:'normal',fontWeight:'400',lineHeight:'17px',color:'#FFFFFF'}}>Cambridge School</Typography>
+          <img src=" images/maths.png"/>
+          <Typography style={{fontFamily:'Inter', fontSize:'24px',fontStyle:'normal',fontWeight:'700',lineHeight:'29px',color:'#FFFFFF'}}>MATHS OLYMPIAD - Regional</Typography>
+          <img src="images/badge.png"/>
+          <Typography style={{fontFamily:'Inter', fontSize:'14px',fontStyle:'normal',fontWeight:'400',lineHeight:'17px',color:'#FFFFFF'}}>Cambridge School</Typography> 
+         
+        </div>
         <div className="options">
                 <button className="opt-btn1" onClick={()=> handleOptionChange('option1')}>Result</button>
                 <button className="opt-btn2" onClick={()=> handleOptionChange('option2')}>Awards & Certificates</button>
@@ -94,7 +80,7 @@ function CompactCard({param,setExpanded}){
               {option === 'option1' &&(
                 <div className="Result-content">
                   <div>
-
+                   
                   </div>
                   <p>Result 1</p>
                   <p>Result 2</p>
@@ -102,6 +88,9 @@ function CompactCard({param,setExpanded}){
                   </div>
               )}{option === 'option2' &&(
                   <div className="Award-content">
+                    <div>
+                    <img src="images/Gold.svg"/>
+                  </div>
                       <p>Content 1</p>
                       <p>Content 2</p>
                       <p>Content 3</p>

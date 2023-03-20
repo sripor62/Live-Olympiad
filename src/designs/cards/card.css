@@ -131,8 +131,9 @@
     border-bottom: 1px solid #e6e6e6;
     border-radius: 10px 10px 0px 0px;
     width: 1044px;
-    height: 140px!important;
+    height: 160px!important;
     color: #FFFFFF;
+    
   }
   .options{
     display: flex;
@@ -140,10 +141,6 @@
     border-radius: 0.7rem;
     background-color: transparent;
     cursor: pointer;
-  }
-  .card-content{
-    text-align: center;
-    overflow: auto;
   }
   .opt-btn1{
     border-radius:  0px 0px 10px 10px;
@@ -161,17 +158,6 @@
   }
   .cross{
     color: #FFFFFF;
-    margin-top: 0%!important;
-  }
-  .header-img{
-    height: 100%;
-    width: 100%;
-    display: flex;
-  }
-  .header-action{
-    display: flex;
+    margin-left: 98%!important;
     
-  }
-  .badge{
-    margin-top: 0px;
   }
