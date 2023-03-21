@@ -127,20 +127,63 @@
   }
   .card-header{
     padding: 16px;
-    background-color: #4545A5;
-    border-bottom: 1px solid #e6e6e6;
+    background-color: #4545A5;  
     border-radius: 10px 10px 0px 0px;
     width: 1044px;
     height: 160px!important;
-    color: #FFFFFF;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .left{
+    display: flex;
+    flex-direction: column;
+    align-items:left;
+    justify-content: center;
+  }
+  .left img{
+    width: 60px;
+    height: 60px;
+    margin-top: 5px;
+  }
+  .middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.5;
+    background-color: #FFFFFF!important;
+    max-height:50px;
+    max-width: 50px;
+    margin-right:380px;
+    border-radius: 5px;
+    padding: 6px;
+  }
+  .calender{
+    flex:0.5;
+    background-color: #FFFFFF!important;
+    padding: 4px;
+    border-radius: 5px;
+    max-height:48px;
+    max-width: 48px;
+    align-items: center!important;
+  }
+  .right{
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    margin-right: 20px;
+  }
+  .right-sect{
+    text-align: center;
   }
   .options{
-    display: flex;
     flex:0.5;
-    border-radius: 0.7rem;
     background-color: transparent;
     cursor: pointer;
+   
+    align-items: center;
+    justify-content: space-between;
   }
   .opt-btn1{
     border-radius:  0px 0px 10px 10px;
@@ -156,8 +199,120 @@
     height: 44px;
     margin-left: 6px;
   }
+  .opt-btn1:hover{
+    background-color: rgba(69, 69, 165, 0.3);
+  }
+  .opt-btn2:hover{
+    background-color: rgba(69, 69, 165, 0.3);
+  }
   .cross{
     color: #FFFFFF;
-    margin-left: 98%!important;
-    
+  }
+  .eye-btn{
+    border-radius: 10px!important;
+    border: 1px solid #000000!important;
+    width: 151px!important;
+    height: 36px!important;
+    margin-left: 110px!important;
+    margin-top: 15px!important;
+    align-items: center!important;
+  }
+  .Result-content{
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    margin-right: 20px;
+  }
+  .Award-content{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 50px;
+  }
+  .result-btn{
+    display: inline-flex!important;
+    align-items: left!important;
+    justify-content:space-between!important;
+    background-color:rgba(69, 69, 165, 0.1)!important;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    padding: 20px!important;
+  }
+  .result-btn1{
+    background-color: #42BBEF!important;
+    display: flex;
+    align-items: center!important;
+    justify-content:space-between!important;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    padding: 20px!important;
+  }
+  .result-btn2{
+    background-color: #FFD000!important;
+    display: flex;
+    align-items: center!important;
+    justify-content:space-between!important;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    padding: 20px!important;
+  }
+  .result-btn3{
+    background-color: rgba(69, 69, 165, 0.1)!important;
+    display: flex;
+    align-items: center!important;
+    justify-content:space-between!important;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    padding: 20px!important;
+  }
+ 
+  .left-result{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+  }
+  .right-result{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    gap: 25px;
+  }
+  .text-result{
+    background-color: transparent!important;
+    display: flex;
+    align-items: center!important;
+    justify-content:space-between!important;
+    padding: 10px!important;
+  }
+  .table{
+    display: flex;
+    height: 200px;
+    border-radius: 12px;
+    text-align: center;
+    justify-content: space-between;
+  }
+  .row1{
+    border-right: 1px!important;
+    border-left: 1px !important;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background: rgba(69, 69, 165, 0.1);
+  }
+  .row2{
+    border-right: 1px!important;
+    border-left: 1px !important;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background: rgba(69, 69, 165, 0.1);
+  }
+  .title-tabl{
+    text-align: right!important;
   }
