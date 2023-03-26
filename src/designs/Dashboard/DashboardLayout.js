@@ -1,13 +1,16 @@
 import { Grid, Typography } from "@mui/material"
 import { CustomListItem } from "../../components/CustomListItem"
 import { FilterByStatus } from "../../components/FilterByStatus"
+import { Card5 } from "../cards/card5";
 import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import Card from './cards';
 export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
-        <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-        <Typography variant="h6">Olympiads</Typography>
+        <Grid item p={2} xs={12} sm={12} md={8} lg={12}>
+        <Typography variant="h6">Olympiads
             <Card/>
+        </Typography></Grid>
+        <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
             <Typography variant="h6">Practice</Typography>
             <Grid container mb={5}  alignItems='center'>
                 
@@ -51,6 +54,9 @@ export const DashboardLayout = (props) => {
         <Grid item p={2} md={4} lg={5} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
             {/* <UpgradeBox />
             <KnowledgeTree /> */}
+             <Grid item xs={12} sm={12} md={6}>
+                <Card5/>
+             </Grid>
         </Grid>
     </Grid>
 }

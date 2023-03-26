@@ -20,12 +20,11 @@ const Card4 = () => {
 };
 function CompactCard({setExpanded}){
   return(
-   <div className="card-container">
      <div className="card" >
       <div className="card-body">
         <div className="left-section">
-          <Typography sx={{fontFamily:'Inter', fontStyle:'normal',fontWeight:'700', fontSize:'12px',lineHeight:'15px',color:'#FFFFFF'}}>MATHS OLYMPIAD - National</Typography>
-          <Typography sx={{fontFamily:'Inter', fontStyle:'normal',fontWeight:'400', fontSize:'9px',lineHeight:'11px',color:'#FFFFFF'}}>Cambridge School</Typography>
+          <Typography sx={{fontFamily:'Inter', fontStyle:'normal',fontWeight:'700', fontSize:'14px',lineHeight:'15px',color:'#FFFFFF'}}>MATHS OLYMPIAD - National</Typography>
+          <Typography sx={{fontFamily:'Inter', fontStyle:'normal',fontWeight:'400', fontSize:'10px',lineHeight:'11px',color:'#FFFFFF'}}>Cambridge School</Typography>
         </div>
         <div className="right-section">
           {/* <div className="calendar">12</div> */}
@@ -40,12 +39,11 @@ function CompactCard({setExpanded}){
           <img src="images/Group 1938.png" sizes="30px"></img>
         </div>
         <div className="bottom-right-section" style={{marginRight:'20px'}}>
-            <Typography className="bottom-right-section" sx={{color:'#FFFFFF',fontSize:'20px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'11px'}}>    </Typography>
-          <img src="../images/NotEligible.svg" sizes="30px"/>
+            <Typography className="bottom-right-section" sx={{color:'#FFFFFF',fontSize:'10px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'12px'}}>Not Eligible    </Typography>
+          
         </div>
       </div>
     </div>   
-    </div> 
   )
 }
 
