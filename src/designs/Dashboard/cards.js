@@ -9,8 +9,8 @@ import { Card5 } from "../cards/card5";
 const Card = () => {
   const [ expanded, setExpanded] = useState(false);
   return (
-    <Grid container spacing={2} sx={{ flexGrow: 1, marginLeft: "15px" }}>
-    <Grid item xs={12} sm={6} md={3}>
+    <Grid container spacing={1}  sx={{ flexGrow: 1, marginLeft: "10px",width:'100%' }}>
+    <Grid item xs={12} sm={6} md={3} >
       <Card1 />
     </Grid>
     <Grid item xs={12} sm={6} md={3}>

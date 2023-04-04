@@ -6,7 +6,7 @@ import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import Card from './cards';
 export const DashboardLayout = (props) => {
     return <Grid container mt={1}>
-        <Grid item p={2} xs={12} sm={12} md={8} lg={12}>
+        <Grid item p={2} xs={12} sm={12} md={16} lg={12}>
         <Typography variant="h6">Olympiads
             <Card/>
         </Typography></Grid>
@@ -54,7 +54,7 @@ export const DashboardLayout = (props) => {
         <Grid item p={2} md={4} lg={5} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
             {/* <UpgradeBox />
             <KnowledgeTree /> */}
-             <Grid item xs={12} sm={12} md={6}>
+             <Grid item xs={12} sm={12} md={12}lg={12}>
                 <Card5/>
              </Grid>
         </Grid>
