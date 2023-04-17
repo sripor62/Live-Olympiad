@@ -1,7 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { AnimateSharedLayout } from "framer-motion";
 import { useState } from "react";
-import {UilTimes} from "@iconscout/react-unicons";
 const Card4 = () => {
   const [ expanded, setExpanded] = useState(false);
   return (
@@ -18,7 +17,7 @@ const Card4 = () => {
     
   );
 };
-function CompactCard({setExpanded}){
+function CompactCard({}){
   return(
     <Box sx={{ flexGrow: 1, marginLeft: { xs: 0, sm: 0 }, width: { xs: '100%', sm: 'auto' } }}>
       <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>

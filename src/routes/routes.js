@@ -15,6 +15,11 @@ import ChooseYourPlan from '../pages/Onboarding/ChooseYourPlan';
 import Subscription from '../pages/Dashboard/subscription';
 import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 import Booklet from '../pages/Dashboard/Booklet';
+
+import GoldCard from '../designs/cards/expandedCard';
+import SilverCard from '../designs/cards/silver';
+import BronzeCard from '../designs/cards/bronze';
+
 export const routes = [
   {
     path: "/",
@@ -83,5 +88,17 @@ export const routes = [
     path: "/chooseyourplan",
     element: <ChooseYourPlan />,
   },
-
+  {
+     path:'/Olympiads',
+     element:<GoldCard/>
+  },
+  {
+    path:'/Bronze',
+    element:<BronzeCard/>
+  },
+  {
+    path:'/Silver',
+    element:<SilverCard/>
+  },
+  
 ];

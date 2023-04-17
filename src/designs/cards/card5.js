@@ -11,8 +11,7 @@ export const Card5=()=>{
              fontWeight:'500',
               fontSize:{xs:'12px',sm:'14px'},
               lineHeight:'14px',color:'#1E232C'}}>
-                You’re Currently on the free plan, upgrade license to avail more benefits!</Typography>
-            {environment.env=="school" && <Chip label="You have following tests:" variant="contained" sx={{ ':hover': {   bgcolor: 'white' ,  color: '#F9BB47'}, color: 'white', border: '2px solid #F9BB47', fontWeight: 1000, fontSize: '16px',backgroundColor:"#F9BB47" }}/> }
+                You're Currently on the free plan, upgrade license to avail more benefits!</Typography>
             {environment.env!="school" && <Chip label="Mathematics" variant="contained" sx={{  ':hover': {   bgcolor: '#4545A5',  color: 'white'},color: '#4545A5', border: '2px solid #4545A5',borderRadius:'10px',width:'249px', height:'44px',fontWeight: 600, fontSize: '12px',backgroundColor:"white" }} />}
             {environment.env!="school" && <Chip label="Science" variant="contained" sx={{  ':hover': {   bgcolor: '#42BBEF',  color: 'white'},color: '#42BBEF', border: '2px solid #42BBEF', borderRadius:'10px',width:'249px',height:'44px',fontWeight: 600, fontSize: '12px',backgroundColor:"white" }} />}
             {environment.env!="school" && <Chip  label="English" variant="contained" sx={{ ':hover': {   bgcolor: '#EF4255',  color: 'white'}, color: '#EF4255', border: '2px solid #EF4255',borderRadius:'10px', width:'249px',height:'44px',fontWeight: 600, fontSize: '12px',backgroundColor:"white" }} />}
