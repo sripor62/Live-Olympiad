@@ -62,7 +62,7 @@ export default function PersonalDetails() {
 
             window.localStorage.setItem("Name", pdata.fullName)
             PersonalMutate({ data: pdata, userId: userId })
-            navigate("/subscription/")
+            navigate("/chooseyourplan/")
         }
     };
     const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } = useMutation(sendPersonalData)
