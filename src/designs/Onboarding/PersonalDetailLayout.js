@@ -45,7 +45,7 @@ export const PersonalDetailLayout = (props) => {
             <Typography variant='h3' sx={{fontSize:{xs:"32px",lg:"40px"}}}><Box mb={3} mt={5} fontWeight="bold" sx={props.responsiveStype.Personal.Typo}>Personal Details</Box></Typography>
         </Grid>
         <Grid xs={12}>
-            <Typography variant='body2' fontWeight="medium" sx={{color:"rgba(131,139,161,1)",fontSize:{xs:"12px",lg:"14px"}}}><Box mb={3} sx={props.responsiveStype.Personal.Typo}>Enter the personal details of the student. </Box></Typography>
+            <Typography variant='body2' fontFamily="urbanist" fontWeight="medium" sx={{color:"rgba(131,139,161,1)",fontSize:{xs:"12px",lg:"14px"}}}><Box mb={3} sx={props.responsiveStype.Personal.Typo}>Enter the personal details of the student. </Box></Typography>
         </Grid>
         <Grid container spacing={2}>
             <Grid item xs={8}>

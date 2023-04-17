@@ -10,28 +10,28 @@ export const responsiveStype = {
         MaincWarpper: { height: { lg: "100vh", xs: '85vh' } },
     },
     CreatePassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
         
     },
     ResetPassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
     },
     ForgotPassword: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
     },
     Signup: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
     },
     Login: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
     },
     Mobilever: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbanist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbanist" }
     },
     Personal: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' } , fontFamily: "Urbantist"}
+        Typo: { textAlign: { xs: 'center', lg: 'left' } , fontFamily: "urbantist"}
     },
     School: {
-        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "Urbantist" }
+        Typo: { textAlign: { xs: 'center', lg: 'left' }, fontFamily: "urbantist" }
     }
 }

@@ -49,6 +49,26 @@ export const SchoolDetailLayout = (props) => {
         <Grid item xs={12}>
             <Box mb={2} width={1}>
                 <FormControl fullWidth>
+                    <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School Area Postal Code</InputLabel>
+                    <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  
+                    onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}
+                    inputProps={{ sx: { color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' } }}
+                    input={<BootstrapInput />}
+                    >
+                    {props?.schoolsList?.length>0 && props?.schoolsList?.map((option) => (
+
+                            <MenuItem key={option.id} value={option.id}>
+                                {option.name}
+                            </MenuItem>
+                        ))
+                        }
+                    </Select>
+                </FormControl><span style={{color:"red", fontWeight:"bold"}}>*</span>
+            </Box>
+        </Grid>
+        <Grid item xs={12}>
+            <Box mb={2} width={1}>
+                <FormControl fullWidth>
                     <InputLabel sx={{ color: "rgba(131,145,161,1)", fontFamily: 'urbanist', fontWeight: 600, fontSize: '16px' }}>School</InputLabel>
                     <Select label="School" selected={props.pageData?.school} value={props.pageData?.school}  
                     onChange={(event) => { props.setPageData({ ...props.pageData, school: event.target.value }) }}

@@ -1,247 +1,456 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import "./card.css";
-import { useState } from "react";
 import { UilTimes } from "@iconscout/react-unicons"
 import HomeLayout from "../Dashboard/HomeLayout";
 import { useNavigate } from "react-router-dom";
+import {useState} from 'react';
 
 const BronzeCard = () => {
     const navigate = useNavigate();
-    const [option,setOption ] = useState('option1');
-   
-    function handleOptionChange(newOption){
-      setOption(newOption);
+    const [activeButton, setActiveButton]=useState('result');
+    
+    const handleResultClick = () => {
+      setActiveButton('result');
     }
-    const publicUrl = process.env.PUBLIC_URL;
+  
+    const handleAwardsClick = () => {
+      setActiveButton('awards');
+    }
+
     return (
       <HomeLayout>        
        <Box sx={{ flexGrow: 0.5, marginLeft: { xs: 0, sm: '10px' }, width: { xs: '100%', sm: 'auto' } }}>
         <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
           <Grid item xs={12} sm={12} display='flex' justifyContent="center" alignItems="center">
-          <div className='ExpandedCard'
-        style={{
-            background:"rgba(217, 217, 217, 0.3)",
-        }}   
-        >
-            <Box sx={{ flexGrow: 1, marginLeft: { xs: 0, sm: '10px' }, width: { xs: '100%', sm: 'auto' } }}>
+          <Box
+            sx={{
+                background:"rgba(217, 217, 217, 0.3)",width:'100%',height:'100%',marginTop:'2%',borderRadius:'10px 10px 10px 10px;'
+            }}   
+            >
+           
                 <Grid container spacing={1} minHeight={{ xs: 160, sm: 140 }}>
                   <Grid item xs={12} sm={12} display='flex' justifyContent="center" alignItems="center" flexDirection="column">                  
-                <div className="card-header">
-                     <UilTimes  className="cross" onClick={() => {navigate('/dashboard')}}/>
-                  <div className="left">
-                  <Typography 
-                  style={{fontFamily:'Inter', 
-                  fontSize:'24px',fontStyle:'normal',
-                  fontWeight:'700',lineHeight:'29px',
-                  color:'#FFFFFF'}}>
-                    MATHS OLYMPIAD - Regional</Typography>
-                  <Typography 
-                  style={{fontFamily:'Inter',
-                   fontSize:'14px',
-                   fontStyle:'normal',
-                   fontWeight:'400',
-                   lineHeight:'17px',
-                   color:'#FFFFFF'}}>
-                    Cambridge School</Typography>
-                  <img src="images/maths.png" alt="maths71"/>
-                  </div>
-                    <div className="middle">
-                      <div className="calendar">
-                        <box className="calen-box">
+                    <Box sx={{backgroundColor:'#4545A5',borderRadius:'10px 10px 0px 0px', height:'140px',width:'100%'}}>
+                      <Button sx={{color:'#FFFFFF',marginLeft:'94%'}}>
+                        <UilTimes onClick={() => {navigate('/dashboard')}}/>
+                      </Button>
+                    <Box sx={{marginLeft:'2%',marginTop:'-20px'}}>
+                    <Typography 
+                      style={{fontFamily:'Inter', 
+                      fontSize:'24px',fontStyle:'normal',
+                      fontWeight:'700',lineHeight:'29px',
+                      color:'#FFFFFF'}}>
+                        MATHS OLYMPIAD - Regional</Typography>
                       <Typography 
-                       sx={{fontFamily:'Inter',
-                        fontSize:'21px',
-                        fontWeight:'400',
-                        fontStyle:'normal',
-                        lineHeight:'25px',
-                        color:'#000000'}}>12</Typography>
-                      <Typography 
-                       sx={{fontFamily:'Inter',
-                        fontSize:'12px',fontWeight:'400',
-                        fontStyle:'normal',lineHeight:'12px',
-                        color:'#000000'}}>Nov</Typography>
-                      </box>
-                      </div>
-                    </div>
-                    <div className="right">
-                      <div className="right-sect">
+                      style={{fontFamily:'Inter',
+                      fontSize:'14px',
+                      fontStyle:'normal',
+                      fontWeight:'400',
+                      lineHeight:'17px',
+                      color:'#FFFFFF'}}>
+                        Cambridge School</Typography>
+                      <img src="images/maths.png" alt="maths71"/>
+                    </Box>
 
-                        <Typography
-                         style={{fontFamily:'Inter', 
-                         fontSize:'10px',fontStyle:'normal',
-                         fontWeight:'500',lineHeight:'12px',
-                         color:'#FFFFFF'}}>QUALIFYING STATUS</Typography>
-                        <img className="target-img" src="images/target.png" alt="target"/>
+                  <Box sx={{background:'#FFFFFF',borderRadius:'15px',width:'48px',height:'48px',alignItems:'center',justifyContent:'center',display:'flex',flexDirection:'column',marginTop:'-9%',marginLeft:'46%'}}>
+                    <Typography 
+                        sx={{fontFamily:'Inter',
+                          fontSize:'21px',
+                          fontWeight:'400',
+                          fontStyle:'normal',
+                          lineHeight:'25px',
+                          color:'#000000'}}>12</Typography>
                         <Typography 
-                        style={{fontFamily:'Inter',
-                         fontSize:'14px',fontStyle:'normal',
-                         fontWeight:'700',lineHeight:'17px',
-                         color:'#FFFFFF'}}>
-                          Try Again Next Time</Typography> 
-                        
-                        </div>
-                  </div>
-                </div>
+                        sx={{fontFamily:'Inter',
+                          fontSize:'12px',fontWeight:'400',
+                          fontStyle:'normal',lineHeight:'12px',
+                          color:'#000000'}}>Nov</Typography>
+                  </Box>  
+                      <Box sx={{marginLeft:'80%',marginTop:'-4%',justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'column'}}>
+                        <Typography
+                            style={{fontFamily:'Inter', 
+                            fontSize:'10px',fontStyle:'normal',
+                            fontWeight:'500',lineHeight:'12px',marginTop:'2%',
+                            color:'#FFFFFF'}}>QUALIFYING STATUS</Typography>
+                            <Box sx={{marginTop:'8%'}}>
+                            <img src="images/hourglass.png" alt="Hourglass" />
+                            </Box>
+                            <Typography 
+                            style={{fontFamily:'Inter',
+                            fontSize:'14px',fontStyle:'normal',
+                            fontWeight:'700',lineHeight:'17px',marginTop:'6%',
+                            color:'#FFFFFF'}}>
+                              Result Yet to be Published
+                        </Typography> 
+                      </Box>  
+                    </Box>
+                   </Grid>
                 </Grid>
-          </Grid>
-        </Box>       
-        <div className="options">
-                <button className="opt-btn1" onClick={()=> handleOptionChange('option1')}>
-                  <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'18px', fontStyle:'normal',fontWeight:'500',lineHeight:'22px'}}>Result</Typography></button>
-                <button className="opt-btn2" onClick={()=> handleOptionChange('option2')}>
-                  <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'18px', fontStyle:'normal',fontWeight:'500',lineHeight:'22px'}}>Awards & Certificates</Typography></button>
-                <Button variant="outlined" className="eye-btn"  startIcon={<img src="images/eye.png" alt="eye"/>}>
-                  <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'600',lineHeight:'17px'}}>
-                    VIEW TEST</Typography>
-                    </Button>
-              </div>
-              {option === 'option1' &&(
-                <div className="Result-content">
-                  <div className="left-result">
-                    <button  className="head-result">
-                    <Typography 
-                    style={{color:'#000000',fontFamily:'Urbanist',
-                    fontSize:'18px', fontStyle:'normal',fontWeight:'700',
-                    lineHeight:'22px'}}>
-                    Score Summary</Typography>
-                   <Typography
-                    style={{color:'#000000',fontFamily:'Urbanist',
-                    fontSize:'24px', fontStyle:'normal',fontWeight:'500',
-                    lineHeight:'29px'}}>
-                    28/30 </Typography>
-                    </button>
-                  
-                  <Button className="result-btn">
-                  <Typography className="text-btn"
-                              style={{color:'#000000',
-                              fontFamily:'Urbanist',
-                              fontSize:'14px', 
-                              fontStyle:'normal',
-                              fontWeight:'500',
-                              lineHeight:'17px'}}>
-                  Total Questions</Typography>
+     
+
+        <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
+       
+            <Button onClick={handleResultClick}
+              sx={{backgroundColor:activeButton === "result" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",width:'287px',height:'44px',borderRadius:'0px 0px 10px 10px',marginLeft:'26%'}}>
+              <Typography 
+                style={{fontFamily:'urbanist',
+                fontSize:'18px',fontStyle:'normal',
+                fontWeight:'500',lineHeight:'22px',
+                color:'#000000'}}>
+                      Result
+              </Typography>
+            </Button>
+            <Button onClick={handleAwardsClick}
+              sx={{backgroundColor:activeButton === "awards" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",width:'287px',height:'44px',borderRadius:'0px 0px 10px 10px',boxshadow:'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',marginLeft:'6px'}}>
+              <Typography 
+                style={{fontFamily:'urbanist',
+                fontSize:'18px',fontStyle:'normal',
+                fontWeight:'500',lineHeight:'22px',
+                color:'#000000'}}>
+                      Awards & Certificates  
+              </Typography>
+            </Button>
+            <Button startIcon={<img src="images/eye.png" alt="eye" />} sx={{width:'151px',height:'36px',borderRadius:'10px 10px 10px 10px',border:'1px solid black',marginLeft:'70px',marginTop:'18px'}}>
+             
+              <Typography 
+                style={{fontFamily:'urbanist',
+                fontSize:'18px',fontStyle:'normal',
+                fontWeight:'500',lineHeight:'22px',
+                color:'#000000'}}>
+                      VIEW TEST
+              </Typography>
+            </Button>
+         
+        </Grid>    
+        <Box>
+          {
+            activeButton === 'result' &&(
+              <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
+                {/* <Box sx={{ marginTop:'-6%',marginLeft:'62%'}}>
                   <Typography 
-                            style={{color:'#000000',
-                            fontFamily:'Urbanist',
-                            fontSize:'21px', 
-                            fontStyle:'normal',
-                            fontWeight:'500',
-                            lineHeight:'25px'}}>
-                    30</Typography>
-                    </Button>
-                    <Button className="result-btn1">
+                      style={{fontFamily:'urbanist',
+                      fontSize:'18px',fontStyle:'normal',
+                      fontWeight:'700',lineHeight:'22px',
+                      color:'#000000'}}>
+                        Comparative Scores
+                  </Typography>
+                  </Box>
+                <Grid  item xs={12} sm={12} display='flex' justifyContent="center" alignItems="center" flexDirection="row">
+                <Box marginRight='6%' marginTop='-16%'>
+                 <Box sx={{height:'100%',flexDirection:'row',display:'flex',justifyContent:'center'}}>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'18px',fontStyle:'normal',
+                      fontWeight:'700',lineHeight:'22px',
+                      color:'#000000'}}>
+                        Score Summary
+                  </Typography>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'24px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'29px',
+                      color:'#000000',marginLeft:'68px'}}>
+                        28/30
+                  </Typography>
+                  </Box>
+                
+                  <Box sx={{marginTop:'4%',display:'flex',flexDirection:'row',borderRadius:'5px',backgroundColor:'rgba(69, 69, 165, 0.1)',width:'288px',height:'40px',justifyContent:'center',alignItems:'center'}}>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'14px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'17px',
+                      color:'#000000'}}>
+                        Total Questions
+                  </Typography>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'21px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'25px',
+                      color:'#000000',marginLeft:'36%'}}>
+                        30
+                  </Typography>
+                  </Box>
+                  <Box sx={{marginTop:'2%',display:'flex',flexDirection:'row',borderRadius:'5px',backgroundColor:'#42BBEF',width:'288px',height:'40px',justifyContent:'center',alignItems:'center'}}>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'14px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'17px',
+                      color:'#000000'}}>
+                        Attempted Questions
+                  </Typography>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'21px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'25px',
+                      color:'#000000',marginLeft:'25%'}}>
+                        30
+                  </Typography>
+                  </Box>
+                  <Box sx={{marginTop:'2%',display:'flex',flexDirection:'row',borderRadius:'5px',backgroundColor:'#FFD000',width:'288px',height:'40px',justifyContent:'center',alignItems:'center'}}>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'14px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'17px',
+                      color:'#000000'}}>
+                        Unattempted Questions
+                  </Typography>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'21px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'25px',
+                      color:'#000000',marginLeft:'24%'}}>
+                        0
+                  </Typography>
+                  </Box>
+                  <Box sx={{marginTop:'2%',display:'flex',flexDirection:'row',borderRadius:'5px',backgroundColor:'rgba(69, 69, 165, 0.1)',width:'288px',height:'40px',justifyContent:'center',alignItems:'center'}}>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'14px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'17px',
+                      color:'#000000'}}>
+                        Score Percentage
+                  </Typography>
+                  <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'21px',fontStyle:'normal',
+                      fontWeight:'500',lineHeight:'25px',
+                      color:'#000000',marginLeft:'23%'}}>
+                        99.33%
+                  </Typography>
+                  </Box>
+                </Box>
+                
+                <Box sx={{marginRight:'1%',marginTop:"-8%" ,height:'100%',display:'flex',flexDirection:'column',alignItems:'right'}}> 
+                  <Box  display="flex" justifyContent='right' alignItems="right">
+                  <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          Rank
+                    </Typography>
+                  </Box>
+                  <Box marginTop="40%" display="flex" justifyContent='right' alignItems="right">
+                  <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          Percentage (%)
+                    </Typography>
+                  </Box>
+                   <Box marginTop="40%" display="flex" justifyContent='right' alignItems="right">
+                   <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          Percentile
+                    </Typography>
+                   </Box>
+                </Box>
+                <Box sx={{borderRadius:'40px', border:'1px solid #838BA1', width:'83px',height:'233px', marginRight:'1%',marginTop:'-13%'}}>
+                <Box  marginTop="20%" display="flex" justifyContent='center' alignItems="center">
+                  <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          You
+                    </Typography>
+                  </Box>
+                  <Box sx={{borderRadius:'50px', backgroundColor:'rgba(69, 69, 165, 0.1)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'31%', display:"flex", justifyContent:'center', alignItems:"center"}}>
                     <Typography 
-                                style={{color:'#000000',
-                                fontFamily:'Urbanist',
-                                fontSize:'14px', 
-                                fontStyle:'normal',
-                                fontWeight:'500',
-                                lineHeight:'17px'}}>
-                    Attempted Questions</Typography>
-                    <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                      30</Typography>
-                    </Button>
-                    <Button className="result-btn2">
-                    <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                    Unatempted Questions</Typography>
-                    <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                      0</Typography>
-                    </Button>
-                    <Button className="result-btn3">
-                    <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                    score Percentage</Typography>
-                    <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                      93.33%</Typography>
-                    </Button>
-                  {/* <button><Typography>Total Questions</Typography></button>
-                  <button><Typography>Attempted Questions</Typography></button>
-                  <button><Typography>Unatempted Questions</Typography></button>
-                  <button><Typography>score Percentage</Typography></button> */}
-                  </div>
-                  <div className="right-result">
-                    <div className="right-header">
-                        <Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'18px', fontStyle:'normal',fontWeight:'700',lineHeight:'22px'}}>
-                        Comparative Scores</Typography></div>
-                      <table className="table">
-                       
-                        <tbody>
-                        <tr>
-                          <th className="col"></th>
-                          <th><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                            You</Typography></th>
-                          <th><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'15px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                            Top Performer</Typography></th>
-                          <th><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                            Avg Performer</Typography></th>
-                        </tr>
-                        <tr>
-                          <td>
-                            <Typography></Typography>
-                          </td>
-
-                        </tr>                       
-                              <tr>
-                                <td className="title-tabl"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                                  Rank</Typography></td>
-                                <td><button className="col1"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  7</Typography></button></td>
-                                <td><button className="col2"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  1</Typography></button></td>
-                                <td><button className="col3"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  14</Typography></button></td>
-                              </tr>
-                              <tr>
-                                <td className="title-tabl"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                                  Percentage (%)</Typography></td>
-                                <td><button className="col1"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  92</Typography></button></td>
-                                <td><button className="col2"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  97</Typography></button></td>
-                                <td><button className="col3"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  84</Typography></button></td>
-                              </tr>
-                              <tr>
-                                <td className="title-tabl"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'14px', fontStyle:'normal',fontWeight:'500',lineHeight:'17px'}}>
-                                  Percentile</Typography></td>
-                                <td><button className="col1"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  40</Typography></button></td>
-                                <td><button className="col2"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  53</Typography></button></td>
-                                <td><button className="col3"><Typography style={{color:'#000000',fontFamily:'Urbanist',fontSize:'21px', fontStyle:'normal',fontWeight:'500',lineHeight:'25px'}}>
-                                  24</Typography></button></td>
-                              </tr>
-                        </tbody>
-                      </table>
-                  </div>
-                  </div>
-              )}{option === 'option2' &&(
-                  <div className="Award-content">
-                    <div className="medal">
-                    <img src={`${publicUrl}/images/bronze.png`} alt ="B-Medal"/>
-                  </div>
-                  <div style={{alignItems:'center',marginTop:'8%'}}>
-                      <p style={{fontSize:'30px',fontWeight:'600',fontStyle:'normal',fontFamily:'Urbanist',lineHeight:'36px'}}>Congratulations !!!</p>
-                      <p style={{fontSize:'15px',fontWeight:'400',fontStyle:'mixed',fontFamily:'Urbanist',lineHeight:'18px'}}>
-                        You have been awarded<strong>Bronze Medal</strong> and</p>
-                      <p style={{fontSize:'15px',fontWeight:'400',fontStyle:'mixed',fontFamily:'Urbanist',lineHeight:'18px'}}>
-                         for scoring <strong>Rank 3</strong></p>
-                      <p style={{fontSize:'15px',fontWeight:'400',fontStyle:'mixed',fontFamily:'Urbanist',lineHeight:'18px'}}>
-                        in the <strong>Regional Maths Olympiad</strong></p>
-                        <box className="certificate">
-                        <img  src="images/certificate.png" alt="cert"/></box>
-                      <p style={{fontSize:'18px',fontWeight:'600',fontStyle:'normal',fontFamily:'Urbanist',lineHeight:'22px',marginLeft:'90px',marginTop:'40px'}}>
-                        Download Certificate
-                      </p>
-
-                      </div>
-                  </div>
-              )}
-        </div>
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          7
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'rgba(69, 69, 165, 0.1)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          92
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'rgba(69, 69, 165, 0.1)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                         40
+                    </Typography>
+                    </Box>
+                </Box>
+                <Box sx={{borderRadius:'40px', border:'1px solid #838BA1', width:'83px',height:'233px', marginRight:'1%',marginTop:'-13%'}}>
+                <Box  marginTop="9%" display="flex" justifyContent='center' alignItems="center" flexDirection='column'>
+                  <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          Top 
+                    </Typography>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                         Performer
+                    </Typography>
+                  </Box>
+                  <Box sx={{borderRadius:'50px', backgroundColor:'rgba(83, 208, 100, 0.3)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'20%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          1
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'rgba(83, 208, 100, 0.3)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          97
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'rgba(83, 208, 100, 0.3)', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          53
+                    </Typography>
+                    </Box>
+                </Box>
+                <Box sx={{borderRadius:'40px', border:'1px solid #838BA1', width:'83px',height:'233px', marginLeft:'1%',marginTop:'-13%'}}>
+                <Box  marginTop="9%" display="flex" justifyContent='center' alignItems="center" flexDirection='column'>
+                  <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                          Avg. 
+                    </Typography>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'14px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'17px',
+                        color:'#000000'}}>
+                         Performer
+                    </Typography>
+                  </Box>
+                  <Box sx={{borderRadius:'50px', backgroundColor:'#F6EDC3', width:'50px',height:'50px', marginLeft:'20%',marginTop:'18%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          14
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'#F6EDC3', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          84
+                    </Typography>
+                    </Box>
+                    <Box sx={{borderRadius:'50px', backgroundColor:'#F6EDC3', width:'50px',height:'50px', marginLeft:'20%',marginTop:'6%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+                    <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'21px',fontStyle:'normal',
+                        fontWeight:'500',lineHeight:'25px',
+                        color:'#000000'}}>
+                          24
+                    </Typography>
+                    </Box>
+                </Box>
+                </Grid> */}
+                
+              </Grid>
+              
+            )
+          }
+          {
+            activeButton === 'awards' &&(
+              <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
+                <Grid item xs={12} sm={12} display='flex' justifyContent="center" alignItems="center" flexDirection="row">
+                   <Box sx={{marginLeft:'-5%',marginTop:'-14%',height:'100%'}}>
+                    <img src="images/bronze.png" alt="bronze"/>
+                  </Box>
         
+                <Box sx={{marginLeft:'3%',marginTop:'-14%',height:'100%',display:'flex',flexDirection:'column',alignItems:'left'}}>
+                  <Typography 
+                    style={{fontFamily:'urbanist',
+                    fontSize:'30px',fontStyle:'normal',
+                    fontWeight:'600',lineHeight:'36px',
+                    color:'#000000'}}>
+                      Congratulations!!!
+                  </Typography>
+                    <Box sx={{marginLeft:'2%',marginTop:'3%',width:'100%'}}>
+                    <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'15px',fontStyle:'normal',
+                      fontWeight:'400',lineHeight:'18px',
+                      color:'#000000'}}>
+                        You have been awarded <b>Bronze Medal</b> 
+                    </Typography>
+                    <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'15px',fontStyle:'normal',
+                      fontWeight:'400',lineHeight:'18px',
+                      color:'#000000'}}>
+                        for scoring <b>Rank 3</b>
+                    </Typography>
+                    <Typography 
+                      style={{fontFamily:'urbanist',
+                      fontSize:'15px',fontStyle:'normal',
+                      fontWeight:'400',lineHeight:'18px',
+                      color:'#000000'}}>
+                        in the <b>Regional Maths Olympiad.</b>
+                    </Typography>
+                  </Box>
+                  <Box sx={{marginLeft:'2%',width:'100%',marginTop:'20%'}}>
+                    <Box>
+                      <img src="images/certificate.png" alt="certificate"/>
+                    </Box>
+                    <Box sx={{marginLeft:'35%',marginTop:'-22%',height:'100%',width:'100%'}}>
+                      <Typography 
+                        style={{fontFamily:'urbanist',
+                        fontSize:'18px',fontStyle:'normal',
+                        fontWeight:'600',lineHeight:'22px',
+                        color:'#000000'}}>
+                          Download Certificate
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                
+
+                </Grid>
+                
+              </Grid>
+            )
+          }
+        </Box> 
+        </Box>
+
           </Grid>
         </Grid>
        </Box>
        </HomeLayout>
     );
- }
- export default BronzeCard;
+}
+export default BronzeCard;
