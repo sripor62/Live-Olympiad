@@ -1,15 +1,13 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import "./card.css";
-import { UilTimes } from "@iconscout/react-unicons"
 import HomeLayout from "../Dashboard/HomeLayout";
 import { useNavigate } from "react-router-dom";
 import {useState} from 'react';
-import SilverHeader from "./headers/Silver";
+import GoldHeader from "./headers/Gold";
 import GoldResult from "./Results/goldRes";
-import SilverResult from "./Results/silverRes";
-import SilverAward from "./awardsAndCertf/SilverAward";
+import GoldAward from "./awardsAndCertf/GoldAward";
 
-const SilverCard = () => {
+const GoldCard = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton]=useState('result');
     
@@ -31,13 +29,14 @@ const SilverCard = () => {
                 background:"rgba(217, 217, 217, 0.3)",width:'100%',height:'100%',marginTop:'2%',borderRadius:'10px 10px 10px 10px;'
             }}   
             >
-                <SilverHeader/>
+              <GoldHeader/>
 
         <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
+       
             <Button onClick={handleResultClick}
               sx={{backgroundColor:activeButton === "result" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",
                   width:{xs:'30%',sm:'287px'},height:'44px',borderRadius:'0px 0px 10px 10px',
-                  marginLeft:{xs:'10%',sm:'29px'}}}>
+                  marginLeft:{xs:'10%',sm:'29%'}}}>
               <Typography 
                 style={{fontFamily:'urbanist',
                 fontSize:'18px',fontStyle:'normal',
@@ -48,21 +47,21 @@ const SilverCard = () => {
             </Button>
             <Button onClick={handleAwardsClick}
               sx={{backgroundColor:activeButton === "awards" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",
-                    width:{xs:'50%',sm:'287px'},height:'44px',borderRadius:'0px 0px 10px 10px',
-                    boxshadow:'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
-                    marginLeft:{xs:'8%',sm:'287px'}}}>
+                  width:{xs:'50%',sm:'287px'},height:'44px',borderRadius:'0px 0px 10px 10px',boxshadow:'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
+                  marginLeft:{xs:'6%',sm:'6px'}}}>
               <Typography 
                 style={{fontFamily:'urbanist',
-                fontSize:'18px',fontStyle:'normal',
-                fontWeight:'500',lineHeight:'22px',
+                fontSize:{xs:'10px',sm:'18px'},fontStyle:'normal',
+                fontWeight:'500',lineHeight:{xs:'14px',sm:'22px'},
                 color:'#000000'}}>
                       Awards & Certificates  
               </Typography>
             </Button>
             <Button startIcon={<img src="images/eye.png" alt="eye" />} 
-                    sx={{width:'151px',height:'36px',borderRadius:'10px 10px 10px 10px',
-                    border:'1px solid black',
-                    marginLeft:{xs:'30%',sm:'70px'},marginTop:'18px'}}>
+                    sx={{width:'151px',height:'36px',
+                    borderRadius:'10px 10px 10px 10px',border:'1px solid black',
+                    marginLeft:{xs:'30%',sm:'70px'},
+                    marginTop:'18px'}}>
              
               <Typography 
                 style={{fontFamily:'urbanist',
@@ -77,13 +76,13 @@ const SilverCard = () => {
         <Box>
           {
             activeButton === 'result' &&(
-             <SilverResult/>
+             <GoldResult/>
               
             )
           }
           {
             activeButton === 'awards' &&(
-              <SilverAward/>
+              <GoldAward/>
             )
           }
         </Box> 
@@ -95,4 +94,4 @@ const SilverCard = () => {
        </HomeLayout>
     );
 }
-export default SilverCard;
+export default GoldCard;

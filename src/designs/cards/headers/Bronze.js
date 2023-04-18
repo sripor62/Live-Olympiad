@@ -9,10 +9,12 @@ const BronzeHeader= () => {
      const theme = useTheme()
   return (
             <Grid container spacing={1} minHeight={{ xs: 160, sm: 140 }}>
-              <Grid item xs={12} sm={12} display='flex' justifyContent="center" alignItems="center" flexDirection="column">                  
-                <Box sx={{backgroundColor:'#4545A5',borderRadius:'10px 10px 0px 0px', height:'140px',width:'100%'}}>
-                  <Button onClick={() => {navigate('/dashboard')}} sx={{color:'#FFFFFF',marginLeft: { xs: "87%", sm: "94%" }}}>
-                    <UilTimes />
+              <Grid item xs={12} sm={12} display='flex' justifyContent="center" 
+                    alignItems="center" flexDirection="column">                  
+                <Box sx={{backgroundColor:'#4545A5',borderRadius:'10px 10px 0px 0px', 
+                    height:'140px',width:{xs:'100%',sm:'100%'}}}>
+                  <Button  sx={{color:'#FFFFFF',marginLeft: { xs: "87%", sm: "93%" }}}>
+                    <UilTimes onClick={ ()=>{navigate('/dashboard')}}/>
                   </Button>
                   <Box sx={{marginLeft:'2%',marginTop:'-20px'}}>
                     <Typography 
@@ -67,30 +69,28 @@ const BronzeHeader= () => {
                   </Box> 
                   <Box sx={{
                             position: "absolute",
-                            top: { xs: "41%", sm: "-35%" },
-                            left: { xs: "76%", sm: "40%" },
+                            top: { xs: "43.5%", sm: "17%" },
+                            left: { xs: "70%", sm: "76%" },
                             transform: { xs: "translate(-50%, -50%)", sm: "none" },
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                            width: "100%",
-                            height: "100%",
-                            opacity: { xs: 1, sm: 1 },
                             transition: "all 0.3s ease-in-out",
+                            width:{xs:'60%',sm:'20%'},
                             [theme.breakpoints.down("xs")]: {
                                 opacity: 10,
                             },
                             }}>
                     <Typography
                       style={{fontFamily:'Inter', 
-                      fontSize: { xs: "10px", sm: "12px" },
+                      fontSize: { xs: "10px", sm: "10px" },
                       fontStyle:'normal',
-                      fontWeight:'500',lineHeight: { xs: "12px", sm: "2px" },
-                      marginTop: { xs: "10px", sm: "2%" },
+                      fontWeight:'500',lineHeight: { xs: "12px", sm: "15px" },
+                      marginTop: { xs: "10px", sm: "1%" },
                       marginBottom: { xs: "2px", sm: 0 },
                       color:'#FFFFFF'}}>QUALIFYING STATUS</Typography>
-                    <Box sx={{ marginTop: { xs: "6px", sm: "2%" } }}>
+                    <Box sx={{ marginTop: { xs: "6px", sm: "1%" } }}>
                       <img src="images/hourglass.png" alt="Hourglass" />
                     </Box>
                     <Typography 

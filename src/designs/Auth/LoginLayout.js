@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
+import SignInWithGoogle from "../../SigninwithGoogle/googleSignin"
 
 export const LoginLayout = (props) => {
     const NumericOnly= (event) => { //angka only
@@ -12,12 +13,14 @@ export const LoginLayout = (props) => {
         else event.target.value = preval.substring(0,(preval.length-1))
     }
     return <Box>
+        
         <Grid container>
             <Grid item xs={12}>
                 <Box sx={{ fontSize: { xs: "32px", lg: "40px" } }}>
                     <Box fontWeight="bold" mb={2} mt={6} sx={props.responsiveStype.Login.Typo}>Log In</Box>
                 </Box>
             </Grid>
+            
             <Grid item xs={12}>
                 <Box fontWeight={600} sx={{ fontSize: { xs: "12px", lg: "14px" }, color: "#838BA1" }}>
                     <Box mb={3} sx={props.responsiveStype.Login.Typo}>Existing User? Enter your login details below.</Box>

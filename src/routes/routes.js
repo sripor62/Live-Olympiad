@@ -16,7 +16,7 @@ import Subscription from '../pages/Dashboard/subscription';
 import { MobileUpgrade } from '../designs/Dashboard/MobileUpgrade';
 import Booklet from '../pages/Dashboard/Booklet';
 
-import GoldCard from '../designs/cards/expandedCard';
+import GoldCard from '../designs/cards/GoldCard';
 import SilverCard from '../designs/cards/silver';
 import BronzeCard from '../designs/cards/bronze';
 

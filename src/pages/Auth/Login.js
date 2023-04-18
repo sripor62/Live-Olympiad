@@ -8,6 +8,7 @@ import { useStore } from "../../stores";
 import { useQuery } from "react-query";
 import { useStudent } from "../../hooks/useStudent";
 import { environment } from "../../environments/environment";
+import SignInWithGoogle from "../../SigninwithGoogle/googleSignin";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -112,5 +113,6 @@ export default function Login() {
       snakeBarProps={snakeBarProps}
       setSnakeBarProps={setSnakeBarProps}
     />
+    
   );
 }
