@@ -1,7 +1,7 @@
 import { Chip, Grid } from "@mui/material"
 import { Stack } from "@mui/system"
 import { environment } from "../../environments/environment"
-
+import React from 'react';
 export const SubjectSelector = ({setPage}) => {
     return <Grid mt={2}>
         <Grid item xs={12} sm={9} md={8} lg={9} >

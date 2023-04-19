@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomTextField } from "../../components/CustomTextField"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
-
+import React from 'react';
 export const ForgotPWLayout = (props) => {
     return <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={12} >

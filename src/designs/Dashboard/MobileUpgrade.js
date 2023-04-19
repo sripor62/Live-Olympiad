@@ -2,7 +2,7 @@ import { Box, Grid, Typography, Stack, Button } from "@mui/material"
 import { CenterButton } from "../../components/CenterButton"
 import { SubjectBox } from "../../components/SubjectBox"
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import React from 'react';
 export const MobileUpgrade = (props) => {
     return <Grid container>
         <Grid item>

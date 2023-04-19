@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
-
+import React from 'react';
 export const NewPasswordLayout = (props) => {
     const NumericOnly= (event) => { //angka only
         const reg = /^[0-9\b]+$/

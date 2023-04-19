@@ -1,6 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { AnimateSharedLayout } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from "react";
+
 const Card4 = () => {
   const [ expanded, setExpanded] = useState(false);
   return (

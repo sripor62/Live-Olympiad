@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from "@mui/material"
-
+import React from 'react';
 const GoldResult = () => {
 return(
     

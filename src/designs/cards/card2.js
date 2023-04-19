@@ -1,7 +1,7 @@
 import { Box, Grid,Typography } from "@mui/material";
 import "./card.css";
 import { useNavigate } from "react-router-dom";
-
+import React from 'react';
 const Card2 = () => {
   const navigate = useNavigate();
   return (

@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-
+import React from 'react';
 const GoldAward=()=>{
     return(
         <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>

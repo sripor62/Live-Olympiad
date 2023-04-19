@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
-
+import React from 'react';
 export const LoginLayout = (props) => {
     const NumericOnly= (event) => { //angka only
         const reg = /^[0-9\b]+$/

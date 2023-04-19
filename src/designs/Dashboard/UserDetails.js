@@ -1,6 +1,7 @@
 import { CurrencyRupee } from "@mui/icons-material"
 import { Avatar, Box, Grid, Typography } from "@mui/material"
 import { propsToClassKey } from "@mui/styles"
+import React from 'react';
 function stringToColor(string) {
     let hash = 0;
     let i;

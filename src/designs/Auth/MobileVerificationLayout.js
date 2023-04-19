@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomOtp } from "../../components/CustomOtp"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
-
+import React from 'react';
 export const MobileVerificationLayout = (props) => {
     return <Grid container mt={6} justifyContent="center" alignItems="center" p={2}>
         <Grid item xs={12}>

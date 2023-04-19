@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material"
 import { CustomButton } from "../../components/CustomButton"
 import { CustomSnackbar } from "../../components/CustomSnackbar"
 import { CustomTextField } from "../../components/CustomTextField"
-
+import React from 'react';
 export const ResetPasswordLayout = (props) => {
     return <>
         <Grid container justifyContent="center" alignItems="center" >
