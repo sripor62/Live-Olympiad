@@ -34,11 +34,14 @@ const Dashboard = () => {
 
   useEffect(()=>{
     if(CoursesData!==undefined){
-        let subs = {};
-        SubscriptionData?.data?.data?.subscribedCourses?.forEach((item)=>{
-          console.log(item?.slice(0,4));
-          if (item === undefined) return;
-        })        
+        let subs = {}
+        // SubscriptionData?.data?.data?.subscribedCourses?.forEach((item) => {
+        //   if (typeof item !== "string") {
+        //     console.log("Invalid item:", item);
+        //     return;
+        //   }
+        //   console.log(item.slice(0, 4));
+        // });
         CoursesData.data.data.forEach((course)=>{
             subs[course.id] = course.name;
         })
@@ -69,13 +72,15 @@ const Dashboard = () => {
     if(environment.env!=="school"){
       setPassAssessData(testList?.data);
     } else {
-      let newFilteredList = testList?.data?.filter((test) => {
+      let newFilteredList = testList && testList.data.filter((test) => {
         let flag = false;
-        subjects?.forEach((subject) => {
-            flag = flag || test?.subject[0]?.search(subject) !== -1;
-        })
-        return flag
-      })
+        if (subjects) {
+          subjects.forEach((subject) => {
+            flag = flag || test.subject[0].search(subject) !== -1;
+          })
+        }
+        return flag;
+      });
       setPassAssessData(newFilteredList);
     }
   }, [subjects, testList]);

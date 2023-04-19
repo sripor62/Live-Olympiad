@@ -1,5 +1,6 @@
 import { ArrowBackIos, FiberManualRecord, Refresh } from "@mui/icons-material"
 import { Grid, Typography, List } from "@mui/material"
+import React from 'react';
 export const InfoBoardLayout = () => {
     return <Grid container>
         <Grid item>
