@@ -34,9 +34,9 @@ const Dashboard = () => {
 
   useEffect(()=>{
     if(CoursesData!==undefined){
-        let subs = {}
-        SubscriptionData?.data?.data.subscribedCourses.forEach((item)=>{
-          console.log(item.slice(0,4));
+        let subs = {};
+        SubscriptionData?.data?.data?.subscribedCourses?.forEach((item)=>{
+          console.log(item?.slice(0,4));
           if (item === undefined) return;
         })        
         CoursesData.data.data.forEach((course)=>{
@@ -69,10 +69,10 @@ const Dashboard = () => {
     if(environment.env!=="school"){
       setPassAssessData(testList?.data);
     } else {
-      let newFilteredList = testList?.data.filter((test) => {
+      let newFilteredList = testList?.data?.filter((test) => {
         let flag = false;
         subjects?.forEach((subject) => {
-            flag = flag || test.subject[0].search(subject) !== -1;
+            flag = flag || test?.subject[0]?.search(subject) !== -1;
         })
         return flag
       })
