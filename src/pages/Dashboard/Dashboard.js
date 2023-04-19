@@ -33,10 +33,13 @@ const Dashboard = () => {
   useEffect(()=>{
     if(CoursesData!==undefined){
         let subs = {}
-        SubscriptionData?.data?.data.subscribedCourses.forEach((item)=>{
-          console.log(item.slice(0,4));
-          if (item === undefined) return;
-        })        
+        SubscriptionData?.data?.data?.subscribedCourses?.forEach((item) => {
+          if (typeof item !== "string") {
+            console.log("Invalid item:", item);
+            return;
+          }
+          console.log(item.slice(0, 4));
+        });
         CoursesData.data.data.forEach((course)=>{
             subs[course.id] = course.name;
         })
