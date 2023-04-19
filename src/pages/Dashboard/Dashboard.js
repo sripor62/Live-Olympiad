@@ -70,13 +70,15 @@ const Dashboard = () => {
     if(environment.env!=="school"){
       setPassAssessData(testList?.data);
     } else {
-      let newFilteredList = testList?.data.filter((test) => {
+      let newFilteredList = testList && testList.data.filter((test) => {
         let flag = false;
-        subjects?.forEach((subject) => {
+        if (subjects) {
+          subjects.forEach((subject) => {
             flag = flag || test.subject[0].search(subject) !== -1;
-        })
-        return flag
-      })
+          })
+        }
+        return flag;
+      });
       setPassAssessData(newFilteredList);
     }
   }, [subjects, testList]);
