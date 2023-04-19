@@ -2,6 +2,7 @@ import { Box, Grid,Typography,Button,useTheme } from "@mui/material";
 import {useMediaQuery} from "@mui/material";
 import { UilTimes } from "@iconscout/react-unicons";
 import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 const BronzeHeader= () => {
      const navigate = useNavigate();

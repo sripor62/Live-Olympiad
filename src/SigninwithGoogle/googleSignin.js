@@ -1,17 +1,14 @@
-import React from 'react';
-import{GoogleAuth} from 'google-auth-library';
+import { Grid } from '@mui/material'
+import React from 'react'
 
 const SignInWithGoogle=()=>{
-    const handleSignIn = async()=>{
-        const auth = new GoogleAuth({
-            clientId:'438433550665-ub1bs6d9u8qp1kga2h3puvc1sm2gjonk.apps.googleusercontent.com',
-            scope:'feleen@edulabs.co.in'
-        })
+    const responseGoogle =(response) =>{
+        console.log(response);
     }
     return(
-        <button onClick={handleSignIn}>
-            Sign Up With Google
-        </button>
+        <Grid>
+            Sign In With Google
+        </Grid>
     )
 }
 export default SignInWithGoogle;
