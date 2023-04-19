@@ -6,7 +6,7 @@ import {useState} from 'react';
 import GoldHeader from "./headers/Gold";
 import GoldResult from "./Results/goldRes";
 import GoldAward from "./awardsAndCertf/GoldAward";
-
+import React from 'react';
 const GoldCard = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton]=useState('result');

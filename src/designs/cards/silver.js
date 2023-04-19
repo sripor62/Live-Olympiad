@@ -8,7 +8,7 @@ import SilverHeader from "./headers/Silver";
 import GoldResult from "./Results/goldRes";
 import SilverResult from "./Results/silverRes";
 import SilverAward from "./awardsAndCertf/SilverAward";
-
+import React from 'react';
 const SilverCard = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton]=useState('result');

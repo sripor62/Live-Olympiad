@@ -7,7 +7,7 @@ import {useState} from 'react';
 import BronzeHeader from "./headers/Bronze";
 import BronzeResult from "./Results/bronzeRes";
 import BronzeAward from "./awardsAndCertf/BronzeAward";
-
+import React from 'react';
 const BronzeCard = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton]=useState('result');

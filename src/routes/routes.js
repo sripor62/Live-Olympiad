@@ -2,7 +2,7 @@ import ResetPassword from '../pages/Auth/ResetPassword';
 import ForgotPassword from '../pages/Auth/ForgotPassword';
 import CreateNewPassword from '../pages/Auth/CreateNewPassword';
 import { AuthPage } from '../pages/Auth';
-
+import React from 'react';
 import PersonalDetails from '../pages/Onboarding/PersonalDetails';
 import MobileVerification from '../pages/Auth/MobileVerification';
 import SchoolDetails from '../pages/Onboarding/SchoolDetails';
