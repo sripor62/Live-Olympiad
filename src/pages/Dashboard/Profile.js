@@ -157,14 +157,16 @@ const Profile = (props) => {
 
   useEffect(() => {
     let subjectMap = {};
-    SubjectData?.data?.data?.forEach((subject) => {
-      subjectMap[subject.id] = subject.name;
-    });
-    setSubscribedSubjects(
-      SubscriptionData?.data?.data?.subscribedCourses.map(
-        (sub) => subjectMap[sub]
-      )
-    );
+    if (SubjectData?.data?.data) {
+      SubjectData.data.data.forEach((subject) => {
+        subjectMap[subject.id] = subject.name;
+      });
+    }
+    if (SubscriptionData?.data?.data?.subscribedCourses) {
+      setSubscribedSubjects(
+        SubscriptionData.data.data.subscribedCourses.map((sub) => subjectMap[sub])
+      );
+    }
   }, [SubjectData, subscriptionList]);
 
   const { mutate: addProfileMutate, isLoading: addProfileLoading } =
