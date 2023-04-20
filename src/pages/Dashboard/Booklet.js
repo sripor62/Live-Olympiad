@@ -11,4 +11,4 @@ const Booklet = () => {
   )
 }
 
-export default Booklet
+export default Booklet;

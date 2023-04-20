@@ -3,7 +3,7 @@ import { AppConstants } from "../environments/app-constants";
 import { environment } from "../environments/environment";
 import { navigateAsPerSessionValidity } from "../services/helpers";
 
-let authStore = (set) => ({
+let authStore = (set:any) => ({
   currentUserSubject: User,
   currentUser: User,
   UserObj: User,
