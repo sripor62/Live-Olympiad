@@ -14,7 +14,7 @@ const ParentPage = () => {
                         fontSize:'22px',lineHeight:'26px',color:'#060606'}}>
             My Childrens</Typography> 
         </Box>
-        <Grid container spacing={2}sx={{ marginTop: "10px", marginLeft: "18%" ,justifyContent:'space-evenly' }}>
+        <Grid container spacing={0.5}sx={{ marginTop: "10px", marginLeft: "18%" ,justifyContent:'space-between' }}>
         {children.map((child)=>(
             <Box key={child.id}
             sx={{backgroundColor:'#4545A5',width:'195px',
