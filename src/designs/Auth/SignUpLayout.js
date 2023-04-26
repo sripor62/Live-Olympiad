@@ -18,7 +18,7 @@ export const SignUpLayout = (props) => {
                     <CustomTextField
                         onKeyPress={(event) => {
                             
-                            if(event.code=="Enter")
+                            if(event.code==="Enter")
                             {
                              
                              document.getElementById("clicked").click()

@@ -1,13 +1,19 @@
-import { Grid, Typography } from "@mui/material"
+import { Button, Grid, Typography } from "@mui/material"
 import { CustomListItem } from "../../components/CustomListItem"
 import { FilterByStatus } from "../../components/FilterByStatus"
 import { Card5 } from "../cards/card5";
 import { SubjectSelector } from "../Onboarding/SubjectSelector"
 import Card from './cards';
+import { useNavigate } from "react-router-dom";
+
 export const DashboardLayout = (props) => {
+    const navigate = useNavigate();
     return <Grid container mt={1}>
         <Grid item p={2} xs={12} sm={12} md={16} lg={12}>
         <Typography variant="h6">Olympiads
+            <Button sx={{ backgroundColor:'beige',color:'black',marginLeft:'80%'}} onClick={()=>{navigate('/Report')}}>
+                Details Reports
+            </Button>
             <Card/>
         </Typography></Grid>
         <Grid item p={2} xs={12} sm={12} md={8} lg={7}>

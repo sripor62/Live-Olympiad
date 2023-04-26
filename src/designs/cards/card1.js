@@ -79,7 +79,7 @@ const Card1 = () => {
                     <img
                       src="images/Arrow5.png"
                       alt="Arrow"
-                      onClick={() => {navigate('/Olympiads')}}
+                      onClick={() => {navigate('/GoldCard')}}
                       sx={{ color: '#FFFFFF', fontSize: { xs: "24px", sm: "42px" } }}
                     />
                   </div>

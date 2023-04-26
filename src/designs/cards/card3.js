@@ -1,8 +1,26 @@
 import {Box, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useStore } from "../../stores";
 const Card3 = () => {
   const navigate = useNavigate();
+  const [ isEnrolled , setIsEnrolled ] = useState(false);
+  const currentUser = useStore((state) => state.currentUser);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const getSubscriptions = async () => {
+      try {
+        const response = await getSubscriptions(currentUser.userId);
+        const data = response.data;
+        setData(data);
+        setIsEnrolled(data.some(item => item.userId === currentUser.userId));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getSubscriptions();
+  }, [currentUser.userId]);
   return (
     <Box sx={{ flexGrow: 1, marginLeft: { xs: 0, sm: 0 }, width: { xs: '100%', sm: 'auto' } }}>
     <Grid  container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
@@ -23,10 +41,15 @@ const Card3 = () => {
            {/* <SvgIcon /> */}
            <img src="images/Honey.svg" alt="honey"></img>
          </div>
-         <div className="bottom-right-section" style={{backgroundColor:'#E54545',marginRight:'15px'}}>
-             <Typography sx={{color:'#FFFFFF',fontSize:'10px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'12px'}}>Enroll</Typography>
-           <img src="../images/Arrow6.svg" alt="Arrow" sx={{color:'#FFFFFF', fontSize:42}} onClick={() => {navigate('/Bronze')}}/>
-         </div>
+         {isEnrolled ? (<div className="bottom-right-section" style={{backgroundColor:'#E54545',marginRight:'15px'}}>
+                  <Typography sx={{color:'#FFFFFF',fontSize:'10px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'12px'}}>Result</Typography>
+                <img src="../images/Arrow6.svg" alt="Arrow"  sx={{color:'#FFFFFF', fontSize:42}} onClick={() => {navigate('/Silver')}}/>
+              </div>
+              ):(
+              <div className="bottom-right-section" style={{backgroundColor:'#E54545',marginRight:'15px'}}>
+              <Typography sx={{color:'#FFFFFF',fontSize:'10px',fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',lineHeight:'12px'}}>Enroll</Typography>
+            <img src="../images/Arrow6.svg" alt="Arrow"  sx={{color:'#FFFFFF', fontSize:42}} onClick={() => {navigate('/subscription')}}/>
+          </div>)}
        </div>
      </div>   
      </Grid>

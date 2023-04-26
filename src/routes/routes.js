@@ -19,6 +19,8 @@ import Booklet from '../pages/Dashboard/Booklet';
 import GoldCard from '../designs/cards/GoldCard';
 import SilverCard from '../designs/cards/silver';
 import BronzeCard from '../designs/cards/bronze';
+import Report from '../reports';
+import ParentPage from '../parentlog';
 
 export const routes = [
   {
@@ -89,7 +91,7 @@ export const routes = [
     element: <ChooseYourPlan />,
   },
   {
-     path:'/Olympiads',
+     path:'/GoldCard',
      element:<GoldCard/>
   },
   {
@@ -100,5 +102,12 @@ export const routes = [
     path:'/Silver',
     element:<SilverCard/>
   },
-  
+  {
+    path:'/Report',
+    element:<Report/>
+  },
+  {
+    path:'/Parent',
+    element:<ParentPage/>
+  }
 ];

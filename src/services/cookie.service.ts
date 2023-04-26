@@ -1,5 +1,8 @@
+interface CookieStore{
+  [key:string]:string
+}
 export class CookiesService {
-  private cookieStore = {};
+  private cookieStore:CookieStore = {};
 
   constructor(private readonly req: any) {
     if (this.req !== null) {
@@ -9,7 +12,7 @@ export class CookiesService {
     }
   }
 
-  public parseCookies(cookies) {
+  public parseCookies(cookies:any) {
     this.cookieStore = {};
     if (!!cookies === false) {
       return;

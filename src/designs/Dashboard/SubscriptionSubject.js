@@ -59,7 +59,7 @@ export const SubscriptionSubject = ({ subscriptionList,
         </Grid>
         <Grid item xs={12}>
             {subscriptionList?.subscribedCourses.length < 3 && <Box onClick={() => handleModeChange(1)}>
-                <Grid container style={subjectMode == 1 ? selectedStyle : unSelectedStyle} >
+                <Grid container style={subjectMode === 1 ? selectedStyle : unSelectedStyle} >
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Any One Subject</Box></Typography>
                     </Grid>
@@ -71,7 +71,7 @@ export const SubscriptionSubject = ({ subscriptionList,
                         <Box p={1}>
                             <Stack direction={{ xs: "column",sm:"row",md:"row", lg: "row" }} spacing={2}>
                                 {subjectList && subjectList.map((subject) => {
-                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode == 1 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
+                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode === 1 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
                                 })}
                             </Stack>
                         </Box>
@@ -81,7 +81,7 @@ export const SubscriptionSubject = ({ subscriptionList,
         </Grid>
         <Grid item xs={12}>
             {subscriptionList?.subscribedCourses.length < 2 && <Box onClick={() => handleModeChange(2)}>
-                <Grid container style={subjectMode == 2 ? selectedStyle : unSelectedStyle}>
+                <Grid container style={subjectMode === 2 ? selectedStyle : unSelectedStyle}>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Any Two Subjects</Box></Typography>
                     </Grid>
@@ -93,7 +93,7 @@ export const SubscriptionSubject = ({ subscriptionList,
                         <Box p={1}>
                             <Stack  direction={{ xs: "column",sm:"row",md:"row", lg: "row" }}  spacing={2}>
                                 {subjectList && subjectList.map((subject) => {
-                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode == 2 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
+                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode === 2 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
                                 })}
                                 {/* <Chip label="Mathematics" sx={{ color: '#ffffff', border: '3px solid #838BA1', backgroundColor: '#838BA1', fontSize: '12px', fontFamily: "Urbanist", fontWeight: 600 }} />
                             <Chip label="English" variant="outlined" sx={{ color: '#ffffff', border: '3px solid#838BA1', backgroundColor: '#838BA1', fontSize: '12px', fontFamily: "Urbanist", fontWeight: 600 }} />
@@ -106,7 +106,7 @@ export const SubscriptionSubject = ({ subscriptionList,
         </Grid>
         <Grid item xs={12}>
             {subscriptionList?.subscribedCourses.length < 1 && <Box onClick={() => handleModeChange(3)}>
-                <Grid container style={subjectMode == 3 ? selectedStyle : unSelectedStyle}>
+                <Grid container style={subjectMode === 3 ? selectedStyle : unSelectedStyle}>
                     <Grid item xs={6} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>All Three Subjects</Box></Typography>
                     </Grid>
@@ -118,7 +118,7 @@ export const SubscriptionSubject = ({ subscriptionList,
                         <Box p={1}>
                             <Stack  direction={{ xs: "column",sm:"row",md:"row", lg: "row" }}  spacing={2}>
                                 {subjectList && subjectList.map((subject) => {
-                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode == 3 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
+                                    return (<Chip onClick={() => handleSubjectSelect(subject.id)} label={subject.name} sx={subscriptionList?.subscribedCourses.includes(subject.id) ? disabledChip : subjectMode === 3 && subjects?.includes(subject.id) ? selectdChip : unSelectedChip} />)
                                 })}
                             </Stack>
                         </Box>

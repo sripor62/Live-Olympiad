@@ -37,7 +37,7 @@ const SilverCard = () => {
             <Button onClick={handleResultClick}
               sx={{backgroundColor:activeButton === "result" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",
                   width:{xs:'30%',sm:'287px'},height:'44px',borderRadius:'0px 0px 10px 10px',
-                  marginLeft:{xs:'10%',sm:'29px'}}}>
+                  marginLeft:{xs:'10%',sm:'29%'}}}>
               <Typography 
                 style={{fontFamily:'urbanist',
                 fontSize:'18px',fontStyle:'normal',
@@ -50,7 +50,7 @@ const SilverCard = () => {
               sx={{backgroundColor:activeButton === "awards" ? "rgba(69, 69, 165, 0.3)": "rgba(69, 69, 165, 0.1)",
                     width:{xs:'50%',sm:'287px'},height:'44px',borderRadius:'0px 0px 10px 10px',
                     boxshadow:'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
-                    marginLeft:{xs:'8%',sm:'287px'}}}>
+                    marginLeft:{xs:'8%',sm:'1%'}}}>
               <Typography 
                 style={{fontFamily:'urbanist',
                 fontSize:'18px',fontStyle:'normal',

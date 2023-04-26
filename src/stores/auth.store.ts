@@ -7,7 +7,8 @@ let authStore = (set:any) => ({
   currentUserSubject: User,
   currentUser: User,
   UserObj: User,
-
+  reportData:{},
+  
   setCurrentUser: (userData: User) => {
     set({ currentUser: userData });
     const userDetails = JSON.stringify(userData);
@@ -21,6 +22,9 @@ let authStore = (set:any) => ({
     document.cookie = (AppConstants.SESSION_STORAGE_ITEMS.USER_INFO + "=logged-out;domain=" + environment.cookieDomain + "; path=/").trim();
     if (redirect) window.location.replace("/");
   },
+  setReportData: (reportData:any) => {
+    set({ reportData: reportData });
+  }
 });
 
 export default authStore;

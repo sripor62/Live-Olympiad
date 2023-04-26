@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { useStore } from "../../stores";
 import { useParams } from "react-router-dom";
 import { CustomSnackbar } from "../../components/CustomSnackbar";
+
 const Subscription = () => {
   const curentUser = useStore((state)=>state.currentUser)
   const currentUser = useStore((state) => state.currentUser);
@@ -32,9 +33,9 @@ const Subscription = () => {
   });
 
   const handleModeChange = (mode) => {
-    if (mode != subjectMode) {
+    if (mode !== subjectMode) {
       setSubjectMode(mode);
-      if (mode == 3) {
+      if (mode === 3) {
         setSubjects(subjectList.map((subject) => subject.id))
       } else {
         setSubjects([])
@@ -50,9 +51,9 @@ const Subscription = () => {
     if (subjectMode !== 3 && subjects.includes(subjectId)) {
       setSubjects(subjects.filter((subject) => subject !== subjectId));
     } else {
-      if (subjectMode == 1) {
+      if (subjectMode === 1) {
         setSubjects([subjectId])
-      } else if (subjectMode == 2) {
+      } else if (subjectMode === 2) {
         if (subjects.length < 2) {
           setSubjects([...subjects, subjectId])
         } else {
@@ -63,7 +64,7 @@ const Subscription = () => {
   }
 
   function loadRazorpay() {
-    if(subjectMode == 0 ){
+    if(subjectMode === 0 ){
       setSnakeBarProps({
         snackbarFlag: true,
         msz: "Please select a Subscription plan",
@@ -71,7 +72,7 @@ const Subscription = () => {
       });
       return;
     }
-    if (subjectMode == 2 && subjects.length !== 2){
+    if (subjectMode === 2 && subjects.length !== 2){
       setSnakeBarProps({
         snackbarFlag: true,
         msz: "Please select any two subject",
@@ -79,7 +80,7 @@ const Subscription = () => {
       });
       return;
     }
-    if (subjectMode == 1 && subjects.length !== 1){
+    if (subjectMode === 1 && subjects.length !== 1){
       setSnakeBarProps({
         snackbarFlag: true,
         msz: "Please select a subject",
