@@ -21,6 +21,7 @@ import SilverCard from '../designs/cards/silver';
 import BronzeCard from '../designs/cards/bronze';
 import Report from '../reports';
 import ParentPage from '../parentlog';
+import SignUp from '../pages/Auth/SignUp';
 
 export const routes = [
   {
@@ -109,5 +110,9 @@ export const routes = [
   {
     path:'/Parent',
     element:<ParentPage/>
-  }
+  },
+  {
+    path:'/SignUp',
+    element:<SignUp/>
+  },
 ];

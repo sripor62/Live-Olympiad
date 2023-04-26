@@ -3,6 +3,8 @@ import { responsiveStype } from "../beautifiers/responsive";
 import { AuthLayout } from "../designs/Auth/AuthLayout";
 import { AddCircle } from "@mui/icons-material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import SignUp from "../pages/Auth/SignUp";
 
 const childrenData =[{id: 1, name: "Aneysha Das", school: "Cambridge School", class: "V", section: "B" },  
                     { id: 2, name: "John Doe", school: "St. Mary's School", class: "VI", section: "A" },
@@ -15,6 +17,7 @@ const childrenData =[{id: 1, name: "Aneysha Das", school: "Cambridge School", cl
                     ]
 
 const ParentPage = () => {
+    const navigate = useNavigate();
     const [page, setPage] = useState(1);
     const PAGE_SIZE = 2;
     const startIndex =(page - 1) * PAGE_SIZE;
@@ -69,7 +72,7 @@ const ParentPage = () => {
                 <Typography sx={{fontFamily:'Inter',fontStyle:'normal',fontWeight:'400',
                     fontSize:'8px',lineHeight:'10px',color:'#FFFFFF',marginRight:'25%'}}>
                      Enter</Typography>
-                   <Button>
+                   <Button onClick={()=>{navigate('/')}}>
                     <img src='./images/Arrow5.png' alt='arrow'/>
                    </Button>
                 
@@ -84,7 +87,8 @@ const ParentPage = () => {
         onChange={handlePageChange}
         sx={{mt:2}}/>
         <Box sx={{width:'97px',height:'45px',color:'#FFFFFF',backgroundColor:'#F9BB47',boxShadow:'0px 4px 11px rgba(0, 0, 0, 0.25)',
-                borderRadius:'10px', marginTop:'10%',marginLeft:'6%',justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'column'}}>
+                borderRadius:'10px', marginTop:'10%',marginLeft:'6%',justifyContent:'center',alignItems:'center',display:'flex',
+                flexDirection:'column'}} onClick={()=>{navigate('/:index')}}>
             <AddCircle />
             <Typography sx={{fontFamily:'Inter',fontStyle:'normal',fontWeight:'700',
                         fontSize:'9px',lineHeight:'11px',color:'#FFFFFF',marginLeft:'5%',marginTop:'2%'}}>
