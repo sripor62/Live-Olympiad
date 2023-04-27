@@ -1,42 +1,64 @@
-import { Avatar, Box, Button, Grid, Pagination, Typography } from "@mui/material";
+import { Avatar, Box, Button, Grid, IconButton, Typography } from "@mui/material";
 import { responsiveStype } from "../beautifiers/responsive";
 import { AuthLayout } from "../designs/Auth/AuthLayout";
 import { AddCircle } from "@mui/icons-material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SignUp from "../pages/Auth/SignUp";
+import { CustomButton } from "../components/CustomButton";
+
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const childrenData =[{id: 1, name: "Aneysha Das", school: "Cambridge School", class: "V", section: "B" },  
                     { id: 2, name: "John Doe", school: "St. Mary's School", class: "VI", section: "A" },
                     { id: 3, name: "James", school: "Oxford", class: "IV", section: "C" },
                     { id: 4, name: "Tom Brown", school: "Harvard School", class: "III", section: "D" },
-                    { id: 5, name: "Sarah Lee", school: "Stanford School", class: "IV", section: "A" },
-                    { id: 6, name: "Peter Parker", school: "Midtown School of Science and Technology", class: "IX", section: "B" },
-                    { id: 7, name: "Bruce Wayne", school: "Gotham Academy", class: "X", section: "C" },
-                    { id: 8, name: "Tony Stark", school: "MIT", class: "XI", section: "D" },
-                    ]
+                    { id: 4, name: "Tom Cruise", school: "Harvard School", class: "II", section: "E" },
+                     ]
 
-const ParentPage = () => {
+const ParentPage = ( {logOutHandler}) => {
     const navigate = useNavigate();
     const [page, setPage] = useState(1);
     const PAGE_SIZE = 2;
     const startIndex =(page - 1) * PAGE_SIZE;
     const endIndex = startIndex + PAGE_SIZE;
+    const numPages = Math.ceil(childrenData.length / PAGE_SIZE);
+    const handleClickPrev = () => {
+        setPage((prevIndex) => prevIndex - 1);
+      };
+    
+      const handleClickNext = () => {
+        setPage((prevIndex) => prevIndex + 1);
+      };
 
-    const handlePageChange = (event, value) => {
-        setPage(value);
-    }
+      
+  
     const children = childrenData.slice(startIndex, endIndex);
     return(
     <AuthLayout responsiveStype={responsiveStype}>
-        <Box sx={{marginTop:'-10%',marginLeft:'-18%'}}>
+       <Box sx={{display:'flex',ml:2,mt:1}}>
+        <CustomButton  onClick={logOutHandler} btnText="LOGOUT"  variant="contained" 
+        sx={{ color: "black", borderRadius: "20px", width: '70px', 
+        height: { xs: "34px", lg: '36px' }, fontSize: { xs: "8px", lg: '12px' }, 
+        backgroundColor:"#F9BB47", fontWeight: 600,marginLeft:{xs:'80%',sm:'80%'} ,
+        marginTop:{xs:'-30%',sm:'-50%'}}}/>
+        </Box> 
+        <Box sx={{marginTop:{sm:'-10%'},marginLeft:{xs:'10%',sm:'-18%'}}}>
            <Typography sx={{fontFamily:'urbanist',fontStyle:'normal',fontWeight:'500',
                         fontSize:'22px',lineHeight:'26px',color:'#060606'}}>
             My Childrens</Typography> 
         </Box>
-        <Grid container spacing={2} sx={{marginTop:'6%',display:'flex',justifyContent:'space-between'}} >
+        <Box sx={{top: 0, marginLeft:'45%'}} >
+        <IconButton disabled={page === 1} onClick={handleClickPrev}>
+            <ChevronLeftIcon />
+         </IconButton>
+         <IconButton disabled={page === numPages } onClick={handleClickNext}>
+            <ChevronRightIcon />
+          </IconButton>
+        </Box>
+        <Grid container spacing={2} sx={{marginTop:'6%',marginLeft:{xs:'25%',sm:'-10%'},display:'flex',justifyContent:'space-between'}} >
         {children.map((child)=>(  
-            <Grid key={child.id}  > 
+            <Grid item key={child.id} > 
             <Box 
             sx={{backgroundColor:'#4545A5',width:'195px',
             height:'108px',
@@ -81,13 +103,9 @@ const ParentPage = () => {
         </Grid> 
         ))}
         </Grid>
-        <Pagination 
-        count={Math.ceil(childrenData.length/PAGE_SIZE)}
-        page={page}
-        onChange={handlePageChange}
-        sx={{mt:2}}/>
+        
         <Box sx={{width:'97px',height:'45px',color:'#FFFFFF',backgroundColor:'#F9BB47',boxShadow:'0px 4px 11px rgba(0, 0, 0, 0.25)',
-                borderRadius:'10px', marginTop:'10%',marginLeft:'6%',justifyContent:'center',alignItems:'center',display:'flex',
+                borderRadius:'10px', marginTop:'10%',marginLeft:{xs:'28%',sm:'6%'},justifyContent:'center',alignItems:'center',display:'flex',
                 flexDirection:'column'}} onClick={()=>{navigate('/:index')}}>
             <AddCircle />
             <Typography sx={{fontFamily:'Inter',fontStyle:'normal',fontWeight:'700',
