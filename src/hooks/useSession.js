@@ -5,8 +5,8 @@ import { environment } from "../environments/environment";
 const useSessionHelper = () => {
 
 
-    const getReportFilter = async () => {
-        let url = environment.sessionsUrl +`/sessions/reportsnew` ;
+    const getReportFilter = async (id) => {
+        let url = environment.sessionsUrl +`/sessions/reportsnew?userId=`+ id ;
         return await axiosInstance(false).get(url)
     }
     

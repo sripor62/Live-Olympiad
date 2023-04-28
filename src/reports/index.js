@@ -22,24 +22,21 @@ const colorsLight = {
   "wrong":"#ef9a9a",
 }
 const Report = () => {
- 
+  const currentUser = useStore((state) => state.currentUser);
   const navigate = useNavigate();
   const params = useParams();
   const userId = params.userId;
-  const { getReports, getPackage } = useStudent();
+  const { getPackage } = useStudent();
   const getReportFilter = useSessionHelper();
   let reportData = useStore((state) => state.reportData);
   const [newTestList, setNewTestList] = useState();
   const { data: packageData,isLoading } = useQuery(['Package', reportData?.packageId], () => getPackage(reportData?.packageId), { enabled: !!reportData?.packageId })
-  const { data: ReportData} = useQuery([`ReportData`],()=>getReports(),{enabled: true ,retry:false})
+  const { data: ReportData} = useQuery([`ReportData`],()=>getReportFilter(currentUser.id),{enabled: true ,retry:false})
+  
   const questionAna = () => {
     console.log("tsetsss", reportData?.questions)
     reportData?.questions.map((item) => <div>{item}</div>)
   }
-
-  useEffect(()=>{
-    console.log('reportData',reportData);
-  },[reportData])
   useEffect(() => {
 
     if (ReportData && packageData?.data) {
@@ -52,19 +49,38 @@ const Report = () => {
       console.log("neww", newList)
       setNewTestList(newList)
     }
+    console.log('Package',data)
     
   }, [ReportData, packageData, reportData?.questions])
 
     const [data, setData] = useState([]);
-    
-    const [ReportData2, setReportData2] = useState([]);
-
+   
     useEffect(() => {
-        getReportFilter(userId)
-        .then(response => response.json())
-        .then(data => setReportData2(data))
-        .catch(error => console.error(error));
-    },[data, getReportFilter, userId]);
+      
+      console.log('Filter Data',ReportData?.data?.data[0]);
+      // let FilterData = ReportData?.data?.data[0];
+    },[ReportData]);
+
+    const table = document.createElement('table');
+    const thead = table.createTHead();
+    const tbody = table.createTBody();
+
+    const row = thead.insertRow();
+    row.insertCell().textContent = 'userID';
+    row.insertCell().textContent = 'userName';
+    row.insertCell().textContent = 'Grade';
+    row.insertCell().textContent = 'Score';
+
+    for (const report of data) {
+      const row = tbody.insertRow();
+      row.insertCell().textContent = report.userId;
+      row.insertCell().textContent = report.userName;
+      row.insertCell().textContent = report.grade;
+      row.insertCell().textContent = report.score;
+    }
+
+    document.body.appendChild(table);
+
   return (
     
     <HomeLayout loader={isLoading}>
@@ -78,20 +94,22 @@ const Report = () => {
             mb:"20px"
           }}
         >
-        {ReportData2.map((item) => (
-          <Box key={item.userId} className="result" >
+        
+          <Box  className="result" >
             <Box>
-              Student Name: {item.userName}
+              Student Name: {ReportData?.data?.data[0].userName}
             </Box>
             <Box>
-              Class: {item.grade[0]}
+              Class: {ReportData?.data?.data[0].grade[0]}
             </Box>
             <Box>
-              Score: {item.score}
+              Score: {ReportData?.data?.data[0].score}
             </Box>
-           
+            <Box>
+              Total Time: {ReportData?.data?.data[0].score}
+            </Box>
           </Box>
-            ))}
+           
         </Box>
         <Box onClick={questionAna} sx={{width:"100%",display:'flex',alignItems:'center',flexDirection:'column'}}>
           <h4>Question wise Analysis : </h4><br /><br />
