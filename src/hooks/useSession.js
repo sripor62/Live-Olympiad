@@ -6,7 +6,7 @@ const useSessionHelper = () => {
 
 
     const getReportFilter = async () => {
-        let url = environment.sessionsUrl +`/sessions/reportsnew`;
+        let url = environment.sessionsUrl +`/sessions/reportsnew` ;
         return await axiosInstance(false).get(url)
     }
     

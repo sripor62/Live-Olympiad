@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, Grid } from '@mui/material'
+import { Box, Button, Grid, Typography } from '@mui/material'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
+import { CustomButton } from './CustomButton';
 const Sidebar = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -74,6 +75,14 @@ const Sidebar = (props) => {
                         </Grid>
                     </Button>
                     */}
+                    
+                    <Box sx={{display:'flex',ml:2,mt:1}}>
+                        <CustomButton  onClick={()=>{navigate('/Parent')}} btnText="Switch Child"  variant="contained" 
+                        sx={{ color: "#FFFFFF", borderRadius: "10px", width:'180px', 
+                        height: { xs: "34px", lg: '39px' }, fontSize: { xs: "8px", lg: '12px' }, fontFamily:'urbanist',
+                        backgroundColor:"#F9BB47", fontWeight: 700,marginLeft:{xs:'80%',sm:'80%'} ,
+                        marginTop:{xs:'0%',sm:'20rem'}}}/>
+                    </Box>
                 </Grid>
             </Grid>
             </Grid>

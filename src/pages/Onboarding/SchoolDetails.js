@@ -34,7 +34,7 @@ const SchoolDetails = () => {
       grade: pageData?.grade,
     };
     afterValidate(afterValidateCallBack);
-    if (pdata.school != "" && pdata.grade != undefined) {
+    if (pdata.school !== "" && pdata.grade !== undefined) {
       addEducationMutate({ data: pdata, userId: userId });
       navigate("/personaldetails/" + userId);
     }

@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import { useStore } from '../stores'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useStudent } from '../hooks/useStudent';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import WarningIcon from '@mui/icons-material/Warning';
@@ -22,8 +22,10 @@ const colorsLight = {
   "wrong":"#ef9a9a",
 }
 const Report = () => {
-
+ 
   const navigate = useNavigate();
+  const params = useParams();
+  const userId = params.userId;
   const { getReports, getPackage } = useStudent();
   const getReportFilter = useSessionHelper();
   let reportData = useStore((state) => state.reportData);
@@ -54,13 +56,15 @@ const Report = () => {
   }, [ReportData, packageData, reportData?.questions])
 
     const [data, setData] = useState([]);
-  
+    
+    const [ReportData2, setReportData2] = useState([]);
+
     useEffect(() => {
-        getReportFilter()
+        getReportFilter(userId)
         .then(response => response.json())
-        .then(data => setData(data))
+        .then(data => setReportData2(data))
         .catch(error => console.error(error));
-    },[data]);
+    },[data, getReportFilter, userId]);
   return (
     
     <HomeLayout loader={isLoading}>
@@ -74,7 +78,7 @@ const Report = () => {
             mb:"20px"
           }}
         >
-        {data.map((item) => (
+        {ReportData2.map((item) => (
           <Box key={item.userId} className="result" >
             <Box>
               Student Name: {item.userName}
