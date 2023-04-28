@@ -2,8 +2,9 @@ import { Box, Grid, Typography } from "@mui/material";
 import "./card.css";
 import { useNavigate } from "react-router-dom";
 import React from 'react';
-const Card1 = () => {
+const Card1 = ({packageId}) => {
   const navigate = useNavigate();
+
     return(
       <Box sx={{ flexGrow: 1, marginLeft: { xs: 0, sm: '10px' }, width: { xs: '100%', sm: '100%' } }}>
         <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
@@ -79,7 +80,7 @@ const Card1 = () => {
                     <img
                       src="images/Arrow5.png"
                       alt="Arrow"
-                      onClick={() => {navigate('/GoldCard')}}
+                      onClick={() => {navigate('/GoldCard?packageId='+ packageId)}}
                       sx={{ color: '#FFFFFF', fontSize: { xs: "24px", sm: "42px" } }}
                     />
                   </div>

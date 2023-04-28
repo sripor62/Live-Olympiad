@@ -1,6 +1,11 @@
 import { Box, Button, Grid, Typography } from "@mui/material"
 import React from 'react';
+import { useQuery } from "react-query";
+import useSessionHelper from "../../../hooks/useSession";
 const GoldResult = () => {
+  const {StudentsReport} = useSessionHelper();
+  const {data : StudentRep }= useQuery([`StudentReport`],()=>StudentsReport(),{enabled: true ,retry:false})
+
 return(
     
     <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>

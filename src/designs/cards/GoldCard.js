@@ -2,12 +2,24 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import "./card.css";
 import HomeLayout from "../Dashboard/HomeLayout";
 import { useNavigate } from "react-router-dom";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import GoldHeader from "./headers/Gold";
 import GoldResult from "./Results/goldRes";
 import GoldAward from "./awardsAndCertf/GoldAward";
 import React from 'react';
+import useSessionHelper from "../../hooks/useSession";
+import { useQuery } from "react-query";
 const GoldCard = () => {
+  const query = new URLSearchParams(window.location.search);
+  const packageId = query.get('packageId');
+  const {StudentsReport} = useSessionHelper();
+  const {data : StudentRep }= useQuery([`StudentReport`,packageId],()=>StudentsReport(packageId),{enabled: !!packageId,retry:false});
+  
+  useEffect(()=>{
+    console.log('Student Report');
+
+  },[StudentRep]);
+  
     const navigate = useNavigate();
     const [activeButton, setActiveButton]=useState('result');
     

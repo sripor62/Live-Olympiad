@@ -8,4 +8,5 @@ export const environment = {
   institutionDomain:'K12',
   sessionsUrl:"https://sessions.digishaala.com",  
   testAppUrl:"https://tab.liveolympiad.org",
+  contentUrl:"https://content.liveolympiad.org",
 };

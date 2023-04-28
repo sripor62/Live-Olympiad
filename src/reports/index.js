@@ -27,12 +27,12 @@ const Report = () => {
   const params = useParams();
   const userId = params.userId;
   const { getPackage } = useStudent();
-  const getReportFilter = useSessionHelper();
+  const { StudentReport, getReportFilter} = useSessionHelper();
   let reportData = useStore((state) => state.reportData);
   const [newTestList, setNewTestList] = useState();
   const { data: packageData,isLoading } = useQuery(['Package', reportData?.packageId], () => getPackage(reportData?.packageId), { enabled: !!reportData?.packageId })
   const { data: ReportData} = useQuery([`ReportData`],()=>getReportFilter(currentUser.id),{enabled: true ,retry:false})
-  
+  const {data: StudentRep} = useQuery([ `StudentReport`],()=> StudentReport(ReportData?.packageId),{enabled: true ,retry:false})
   const questionAna = () => {
     console.log("tsetsss", reportData?.questions)
     reportData?.questions.map((item) => <div>{item}</div>)
@@ -48,38 +48,21 @@ const Report = () => {
       })
       console.log("neww", newList)
       setNewTestList(newList)
+      
     }
-    console.log('Package',data)
+    console.log('Package Data',packageData?.data)
     
   }, [ReportData, packageData, reportData?.questions])
+  
+    useEffect(()=>{
+      console.log('Students Report')
+    },[StudentRep]);
 
-    const [data, setData] = useState([]);
-   
     useEffect(() => {
       
       console.log('Filter Data',ReportData?.data?.data[0]);
       // let FilterData = ReportData?.data?.data[0];
     },[ReportData]);
-
-    const table = document.createElement('table');
-    const thead = table.createTHead();
-    const tbody = table.createTBody();
-
-    const row = thead.insertRow();
-    row.insertCell().textContent = 'userID';
-    row.insertCell().textContent = 'userName';
-    row.insertCell().textContent = 'Grade';
-    row.insertCell().textContent = 'Score';
-
-    for (const report of data) {
-      const row = tbody.insertRow();
-      row.insertCell().textContent = report.userId;
-      row.insertCell().textContent = report.userName;
-      row.insertCell().textContent = report.grade;
-      row.insertCell().textContent = report.score;
-    }
-
-    document.body.appendChild(table);
 
   return (
     
@@ -106,7 +89,7 @@ const Report = () => {
               Score: {ReportData?.data?.data[0].score}
             </Box>
             <Box>
-              Total Time: {ReportData?.data?.data[0].score}
+              Total Time: {ReportData?.totalDurationMin}
             </Box>
           </Box>
            
