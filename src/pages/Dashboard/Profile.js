@@ -67,7 +67,7 @@ const Profile = (props) => {
 		section: "",
 		schoolCode: "",
 	});
-
+	const studentId = sessionStorage.getItem("current_student_id");
 	const [schoolsList, setSchoolsList] = useState([]);
 	const [schoolsId, setSchoolsId] = useState("");
 	const [subscribedSubjects, setSubscribedSubjects] = useState();
@@ -80,25 +80,11 @@ const Profile = (props) => {
 		data: profileData,
 		isLoading: contentLoader,
 		refetch,
-	} = useQuery([`ProfileData`], () => getProfile(curentUser?.id), {
+	} = useQuery([`ProfileData`], () => getProfile(studentId), {
 		enabled: true,
 		retry: false,
 	});
 
-	var currentSchool = [];
-	useEffect(() => {
-		let pincode = ("" + profileData?.data.data.schoolCode).substring(0, 6);
-		setPinCode(pincode);
-		var pdata = {
-			...profileData?.data.data,
-		};
-
-		currentSchool = schoolData?.data?.data?.filter((item) => {
-			return profileData?.data?.data?.school === item.id;
-		});
-
-		setPageData({ ...pageData, ...pdata });
-	}, [profileData]);
 	const {
 		data: schoolsData,
 		isLoading: schoolsLoader,
@@ -115,6 +101,23 @@ const Profile = (props) => {
 		enabled: !!pinCode,
 		retry: false,
 	});
+
+	useEffect(() => {
+		if (schoolsData && profileData) {
+			var pdata = {
+				...profileData?.data.data,
+			};
+			let currentSchool = schoolsData?.data?.data?.filter((item) => {
+				return profileData?.data?.data?.schoolId === item._id;
+			});
+			if (currentSchool) {
+				setCurrentSchool(currentSchool[0]);
+				setPinCode(currentSchool[0].pincode);
+			}
+			console.log(currentSchool);
+			setPageData({ ...pageData, ...pdata });
+		}
+	}, [profileData, schoolsData]);
 
 	useEffect(() => {
 		schoolFetch();
@@ -223,7 +226,7 @@ const Profile = (props) => {
 				schoolsList={schoolsList}
 				setSchoolsList={setSchoolsList}
 				paymentInfo={paymentInfo}
-				currentSchool={currentSchool}
+				currentSchool={schoolCurrent}
 				grades={grades?.data?.data}
 			/>
 		</HomeLayout>

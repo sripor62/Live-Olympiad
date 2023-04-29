@@ -7,7 +7,7 @@ export const useSchool = () => {
 	let hostname = window.location.hostname;
 	let id = hostname === "tech.digishaala.com" ? "Tech" : "K12";
 	const getSchools = async () => {
-		const endpoint = `${environment.schoolsBaseUrl}/${Endpoints.SCHOOLS}/search?fields=name`;
+		const endpoint = `${environment.schoolsBaseUrl}/${Endpoints.SCHOOLS}/search?fields=name,pincode`;
 		return await axiosInstance().get(endpoint);
 	};
 	const getSchool = async (pincode) => {
