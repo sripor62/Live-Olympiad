@@ -43,12 +43,12 @@ const ParentPage = ( {logOutHandler}) => {
         backgroundColor:"#F9BB47", fontWeight: 600,marginLeft:{xs:'80%',sm:'80%'} ,
         marginTop:{xs:'-30%',sm:'-50%'}}}/>
         </Box> 
-        <Box sx={{marginTop:{sm:'-10%'},marginLeft:{xs:'10%',sm:'-18%'}}}>
+        <Box sx={{marginTop:{sm:'-10%'},marginLeft:{xs:'28%',sm:'-18%'}}}>
            <Typography sx={{fontFamily:'urbanist',fontStyle:'normal',fontWeight:'500',
                         fontSize:'22px',lineHeight:'26px',color:'#060606'}}>
             My Childrens</Typography> 
         </Box>
-        <Box sx={{top: 0, marginLeft:'45%'}} >
+        <Box sx={{top: 0, marginLeft:{xs:'35%',sm:'45%'}}} >
         <IconButton disabled={page === 1} onClick={handleClickPrev}>
             <ChevronLeftIcon />
          </IconButton>
@@ -105,7 +105,7 @@ const ParentPage = ( {logOutHandler}) => {
         </Grid>
         
         <Box sx={{width:'97px',height:'45px',color:'#FFFFFF',backgroundColor:'#F9BB47',boxShadow:'0px 4px 11px rgba(0, 0, 0, 0.25)',
-                borderRadius:'10px', marginTop:'10%',marginLeft:{xs:'28%',sm:'6%'},justifyContent:'center',alignItems:'center',display:'flex',
+                borderRadius:'10px', marginTop:'10%',marginLeft:{xs:'33%',sm:'6%'},justifyContent:'center',alignItems:'center',display:'flex',
                 flexDirection:'column'}} onClick={()=>{navigate('/:index')}}>
             <AddCircle />
             <Typography sx={{fontFamily:'Inter',fontStyle:'normal',fontWeight:'700',

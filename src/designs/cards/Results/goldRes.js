@@ -4,12 +4,38 @@ import { useQuery } from "react-query";
 import useSessionHelper from "../../../hooks/useSession";
 const GoldResult = () => {
   const {StudentsReport} = useSessionHelper();
-  const {data : StudentRep }= useQuery([`StudentReport`],()=>StudentsReport(),{enabled: true ,retry:false})
+  const {data : StudentRep }= useQuery([`StudentReport`],()=>StudentsReport(),{enabled: true ,retry:false});
+  const StudentReport= [ {
+    correct: "13",
+    incorrect: "14",
+    total: "30",
+    rank: "47",
+    score: "102",
+    isGold: "false",
+    isSilver: "false",
+    isTopper: "false",
+    percentile: "50",
+    
+ maxScore: "282",
+ packageReport: {
+    avg: {
+        rank: "62",
+        score: "85.77777777777777",
+        percentile: "50"
+    },
+    top: {
+        rank: "27",
+        score: "125",
+        percentile: "100"
+    }
+}
+}]
 
 return(
     
     <Grid container spacing={1} minHeight={{ xs: 160, sm: 240 }}>
-    <Grid item xs={12} sm={12}>
+    {StudentReport.map((child)=>(
+    <Grid item xs={12} sm={12}  key={child.id}>
     <Box sx={{marginTop:{xs:'0%',sm:'-10%'},marginLeft:{xs:'-90%',sm:'1%'},display:"flex",flexDirection:'column'}}>
     <Typography 
           style={{fontFamily:'urbanist',
@@ -111,7 +137,7 @@ return(
       </Typography>
       </Box>
       </Box>
-    
+      
     <Box sx={{marginRight:{xs:'75%',sm:'45%'},marginTop:{xs:'30%',sm:"-10%"},display:'flex',flexDirection:'column',alignItems:'right'}}> 
       <Box  display="flex" justifyContent='right' alignItems="right">
       <Typography 
@@ -275,6 +301,7 @@ return(
     
     
     </Grid>
+    ))}
     </Grid>    
   
      
