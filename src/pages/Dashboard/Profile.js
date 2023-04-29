@@ -148,7 +148,7 @@ const Profile = (props) => {
 			section: pageData.section,
 		};
 		afterValidate(afterValidateCallBack);
-		addProfileMutate({ data: pdata });
+		addProfileMutate({ ...pdata });
 	};
 
 	const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
