@@ -56,7 +56,7 @@ const ParentPage = ( {logOutHandler}) => {
             <ChevronRightIcon />
           </IconButton>
         </Box>
-        <Grid container spacing={2} sx={{marginTop:'6%',marginLeft:{xs:'25%',sm:'-10%'},display:'flex',justifyContent:'space-between'}} >
+        <Grid container spacing={1} sx={{marginTop:'6%',marginLeft:{xs:'25%',sm:'-10%'},display:'flex',justifyContent:'space-between',width:{xs:'50%',sm:'100%'}}} >
         {children.map((child)=>(  
             <Grid item key={child.id} > 
             <Box 
