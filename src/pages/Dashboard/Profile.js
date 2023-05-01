@@ -67,7 +67,7 @@ const Profile = (props) => {
 		section: "",
 		schoolCode: "",
 	});
-	const studentId = sessionStorage.getItem("current_student_id");
+	const student = JSON.parse(sessionStorage.getItem("current_student"));
 	const [schoolsList, setSchoolsList] = useState([]);
 	const [schoolsId, setSchoolsId] = useState("");
 	const [subscribedSubjects, setSubscribedSubjects] = useState();
@@ -80,7 +80,7 @@ const Profile = (props) => {
 		data: profileData,
 		isLoading: contentLoader,
 		refetch,
-	} = useQuery([`ProfileData`], () => getProfile(studentId), {
+	} = useQuery([`ProfileData`], () => getProfile(student?._id), {
 		enabled: true,
 		retry: false,
 	});
@@ -131,7 +131,7 @@ const Profile = (props) => {
 
 	const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery(
 		[`SubscriptionData`],
-		() => getSubscriptions(curentUser?.id),
+		() => getSubscriptions(student?._id),
 		{ enabled: true, retry: false }
 	);
 	useEffect(() => {

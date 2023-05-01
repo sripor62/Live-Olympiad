@@ -101,8 +101,8 @@ const ParentPage = ({ logOutHandler }) => {
 		}
 	};
 
-	const onHandleClickNavigate = async (id) => {
-		sessionStorage.setItem("current_student_id", id);
+	const onHandleClickNavigate = async (child) => {
+		sessionStorage.setItem("current_student", JSON.stringify(child));
 		navigate("/dashboard");
 	};
 
@@ -281,7 +281,7 @@ const ParentPage = ({ logOutHandler }) => {
 								</Typography>
 								<Button
 									onClick={() => {
-										onHandleClickNavigate(child._id);
+										onHandleClickNavigate(child);
 									}}
 								>
 									<img src="./images/Arrow5.png" alt="arrow" />
