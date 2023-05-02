@@ -20,7 +20,7 @@ const colors = {
     "wrong":"#ef9a9a",
   }
 
-  export const Reports = (props) => {
+export const ReportsLayout = (props) => {
   return (
     <HomeLayout loader={props.isLoading}>
         <Paper sx={{m:"50px",width:"100%",display:'flex',justifyContent:'center',flexDirection:'column'}}>
