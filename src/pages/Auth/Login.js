@@ -59,7 +59,7 @@ export default function Login() {
 				type: "success",
 			});
 			setCurrentUser(res.data?.data);
-			navigate("/Parent");
+			navigate("/dashboard");
 		} else {
 			if (
 				environment.env !== "school" &&

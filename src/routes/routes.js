@@ -19,9 +19,9 @@ import Booklet from '../pages/Dashboard/Booklet';
 import GoldCard from '../designs/cards/GoldCard';
 import SilverCard from '../designs/cards/silver';
 import BronzeCard from '../designs/cards/bronze';
-import Report from '../reports';
-import ParentPage from '../parentlog';
 import SignUp from '../pages/Auth/SignUp';
+import ParentView from '../pages/ParentView';
+import ReportView from '../pages/ReportView';
 
 export const routes = [
   {
@@ -105,11 +105,11 @@ export const routes = [
   },
   {
     path:'/Report',
-    element:<Report/>
+    element:<ReportView />
   },
   {
     path:'/Parent',
-    element:<ParentPage/>
+    element:<ParentView />
   },
   {
     path:'/SignUp',

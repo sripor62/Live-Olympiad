@@ -49,13 +49,13 @@ const Sidebar = (props) => {
                             </Box>
                         </Grid>
                     </Button>
-                    <Button onClick={() => {navigate("/subscription")}}>
+                    {/* <Button onClick={() => {navigate("/subscription")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><WorkspacePremiumOutlinedIcon sx={{color:(page === 2) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
                                 <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 2) ? "#FCBD42": "#1E232C",textTransform:"none"  }}>Subscriptions</Box>
                             </Box>
                         </Grid>
-                    </Button>
+                    </Button> */}
                     {/*
                     <Button onClick={() => {navigate("/schedule")}}>
                         <Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><CalendarMonthOutlinedIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
@@ -75,14 +75,14 @@ const Sidebar = (props) => {
                         </Grid>
                     </Button>
                     */}
-                    
+{/*                     
                     <Box sx={{display:'flex',ml:2,mt:1}}>
                         <CustomButton  onClick={()=>{navigate('/Parent')}} btnText="Switch Child"  variant="contained" 
                         sx={{ color: "#FFFFFF", borderRadius: "10px", width:'180px', 
                         height: { xs: "34px", lg: '39px' }, fontSize: { xs: "8px", lg: '12px' }, fontFamily:'urbanist',
                         backgroundColor:"#F9BB47", fontWeight: 700,marginLeft:{xs:'80%',sm:'80%'} ,
                         marginTop:{xs:'0%',sm:'20rem'}}}/>
-                    </Box>
+                    </Box> */}
                 </Grid>
             </Grid>
             </Grid>

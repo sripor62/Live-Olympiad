@@ -13,18 +13,18 @@ export const DashboardLayout = (props) => {
 			<Grid item p={2} xs={12} sm={12} md={16} lg={12}>
 				<Typography variant="h6">
 					Olympiads
-					<Button
+					{/* <Button
 						sx={{ backgroundColor: "beige", color: "black", marginLeft: "80%" }}
 						onClick={() => {
 							navigate("/Report");
 						}}
 					>
 						Details Reports
-					</Button>
+					</Button> */}
 					<Card />
 				</Typography>
 			</Grid>
-			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
+			{/* <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
 				<Typography variant="h6">Practice</Typography>
 				<Grid container mb={5} alignItems="center">
 					<Grid item xs={12} md={12} lg={8}>
@@ -141,20 +141,20 @@ export const DashboardLayout = (props) => {
 								/>
 							);
 						})}
-			</Grid>
-			<Grid
+			</Grid> */}
+			{/* <Grid
 				item
 				p={2}
 				md={4}
 				lg={5}
 				sx={{ display: { xs: "none", sm: "none", md: "block", lg: "block" } }}
 			>
-				{/* <UpgradeBox />
-            <KnowledgeTree /> */}
+				<UpgradeBox />
+            <KnowledgeTree />
 				<Grid item xs={12} sm={12} md={12} lg={12}>
 					<Card5 />
 				</Grid>
-			</Grid>
+			</Grid> */}
 		</Grid>
 	);
 };
