@@ -207,7 +207,7 @@ return(
         </Box>
     </Box>
     <Box sx={{borderRadius:'40px', border:'1px solid #838BA1', width:'83px',
-            height:'233px',  marginLeft:{xs:'52.5%',sm:'66%'},marginTop:{xs:'-62.5%',sm:'-18.5%'}}}>
+            height:'233px',  marginLeft:{xs:'52.5%',sm:'66%'},marginTop:{xs:'-62.5%',sm:'-18.5%',lg:"-19.6%"}}}>
     <Box  marginTop="9%" display="flex" justifyContent='center' alignItems="center" flexDirection='column'>
       <Typography 
             style={{fontFamily:'urbanist',
@@ -253,7 +253,7 @@ return(
         </Box>
     </Box>
     <Box sx={{borderRadius:'40px', border:'1px solid #838BA1', width:'83px',
-              height:'233px', marginLeft:{xs:'76%',sm:'74%'},marginTop:{xs:'-62%',sm:'-18.5%'}}}>
+              height:'233px', marginLeft:{xs:'76%',sm:'74%'},marginTop:{xs:'-62%',sm:'-18.5%',lg:"-19.6%"}}}>
     <Box  marginTop="9%" display="flex" justifyContent='center' alignItems="center" flexDirection='column'>
       <Typography 
             style={{fontFamily:'urbanist',

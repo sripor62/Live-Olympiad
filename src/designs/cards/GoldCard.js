@@ -69,18 +69,21 @@ const GoldCard = () => {
                       Awards & Certificates  
               </Typography>
             </Button>
-            <Button startIcon={<img src="images/eye.png" alt="eye" />} 
+            <Button 
                     sx={{width:'151px',height:'36px',
                     borderRadius:'10px 10px 10px 10px',border:'1px solid black',
                     marginLeft:{xs:'30%',sm:'70px'},
-                    marginTop:'18px'}}>
+                    marginTop:'18px', backgroundColor: "beige", color: "black"}}
+                    onClick={() => {
+                      navigate("/Report");
+                    }}>
              
               <Typography 
                 style={{fontFamily:'urbanist',
-                fontSize:'18px',fontStyle:'normal',
-                fontWeight:'500',lineHeight:'22px',
+                fontSize:'14px',fontStyle:'normal',
+                fontWeight:'700',lineHeight:'22px',
                 color:'#000000'}}>
-                      VIEW TEST
+                      Detailed Reports
               </Typography>
             </Button>
          
