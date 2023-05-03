@@ -36,8 +36,8 @@ const GoldHeader= () => {
                         background:'#FFFFFF',borderRadius:'15px',
                         width:'48px',height:'48px',alignItems:'center',
                         justifyContent:'center',display:'flex',
-                        flexDirection:'column',marginTop: { xs: "-16%", sm: "-9%" },
-                        marginLeft: { xs: "30%", sm: "48%" },
+                        flexDirection:'column',marginTop: { xs: "-16%", sm: "-9%",lg:"-10%" },
+                        marginLeft: { xs: "30%", sm: "48%",lg:"32%" },
                         position: "relative",
                         zIndex: 1,
                         [theme.breakpoints.down("xs")]: {
@@ -89,6 +89,7 @@ const GoldHeader= () => {
                       fontWeight:'500',lineHeight: { xs: "2px", sm: "12px" },
                       marginTop: { xs: "-5px", sm: "-1%" },
                       marginBottom: { xs: "2px", sm: 0 },
+                      padding:8,
                       color:'#FFFFFF'}}>QUALIFYING STATUS</Typography>
                     <Box sx={{ marginTop: { xs: "-5px", sm: "0%" } }}>
                       <img src="images/badge.png" alt="Badge" />
