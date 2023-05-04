@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 const GoldAward = () => {
   return (
-    <Grid container spacing={4} flexDirection="row" >
+    <Grid container spacing={4} flexDirection="row" padding={2}>
       <Grid
         item
         xs={12}
