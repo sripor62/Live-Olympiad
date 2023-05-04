@@ -36,15 +36,7 @@ const GoldCard = () => {
 
   return (
     <HomeLayout>
-      <Box
-       className="height_100"
-        sx={{
-          flexGrow: 0.5,
-          marginLeft: { xs: 0, sm: "10px" },
-          width: { xs: "100%", sm: "auto"},
-          m:1
-        }}
-      >
+      <Box sx={{ m: 1 }}>
         <Grid container spacing={1}>
           <Grid
             item
@@ -77,7 +69,7 @@ const GoldCard = () => {
                       width: { xs: "30%", sm: "287px" },
                       height: "44px",
                       borderRadius: "0px 0px 10px 10px",
-                      marginLeft: { xs: "10%", sm: "29%",lg:35 },
+                      marginLeft: { xs: "10%", sm: "29%", lg: 35 },
                     }}
                   >
                     <Typography
@@ -106,7 +98,7 @@ const GoldCard = () => {
                       height: "44px",
                       borderRadius: "0px 0px 10px 10px",
                       boxshadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25)",
-                      marginLeft: { xs: "6%", sm: "6px" ,lg:35}
+                      marginLeft: { xs: "6%", sm: "6px", lg: 35 },
                     }}
                   >
                     <Typography
@@ -154,9 +146,9 @@ const GoldCard = () => {
                   </Button>
                 </Grid>
               </Grid>
-              <Box mt={10}>
-                {activeButton === "result" && <GoldResult />}
-                {activeButton === "awards" && <GoldAward />}
+              <Box>
+                <Box mt={10}>{activeButton === "result" && <GoldResult />}</Box>
+                <Box>{activeButton === "awards" && <GoldAward />}</Box>
               </Box>
             </Box>
           </Grid>
