@@ -1,6 +1,7 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
-const GoldResult = ({ studentReport }) => {
+const GoldResult = ({ report }) => {
+	console.log(report);
 	return (
 		<Grid
 			container
@@ -62,9 +63,9 @@ const GoldResult = ({ studentReport }) => {
 												color: "#000000",
 											}}
 										>
-											{parseInt(studentReport?.correct ?? "0") +
-												parseInt(studentReport?.incorrect ?? "0")}
-											/{parseInt(studentReport?.total)}
+											{parseInt(report?.studentReport?.correct ?? "0") +
+												parseInt(report?.studentReport?.incorrect ?? "0")}
+											/{parseInt(report?.studentReport?.total)}
 										</Typography>
 									</Grid>
 								</Grid>
@@ -134,7 +135,7 @@ const GoldResult = ({ studentReport }) => {
 												color: "#000000",
 											}}
 										>
-											{parseInt(studentReport?.total)}
+											{parseInt(report?.studentReport?.total)}
 										</Typography>
 									</Grid>
 								</Grid>
@@ -190,8 +191,8 @@ const GoldResult = ({ studentReport }) => {
 												color: "#000000",
 											}}
 										>
-											{parseInt(studentReport?.correct ?? "0") +
-												parseInt(studentReport?.incorrect ?? "0")}
+											{parseInt(report?.studentReport?.correct ?? "0") +
+												parseInt(report?.studentReport?.incorrect ?? "0")}
 										</Typography>
 									</Grid>
 								</Grid>
@@ -247,9 +248,9 @@ const GoldResult = ({ studentReport }) => {
 												color: "#000000",
 											}}
 										>
-											{parseInt(studentReport?.total ?? "0") -
-												parseInt(studentReport?.correct ?? "0") -
-												parseInt(studentReport?.incorrect ?? "0")}
+											{parseInt(report?.studentReport?.total ?? "0") -
+												parseInt(report?.studentReport?.correct ?? "0") -
+												parseInt(report?.studentReport?.incorrect ?? "0")}
 										</Typography>
 									</Grid>
 								</Grid>
@@ -306,8 +307,8 @@ const GoldResult = ({ studentReport }) => {
 											}}
 										>
 											{(
-												(studentReport?.score * 100) /
-												studentReport?.maxScore
+												(report?.studentReport?.score * 100) /
+												report?.maxScore
 											).toFixed(2)}
 											%
 										</Typography>
@@ -483,7 +484,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.rank}
+													{report?.studentReport?.rank}
 												</Typography>
 											</Box>
 											<Box
@@ -509,8 +510,8 @@ const GoldResult = ({ studentReport }) => {
 													}}
 												>
 													{(
-														(studentReport?.score * 100) /
-														studentReport?.maxScore
+														(report?.studentReport?.score * 100) /
+														report?.maxScore
 													).toFixed(2)}
 												</Typography>
 											</Box>
@@ -536,7 +537,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.percentile}
+													{report?.studentReport?.percentile?.toFixed(1)}
 												</Typography>
 											</Box>
 										</Box>
@@ -607,7 +608,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.packageReport?.top?.rank}
+													{report?.packageReport?.top?.rank}
 												</Typography>
 											</Box>
 											<Box
@@ -633,8 +634,8 @@ const GoldResult = ({ studentReport }) => {
 													}}
 												>
 													{(
-														(studentReport?.packageReport?.top?.score * 100) /
-														studentReport?.maxScore
+														(report?.packageReport?.top?.score * 100) /
+														report?.maxScore
 													).toFixed(2)}
 												</Typography>
 											</Box>
@@ -660,7 +661,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.packageReport?.top?.percentile}
+													{report?.packageReport?.top?.percentile?.toFixed(1)}
 												</Typography>
 											</Box>
 										</Box>
@@ -730,7 +731,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.packageReport?.avg?.rank}
+													{report?.packageReport?.avg?.rank}
 												</Typography>
 											</Box>
 											<Box
@@ -756,8 +757,8 @@ const GoldResult = ({ studentReport }) => {
 													}}
 												>
 													{(
-														(studentReport?.packageReport?.avg?.score * 100) /
-														studentReport?.maxScore
+														(report?.packageReport?.avg?.score * 100) /
+														report?.maxScore
 													).toFixed(2)}
 												</Typography>
 											</Box>
@@ -783,7 +784,7 @@ const GoldResult = ({ studentReport }) => {
 														color: "#000000",
 													}}
 												>
-													{studentReport?.packageReport?.avg?.percentile}
+													{report?.packageReport?.avg?.percentile?.toFixed(1)}
 												</Typography>
 											</Box>
 										</Box>
