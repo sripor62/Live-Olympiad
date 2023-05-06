@@ -8,23 +8,28 @@ import useSessionHelper from "../../hooks/useSession";
 import { useStore } from "../../stores";
 
 const Card = () => {
-  
-  const currentUser = useStore((state) => state.currentUser);
-  const {getReportFilter} = useSessionHelper();
-  const {data:ReportFilter} = useQuery([`ReportData`],()=>getReportFilter(currentUser.id),{enabled: true ,retry:false})
-  
-  return (
-    <Grid container spacing={2}  sx={{ flexGrow: 1, marginLeft: "10px",width:'100%' }}>
-    {ReportFilter?.data?.data?.map((session)=>{
-      return( 
-        <Grid item xs={12} sm={6} md={3} >
+	const currentUser = useStore((state) => state.currentUser);
+	const { getReportFilter } = useSessionHelper();
+	const { data: ReportFilter } = useQuery(
+		[`ReportData`],
+		() => getReportFilter({ userId: currentUser.id }),
+		{ enabled: true, retry: false }
+	);
 
-        <Card1 packageId={session.packageId}/>
-
-        </Grid>
-      )
-    })}
-    {/* <Grid item xs={12} sm={6} md={3}>
+	return (
+		<Grid
+			container
+			spacing={2}
+			sx={{ flexGrow: 1, marginLeft: "10px", width: "100%" }}
+		>
+			{ReportFilter?.data?.data?.map((session) => {
+				return (
+					<Grid item xs={12} sm={6} md={3}>
+						<Card1 session={session} />
+					</Grid>
+				);
+			})}
+			{/* <Grid item xs={12} sm={6} md={3}>
       <Card2 />
     </Grid>
     <Grid item xs={12} sm={6} md={3}>
@@ -33,9 +38,8 @@ const Card = () => {
     <Grid item xs={12} sm={6} md={3}>
       <Card4 />
     </Grid> */}
-    
-  </Grid>
-  );
+		</Grid>
+	);
 };
 
 export default Card;
