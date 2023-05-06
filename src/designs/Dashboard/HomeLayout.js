@@ -7,21 +7,22 @@ import { FilterByStatus } from "../../components/FilterByStatus";
 import { UpgradeBox } from "./UpgradeBox";
 import { KnowledgeTree } from "./KnowledgeTreeBox";
 import { CustomListItem } from "../../components/CustomListItem";
+import { useStore } from "../../stores";
 
 export default function HomeLayout(props) {
-  return (
-      <Grid container>
-        
-      <Grid item xs={12} sm={12} md={12} lg={12}>
-        <Header logOutHandler={props.logOutHandler} />
-      </Grid>
+	const clearCurrentUser = useStore((state) => state.clearCurrentUser);
+	return (
+		<Grid container>
+			<Grid item xs={12} sm={12} md={12} lg={12}>
+				<Header logOutHandler={clearCurrentUser} />
+			</Grid>
 
-      <Grid item xs={12} sm={12} md={2} lg={2}>
-        <Sidebar />
-      </Grid>
-      <Grid item xs={12} sm={12} md={10} lg={10} padding={1} >
-        {props.children}
-      </Grid>
-    </Grid>
-  );
+			<Grid item xs={12} sm={12} md={2} lg={2}>
+				<Sidebar />
+			</Grid>
+			<Grid item xs={12} sm={12} md={10} lg={10} padding={1}>
+				{props.children}
+			</Grid>
+		</Grid>
+	);
 }
