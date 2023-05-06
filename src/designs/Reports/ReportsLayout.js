@@ -23,6 +23,7 @@ import {
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import HomeLayout from "../Dashboard/HomeLayout";
+import { useStore } from "../../stores";
 
 const colors = {
 	warning: "#fdd835",
@@ -35,7 +36,17 @@ const colorsLight = {
 	wrong: "#ef9a9a",
 };
 
+
+
 export const ReportsLayout = (props) => {
+	let reportData = useStore((state) => state.reportData);
+	const questionAna = () => {
+		console.log("tsetsss", props.reportData?.questions)
+		props.reportData?.questions.map((item) => <div>{item}</div>)
+	  }
+	  useEffect(()=>{
+		console.log(reportData);
+	  },[reportData])
 	return (
 		<HomeLayout loader={props.isLoading}>
 			<Paper
@@ -64,6 +75,7 @@ export const ReportsLayout = (props) => {
 					</Box>
 				</Box>
 				<Box
+				onClick={questionAna}
 					sx={{
 						width: "100%",
 						display: "flex",
