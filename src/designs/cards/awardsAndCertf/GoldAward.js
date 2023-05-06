@@ -1,32 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-const GoldAward = ({}) => {
-	const studentReport = {
-		correct: "13",
-		incorrect: "14",
-		total: "30",
-		rank: "47",
-		score: "102",
-		isGold: "false",
-		isSilver: "false",
-		isTopper: "false",
-		percentile: "50",
-
-		maxScore: "282",
-		packageReport: {
-			avg: {
-				rank: "62",
-				score: "85.77777777777777",
-				percentile: "50",
-			},
-			top: {
-				rank: "27",
-				score: "125",
-				percentile: "100",
-			},
-		},
-	};
-
+const GoldAward = ({ studentReport }) => {
 	return (
 		<Grid container spacing={4} flexDirection="row" padding={2}>
 			<Grid

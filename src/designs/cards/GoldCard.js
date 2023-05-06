@@ -9,6 +9,8 @@ import GoldAward from "./awardsAndCertf/GoldAward";
 import React from "react";
 import useSessionHelper from "../../hooks/useSession";
 import { useQuery } from "react-query";
+import SilverAward from "./awardsAndCertf/SilverAward";
+import BronzeAward from "./awardsAndCertf/BronzeAward";
 const GoldCard = () => {
 	const query = new URLSearchParams(window.location.search);
 	const packageId = query.get("packageId");
@@ -32,6 +34,32 @@ const GoldCard = () => {
 
 	const handleAwardsClick = () => {
 		setActiveButton("awards");
+	};
+
+	const studentReport = {
+		correct: "13",
+		incorrect: "14",
+		total: "30",
+		rank: "47",
+		score: "102",
+		isGold: "false",
+		isSilver: "false",
+		isTopper: "false",
+		percentile: "50",
+
+		maxScore: "282",
+		packageReport: {
+			avg: {
+				rank: "62",
+				score: "85.77777777777777",
+				percentile: "50",
+			},
+			top: {
+				rank: "27",
+				score: "125",
+				percentile: "100",
+			},
+		},
 	};
 
 	return (
@@ -166,12 +194,20 @@ const GoldCard = () => {
 				<Grid item lg={12} md={12} sm={12}>
 					<Box mt={10}>
 						{activeButton === "result" && (
-							<GoldResult studentsReport={StudentRep} />
+							<GoldResult studentReport={studentReport} />
 						)}
 					</Box>
 					<Box>
 						{activeButton === "awards" && (
-							<GoldAward studentsReport={StudentRep} />
+							<>
+								{studentReport?.isGold == "true" ? (
+									<GoldAward studentReport={studentReport} />
+								) : studentReport?.isSilver == "true" ? (
+									<SilverAward studentReport={studentReport} />
+								) : (
+									<></>
+								)}
+							</>
 						)}
 					</Box>
 				</Grid>
