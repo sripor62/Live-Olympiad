@@ -26,7 +26,9 @@ const Card = () => {
 	);
 
 	useEffect(() => {
-		sessionStorage.setItem("school", JSON.stringify(SchoolData?.data?.data));
+		if (SchoolData?.data?.data) {
+			sessionStorage.setItem("school", JSON.stringify(SchoolData?.data?.data));
+		}
 	}, [SchoolData]);
 
 	return (
@@ -35,13 +37,14 @@ const Card = () => {
 			spacing={2}
 			sx={{ flexGrow: 1, marginLeft: "10px", width: "100%" }}
 		>
-			{ReportFilter?.data?.data?.map((session) => {
-				return (
-					<Grid item xs={12} sm={6} md={3}>
-						<Card1 session={session} />
-					</Grid>
-				);
-			})}
+			{SchoolData &&
+				ReportFilter?.data?.data?.map((session) => {
+					return (
+						<Grid item xs={12} sm={6} md={3}>
+							<Card1 session={session} school={SchoolData?.data?.data} />
+						</Grid>
+					);
+				})}
 			{/* <Grid item xs={12} sm={6} md={3}>
       <Card2 />
     </Grid>

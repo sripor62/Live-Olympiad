@@ -3,9 +3,8 @@ import "./card.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { useStore } from "../../stores";
-const Card1 = ({ session }) => {
+const Card1 = ({ session, school }) => {
 	const navigate = useNavigate();
-	const school = JSON.parse(sessionStorage.getItem("school"));
 	return (
 		<Box
 			sx={{
