@@ -6,6 +6,8 @@ import Card4 from "../cards/card4";
 import { useQuery } from "react-query";
 import useSessionHelper from "../../hooks/useSession";
 import { useStore } from "../../stores";
+import { useSchool } from "../../hooks/useSchool";
+import { useEffect } from "react";
 
 const Card = () => {
 	const currentUser = useStore((state) => state.currentUser);
@@ -15,6 +17,17 @@ const Card = () => {
 		() => getReportFilter({ userId: currentUser.id }),
 		{ enabled: true, retry: false }
 	);
+
+	const { getSchoolById } = useSchool();
+	const { data: SchoolData } = useQuery(
+		[`School`, ReportFilter?.data?.data[0]],
+		() => getSchoolById(ReportFilter?.data?.data[0].schoolId),
+		{ enabled: !!ReportFilter, retry: false }
+	);
+
+	useEffect(() => {
+		sessionStorage.setItem("school", JSON.stringify(SchoolData?.data?.data));
+	}, [SchoolData]);
 
 	return (
 		<Grid

@@ -5,6 +5,7 @@ import React from "react";
 import { useStore } from "../../stores";
 const Card1 = ({ session }) => {
 	const navigate = useNavigate();
+	const school = JSON.parse(sessionStorage.getItem("school"));
 	return (
 		<Box
 			sx={{
@@ -47,7 +48,7 @@ const Card1 = ({ session }) => {
 										color: "#FFFFFF",
 									}}
 								>
-									Cambridge School
+									{school?.name}
 								</Typography>
 							</div>
 							<div className="right-section">
@@ -99,6 +100,10 @@ const Card1 = ({ session }) => {
 									src="images/Arrow5.png"
 									alt="Arrow"
 									onClick={() => {
+										sessionStorage.setItem(
+											"current_session",
+											JSON.stringify(session)
+										);
 										navigate("/GoldCard?packageId=" + session.packageId);
 									}}
 									sx={{

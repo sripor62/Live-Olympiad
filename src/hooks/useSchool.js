@@ -7,18 +7,18 @@ export const useSchool = () => {
 	let hostname = window.location.hostname;
 	let id = hostname === "tech.digishaala.com" ? "Tech" : "K12";
 	const getSchools = async () => {
-		const endpoint = `${environment.schoolsBaseUrl}/${Endpoints.SCHOOLS}/search?fields=name,pincode`;
+		const endpoint =
+			environment.userBaseUrl + Endpoints.SCHOOLS + `?resMode=SELF&type=${id}`;
 		return await axiosInstance().get(endpoint);
 	};
-	const getSchool = async (pincode) => {
-		const endpoint = `${environment.schoolsBaseUrl}/${
-			Endpoints.SCHOOLS
-		}/search?fields=name${pincode ? "&pincode=" + pincode : ""}`;
+	const getSchool = async (body) => {
+		const endpoint =
+			environment.userBaseUrl + Endpoints.SCHOOL_PINCODE + "/" + body;
 		return await axiosInstance().get(endpoint);
 	};
 
-	const getSchoolById = async (id) => {
-		const endpoint = `${environment.schoolsBaseUrl}/${Endpoints.SCHOOLS}/${id}`;
+	const getSchoolById = async (body) => {
+		const endpoint = environment.userBaseUrl + Endpoints.SCHOOL + "/" + body;
 		return await axiosInstance().get(endpoint);
 	};
 
