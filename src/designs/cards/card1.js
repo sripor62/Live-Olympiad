@@ -50,7 +50,7 @@ const Card1 = ({ session, school }) => {
 									{school?.name}
 								</Typography>
 							</div>
-							<div className="right-section">
+							{/* <div className="right-section">
 								<Typography
 									className="date"
 									sx={{
@@ -75,7 +75,7 @@ const Card1 = ({ session, school }) => {
 								>
 									Nov
 								</Typography>
-							</div>
+							</div> */}
 						</div>
 						<div className="card-footer">
 							<div className="bottom-section">

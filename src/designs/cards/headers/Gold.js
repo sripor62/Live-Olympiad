@@ -69,7 +69,7 @@ const GoldHeader = () => {
 				</Box>
 			</Grid>
 			<Grid Item lg={4} md={2} sm={2}>
-				<Box
+				{/* <Box
 					sx={{
 						background: "#FFFFFF",
 						borderRadius: "15px",
@@ -105,7 +105,7 @@ const GoldHeader = () => {
 					>
 						Nov
 					</Typography>
-				</Box>
+				</Box> */}
 			</Grid>
 			<Grid
 				Item
