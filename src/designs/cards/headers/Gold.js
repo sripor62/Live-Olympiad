@@ -10,6 +10,13 @@ const GoldHeader = () => {
 	const theme = useTheme();
 	const school = JSON.parse(sessionStorage.getItem("school"));
 	const session = JSON.parse(sessionStorage.getItem("current_session"));
+	let status = session?.isTopper
+		? "Global Topper"
+		: session?.isGold
+		? "National Merit"
+		: session?.isSilver
+		? "School Merit"
+		: "Participation";
 	return (
 		<Grid
 			container
@@ -128,9 +135,10 @@ const GoldHeader = () => {
 							fontWeight: "500",
 							color: "#FFFFFF",
 							width: "110px",
+							textAlign: "center",
 						}}
 					>
-						QUALIFYING STATUS
+						STATUS
 					</Typography>
 					<Box mt={1}>
 						<img src="images/badge.png" alt="Badge" />
@@ -143,9 +151,10 @@ const GoldHeader = () => {
 							fontStyle: "normal",
 							color: "#FFFFFF",
 							width: "160px",
+							textAlign: "center",
 						}}
 					>
-						Qualified for Nationals
+						{status}
 					</Typography>
 				</Box>
 			</Grid>
