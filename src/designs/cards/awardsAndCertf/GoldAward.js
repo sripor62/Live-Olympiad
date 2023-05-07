@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
-const GoldAward = ({ studentReport }) => {
+const GoldAward = ({ report }) => {
 	return (
 		<Grid container spacing={4} flexDirection="row" padding={2}>
 			<Grid
@@ -81,7 +81,8 @@ const GoldAward = ({ studentReport }) => {
 						color: "#000000",
 					}}
 				>
-					a <b>Samsung Smart Tab</b>for scoring <b>Rank 1</b>
+					a <b>Samsung Smart Tab</b>for scoring{" "}
+					<b>Rank {report?.studentReport?.rank}</b>
 				</Typography>
 				<Typography
 					style={{

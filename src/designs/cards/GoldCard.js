@@ -172,9 +172,9 @@ const GoldCard = () => {
 							{activeButton === "awards" && (
 								<>
 									{StudentRep.data?.data?.studentReport?.isGold ? (
-										<GoldAward studentReport={StudentRep.data} />
+										<GoldAward report={StudentRep.data?.data} />
 									) : StudentRep.data?.data?.studentReport?.isSilver ? (
-										<SilverAward studentReport={StudentRep.data} />
+										<SilverAward report={StudentRep.data?.data} />
 									) : (
 										<></>
 									)}
