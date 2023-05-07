@@ -138,7 +138,7 @@ const GoldHeader = () => {
 							textAlign: "center",
 						}}
 					>
-						STATUS
+						Certificate of
 					</Typography>
 					<Box mt={1}>
 						<img src="images/badge.png" alt="Badge" />
