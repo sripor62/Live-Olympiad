@@ -3,7 +3,8 @@ import "./card.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { useStore } from "../../stores";
-const Card1 = ({ session }) => {
+const Card1 = ({ session,schoolsData }) => {
+  console.log(session)
 	const navigate = useNavigate();
 	return (
 		<Box
