@@ -90,7 +90,6 @@ const Card1 = ({ session, school }) => {
 										fontStyle: "normal",
 										fontWeight: "400",
 										lineHeight: "12px",
-										display: { xs: "none", sm: "block" },
 									}}
 								>
 									Result

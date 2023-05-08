@@ -131,7 +131,7 @@ const GoldCard = () => {
 						</Typography>
 					</Button>
 				</Grid>
-				<Grid item lg={3} xs={12} sm={4} md={4}>
+				<Grid item lg={3} xs={12} sm={4} md={4} sx={{display:"flex",alignItems:"center",justifyContent:"center"}}>
 					<Button
 						sx={{
 							width: "151px",
