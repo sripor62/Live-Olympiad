@@ -1,5 +1,5 @@
 export const environment = {
-  userBaseUrl: "https://users.digishaala.com",
+  userBaseUrl: "https://users.liveolympiad.org",
   domain: "liveolympiad.org",
   studentsBaseUrl: " https://ouk5lpzn0i.execute-api.ap-south-1.amazonaws.com/live/students",
   schoolsBaseUrl: "https://qpqinf8e1h.execute-api.ap-south-1.amazonaws.com/live/schools",
