@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const ChoosePlanLayout = (props) => {
 	const navigate = useNavigate();
 	return (
-		<Grid container>
+		<Grid container sx={{display:"flex",justifyContent:"center",alignItems:"center" }}>
 			<Grid xs={12}>
 				<Typography variant="h3" sx={{ fontSize: { xs: "32px", lg: "40px" } }}>
 					<Box
@@ -361,6 +361,7 @@ export const ChoosePlanLayout = (props) => {
 				<Grid
 					xs={12}
 					lg={6}
+					md={12}
 					sx={{
 						justifyContent: { xs: "center", lg: "left" },
 						alignItems: { xs: "center", lg: "left" },
@@ -376,7 +377,7 @@ export const ChoosePlanLayout = (props) => {
 						sx={{ borderRadius: "50px" }}
 					/>
 				</Grid>
-				<Grid xs={5} sx={{ mt: { xs: 1, lg: 0 }, ml: 3 }}>
+				<Grid xs={5} 	md={12} sm={12} sx={{ mt: { xs: 1, lg: 0 }, ml: 3,display:"flex",justifyContent:"center",alignItems:"center" }}>
 					<Typography variant="body2">
 						<Box sx={{ fontFamily: "Urbanist", fontSize: "16px" }}>
 							<Link
