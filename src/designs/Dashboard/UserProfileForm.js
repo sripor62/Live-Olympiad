@@ -43,6 +43,8 @@ export const UserProfileForm = (props) => {
 		setClasses(event.target.value);
 	};
 
+	console.log(props.pageData);
+
 	return (
 		<>
 			<Grid container alignItems="center" justifyContent="center">
@@ -339,8 +341,6 @@ export const UserProfileForm = (props) => {
 							School
 						</InputLabel>
 						<Select
-							label="School"
-							selected={props.pageData.school}
 							value={props.pageData.schoolId}
 							onChange={(event) => {
 								props.setPageData({

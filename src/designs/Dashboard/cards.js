@@ -6,6 +6,8 @@ import Card4 from "../cards/card4";
 import { useQuery } from "react-query";
 import useSessionHelper from "../../hooks/useSession";
 import { useStore } from "../../stores";
+import { useSchool } from "../../hooks/useSchool";
+import { useEffect } from "react";
 
 const Card = () => {
 	const currentUser = useStore((state) => state.currentUser);
@@ -16,19 +18,33 @@ const Card = () => {
 		{ enabled: true, retry: false }
 	);
 
+	const { getSchoolById } = useSchool();
+	const { data: SchoolData } = useQuery(
+		[`School`, ReportFilter?.data?.data[0]],
+		() => getSchoolById(ReportFilter?.data?.data[0].schoolId),
+		{ enabled: !!ReportFilter, retry: false }
+	);
+
+	useEffect(() => {
+		if (SchoolData?.data?.data) {
+			sessionStorage.setItem("school", JSON.stringify(SchoolData?.data?.data));
+		}
+	}, [SchoolData]);
+
 	return (
 		<Grid
 			container
 			spacing={2}
 			sx={{ flexGrow: 1, marginLeft: "10px", width: "100%" }}
 		>
-			{ReportFilter?.data?.data?.map((session) => {
-				return (
-					<Grid item xs={12} sm={6} md={3}>
-						<Card1 session={session} />
-					</Grid>
-				);
-			})}
+			{SchoolData &&
+				ReportFilter?.data?.data?.map((session) => {
+					return (
+						<Grid item xs={12} sm={6} md={3}>
+							<Card1 session={session} school={SchoolData?.data?.data} />
+						</Grid>
+					);
+				})}
 			{/* <Grid item xs={12} sm={6} md={3}>
       <Card2 />
     </Grid>

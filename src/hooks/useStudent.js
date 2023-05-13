@@ -29,33 +29,33 @@ export const convertDatainString = (data) => {
 
 export const useStudent = () => {
 	const getStudentsOfUser = async (userId) => {
-		const endpoint = `${environment.studentsBaseUrl}/students/${userId}?type=user`;
+		const endpoint = `${environment.studentsBaseUrl}/${userId}?type=user`;
 		return await axiosInstance().get(endpoint);
 	};
 	const profileDataDetails = async (body) => {
-		const endpoint = `${environment.studentsBaseUrl}/students`;
+		const endpoint = `${environment.studentsBaseUrl}`;
 		return await axiosInstance().post(endpoint, body);
 	};
 
 	const getProfile = async (userId) => {
-		const endpoint = `${environment.studentsBaseUrl}/students/${userId}`;
+		const endpoint = `${environment.studentsBaseUrl}/${userId}`;
 		return await axiosInstance().get(endpoint);
 	};
 	const sendEducation = async (body) => {
-		const endpoint = `${environment.studentsBaseUrl}/students`;
+		const endpoint = `${environment.studentsBaseUrl}`;
 		return await axiosInstance().post(endpoint, body);
 	};
 
 	const getEducation = async (userId) => {
-		const endpoint = `${environment.studentsBaseUrl}/students/${userId}`;
+		const endpoint = `${environment.studentsBaseUrl}/${userId}`;
 		return await axiosInstance().get(endpoint);
 	};
 	const getPersonalData = async (userId) => {
-		const endpoint = `${environment.studentsBaseUrl}/students/${userId}`;
+		const endpoint = `${environment.studentsBaseUrl}/${userId}`;
 		return await axiosInstance().get(endpoint);
 	};
 	const sendPersonalData = async (body) => {
-		const endpoint = `${environment.studentsBaseUrl}/students`;
+		const endpoint = `${environment.studentsBaseUrl}`;
 		return await axiosInstance().post(endpoint, body);
 	};
 	const getPackage = async (packageId) => {

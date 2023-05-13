@@ -62,7 +62,7 @@ const Profile = (props) => {
 		dob: "",
 		gender: "",
 		pincode: "",
-		school: "",
+		schoolId: "",
 		grade: "",
 		section: "",
 		schoolCode: "",
@@ -104,6 +104,7 @@ const Profile = (props) => {
 
 	useEffect(() => {
 		if (schoolsData && profileData) {
+			console.log(profileData?.data?.data);
 			var pdata = {
 				...profileData?.data.data,
 			};
@@ -112,9 +113,8 @@ const Profile = (props) => {
 			});
 			if (currentSchool) {
 				setCurrentSchool(currentSchool[0]);
-				setPinCode(currentSchool[0].pincode);
+				setPinCode(currentSchool[0]?.pincode);
 			}
-			console.log(currentSchool);
 			setPageData({ ...pageData, ...pdata });
 		}
 	}, [profileData, schoolsData]);
@@ -145,8 +145,7 @@ const Profile = (props) => {
 			rollNumber: pageData.rollNumber,
 			dob: pageData.dob,
 			gender: pageData.gender,
-			pinCode: pageData.pinCode,
-			school: pageData.school,
+			schoolId: pageData.schoolId,
 			grade: pageData.grade,
 			section: pageData.section,
 		};

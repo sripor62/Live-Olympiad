@@ -3,8 +3,7 @@ import "./card.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { useStore } from "../../stores";
-const Card1 = ({ session,schoolsData }) => {
-  console.log(session)
+const Card1 = ({ session, school }) => {
 	const navigate = useNavigate();
 	return (
 		<Box
@@ -48,10 +47,10 @@ const Card1 = ({ session,schoolsData }) => {
 										color: "#FFFFFF",
 									}}
 								>
-									Cambridge School
+									{school?.name}
 								</Typography>
 							</div>
-							<div className="right-section">
+							{/* <div className="right-section">
 								<Typography
 									className="date"
 									sx={{
@@ -76,7 +75,7 @@ const Card1 = ({ session,schoolsData }) => {
 								>
 									Nov
 								</Typography>
-							</div>
+							</div> */}
 						</div>
 						<div className="card-footer">
 							<div className="bottom-section">
@@ -91,7 +90,6 @@ const Card1 = ({ session,schoolsData }) => {
 										fontStyle: "normal",
 										fontWeight: "400",
 										lineHeight: "12px",
-										display: { xs: "none", sm: "block" },
 									}}
 								>
 									Result
@@ -100,6 +98,10 @@ const Card1 = ({ session,schoolsData }) => {
 									src="images/Arrow5.png"
 									alt="Arrow"
 									onClick={() => {
+										sessionStorage.setItem(
+											"current_session",
+											JSON.stringify(session)
+										);
 										navigate("/GoldCard?packageId=" + session.packageId);
 									}}
 									sx={{

@@ -21,10 +21,6 @@ const GoldCard = () => {
 		{ enabled: !!packageId, retry: false }
 	);
 
-	useEffect(() => {
-		console.log("Student Report");
-	}, [StudentRep]);
-
 	const navigate = useNavigate();
 	const [activeButton, setActiveButton] = useState("result");
 
@@ -34,32 +30,6 @@ const GoldCard = () => {
 
 	const handleAwardsClick = () => {
 		setActiveButton("awards");
-	};
-
-	const studentReport = {
-		correct: "13",
-		incorrect: "14",
-		total: "30",
-		rank: "47",
-		score: "102",
-		isGold: "false",
-		isSilver: "false",
-		isTopper: "false",
-		percentile: "50",
-
-		maxScore: "282",
-		packageReport: {
-			avg: {
-				rank: "62",
-				score: "85.77777777777777",
-				percentile: "50",
-			},
-			top: {
-				rank: "27",
-				score: "125",
-				percentile: "100",
-			},
-		},
 	};
 
 	return (
@@ -161,7 +131,7 @@ const GoldCard = () => {
 						</Typography>
 					</Button>
 				</Grid>
-				<Grid item lg={3} xs={12} sm={4} md={4}>
+				<Grid item lg={3} xs={12} sm={4} md={4} sx={{display:"flex",alignItems:"center",justifyContent:"center"}}>
 					<Button
 						sx={{
 							width: "151px",
@@ -191,26 +161,28 @@ const GoldCard = () => {
 						</Typography>
 					</Button>
 				</Grid>
-				<Grid item lg={12} md={12} sm={12}>
-					<Box mt={10}>
-						{activeButton === "result" && (
-							<GoldResult studentReport={studentReport} />
-						)}
-					</Box>
-					<Box>
-						{activeButton === "awards" && (
-							<>
-								{studentReport?.isGold == "true" ? (
-									<GoldAward studentReport={studentReport} />
-								) : studentReport?.isSilver == "true" ? (
-									<SilverAward studentReport={studentReport} />
-								) : (
-									<></>
-								)}
-							</>
-						)}
-					</Box>
-				</Grid>
+				{StudentRep?.data && (
+					<Grid item lg={12} md={12} sm={12}>
+						<Box mt={10}>
+							{activeButton === "result" && (
+								<GoldResult report={StudentRep?.data?.data} />
+							)}
+						</Box>
+						<Box>
+							{activeButton === "awards" && (
+								<>
+									{StudentRep.data?.data?.studentReport?.isGold ? (
+										<GoldAward report={StudentRep.data?.data} />
+									) : StudentRep.data?.data?.studentReport?.isSilver ? (
+										<SilverAward report={StudentRep.data?.data} />
+									) : (
+										<></>
+									)}
+								</>
+							)}
+						</Box>
+					</Grid>
+				)}
 			</Grid>
 		</HomeLayout>
 	);

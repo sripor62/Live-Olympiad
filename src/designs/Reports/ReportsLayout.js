@@ -19,8 +19,9 @@ import {
 	Tooltip,
 	Typography,
 	Zoom,
+	Grid,
 } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import HomeLayout from "../Dashboard/HomeLayout";
 import { useStore } from "../../stores";
@@ -36,23 +37,21 @@ const colorsLight = {
 	wrong: "#ef9a9a",
 };
 
-
-
 export const ReportsLayout = (props) => {
 	let reportData = useStore((state) => state.reportData);
 	const questionAna = () => {
-		console.log("tsetsss", props.reportData?.questions)
-		props.reportData?.questions.map((item) => <div>{item}</div>)
-	  }
-	  useEffect(()=>{
+		console.log("tsetsss", props.reportData?.questions);
+		props.reportData?.questions.map((item) => <div>{item}</div>);
+	};
+	useEffect(() => {
 		console.log(reportData);
-	  },[reportData])
+	}, [reportData]);
 	return (
 		<HomeLayout loader={props.isLoading}>
 			<Paper
 				sx={{
 					m: "50px",
-					width: "100%",
+					width: "auto",
 					display: "flex",
 					justifyContent: "center",
 					flexDirection: "column",
@@ -75,9 +74,9 @@ export const ReportsLayout = (props) => {
 					</Box>
 				</Box>
 				<Box
-				onClick={questionAna}
+					onClick={questionAna}
 					sx={{
-						width: "100%",
+						width: "auto",
 						display: "flex",
 						alignItems: "center",
 						flexDirection: "column",
@@ -87,9 +86,13 @@ export const ReportsLayout = (props) => {
 					<br />
 					<br />
 					{props.newTestList?.map((item, index) => (
-						<Accordion style={{ width: "1000px" }}>
+						<Accordion
+							sx={{
+								width: { lg: "1000px", md: "770px", sm: "650px", xs: "330px" },
+							}}
+						>
 							<AccordionSummary
-								style={{ width: "1000px" }}
+								sx={{ lg: "1000px", md: "770px", sm: "650px", xs: "330px" }}
 								expandIcon={<ExpandMoreIcon />}
 								aria-controls="panel1a-content"
 								id="panel1a-header"

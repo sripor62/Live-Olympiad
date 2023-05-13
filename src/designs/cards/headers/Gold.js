@@ -8,6 +8,15 @@ const GoldHeader = () => {
   const navigate = useNavigate();
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const theme = useTheme();
+  const school = JSON.parse(sessionStorage.getItem("school"));
+  const session = JSON.parse(sessionStorage.getItem("current_session"));
+  let status = session?.isTopper
+    ? "Global Topper"
+    : session?.isGold
+    ? "National Merit"
+    : session?.isSilver
+    ? "School Merit"
+    : "Participation";
   return (
     <Grid>
       <Grid
@@ -121,7 +130,6 @@ const GoldHeader = () => {
           </Typography>
         </Grid>
       </Grid>
-
       <Grid
         container
         sx={{
@@ -129,7 +137,7 @@ const GoldHeader = () => {
           borderRadius: "10px 10px 0px 0px",
           height: "auto",
           padding: 2,
-          display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
+		  display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
         }}
       >
         <Grid
@@ -137,7 +145,6 @@ const GoldHeader = () => {
           lg={4}
           md={6}
           sm={6}
-          xs={9}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -155,9 +162,10 @@ const GoldHeader = () => {
               color: "#FFFFFF",
             }}
           >
-            MATHS OLYMPIAD - Regional
+            {session?.group} OLYMPIAD - Regional
           </Typography>
           <Typography
+		  mt={0.4}
             style={{
               fontFamily: "Inter",
               fontSize: "14px",
@@ -167,51 +175,51 @@ const GoldHeader = () => {
               color: "#FFFFFF",
             }}
           >
-            Cambridge School
+            {school?.name}
           </Typography>
           <Box>
             {" "}
             <img src="images/maths.png" alt="maths71" />
           </Box>
         </Grid>
-        <Grid Item lg={4} md={2} sm={2} xs={3}>
-          <Box
-            sx={{
-              background: "#FFFFFF",
-              borderRadius: "15px",
-              width: "48px",
-              height: "48px",
-              alignItems: "center",
-              justifyContent: "center",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Typography
-              sx={{
-                fontFamily: "Inter",
-                fontSize: { xs: "18px", sm: "21px" },
-                fontWeight: 400,
-                fontStyle: "normal",
-                lineHeight: { xs: "22px", sm: "25px" },
-                color: "#000000",
-              }}
-            >
-              12
-            </Typography>
-            <Typography
-              sx={{
-                fontFamily: "Inter",
-                fontSize: { xs: "10px", sm: "12px" },
-                fontWeight: 400,
-                fontStyle: "normal",
-                lineHeight: { xs: "10px", sm: "12px" },
-                color: "#000000",
-              }}
-            >
-              Nov
-            </Typography>
-          </Box>
+        <Grid Item lg={4} md={2} sm={2}>
+          {/* <Box
+					sx={{
+						background: "#FFFFFF",
+						borderRadius: "15px",
+						width: "48px",
+						height: "48px",
+						alignItems: "center",
+						justifyContent: "center",
+						display: "flex",
+						flexDirection: "column",
+					}}
+				>
+					<Typography
+						sx={{
+							fontFamily: "Inter",
+							fontSize: { xs: "18px", sm: "21px" },
+							fontWeight: 400,
+							fontStyle: "normal",
+							lineHeight: { xs: "22px", sm: "25px" },
+							color: "#000000",
+						}}
+					>
+						12
+					</Typography>
+					<Typography
+						sx={{
+							fontFamily: "Inter",
+							fontSize: { xs: "10px", sm: "12px" },
+							fontWeight: 400,
+							fontStyle: "normal",
+							lineHeight: { xs: "10px", sm: "12px" },
+							color: "#000000",
+						}}
+					>
+						Nov
+					</Typography>
+				</Box> */}
         </Grid>
         <Grid
           Item
@@ -241,9 +249,10 @@ const GoldHeader = () => {
                 fontWeight: "500",
                 color: "#FFFFFF",
                 width: "110px",
+                textAlign: "center",
               }}
             >
-              QUALIFYING STATUS
+              Certificate of
             </Typography>
             <Box mt={1}>
               <img src="images/badge.png" alt="Badge" />
@@ -256,9 +265,10 @@ const GoldHeader = () => {
                 fontStyle: "normal",
                 color: "#FFFFFF",
                 width: "160px",
+                textAlign: "center",
               }}
             >
-              Qualified for Nationals
+              {status}
             </Typography>
           </Box>
         </Grid>

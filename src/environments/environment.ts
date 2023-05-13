@@ -1,8 +1,8 @@
 export const environment = {
-  userBaseUrl: "https://users.digishaala.com",
+  userBaseUrl: "https://users.liveolympiad.org/",
   domain: "liveolympiad.org",
-  studentsBaseUrl: " https://2fjloypeob.execute-api.ap-south-1.amazonaws.com/uat",
-  schoolsBaseUrl: "https://oug6u98n2h.execute-api.ap-south-1.amazonaws.com/uat",
+  studentsBaseUrl: " https://ouk5lpzn0i.execute-api.ap-south-1.amazonaws.com/live/students",
+  schoolsBaseUrl: "https://qpqinf8e1h.execute-api.ap-south-1.amazonaws.com/live/schools",
   cookieDomain: ".liveolympiad.org",
   paymentUrl:"https://payments.digishaala.com",
   testLiveolympiad:"https://content.liveolympiad.org",
