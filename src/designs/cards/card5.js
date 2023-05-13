@@ -1,5 +1,5 @@
 import { Box, Button, Chip, Grid, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
+import { Stack } from "@mui/material";
 import { environment } from "../../environments/environment";
 
 export const Card5 = () => {

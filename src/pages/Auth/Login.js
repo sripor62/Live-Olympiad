@@ -65,12 +65,12 @@ export default function Login() {
 				environment.env !== "school" &&
 				res.data?.message.includes("not found")
 			)
-				window.location.href = "/1";
-			setSnakeBarProps({
-				snackbarFlag: true,
-				msz: res.data.message,
-				type: "error",
-			});
+				// window.location.href = "/1";
+				setSnakeBarProps({
+					snackbarFlag: true,
+					msz: res.data.message,
+					type: "error",
+				});
 		}
 	};
 
