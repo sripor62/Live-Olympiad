@@ -57,12 +57,12 @@ const Header = (props) => {
     return (
 
         <Grid container px={4} py={2} alignItems='center' sx={{ backgroundColor: "#4545A5" }}>
-            <Grid item xs={11} sm={11} md={8} lg={8} >
+            <Grid item xs={11} sm={11} md={7} lg={8} >
                 <Box>
                     <img src='../images/brand.svg' style={{ minWidth: '100px', width: '70%', maxWidth: '180px' }} />
                 </Box>
             </Grid>
-            <Grid item xs={5} sm={4} md={3} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+            <Grid item xs={5} sm={4} md={4} lg={3} sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
                 <Box sx={{ backgroundColor: "white", borderRadius: '50px', padding: '7px,7px,7px,14px', width: { lg: "283px", xs: "115px", sm: "235px" }, height: { lg: "70px", xs: "50px" } }}>
                     <Grid container alignItems='center'>
                         <Grid item xs={7} md={10} lg={9} sm={9}>
