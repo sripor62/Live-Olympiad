@@ -14,6 +14,8 @@ import MenuDrawer from "./MenuDrawer";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { CustomButton } from "../../components/CustomButton";
 import { useStore } from "../../stores";
+import { useNavigate } from "react-router-dom";
+
 function stringToColor(string) {
 	let hash = 0;
 	let i;
@@ -58,6 +60,7 @@ const Header = (props) => {
 	const currentUser = useStore((state) => state.currentUser);
 	const currentStudent = JSON.parse(sessionStorage.getItem("current_student"));
 	const [drawerFlag, setDrawerFlag] = useState(false);
+	const navigate = useNavigate();
 
 	return (
 		<Grid
@@ -142,8 +145,10 @@ const Header = (props) => {
 			>
 				<Box>
 					<CustomButton
-						onClick={props.logOutHandler}
-						btnText="LOGOUT"
+						onClick={()=>{
+							navigate("/parent")
+						}}
+						btnText="PARENT"
 						variant="contained"
 						sx={{
 							":hover": { bgcolor: "#8B8000", color: "white" },

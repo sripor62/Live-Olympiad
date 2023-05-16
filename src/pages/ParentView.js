@@ -56,6 +56,7 @@ const childrenData = [
 const ParentView = ({ logOutHandler }) => {
 	const navigate = useNavigate();
 	const currentUser = useStore((state) => state.currentUser);
+	const clearCurrentUser = useStore((state) => state.clearCurrentUser);
 	const [children, setChildren] = useState([]);
 	const { getStudentsOfUser, profileDataDetails } = useStudent();
 	const { getSchools } = useSchool();
@@ -111,7 +112,7 @@ const ParentView = ({ logOutHandler }) => {
 	<ParentLog
 	handleClickNext={handleClickNext}
 	responsiveStype={responsiveStype}
-	logOutHandler={logOutHandler}
+	logOutHandler={clearCurrentUser}
 	page={page}
 	setPage={setPage}
 	handleClickPrev={handleClickPrev}

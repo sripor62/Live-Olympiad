@@ -100,13 +100,13 @@ export const ParentLog = (props) => {
           sx={{ display: "flex", justifyContent: "center" }}
         >
           <IconButton
-            disabled={props.page === 1}
+            disabled={true} //props.page === 1}
             onClick={props.handleClickPrev}
           >
             <ChevronLeftIcon />
           </IconButton>
           <IconButton
-            disabled={props.page === props.numPages}
+            disabled={true} //props.page === props.numPages}
             onClick={props.handleClickNext}
           >
             <ChevronRightIcon />
