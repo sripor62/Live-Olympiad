@@ -140,7 +140,7 @@ export const ParentLog = (props) => {
                   borderRadius: "8px",
                   boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)",
                   marginTop: "10%",
-                  marginLeft: "-18%",
+                  marginLeft: "-1%",
                   justifyContent: "center",
                   display: "flex",
                   flexDirection: "column",
