@@ -2,14 +2,14 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../services/api.service";
 import { environment } from "../environments/environment";
 
- const useAuthHelper = () => {
+const useAuthHelper = () => {
   const navigate = useNavigate();
 
-const Endpoints={VALIDATE_OTP:"/auth/verifyOTP",
+  const Endpoints={VALIDATE_OTP:"/auth/verifyOTP",
                   GENERATE_OTP : "/auth/sendOTP",
                   RESET_PASSWORD:"/auth/resetpassword",
                   LOGIN_USER:"/auth/login"}
-                       
+           
   const setPassword = async (newPassword, userToken) => {
     const endpoint = environment.userBaseUrl + Endpoints.RESET_PASSWORD;
     return await axiosInstance().post(

@@ -32,8 +32,8 @@ const SchoolDetails = () => {
 			section: pageData?.section,
 			grade: pageData?.grade,
 		};
-		afterValidate(afterValidateCallBack);
-		if (pdata.school !== "" && pdata.grade !== undefined) {
+		if (pdata.schoolId && pdata.grade) {
+			afterValidate(afterValidateCallBack);
 			addEducationMutate(pdata);
 		}
 	};
