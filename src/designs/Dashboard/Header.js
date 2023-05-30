@@ -143,7 +143,17 @@ const Header = (props) => {
 					display: { xs: "none", sm: "none", md: "block", lg: "block" },
 				}}
 			>
-				<Box>
+				<Box
+				sx={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					display: { xs: "none", sm: "none", md: "block", lg: "block" },
+					flexDirection: { xs: "none", md: "block" }, // Adjust the layout based on screen sizes
+					gap: { xs: "none", md: "block" }, // Adjust the gap between elements based on screen sizes
+					marginTop: { xs: "none", md: "block" }, // Adjust the top margin based on screen sizes
+				  }}
+				  >
 					<CustomButton
 						onClick={()=>{
 							navigate("/parent")
