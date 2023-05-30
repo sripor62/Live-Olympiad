@@ -66,10 +66,7 @@ export default function PersonalDetails() {
 		};
 		console.log(pdata);
 		if (
-			pdata.fullName != null &&
-			pdata.fullName != "" &&
-			pdata.rollNumber != null &&
-			pdata.rollNumber != ""
+			pdata.fullName && pdata.rollNumber
 		) {
 			var userInfoVal = window.localStorage.getItem("current_user");
 			var userInfo = JSON.parse(userInfoVal).state.currentUser;

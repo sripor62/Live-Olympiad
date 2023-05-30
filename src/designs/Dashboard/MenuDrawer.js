@@ -35,11 +35,11 @@ const MenuDrawer = ({ setDrawerFlag,logOutHandler }) => {
                                         <Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color:(page === 1) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Profile</Box>
                                     </Box>
                                 </Grid>
-                                <Grid onClick={() => {navigate("/subscription")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color: (page === 2) ? "#FCBD42": "#1E232C" }} mb={3}><WorkspacePremiumOutlinedIcon />
+                                {/* <Grid onClick={() => {navigate("/subscription")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color: (page === 2) ? "#FCBD42": "#1E232C" }} mb={3}><WorkspacePremiumOutlinedIcon />
                                     <Box>
                                         <Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color: (page === 2) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Subscriptions</Box>
                                     </Box>
-                                </Grid>
+                                </Grid> */}
                                 {/*
                                 <Grid onClick={() => {navigate("/schedule")}} item xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', alignItems: 'center',color: (page == 3) ? "#FCBD42": "#1E232C" }} mb={2}><CalendarMonthOutlinedIcon /><Typography><Box sx={{ ml: 2, fontWeight: 'bold', fontFamily: "Urbanist", fontSize: '15px', color: (page == 3) ? "#FCBD42": "#1E232C", textTransform: "none" }}>Schedule</Box></Typography></Grid>
                                 <Button onClick={() => {navigate("/booklet")}}><Grid md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookTwoToneIcon sx={{color:(page == 4) ? "#FCBD42": "#1E232C"}} /><Typography><Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page == 4) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklet</Box></Typography></Grid></Button>
