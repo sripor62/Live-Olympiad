@@ -24,7 +24,10 @@ const ForgotPassword = () => {
 
         }
         else {
-            setSnakeBarProps({ snackbarFlag: true, msz: res.data.message, type: "error" })
+            setSnakeBarProps({ snackbarFlag: true, msz: "The phone number is not registered. Please sign up.", type: "error" })
+            setTimeout(() => {
+                navigate('/auth?index=1'); // Redirect to sign up page after a delay
+              }, 4000);
         }
     };
 
