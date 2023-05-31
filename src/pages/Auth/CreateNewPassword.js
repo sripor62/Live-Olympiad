@@ -55,7 +55,7 @@ export default function ResetPassword() {
 				type: "error",
 			});
 		setsubmitFlag(true);
-		afterValidate(afterValidateCallBack);
+		afterValidate(afterValidateCallBack,setSnakeBarProps);
 	};
 
 	const afterValidateCallBack = (second) => {
