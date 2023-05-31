@@ -88,7 +88,7 @@ import {
   
 	const onHandleClickCreate = async () => {
 	  let res = await profileDataDetails({
-		userId: currentUser?._id,
+		userId: currentUser?.id,
 	  });
 	  if (res?.data?.success) {
 		navigate("/schooldetails/" + res?.data?.data?._id);
