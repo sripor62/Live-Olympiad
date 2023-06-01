@@ -61,17 +61,20 @@ export default function Login() {
 			setCurrentUser(res.data?.data);
 			navigate("/parent");
 		} else {
-			if (
-				environment.env !== "school" &&
-				res.data?.message.includes("not found")
-			)
-				// window.location.href = "/1";
-				setSnakeBarProps({
-					snackbarFlag: true,
-					msz: res.data.message,
-					type: "error",
-				});
-		}
+			if (res.data?.message.includes("not found")) {
+			  setSnakeBarProps({
+				snackbarFlag: true,
+				msz: "Incorrect password. Please try again.",
+				type: "error",
+			  });
+			} else {
+			  setSnakeBarProps({
+				snackbarFlag: true,
+				msz: res.data.message,
+				type: "error",
+			  });
+			}
+		  }
 	};
 
 	const forgotPage = () => {
