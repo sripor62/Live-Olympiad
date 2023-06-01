@@ -65,7 +65,7 @@ export default function PersonalDetails() {
 			dob: pageData.dob,
 			gender: pageData.gender,
 		};
-		console.log(pdata);
+		//console.log(pdata);
 		if(!pdata.fullName) {
 			setSnakeBarProps({ snackbarFlag: true, msz: "Name field cannot be empty", type: "error" });
 		}

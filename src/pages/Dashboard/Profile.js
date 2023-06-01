@@ -11,6 +11,8 @@ import { useMutation, useQuery } from "react-query";
 import { ControlPointDuplicateRounded } from "@mui/icons-material";
 import { useStore } from "../../stores";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
+import { isValidEmail } from "../../designs/Onboarding/PersonalDetailLayout";
+import { useNavigate, useParams } from "react-router-dom";
 
 const category = [
 	{
@@ -67,6 +69,8 @@ const Profile = (props) => {
 		section: "",
 		schoolCode: "",
 	});
+	const { getPersonalData, sendPersonalData } = useStudent();
+	const navigate = useNavigate();
 	const student = JSON.parse(sessionStorage.getItem("current_student"));
 	const [schoolsList, setSchoolsList] = useState([]);
 	const [schoolsId, setSchoolsId] = useState("");
@@ -149,9 +153,32 @@ const Profile = (props) => {
 			grade: pageData.grade,
 			section: pageData.section,
 		};
-		afterValidate(afterValidateCallBack);
-		addProfileMutate({ ...pdata });
+		if(!pdata.fullName) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Name field cannot be empty", type: "error" });
+		}
+		else if(!pdata.rollNumber) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Roll number field cannot be empty", type: "error" });
+		}
+		else if(pdata.email!="" && !isValidEmail(pdata.email)) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Invalid Email Address", type: "error" });
+		}
+		else if (
+			pdata.fullName && pdata.rollNumber
+		) {
+			var userInfoVal = window.localStorage.getItem("current_user");
+			var userInfo = JSON.parse(userInfoVal).state.currentUser;
+			setCurrentUser({ ...userInfo, fullName: pdata.fullName });
+
+			window.localStorage.setItem("Name", pdata.fullName);
+			PersonalMutate(pdata);
+			navigate("/chooseyourplan/");
+		}
+		// afterValidate(afterValidateCallBack);
+		// addProfileMutate({ ...pdata });
 	};
+
+	const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } =
+		useMutation(sendPersonalData);
 
 	const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
 		[`SubjectData`],
