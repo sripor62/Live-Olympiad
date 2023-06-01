@@ -70,7 +70,7 @@ export const ParentLog = (props) => {
               borderRadius: "20px",
               width: "70px",
               height: { xs: "34px", lg: "36px" },
-              fontSize: { xs: "8px", lg: "12px" },
+              fontSize: { xs: "10px", lg: "12px" },
               backgroundColor: "#F9BB47",
               fontWeight: 600,
               marginBottom: 5,
