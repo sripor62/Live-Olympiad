@@ -1,9 +1,10 @@
 export const getErrorMsz = (type, value, value2) => {
     // console.log('type', type, value)
     if (type === "email") {
-        const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-+]+@[a-zA-Z0-9.-]+\\.{1}[a-zA-Z]+$');
-        return value === "" ? "Please enter email address" : (!validEmail.test(value) || (value.length > 40)) ? "Invalid email address" : ""
+        const validEmail = new RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+        return value === "" ? "Please enter email address" : !validEmail.test(value) ? "Invalid email address" : "";
     }
+    
     if (type === "password") {
         const validPassword = new RegExp("^(?=.*[0-9]){6,}$");
         return value === "" ? "Please enter password"

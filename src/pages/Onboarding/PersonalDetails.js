@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "react-query";
 import { useStudent } from "../../hooks/useStudent";
 import { useStore } from "../../stores";
+import { isValidEmail } from "../../designs/Onboarding/PersonalDetailLayout";
 
 export default function PersonalDetails() {
 	const setCurrentUser = useStore((state) => state.setCurrentUser);
@@ -70,6 +71,9 @@ export default function PersonalDetails() {
 		}
 		else if(!pdata.rollNumber) {
 			setSnakeBarProps({ snackbarFlag: true, msz: "Roll number field cannot be empty", type: "error" });
+		}
+		else if(pdata.email!="" && !isValidEmail(pdata.email)) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Invalid Email Address", type: "error" });
 		}
 		else if (
 			pdata.fullName && pdata.rollNumber
