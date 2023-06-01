@@ -158,7 +158,7 @@ const Header = (props) => {
 						onClick={()=>{
 							navigate("/parent")
 						}}
-						btnText="PARENT"
+						btnText="EXIT"
 						variant="contained"
 						sx={{
 							":hover": { bgcolor: "#8B8000", color: "white" },

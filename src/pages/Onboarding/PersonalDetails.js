@@ -65,7 +65,13 @@ export default function PersonalDetails() {
 			gender: pageData.gender,
 		};
 		console.log(pdata);
-		if (
+		if(!pdata.fullName) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Name field cannot be empty", type: "error" });
+		}
+		else if(!pdata.rollNumber) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Roll number field cannot be empty", type: "error" });
+		}
+		else if (
 			pdata.fullName && pdata.rollNumber
 		) {
 			var userInfoVal = window.localStorage.getItem("current_user");

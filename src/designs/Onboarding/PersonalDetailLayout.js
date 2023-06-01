@@ -63,8 +63,8 @@ export const PersonalDetailLayout = (props) => {
                         value={props.pageData.fullName}
                         onChange={(event) => { props.setPageData({ ...props.pageData, fullName: event.target.value }) }}
                         required={true}
-                        error={props.submitFlag && props.getErrorMsz('student_section', props.pageData.fullName) !== ""}
-                        errorMsz={props.getErrorMsz('student_section', props.pageData.fullName)}
+                        error={props.submitFlag && props.getErrorMsz('fullname', props.pageData.fullName) !== ""}
+                        //helperText={props.getErrorMsz('fullname', props.pageData.fullName)}
                         inputProps={{ sx: { color: '#838BA1', fontFamily: 'urbanist', fontSize: '16px', fontWeight: 600 } }}
                     />
                 </Box>
