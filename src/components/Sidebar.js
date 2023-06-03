@@ -16,6 +16,7 @@ const Sidebar = (props) => {
         if (location.pathname === "/dashboard") setPage(0)
         if (location.pathname === "/profile") setPage(1)
         if (location.pathname === "/subscription") setPage(2)
+        if (location.pathname === "/syllabus") setPage(3)
         //if (location.pathname === "/schedule") setPage(3)
         //if (location.pathname === "/booklet") setPage(4)
     }, [page, location.pathname])
@@ -46,6 +47,13 @@ const Sidebar = (props) => {
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 1) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
                                 <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Profile</Box>
+                            </Box>
+                        </Grid>
+                    </Button>
+                    <Button onClick={() => {navigate("/syllabus")}}>
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}}/>
+                            <Box>
+                                <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Syllabus</Box>
                             </Box>
                         </Grid>
                     </Button>

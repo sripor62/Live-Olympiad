@@ -8,7 +8,7 @@ import MobileVerification from "../pages/Auth/MobileVerification";
 import SchoolDetails from "../pages/Onboarding/SchoolDetails";
 import InfoBoard from "../pages/Dashboard/InfoBoard";
 import Dashboard from "../pages/Dashboard/Dashboard";
-
+import Syllabus from "../pages/Dashboard/Syllabus";
 import Profile from "../pages/Dashboard/Profile";
 import Schedule from "../pages/Dashboard/Schedule";
 import ChooseYourPlan from "../pages/Onboarding/ChooseYourPlan";
@@ -73,6 +73,10 @@ export const routes = [
 	{
 		path: "/dashboard",
 		element: <Dashboard />,
+	},
+	{
+		path: "/syllabus",
+		element: <Syllabus />,
 	},
 	{
 		path: "/profile",

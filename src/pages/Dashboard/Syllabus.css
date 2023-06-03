@@ -1,0 +1,39 @@
+
+  
+  .accordion-item.level-1 {
+    margin-left: 16px; /* Indentation for level 1 */
+  }
+  
+  .accordion-item.level-2 {
+    margin-left: 32px; /* Indentation for level 2 */
+  }
+  
+  .accordion-item.level-3 {
+    margin-left: 48px; /* Indentation for level 3 */
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .icon {
+    margin-left: 10px;
+  }
+
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+    margin-right: 10px;
+  }
+  
+  .open .arrow {
+    transform: rotate(135deg);
+  }
+  
+  /* Add more styles for additional levels as needed */
+  
