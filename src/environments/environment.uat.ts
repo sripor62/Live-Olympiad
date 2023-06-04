@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    userBaseUrl: "https://users-uat.digishaala.com",
+    userBaseUrl: "https://users-uat.liveolympiad.org",
     studentsBaseUrl: "https://2fjloypeob.execute-api.ap-south-1.amazonaws.com/uat/students",
     schoolsBaseUrl: "https://oug6u98n2h.execute-api.ap-south-1.amazonaws.com/uat/schools",
     domain: "liveolympiad.org",
