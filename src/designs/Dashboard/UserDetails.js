@@ -2,6 +2,7 @@ import { CurrencyRupee } from "@mui/icons-material";
 import { Avatar, Box, Grid, Typography } from "@mui/material";
 import { propsToClassKey } from "@mui/styles";
 import React from "react";
+
 function stringToColor(string) {
 	let hash = 0;
 	let i;
@@ -21,29 +22,30 @@ function stringToColor(string) {
 
 	return color;
 }
-function stringAvatar(name) {
-	if (name.split(" ")[0] && name.split(" ")[1]) {
-		return {
-			sx: {
-				bgcolor: stringToColor(name),
-				width: "133px",
-				height: "133px",
-			},
-			children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-		};
-	} else if (name.split(" ")[0][0]) {
-		return {
-			sx: {
-				bgcolor: stringToColor(name),
-				width: "133px",
-				height: "133px",
-			},
-			children: `${name.split(" ")[0][0]}`,
-		};
-	}
-}
+
 
 export const UserDetails = (props) => {
+	const { profilePicture } = props.pageData;
+	
+	function stringAvatar(name) {
+		const avatarProps = {
+		  sx: {
+			bgcolor: stringToColor(name),
+			width: "133px",
+			height: "133px",
+		  },
+		  alt: "",
+		};
+	  
+		if (props.pageData && props.pageData.profilePicture) {
+		  avatarProps.src = props.pageData.profilePicture;
+		}
+	  
+		return avatarProps;
+	  }
+	  
+
+
 	return (
 		<>
 			<Grid

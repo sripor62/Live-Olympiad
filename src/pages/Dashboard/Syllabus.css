@@ -12,6 +12,22 @@
     margin-left: 48px; /* Indentation for level 3 */
   }
 
+  .accordion-item.level-4 {
+    margin-left: 64px; /* Indentation for level 3 */
+  }
+
+  .accordion-item.level-5 {
+    margin-left: 80px; /* Indentation for level 3 */
+  }
+
+  .accordion-item.level-6 {
+    margin-left: 96px; /* Indentation for level 3 */
+  }
+
+  .accordion-item.level-7 {
+    margin-left: 112px; /* Indentation for level 3 */
+  }
+
   .accordion-header {
     display: flex;
     align-items: center;

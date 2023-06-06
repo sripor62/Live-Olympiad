@@ -15,10 +15,12 @@ export default function PersonalDetails() {
 	const currentUser = useStore((state) => state.currentUser);
 	const [snakeBarProps, setSnakeBarProps] = useState({});
 	const [submitFlag, setsubmitFlag] = useState(false);
+	  
 	const [pageData, setPageData] = useState({
 		fullName: "",
 		email: "",
 		rollNumber: "",
+		profilePicture: "",
 		dob: "",
 		gender: "",
 	});
@@ -41,7 +43,8 @@ export default function PersonalDetails() {
 				personalData?.data.data.fullName &&
 				personalData?.data.data.gender &&
 				personalData?.data.data.dob &&
-				personalData?.data.data.rollNumber
+				personalData?.data.data.rollNumber &&
+				personalData?.data.data.profilePicture
 			) {
 				setCurrentUser({
 					...currentUser,
@@ -56,7 +59,12 @@ export default function PersonalDetails() {
 		}
 	}, [personalData]);
 
-	const submitHandler = async () => {
+	const submitHandler = async (file) => {
+		// Generate a temporary URL for the uploaded image
+		const imageURL = URL.createObjectURL(file);
+
+		setPageData({ profilePicture: imageURL });
+
 		var pdata = {
 			...pageData,
 			fullName: pageData.fullName,

@@ -8,11 +8,15 @@ import * as React from "react";
 import InputBase from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import { IconButton } from "@mui/material";
 
 export const isValidEmail = (email) => {
   const validEmailRegex = new RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
   return validEmailRegex.test(email);
 };
+
+
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -37,10 +41,28 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export const PersonalDetailLayout = (props) => {
   const [gender, setGender] = React.useState("");
+  const [profilePicture, setProfilePicture] = React.useState(null);
+  const [isProfilePictureUpdated, setProfilePictureUpdated] = React.useState(false);
+
+
+  const handleImageChange = (event) => {
+    const file = event.target.file;
+    setProfilePicture(file);
+    //setProfilePictureUpdated(true);
+    };
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Trigger the submitHandler function and pass the selected file
+    props.submitHandler(profilePicture);
+  };
+
   return (
     <>
       <Grid container xs="12">
@@ -187,6 +209,30 @@ export const PersonalDetailLayout = (props) => {
             />
           </Box>
         </Grid>
+
+        <Grid item xs={12}>
+  <Box mb={3} width={1} display="flex" alignItems="center">
+  <form onSubmit={handleSubmit}>
+      <input type="file" onChange={handleImageChange} />
+      <button type="submit">Upload Profile Picture</button>
+    </form>
+      {/* <IconButton color="primary" component="span">
+        <PhotoCameraIcon />
+      </IconButton> */}
+    <Typography
+      variant="body2"
+      fontFamily="urbanist"
+      fontWeight="medium"
+      sx={{
+        color: "rgba(131,139,161,1)",
+        fontSize: { xs: "12px", lg: "14px" },
+      }}
+    >
+    </Typography>
+  </Box>
+</Grid>
+
+
         <Grid item xs={12}>
           <Box mb={3} width={1}>
             <CustomTextField

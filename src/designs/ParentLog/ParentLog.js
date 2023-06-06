@@ -40,7 +40,7 @@ const childrenData = [
     section: "D",
   },
   {
-    id: 4,
+    id: 5,
     name: "Tom Cruise",
     school: "Harvard School",
     class: "II",
@@ -49,6 +49,7 @@ const childrenData = [
 ];
 
 export const ParentLog = (props) => {
+  
   return (
     <AuthLayout responsiveStype={props.responsiveStype}>
       <Grid container sx={{marginTop:{lg:"0%",md:"0%",sm:"-60%",xs:"0%"}}}>
@@ -204,7 +205,7 @@ export const ParentLog = (props) => {
                     flexDirection: "column",
                   }}
                 >
-                  <Avatar variant="rounded" sx={{ marginTop: 2 }}></Avatar>
+                  <Avatar variant="rounded" src={child.profilePicture} sx={{ marginTop: 2 }}></Avatar>
                   <Typography
                     sx={{
                       fontFamily: "Inter",
