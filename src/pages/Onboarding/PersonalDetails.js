@@ -60,10 +60,6 @@ export default function PersonalDetails() {
 	}, [personalData]);
 
 	const submitHandler = async (file) => {
-		// Generate a temporary URL for the uploaded image
-		const imageURL = URL.createObjectURL(file);
-
-		setPageData({ profilePicture: imageURL });
 
 		var pdata = {
 			...pageData,
@@ -72,6 +68,7 @@ export default function PersonalDetails() {
 			rollNumber: pageData.rollNumber,
 			dob: pageData.dob,
 			gender: pageData.gender,
+			profilePicture: pageData.profilePicture
 		};
 		//console.log(pdata);
 		if(!pdata.fullName) {
