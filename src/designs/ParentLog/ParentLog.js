@@ -160,12 +160,12 @@ export const ParentLog = (props) => {
                     
                   }}
                 >
-                  LO Public School{props.schoolsData?.data?.data &&
+                  {props.schoolsData?.data?.data &&
                     props.schoolsData?.data?.data.filter(
                       (school) => school._id == child.schoolId
                     )[0]?.name}    
                 </Typography>
-                <Box style={{display:"flex",marginTop:1}}>
+                <Box style={{display:"flex",marginTop:10}}>
                 <Typography
                   sx={{
                     fontFamily: "Inter",
@@ -174,10 +174,9 @@ export const ParentLog = (props) => {
                     fontSize: "8px",
                     lineHeight: "10px",
                     color: "#FFFFFF",
-                 
                   }}
                 >
-                  7{child.grade}
+                  {child.grade}
                 </Typography>
                 <Typography
                   sx={{
@@ -190,7 +189,7 @@ export const ParentLog = (props) => {
                    
                   }}
                 >
-                 {child.section}
+                 -{child.section}
                 </Typography>
                 
                 </Box>
