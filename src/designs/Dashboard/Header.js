@@ -13,6 +13,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import React from "react";
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import MenuDrawer from "./MenuDrawer";
@@ -191,26 +192,10 @@ const Header = (props) => {
                 >
                   View Profile
                 </MenuItem>
-                <MenuItem>
-                  <CustomButton
-                    onClick={() => {
+                <MenuItem onClick={() => {
                       navigate("/parent");
-                    }}
-                    btnText="EXIT"
-                    variant="contained"
-                    sx={{
-                      ":hover": { bgcolor: "#8B8000", color: "white" },
-                      p: 1,
-                      fontFamily: "Urbanist",
-                      color: "black",
-                      borderRadius: "16px",
-                      width: "80px",
-                      height: "36px",
-                      fontSize: "12px",
-                      backgroundColor: "#F9BB47",
-                      fontWeight: 600,
-                    }}
-                  />
+                    }}>
+                <Box style={{display:"flex"}}><LogoutIcon/><Typography style={{marginLeft:20}}>EXIT</Typography> </Box>
                 </MenuItem>
               </Menu>
             </Grid>

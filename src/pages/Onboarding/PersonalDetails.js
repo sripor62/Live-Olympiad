@@ -89,7 +89,7 @@ export default function PersonalDetails() {
 
 			window.localStorage.setItem("Name", pdata.fullName);
 			PersonalMutate(pdata);
-			navigate("/chooseyourplan/");
+			navigate("/Parent");
 		}
 	};
 	const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } =

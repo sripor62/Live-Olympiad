@@ -40,7 +40,7 @@ export default function ResetPassword() {
 			let res = await setPassword(pageData.password, params.token);
 			if (res.data?.success) {
 				setCurrentUser(res.data?.data);
-				navigate("/parent");
+				navigate("/schooldetails/:userId");
 			}
 		} else if (!pass)
 			setSnakeBarProps({
