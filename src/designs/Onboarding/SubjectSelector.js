@@ -21,7 +21,7 @@ export const SubjectSelector = ({ setPage }) => {
 							}}
 						/>
 					)}
-					{environment.env != "school" && (
+					{/* {environment.env != "school" && (
 						<Chip
 							label="All"
 							onClick={() => setPage(0)}
@@ -35,7 +35,7 @@ export const SubjectSelector = ({ setPage }) => {
 								backgroundColor: "white",
 							}}
 						/>
-					)}
+					)} */}
 					{environment.env != "school" && (
 						<Chip
 							onClick={() => setPage(1)}
