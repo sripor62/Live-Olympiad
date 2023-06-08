@@ -135,6 +135,7 @@ export const ParentLog = (props) => {
             <Box m={1} key={child.id}>
               <Box
                 sx={{
+                  padding:2,
                   backgroundColor: "#4545A5",
                   width: "195px",
                   height: "108px",
@@ -142,11 +143,11 @@ export const ParentLog = (props) => {
                   boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)",
                   marginTop: "10%",
                   marginLeft: "-1%",
-                  justifyContent: "center",
-                  display: "flex",
-                  flexDirection: "column",
+                  
                 }}
               >
+                <Box style={{display:"flex",  paddingTop:1,}}>
+                <Stack direction="column" style={{width:"100%"}}>
                 <Typography
                   sx={{
                     fontFamily: "Inter",
@@ -155,14 +156,28 @@ export const ParentLog = (props) => {
                     fontSize: "10px",
                     lineHeight: "12px",
                     color: "#FFFFFF",
-                    marginLeft: "5%",
-                    marginTop: "8%",
+                  
+                    
                   }}
                 >
-                  {props.schoolsData?.data?.data &&
+                  LO Public School{props.schoolsData?.data?.data &&
                     props.schoolsData?.data?.data.filter(
                       (school) => school._id == child.schoolId
-                    )[0]?.name}
+                    )[0]?.name}    
+                </Typography>
+                <Box style={{display:"flex",marginTop:1}}>
+                <Typography
+                  sx={{
+                    fontFamily: "Inter",
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "8px",
+                    lineHeight: "10px",
+                    color: "#FFFFFF",
+                 
+                  }}
+                >
+                  7{child.grade}
                 </Typography>
                 <Typography
                   sx={{
@@ -172,40 +187,16 @@ export const ParentLog = (props) => {
                     fontSize: "8px",
                     lineHeight: "10px",
                     color: "#FFFFFF",
-                    marginLeft: "5%",
-                    marginTop: "5%",
+                   
                   }}
                 >
-                  class: {child.grade}
+                 {child.section}
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Inter",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "8px",
-                    lineHeight: "10px",
-                    color: "#FFFFFF",
-                    marginLeft: "5%",
-                    marginTop: "5%",
-                  }}
-                >
-                  Section: {child.section}
-                </Typography>
-                <Box
-                  sx={{
-                    width: "90px",
-                    height: "50px",
-                    borderRadius: "8px",
-                    marginTop: "-28%",
-                    marginLeft: "55%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar variant="rounded" src={child.profilePicture} sx={{ marginTop: 2 }}></Avatar>
+                
+                </Box>
+                </Stack>
+                <Box style={{marginRight:"-10%",alignItems:"center",justifyContent:"center" }}>
+                <Avatar variant="rounded" src={child.profilePicture} />
                   <Typography
                     sx={{
                       fontFamily: "Inter",
@@ -214,23 +205,21 @@ export const ParentLog = (props) => {
                       fontSize: "8px",
                       lineHeight: "10px",
                       color: "#FFFFFF",
-                      marginTop: "2%",
+                      
                     }}
                   >
-                    Name: {child.fullName}
+                    {child.fullName}
                   </Typography>
+                </Box>
                 </Box>
                 <Box
                   sx={{
-                    width: "90px",
-                    height: "50px",
                     borderRadius: "8px",
-                    marginTop: "0%",
-                    marginLeft: "25%",
                     justifyContent: "center",
                     alignItems: "center",
                     display: "flex",
                     flexDirection: "column",
+                    marginTop:"-6%"
                   }}
                 >
                   <Typography
@@ -239,16 +228,15 @@ export const ParentLog = (props) => {
                       fontStyle: "normal",
                       fontWeight: "400",
                       fontSize: "8px",
-                      lineHeight: "10px",
                       color: "#FFFFFF",
-                      marginRight: "25%",
-                      marginTop: 2,
+                      marginBottom:"-5%",
+                      marginRight:2
                     }}
                   >
                     Enter
                   </Typography>
                   <Button
-                    sx={{ marginTop: "-13%" }}
+                    sx={{ }}
                     onClick={() => {
                       props.onHandleClickNavigate(child);
                     }}
