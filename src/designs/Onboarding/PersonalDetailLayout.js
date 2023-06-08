@@ -210,15 +210,12 @@ export const PersonalDetailLayout = (props) => {
           </Box>
         </Grid>
 
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
   <Box mb={3} width={1} display="flex" alignItems="center">
   <form onSubmit={handleSubmit}>
       <input type="file" onChange={handleImageChange} />
       <button type="submit">Upload Profile Picture</button>
     </form>
-      {/* <IconButton color="primary" component="span">
-        <PhotoCameraIcon />
-      </IconButton> */}
     <Typography
       variant="body2"
       fontFamily="urbanist"
@@ -230,7 +227,7 @@ export const PersonalDetailLayout = (props) => {
     >
     </Typography>
   </Box>
-</Grid>
+</Grid> */}
 
 
         <Grid item xs={12}>

@@ -176,7 +176,7 @@ export const ParentLog = (props) => {
                     marginTop: "5%",
                   }}
                 >
-                  class: {child.grade}
+                  Class: {child.grade}
                 </Typography>
                 <Typography
                   sx={{

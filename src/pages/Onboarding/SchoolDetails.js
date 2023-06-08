@@ -32,7 +32,7 @@ const SchoolDetails = () => {
 			section: pageData?.section,
 			grade: pageData?.grade,
 		};
-		if (pdata.schoolId && pdata.grade) {
+		if (pdata.grade && pdata.schoolId) {
 			afterValidate(afterValidateCallBack);
 			addEducationMutate(pdata);
 		}
