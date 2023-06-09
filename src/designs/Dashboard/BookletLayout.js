@@ -1,104 +1,211 @@
+import { Button, Grid, Typography } from "@mui/material";
+import { CustomListItem } from "../../components/CustomListItem";
+import { FilterByStatus } from "../../components/FilterByStatus";
+import { Card5 } from "../cards/card5";
+import { SubjectSelector } from "../Onboarding/SubjectSelector";
+import Card from "./cards";
+import { useNavigate } from "react-router-dom";
+import { UpgradeBox } from "./UpgradeBox";
+import { KnowledgeTree } from "./KnowledgeTreeBox";
+import { useState, useEffect } from "react";
+import React from "react";
+import { useStudent } from "../../hooks/useStudent";
 
-import { Button, Chip, Grid, Link, Paper, Stack, Typography, Box } from '@mui/material'
-import React, { useEffect, useState } from 'react'
-import { CustomSnackbar } from '../../components/CustomSnackbar'
-import { CustomButton } from '../../components/CustomButton';
-import { responsiveStype } from '../../beautifiers/responsive';
-import { Document, Page } from "react-pdf";
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import { pdfjs } from 'react-pdf';
-let unSelectedStyle = {
-  backgroundColor: 'rgba(255,252,237,1)',
-  borderRadius: '20px',
-  padding: '20px',
-  marginBottom: '10px'
-}
-let selectedStyle = {
-  borderRadius: '20px',
-  padding: ' 20px 25px',
-  marginBottom: '10px',
-  border: '3px solid rgba(222,221,210,1)'
-}
 
-let selectdChip = {
-  color: "white",
-  fontSize: '12px',
-  border: '3px solid green',
-  backgroundColor: 'green',
-  fontSize: '12px',
-  fontFamily: "Urbanist",
-  fontWeight: 600
-}
-let unSelectedChip = {
-  color: "green",
-  fontSize: '12px',
-  border: '3px solid green',
-  backgroundColor: 'white',
-  fontSize: '12px',
-  fontFamily: "Urbanist",
-  fontWeight: 600
-}
-let disabledChip = {
-  color: "white",
-  fontSize: '12px',
-  border: '3px solid #838BA1',
-  backgroundColor: '#838BA1',
-  fontSize: '12px',
-  fontFamily: "Urbanist",
-  fontWeight: 600
+let links = new Map([
+	["eng1" , "https://publuu.com/flip-book/159959/400586"],
+	["eng2", "https://publuu.com/flip-book/159959/400592"]
+])
+
+
+
+let numericalGrade=0;
+
+
+export const BookletLayout = (props) => {
+	const [grade, setGrade] = useState("");
+
+	
+  // Extract the numerical part from the grade string
+//   useEffect(() => {
+// 	setGrade(window.sessionStorage.getItem('grade'));
+
+// console.log(`grade: ${grade}`);
+// if (grade) {
+// 	const numericalPart = grade.match(/\d+/);
+
+//   if (numericalPart) {
+//     numericalGrade = parseInt(numericalPart[0], 10);
+//     console.log('Numerical Grade:', numericalGrade);
+//   } else {
+//     console.log('Numerical Grade not found');
+//   }
+// } else {
+//   console.log('Student Grade not found');
+// }
+//   },[grade]);
+	
+	const navigate = useNavigate();
+	const { getProfile } = useStudent();
+	
+
+	useEffect(() => {
+		const response = getProfile()
+	  .then((res) => {
+		console.log(res?.data);
+	})
+	  }, []);
+
+
+
+
+
+	return (
+		<Grid container mt={1}>
+			{/* <Grid item p={2} xs={12} sm={12} md={16} lg={12}>
+				<Typography variant="h6">
+					Olympiads
+					<Button
+						sx={{ backgroundColor: "beige", color: "black", marginLeft: "80%" }}
+						onClick={() => {
+							navigate("/Report");
+						}}
+					>
+						Details Reports
+					</Button>
+					<Card />
+				</Typography>
+			</Grid> */}
+			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
+				<Typography variant="h6">Booklets</Typography>
+				<Grid container mb={5} alignItems="center">
+					<Grid item xs={12} md={12} lg={8}>
+						<SubjectSelector setPage={props.setPage} />
+					</Grid>
+					<Grid item xs={12} md={12} lg={4}>
+						
+					</Grid>
+				</Grid>
+				{props.page === 0 &&
+					props?.testsLists?.map((option) => {
+						return (
+							<CustomListItem
+								testSend={props.testSend}
+								option={option}
+								key={option._id}
+								testScreen={props.testScreen}
+							/>
+						);
+					})}
+				{props.page === 1 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.subject[0].search("Science") !== -1;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+				{props.page === 2 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.subject[0].search("Math") !== -1;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+				{props.page === 3 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.subject[0].search("English") !== -1;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+				{props.page === 4 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.testStatus === true;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+				{props.page === 5 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.testStatus === false;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+				{props.page === 6 &&
+					props?.testsLists
+						?.filter((item) => {
+							return item.testStatus === null || item.testStatus === undefined;
+						})
+						.map((option) => {
+							return (
+								<CustomListItem
+									testSend={props.testSend}
+									option={option}
+									key={option._id}
+									testScreen={props.testScreen}
+								/>
+							);
+						})}
+						<a href={links.get(`eng${numericalGrade}`)} target="_blank" rel="noopener noreferrer">
+                        {links.get(`eng${numericalGrade}`)}
+                        </a>
+			</Grid>
+			{/* <Grid
+				item
+				p={2}
+				md={4}
+				lg={5}
+				sx={{ display: { xs: "none", sm: "none", md: "block", lg: "block" } }}
+			>
+				<UpgradeBox />
+            <KnowledgeTree />
+				<Grid item xs={12} sm={12} md={12} lg={12}>
+					<Card5 />
+				</Grid>
+			</Grid> */}
+
+		</Grid>
+	);
 };
-const BookletLayout = (props) => {
-  
-  var grade = window.localStorage.getItem("grade")
-  var pdfdwn = JSON.parse(grade)
-  console.log(pdfdwn)
-  const onButtonClick = () => {
-    // using Java Script method to get PDF file
-    fetch('SamplePDF.pdf').then(response => {
-      response.blob().then(blob => {
-        // Creating new object of PDF file
-        const fileURL = window.URL.createObjectURL(blob);
-        // Setting various property values
-        let alink = document.createElement('a');
-        if (pdfdwn === 6)
-          alink.href = "https://liveolympiad.org/wp-content/uploads/2022/06/LiveOlympiad-Class-6-Book-1.pdf"
-        else if (pdfdwn === 3)
-          alink.href = "https://liveolympiad.org/wp-content/uploads/2022/06/Class-3-31-J-1.1.pdf"
-        else if(pdfdwn!==3 && pdfdwn!==6)
-          alink.href = `https://liveolympiad.org/wp-content/uploads/2022/06/LO-BOOK-Class-${pdfdwn}.pdf`;
-        alink.download = 'SamplePDF.pdf';
-        alink.click();
-      })
-    })
-  }
 
-  return <Grid container >
-    <Grid item xs={12} sm={12} md={10} lg={6} p={4}>
-      <Grid container style={{ border: '2px solid lightGray', borderRadius: '20px', padding: '20px', marginBottom: '10px' }} spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant='body2' sx={{ fontSize: "16px", fontWeight: 500, fontFamily: "Urbanist" }}>
-            <Box mb={2} sx={{ textAlign: "center" }}>You are Currently on 0 Subject Subscription, upgrade license to avail more benefits!</Box>
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container style={selectedStyle} >
-            <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-              <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Maths</Box></Typography>
-            </Grid>
-            <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-              <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>Science</Box></Typography>
-            </Grid>
-            <Grid item xs={4} style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-              <Typography variant='body2' fontWeight={500} ><Box mb={2} sx={{ fontSize: { xs: "14px", lg: "16px" }, fontFamily: "Urbanist" }}>English</Box></Typography>
-            </Grid>
-            <Grid item xs={12} mt={1} sx={{ justifyContent:'center', alignItems:'center', display: "flex" }}>
-                <Chip label=" Read & Download" onClick={onButtonClick} sx={selectdChip} />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
-  </Grid>
-}
-export default BookletLayout;

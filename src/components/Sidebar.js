@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import MenuBookTwoToneIcon from '@material-ui/icons/MenuBookTwoTone';
 import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { CustomButton } from './CustomButton';
@@ -14,11 +15,11 @@ const Sidebar = (props) => {
     useEffect(() => {
         //if (location.pathname === "/infoboard") setPage(0)
         if (location.pathname === "/dashboard") setPage(0)
-        if (location.pathname === "/profile") setPage(1)
+        //if (location.pathname === "/profile") setPage(1)
         if (location.pathname === "/subscription") setPage(2)
         if (location.pathname === "/syllabus") setPage(3)
         //if (location.pathname === "/schedule") setPage(3)
-        //if (location.pathname === "/booklet") setPage(4)
+        if (location.pathname === "/booklet") setPage(4)
     }, [page, location.pathname])
 
     return (<>
@@ -43,13 +44,13 @@ const Sidebar = (props) => {
                             </Box>
                         </Grid>
                     </Button>
-                    <Button onClick={() => {navigate("/profile")}}>
+                    {/* <Button onClick={() => {navigate("/profile")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 1) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
                                 <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 1) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Profile</Box>
                             </Box>
                         </Grid>
-                    </Button>
+                    </Button> */}
                     <Button onClick={() => {navigate("/syllabus")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
@@ -73,16 +74,16 @@ const Sidebar = (props) => {
                         </Grid>
                     </Button>} 
                     */}
-                    {/*
+                    
                     <Button onClick={() => {navigate("/booklet")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}>
-                            <MenuBookTwoToneIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}} />
+                            <MenuBookTwoToneIcon sx={{color:(page === 4) ? "#FCBD42": "#1E232C"}} />
                             <Typography>
-                                <Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklets</Box>
+                                <Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 4) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklets</Box>
                             </Typography>
                         </Grid>
                     </Button>
-                    */}
+                   
 {/*                     
                     <Box sx={{display:'flex',ml:2,mt:1}}>
                         <CustomButton  onClick={()=>{navigate('/Parent')}} btnText="Switch Child"  variant="contained" 

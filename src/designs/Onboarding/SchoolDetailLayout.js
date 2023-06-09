@@ -8,6 +8,8 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import InputBase from "@mui/material/InputBase";
 import { styled } from "@mui/material/styles";
+
+
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
     marginTop: theme.spacing(0),
@@ -31,6 +33,8 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export const SchoolDetailLayout = (props) => {
   const [classes, setClasses] = React.useState("");
+  const [selectedSchool, setSelectedSchool] = useState("");
+
 
   const handleChange = (event) => {
     setClasses(event.target.value);
@@ -80,6 +84,14 @@ export const SchoolDetailLayout = (props) => {
                 pinCode: event.target.value,
               });
               props.setPinCode(event.target.value);
+              const firstSchool = props.schoolsList?.[0];
+    if (firstSchool) {
+      props.setPageData({
+        ...props.pageData,
+        schoolId: firstSchool._id,
+      });
+      setSelectedSchool(firstSchool._id);
+    }
             }}
             required
             error={
@@ -116,12 +128,13 @@ export const SchoolDetailLayout = (props) => {
             </InputLabel>
             <Select
               label="School"
-              selected={props.pageData?.school}
-              value={props.pageData?.schoolId}
+              selected={selectedSchool}
+              value={selectedSchool}
               onChange={(event) => {
+                const selectedSchoolId = event.target.value;
                 props.setPageData({
                   ...props.pageData,
-                  schoolId: event.target.value,
+                  schoolId: selectedSchoolId,
                 });
               }}
               inputProps={{

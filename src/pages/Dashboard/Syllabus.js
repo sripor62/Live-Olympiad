@@ -4,22 +4,22 @@ import { useSyllabus } from "../../hooks/useSyllabus";
 import "./Syllabus.css";
 
 
-const studentGrade = sessionStorage.getItem('grade');
-let numericalGrade=0;
+// const studentGrade = sessionStorage.getItem('grade');
+// let numericalGrade=0;
 
-if (studentGrade) {
-  // Extract the numerical part from the grade string
-  const numericalPart = studentGrade.match(/\d+/);
+// if (studentGrade) {
+//   // Extract the numerical part from the grade string
+//   const numericalPart = studentGrade.match(/\d+/);
 
-  if (numericalPart) {
-    numericalGrade = parseInt(numericalPart[0], 10);
-    console.log('Numerical Grade:', numericalGrade);
-  } else {
-    console.log('Numerical Grade not found');
-  }
-} else {
-  console.log('Student Grade not found');
-}
+//   if (numericalPart) {
+//     numericalGrade = parseInt(numericalPart[0], 10);
+//     console.log('Numerical Grade:', numericalGrade);
+//   } else {
+//     console.log('Numerical Grade not found');
+//   }
+// } else {
+//   console.log('Student Grade not found');
+// }
 
 
 
@@ -72,22 +72,22 @@ const Syllabus = () => {
     fetchSyllabusData();
   }, []);
 
-  const getBookletLink = (grade) => {
-    const bookletLinks = {
-      1: 'https://liveolympiad.org/grade-i/',
-      2: 'https://liveolympiad.org/grade-ii/',
-      3: 'https://liveolympiad.org/grade-iii/',
-      4: 'https://liveolympiad.org/grade-iv/',
-      5: 'https://liveolympiad.org/grade-v/',
-      6: 'https://liveolympiad.org/grade-vi/',
-      7: 'https://liveolympiad.org/grade-vii/',
-      8: 'https://liveolympiad.org/grade-viii/',
-      9: 'https://liveolympiad.org/grade-ix/',
-      10: 'https://liveolympiad.org/grade-x/'
-    };
+  // const getBookletLink = (grade) => {
+  //   const bookletLinks = {
+  //     1: 'https://liveolympiad.org/grade-i/',
+  //     2: 'https://liveolympiad.org/grade-ii/',
+  //     3: 'https://liveolympiad.org/grade-iii/',
+  //     4: 'https://liveolympiad.org/grade-iv/',
+  //     5: 'https://liveolympiad.org/grade-v/',
+  //     6: 'https://liveolympiad.org/grade-vi/',
+  //     7: 'https://liveolympiad.org/grade-vii/',
+  //     8: 'https://liveolympiad.org/grade-viii/',
+  //     9: 'https://liveolympiad.org/grade-ix/',
+  //     10: 'https://liveolympiad.org/grade-x/'
+  //   };
 
-    return bookletLinks[grade];
-  };
+  //   return bookletLinks[grade];
+  // };
 
   return (
     <HomeLayout>
@@ -95,20 +95,10 @@ const Syllabus = () => {
         <AccordionItem title="Maths" subItems={syllabusData} level={1} />
         <AccordionItem title="Science" subItems={syllabusData} level={1} />
         <AccordionItem title="English" subItems={syllabusData} level={1} />
-        <a
-          href={getBookletLink(numericalGrade)} // Replace '1' with the grade dynamically
-          className="booklet-button"
-        >
-          Booklet
-        </a>
+        
       </div>
     </HomeLayout>
   );
 };
 
 export default Syllabus;
-
-
-
-
-

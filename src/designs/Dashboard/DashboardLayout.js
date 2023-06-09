@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography, Box } from "@mui/material";
 import { CustomListItem } from "../../components/CustomListItem";
 import { FilterByStatus } from "../../components/FilterByStatus";
 import { Card5 } from "../cards/card5";
@@ -7,6 +7,7 @@ import Card from "./cards";
 import { useNavigate } from "react-router-dom";
 import { UpgradeBox } from "./UpgradeBox";
 import { KnowledgeTree } from "./KnowledgeTreeBox";
+import { grey } from "@mui/material/colors";
 
 export const DashboardLayout = (props) => {
 	const navigate = useNavigate();
@@ -28,18 +29,17 @@ export const DashboardLayout = (props) => {
 			</Grid> */}
 			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
 				<Typography variant="h6">Practice</Typography>
+				{/* <Typography variant="h9" color={grey}>Clicking on these buttons will take you to practice test</Typography> */}
+				<Grid item xs={12}>
+                <Box fontWeight={600} sx={{ fontSize: { xs: "12px", lg: "14px" }, color: "#838BA1" }}>
+                    <Box mb={3}>Clicking on these buttons will take you to practice test</Box>
+                </Box>
+            </Grid>
 				<Grid container mb={5} alignItems="center">
 					<Grid item xs={12} md={12} lg={8}>
 						<SubjectSelector setPage={props.setPage} />
 					</Grid>
 					<Grid item xs={12} md={12} lg={4}>
-						<FilterByStatus
-							setPage={props.setPage}
-							open={props.open}
-							anchorEl={props.anchorEl}
-							handleClick={props.handleClick}
-							handleClose={props.handleClose}
-						/>
 					</Grid>
 				</Grid>
 				{props.page === 0 &&

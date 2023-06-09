@@ -2,6 +2,10 @@ import React from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { AddCircle } from "@mui/icons-material";
+import { useQuery } from "react-query";
+import useSessionHelper from "../../hooks/useSession";
+import { useStore } from "../../stores";
+import { useSchool } from "../../hooks/useSchool";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -49,6 +53,28 @@ const childrenData = [
 ];
 
 export const ParentLog = (props) => {
+
+  const [schoolName, setSchoolName] = useState("");
+
+  // const currentUser = useStore((state) => state.currentUser);
+	// const { getReportFilter } = useSessionHelper();
+	// const { data: ReportFilter } = useQuery(
+	// 	[`ReportData`],
+	// 	() => getReportFilter({ userId: currentUser.id }),
+	// 	{ enabled: true, retry: false }
+	// );
+
+	const { getSchoolById } = useSchool();
+  useEffect(() => {
+	  const response = getSchoolById("4bc089bd-4041-4146-8c1d-517d7551d394")
+    .then((res) => { console.log(res.data?.data?.name); setSchoolName(res.data?.data?.name);})
+	}, []);
+  
+	// const { data: SchoolData } = useQuery(
+	// 	[`School`, ReportFilter?.data?.data[0]],
+	// 	() => getSchoolById(ReportFilter?.data?.data[0].schoolId),
+	// 	{ enabled: !!ReportFilter, retry: false }
+	// );
   
   return (
     <AuthLayout responsiveStype={props.responsiveStype}>
@@ -160,10 +186,8 @@ export const ParentLog = (props) => {
                     
                   }}
                 >
-                  {props.schoolsData?.data?.data &&
-                    props.schoolsData?.data?.data.filter(
-                      (school) => school._id == child.schoolId
-                    )[0]?.name}    
+                  {schoolName}   
+
                 </Typography>
                 <Box style={{display:"flex",marginTop:10}}>
                 <Typography

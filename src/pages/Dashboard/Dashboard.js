@@ -3,6 +3,7 @@ import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
+import { BookletLayout } from "../../designs/Dashboard/BookletLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
 import useTests from "../../hooks/useTests";
 import { useStore } from "../../stores";
