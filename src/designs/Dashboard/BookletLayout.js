@@ -25,25 +25,26 @@ let numericalGrade=0;
 export const BookletLayout = (props) => {
 	const [grade, setGrade] = useState("");
 
-	
-  // Extract the numerical part from the grade string
-//   useEffect(() => {
-// 	setGrade(window.sessionStorage.getItem('grade'));
+	// Extract the numerical part from the grade string
+	useEffect(() => {
+		let stud = JSON.parse(sessionStorage.getItem('current_student'));
 
-// console.log(`grade: ${grade}`);
-// if (grade) {
-// 	const numericalPart = grade.match(/\d+/);
+		setGrade(stud["grade"]);
 
-//   if (numericalPart) {
-//     numericalGrade = parseInt(numericalPart[0], 10);
-//     console.log('Numerical Grade:', numericalGrade);
-//   } else {
-//     console.log('Numerical Grade not found');
-//   }
-// } else {
-//   console.log('Student Grade not found');
-// }
-//   },[grade]);
+		console.log(`grade: ${grade}`);
+
+		if (grade) {
+			const numericalPart = grade.match(/\d+/);
+			if (numericalPart) {
+				numericalGrade = parseInt(numericalPart[0], 10);
+				console.log('Numerical Grade:', numericalGrade);
+			} else {
+				console.log('Numerical Grade not found');
+			}
+		} else {
+			console.log('Student Grade not found');
+		}
+	},[grade]);
 	
 	const navigate = useNavigate();
 	const { getProfile } = useStudent();

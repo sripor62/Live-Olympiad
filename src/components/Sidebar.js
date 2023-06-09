@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
-import MenuBookTwoToneIcon from '@material-ui/icons/MenuBookTwoTone';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { CustomButton } from './CustomButton';
@@ -30,7 +30,7 @@ const Sidebar = (props) => {
                 <Grid item md={2} lg={2}>
                     {/*
                     <Button onClick={() => {navigate("/infoboard")}}>
-                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookTwoToneIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}><MenuBookIcon sx={{color:(page == 3) ? "#FCBD42": "#1E232C"}} />
                             <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Important!</Box>
                             </Box>
@@ -77,7 +77,7 @@ const Sidebar = (props) => {
                     
                     <Button onClick={() => {navigate("/booklet")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}>
-                            <MenuBookTwoToneIcon sx={{color:(page === 4) ? "#FCBD42": "#1E232C"}} />
+                            <MenuBookIcon sx={{color:(page === 4) ? "#FCBD42": "#1E232C"}} />
                             <Typography>
                                 <Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 4) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklets</Box>
                             </Typography>
