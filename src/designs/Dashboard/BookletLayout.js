@@ -11,59 +11,40 @@ import { useState, useEffect } from "react";
 import React from "react";
 import { useStudent } from "../../hooks/useStudent";
 
-
 let links = new Map([
-	["eng1" , "https://publuu.com/flip-book/159959/400586"],
-	["eng2", "https://publuu.com/flip-book/159959/400592"]
-])
+  ["eng1", "https://publuu.com/flip-book/159959/400586"],
+  ["eng2", "https://publuu.com/flip-book/159959/400592"],
+]);
 
-
-
-let numericalGrade=0;
-
+let numericalGrade = 0;
 
 export const BookletLayout = (props) => {
-	const [grade, setGrade] = useState("");
+  const [grade, setGrade] = useState("");
 
-	// Extract the numerical part from the grade string
-	useEffect(() => {
-		let stud = JSON.parse(sessionStorage.getItem('current_student'));
+  // Extract the numerical part from the grade string
+  useEffect(() => {
+    let stud = JSON.parse(sessionStorage.getItem("current_student"));
 
-		setGrade(stud["grade"]);
+    if (stud && stud["grade"]) setGrade(stud["grade"]);
 
-		console.log(`grade: ${grade}`);
+    console.log(`grade: ${grade}`);
 
-		if (grade) {
-			const numericalPart = grade.match(/\d+/);
-			if (numericalPart) {
-				numericalGrade = parseInt(numericalPart[0], 10);
-				console.log('Numerical Grade:', numericalGrade);
-			} else {
-				console.log('Numerical Grade not found');
-			}
-		} else {
-			console.log('Student Grade not found');
-		}
-	},[grade]);
-	
-	const navigate = useNavigate();
-	const { getProfile } = useStudent();
-	
+    if (grade) {
+      const numericalPart = grade.match(/\d+/);
+      if (numericalPart) {
+        numericalGrade = parseInt(numericalPart[0], 10);
+        console.log("Numerical Grade:", numericalGrade);
+      } else {
+        console.log("Numerical Grade not found");
+      }
+    } else {
+      console.log("Student Grade not found");
+    }
+  }, [grade]);
 
-	useEffect(() => {
-		const response = getProfile()
-	  .then((res) => {
-		console.log(res?.data);
-	})
-	  }, []);
-
-
-
-
-
-	return (
-		<Grid container mt={1}>
-			{/* <Grid item p={2} xs={12} sm={12} md={16} lg={12}>
+  return (
+    <Grid container mt={1}>
+      {/* <Grid item p={2} xs={12} sm={12} md={16} lg={12}>
 				<Typography variant="h6">
 					Olympiads
 					<Button
@@ -77,122 +58,147 @@ export const BookletLayout = (props) => {
 					<Card />
 				</Typography>
 			</Grid> */}
-			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-				<Typography variant="h6">Booklets</Typography>
-				<Grid container mb={5} alignItems="center">
-					<Grid item xs={12} md={12} lg={8}>
-						<SubjectSelector setPage={props.setPage} />
-					</Grid>
-					<Grid item xs={12} md={12} lg={4}>
-						
-					</Grid>
-				</Grid>
-				{props.page === 0 &&
-					props?.testsLists?.map((option) => {
-						return (
-							<CustomListItem
-								testSend={props.testSend}
-								option={option}
-								key={option._id}
-								testScreen={props.testScreen}
-							/>
-						);
-					})}
-				{props.page === 1 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.subject[0].search("Science") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.page === 2 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.subject[0].search("Math") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.page === 3 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.subject[0].search("English") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.page === 4 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.testStatus === true;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.page === 5 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.testStatus === false;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.page === 6 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.testStatus === null || item.testStatus === undefined;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-						<a href={links.get(`eng${numericalGrade}`)} target="_blank" rel="noopener noreferrer">
-                        {links.get(`eng${numericalGrade}`)}
-                        </a>
-			</Grid>
-			{/* <Grid
+      <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
+        <Typography variant="h6">Booklets</Typography>
+        <Grid container mb={5} alignItems="center">
+          <Grid item xs={12} md={12} lg={8}>
+            <SubjectSelector setPage={props.setPage} />
+          </Grid>
+          <Grid item xs={12} md={12} lg={4}></Grid>
+        </Grid>
+        {props.page === 0 &&
+          props?.testsLists?.map((option) => {
+            return (
+              <CustomListItem
+                testSend={props.testSend}
+                option={option}
+                key={option._id}
+                testScreen={props.testScreen}
+              />
+            );
+          })}
+        {props.page === 1 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.subject[0].search("Science") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.page === 2 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.subject[0].search("Math") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.page === 3 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.subject[0].search("English") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.page === 4 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.testStatus === true;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.page === 5 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.testStatus === false;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.page === 6 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.testStatus === null || item.testStatus === undefined;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+
+        {props.page === 2 && (
+          <a
+            href={links.get(`math${numericalGrade}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {links.get(`math${numericalGrade}`)}
+          </a>
+        )}
+
+        {props.page === 1 && (
+          <a
+            href={links.get(`science${numericalGrade}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {links.get(`science${numericalGrade}`)}
+          </a>
+        )}
+
+        {props.page === 3 && (
+          <a
+            href={links.get(`eng${numericalGrade}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {links.get(`eng${numericalGrade}`)}
+          </a>
+        )}
+      </Grid>
+      {/* <Grid
 				item
 				p={2}
 				md={4}
@@ -205,8 +211,6 @@ export const BookletLayout = (props) => {
 					<Card5 />
 				</Grid>
 			</Grid> */}
-
-		</Grid>
-	);
+    </Grid>
+  );
 };
-

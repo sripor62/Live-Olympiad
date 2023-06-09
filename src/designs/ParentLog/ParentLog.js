@@ -64,6 +64,8 @@ export const ParentLog = (props) => {
 	// 	{ enabled: true, retry: false }
 	// );
 
+  // console.log(currentUser);
+
 	const { getSchoolById } = useSchool();
   useEffect(() => {
 	  const response = getSchoolById("4bc089bd-4041-4146-8c1d-517d7551d394")
