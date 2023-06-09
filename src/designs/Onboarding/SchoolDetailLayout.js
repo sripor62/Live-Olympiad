@@ -66,9 +66,8 @@ export const SchoolDetailLayout = (props) => {
       <Grid item xs={12}>
         <Box mb={2} width={1}>
           <CustomTextField
-            placeholder="School Area Postal Code"
+            label="School Area Postal Code"
             type="tel"
-            variant="filled"
             value={
               props.pinCode.length >= 0
                 ? props.pinCode
@@ -98,6 +97,13 @@ export const SchoolDetailLayout = (props) => {
                 fontSize: "16px",
               },
             }}
+            InputLabelProps={{  sx: {
+              color: "rgba(131,145,161,1)",
+              fontFamily: "urbanist",
+              fontWeight: 600,
+              fontSize: "16px",
+            }, }}
+            sx={{  "& fieldset": { border: 'none' },}}
           />
         </Box>
       </Grid>
@@ -212,9 +218,15 @@ export const SchoolDetailLayout = (props) => {
         <Grid item xs={12} lg={6}>
           <Box mb={2} width={1}>
             <CustomTextField
-              placeholder="Section"
+              InputLabelProps={{  sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+             
               type="text"
-              variant="filled"
+              label="Section"
               value={props.pageData?.section}
               onChange={(event) => {
                 props.setPageData({
@@ -236,6 +248,7 @@ export const SchoolDetailLayout = (props) => {
                   fontSize: "16px",
                 },
               }}
+              sx={{  "& fieldset": { border: 'none' },}}
             />
           </Box>
         </Grid>

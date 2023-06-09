@@ -57,8 +57,7 @@ export const UserProfileForm = (props) => {
           <Grid item xs={12} sm={12} md={8} lg={7} mb={2}>
             <CustomTextField
               type="text"
-              placeholder="Full Name"
-              variant="filled"
+              label="Full Name"    
               value={props.pageData.fullName}
               onChange={(event) => {
                 props.setPageData({
@@ -86,6 +85,13 @@ export const UserProfileForm = (props) => {
                   fontWeight: 600,
                 },
               }}
+              InputLabelProps={{  sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+              sx={{  "& fieldset": { border: 'none' },}}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
@@ -130,8 +136,7 @@ export const UserProfileForm = (props) => {
         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
           <CustomTextField
             type="tel"
-            placeholder="Roll No."
-            variant="filled"
+            label="Roll No."
             value={props.pageData.rollNumber}
             onChange={(event) => {
               props.setPageData({
@@ -159,6 +164,13 @@ export const UserProfileForm = (props) => {
                 fontWeight: 600,
               },
             }}
+            InputLabelProps={{  sx: {
+              color: "rgba(131,145,161,1)",
+              fontFamily: "urbanist",
+              fontWeight: 600,
+              fontSize: "16px",
+            }, }}
+            sx={{  "& fieldset": { border: 'none' },}}
           />
         </Grid>
         <Grid container spacing={1}>
@@ -209,8 +221,7 @@ export const UserProfileForm = (props) => {
           <Grid item xs={12} sm={12} md={4} lg={5} mb={2}>
             <CustomTextField
               type="text"
-              placeholder="Section."
-              variant="filled"
+              label="Section."
               value={props.pageData.section}
               onChange={(event) => {
                 props.setPageData({
@@ -236,16 +247,22 @@ export const UserProfileForm = (props) => {
                   fontWeight: 600,
                 },
               }}
+              InputLabelProps={{  sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+              sx={{  "& fieldset": { border: 'none' },}}
             />
           </Grid>
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
           <CustomTextField
-            placeholder="Date of Birth"
+            label="Date of Birth"
             id="date"
             type="date"
             required
-            variant="filled"
             value={props.pageData.dob}
             onChange={(event) => {
               props.setPageData({ ...props.pageData, dob: event.target.value });
@@ -263,13 +280,19 @@ export const UserProfileForm = (props) => {
                 fontWeight: 600,
               },
             }}
+            InputLabelProps={{  sx: {
+              color: "rgba(131,145,161,1)",
+              fontFamily: "urbanist",
+              fontWeight: 600,
+              fontSize: "16px",
+            }, }}
+            sx={{  "& fieldset": { border: 'none' },}}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
           <CustomTextField
             type="email"
-            placeholder="Email Address (Optional)"
-            variant="filled"
+            label="Email Address (Optional)"
             value={props.pageData.email}
             required
             onChange={(event) => {
@@ -291,13 +314,19 @@ export const UserProfileForm = (props) => {
                 fontWeight: 600,
               },
             }}
+            InputLabelProps={{  sx: {
+              color: "rgba(131,145,161,1)",
+              fontFamily: "urbanist",
+              fontWeight: 600,
+              fontSize: "16px",
+            }, }}
+            sx={{  "& fieldset": { border: 'none' },}}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
           <CustomTextField
             type="tel"
-            placeholder="School Area Postal Code"
-            variant="filled"
+            label="School Area Postal Code"
             value={
               props.pinCode
                 ? props.pinCode
@@ -328,6 +357,13 @@ export const UserProfileForm = (props) => {
                 fontWeight: 600,
               },
             }}
+            InputLabelProps={{  sx: {
+              color: "rgba(131,145,161,1)",
+              fontFamily: "urbanist",
+              fontWeight: 600,
+              fontSize: "16px",
+            }, }}
+            sx={{  "& fieldset": { border: 'none' },}}
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>

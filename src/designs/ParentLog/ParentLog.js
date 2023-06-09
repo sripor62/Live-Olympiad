@@ -194,7 +194,7 @@ export const ParentLog = (props) => {
                 
                 </Box>
                 </Stack>
-                <Box style={{marginRight:"-10%",alignItems:"center",justifyContent:"center" }}>
+                <Box style={{marginRight:"",alignItems:"center",justifyContent:"center" }}>
                 <Avatar variant="rounded" src={child.profilePicture} />
                   <Typography
                     sx={{
