@@ -39,8 +39,8 @@ export const DashboardLayout = (props) => {
 					<Grid item xs={12} md={12} lg={8}>
 						<SubjectSelector setPage={props.setPage} />
 					</Grid>
-					<Grid item xs={12} md={12} lg={4}>
-					</Grid>
+					{/* <Grid item xs={12} md={12} lg={4}>
+					</Grid> */}
 				</Grid>
 				{props.page === 0 &&
 					props?.testsLists?.map((option) => {

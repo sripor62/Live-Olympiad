@@ -106,8 +106,7 @@ export const PersonalDetailLayout = (props) => {
                   }
                 }}
                 type="text"
-                placeholder="Full Name"
-                variant="filled"
+                label="Full Name"
                 value={props.pageData.fullName}
                 onChange={(event) => {
                   props.setPageData({
@@ -129,6 +128,13 @@ export const PersonalDetailLayout = (props) => {
                     fontWeight: 600,
                   },
                 }}
+                InputLabelProps={{  sx: {
+                  color: "rgba(131,145,161,1)",
+                  fontFamily: "urbanist",
+                  fontWeight: 600,
+                  fontSize: "16px",
+                }, }}
+                sx={{  "& fieldset": { border: 'none' },}}
               />
             </Box>
           </Grid>
@@ -177,8 +183,7 @@ export const PersonalDetailLayout = (props) => {
             <CustomTextField
               inputLabel={true}
               type="tel"
-              placeholder="Roll No."
-              variant="filled"
+              label="Roll No."
               value={props.pageData.rollNumber}
               onChange={(event) => {
                 props.setPageData({
@@ -206,6 +211,14 @@ export const PersonalDetailLayout = (props) => {
                   fontWeight: 600,
                 },
               }}
+              InputLabelProps={{  sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+              sx={{  "& fieldset": { border: 'none' },}}
+              
             />
           </Box>
         </Grid>
@@ -238,14 +251,10 @@ export const PersonalDetailLayout = (props) => {
                   document.getElementById("clicked").click();
                 }
               }}
-              placeholder="Date of Birth"
+              label="Date of Birth"
               id="date"
               type="date"
               required
-              InputLabelProps={{
-                shrink: true,
-              }}
-              variant="filled"
               onChange={(event) => {
                 props.setPageData({
                   ...props.pageData,
@@ -265,6 +274,13 @@ export const PersonalDetailLayout = (props) => {
                   fontSize: "16px",
                 },
               }}
+              InputLabelProps={{ shrink:true, sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+              sx={{  "& fieldset": { border: 'none' },}}
             />
           </Box>
         </Grid>
@@ -277,8 +293,7 @@ export const PersonalDetailLayout = (props) => {
                 }
               }}
               type="email"
-              placeholder="Email Address (Optional)"
-              variant="filled"
+              label="Email Address (Optional)"
               required={false}
               value={props.pageData.email}
               onChange={(event) => {
@@ -300,6 +315,13 @@ export const PersonalDetailLayout = (props) => {
                   fontSize: "16px",
                 },
               }}
+              InputLabelProps={{  sx: {
+                color: "rgba(131,145,161,1)",
+                fontFamily: "urbanist",
+                fontWeight: 600,
+                fontSize: "16px",
+              }, }}
+              sx={{  "& fieldset": { border: 'none' },}}
             />
           </Box>
         </Grid>

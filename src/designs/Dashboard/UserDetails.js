@@ -173,7 +173,7 @@ export const UserDetails = (props) => {
 						justifyContent="center"
 						alignItems="center"
 					>
-						<Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
+						{/* <Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
 							<Typography variant="body2" align="center">
 								<Box
 									sx={{
@@ -239,7 +239,7 @@ export const UserDetails = (props) => {
 									{props.subscriptionList?.join(",")}
 								</Box>
 							</Typography>
-						</Grid>
+						</Grid> */}
 						<Grid item xs={12} sm={12} md={12} lg={12} mb={2}>
 							<Typography variant="body2" align="center">
 								<Box

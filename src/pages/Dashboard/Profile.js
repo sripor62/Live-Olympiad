@@ -171,7 +171,6 @@ const Profile = (props) => {
 
 			window.localStorage.setItem("Name", pdata.fullName);
 			PersonalMutate(pdata);
-			navigate("/chooseyourplan/");
 		}
 		// afterValidate(afterValidateCallBack);
 		// addProfileMutate({ ...pdata });

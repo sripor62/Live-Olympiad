@@ -20,9 +20,9 @@ const LoStepper = (props) => {
                 <Step>
                     <StepLabel StepIconComponent={ BadgeOutlinedIcon} sx={{color:page=="1" ? "rgba(255,208,0,1)" : "white"}}><Typography variant='subtitle2' color={page==="1" ? "rgba(255,208,0,1)" : "white"}><Box>Personal Details</Box></Typography></StepLabel>
                 </Step>
-                <Step>
+                {/* <Step>
                     <StepLabel StepIconComponent={WorkspacePremiumOutlinedIcon}  sx={{color:"#FFFFFF"}}><Typography variant='subtitle2'color="#FFFFFF"><Box>Choose Your Plan</Box></Typography></StepLabel>
-                </Step>
+                </Step> */}
             </Stepper>
         </Grid>
     </Grid>
