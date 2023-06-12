@@ -86,6 +86,7 @@ export const ParentLog = (props) => {
             btnText="LOGOUT"
             variant="contained"
             sx={{
+              ":hover": {color: "white" },
               color: "black",
               borderRadius: "20px",
               width: "70px",
