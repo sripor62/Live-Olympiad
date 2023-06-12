@@ -54,104 +54,38 @@ const childrenData = [
 
 export const ParentLog = (props) => {
 
-  const [schoolName, setSchoolName] = useState("");
-
-	const { getSchoolById } = useSchool();
+  const [schoolNames, setSchoolNames] = useState([]);
+  const { getSchoolById } = useSchool();
 
   useEffect(() => {
-	  const response = getSchoolById("4bc089bd-4041-4146-8c1d-517d7551d394")
-    .then((res) => { console.log(res.data?.data?.name); setSchoolName(res.data?.data?.name);})
-	}, []);
-  
-	// const { data: SchoolData } = useQuery(
-	// 	[`School`, ReportFilter?.data?.data[0]],
-	// 	() => getSchoolById(ReportFilter?.data?.data[0].schoolId),
-	// 	{ enabled: !!ReportFilter, retry: false }
-	// );
-  
-  return (
-    <AuthLayout responsiveStype={props.responsiveStype}>
-      <Grid container sx={{marginTop:{lg:"0%",md:"0%",sm:"-60%",xs:"0%"}}}>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          mt={1}
-          md={12}
-          lg={12}
-          sx={{ display: "flex", justifyContent: "flex-end" }}
-        >
-          <CustomButton
-            onClick={props.logOutHandler}
-            btnText="LOGOUT"
-            variant="contained"
-            sx={{
-              color: "black",
-              borderRadius: "20px",
-              width: "70px",
-              height: { xs: "34px", lg: "36px" },
-              fontSize: { xs: "10px", lg: "12px" },
-              backgroundColor: "#F9BB47",
-              fontWeight: 600,
-              marginBottom: 5,
-            }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={12} md={12} lg={12}>
-          <Typography
-            sx={{
-              fontFamily: "urbanist",
-              fontStyle: "normal",
-              fontWeight: "500",
-              fontSize: "22px",
-              lineHeight: "26px",
-              color: "#060606",
-            }}
-          >
-            My Children
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={12}
-          lg={12}
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          <IconButton
-            disabled={false} //props.page === 1}
-            onClick={props.handleClickPrev}
-          >
-            <ChevronLeftIcon />
-          </IconButton>
-          <IconButton
-            disabled={false} //props.page === props.numPages}
-            onClick={props.handleClickNext}
-          >
-            <ChevronRightIcon />
-          </IconButton>
-        </Grid>
-        <Grid
-          item
-		  lg={12}
-		  md={12}
-		  sm={12}
-		  xs={12}
-          sx={{
-            display: "flex",
-            flexDirection: {
-              lg: "row",
-              md: "row",
-              sm: "row",
-              xs: "column",
-            },
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {props.children.map((child) => (
-            <Box m={1} key={child.id}>
+    const fetchSchoolNames = async () => {
+      const names = await Promise.all(
+        props.children.map(async (child) => {
+          try {
+            const response = await getSchoolById(child.schoolId);
+            const schoolData = response.data?.data;
+            if (schoolData) {
+              return schoolData.name;
+            }
+          } catch (error) {
+            console.error("Failed to fetch school data:", error);
+          }
+          return "";
+        })
+      );
+      setSchoolNames(names);
+    };
+
+    fetchSchoolNames();
+  }, [getSchoolById, props.children]);
+
+
+  const renderChildren = () => {
+    return props.children.map((child, index) => {
+      const schoolName = schoolNames[index];
+
+      return (
+        <Box m={1} key={child.id}>
               <Box
                 sx={{
                   padding:2,
@@ -175,8 +109,6 @@ export const ParentLog = (props) => {
                     fontSize: "10px",
                     lineHeight: "12px",
                     color: "#FFFFFF",
-                  
-                    
                   }}
                 >
                     
@@ -263,7 +195,94 @@ export const ParentLog = (props) => {
                 </Box>
               </Box>
             </Box>
-          ))}
+      );
+    });
+  };
+
+
+  
+  return (
+    <AuthLayout responsiveStype={props.responsiveStype}>
+      <Grid container sx={{marginTop:{lg:"0%",md:"0%",sm:"-60%",xs:"0%"}}}>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          mt={1}
+          md={12}
+          lg={12}
+          sx={{ display: "flex", justifyContent: "flex-end" }}
+        >
+          <CustomButton
+            onClick={props.logOutHandler}
+            btnText="LOGOUT"
+            variant="contained"
+            sx={{
+              color: "black",
+              borderRadius: "20px",
+              width: "70px",
+              height: { xs: "34px", lg: "36px" },
+              fontSize: { xs: "10px", lg: "12px" },
+              backgroundColor: "#F9BB47",
+              fontWeight: 600,
+              marginBottom: 5,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <Typography
+            sx={{
+              fontFamily: "urbanist",
+              fontStyle: "normal",
+              fontWeight: "500",
+              fontSize: "22px",
+              lineHeight: "26px",
+              color: "#060606",
+            }}
+          >
+            My Children
+          </Typography>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          <IconButton
+            disabled={false} //props.page === 1}
+            onClick={props.handleClickPrev}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
+          <IconButton
+            disabled={false} //props.page === props.numPages}
+            onClick={props.handleClickNext}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+        </Grid>
+        <Grid
+          item
+		  lg={12}
+		  md={12}
+		  sm={12}
+		  xs={12}
+          sx={{
+            display: "flex",
+            flexDirection: {
+              lg: "row",
+              md: "row",
+              sm: "row",
+              xs: "column",
+            },
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {renderChildren()}
         </Grid>
 
         <Grid
@@ -312,5 +331,6 @@ export const ParentLog = (props) => {
         </Grid>
       </Grid>
     </AuthLayout>
-  );
+    );
+
 };

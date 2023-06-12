@@ -169,33 +169,15 @@ export const BookletLayout = (props) => {
             })}
 
         {props.page === 2 && (
-          <a
-            href={links.get(`math${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`math${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`math${numericalGrade}`))
         )}
 
         {props.page === 1 && (
-          <a
-            href={links.get(`science${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`science${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`science${numericalGrade}`))
         )}
 
         {props.page === 3 && (
-          <a
-            href={links.get(`eng${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`eng${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`eng${numericalGrade}`))
         )}
       </Grid>
       {/* <Grid
