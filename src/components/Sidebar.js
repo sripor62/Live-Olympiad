@@ -76,7 +76,7 @@ const Sidebar = (props) => {
                     */}
                     
                     <Button onClick={() => {navigate("/booklet")}}>
-                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={2}>
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
                             <MenuBookIcon sx={{color:(page === 4) ? "#FCBD42": "#1E232C"}} />
                             <Typography>
                                 <Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 4) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklets</Box>
