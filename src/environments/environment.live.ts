@@ -11,4 +11,5 @@ export const environment = {
   sessionsUrl:"https://sessions.digishaala.com",  
   testAppUrl:"https://tab.liveolympiad.org",
   contentUrl:"https://content.liveolympiad.org",
+  syllabusUrl:"https://rhjm5wzm9k.execute-api.ap-south-1.amazonaws.com/live/items/scope"
 };

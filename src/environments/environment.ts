@@ -11,4 +11,5 @@ export const environment = {
   institutionDomain:'K12',
   sessionsUrl:"https://sessions-uat.digishaala.com",  
   testAppUrl:"https://tab-uat.liveolympiad.org",
+  syllabusUrl:"https://rhjm5wzm9k.execute-api.ap-south-1.amazonaws.com/live/items/scope"
 };
