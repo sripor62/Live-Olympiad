@@ -56,17 +56,8 @@ export const ParentLog = (props) => {
 
   const [schoolName, setSchoolName] = useState("");
 
-  // const currentUser = useStore((state) => state.currentUser);
-	// const { getReportFilter } = useSessionHelper();
-	// const { data: ReportFilter } = useQuery(
-	// 	[`ReportData`],
-	// 	() => getReportFilter({ userId: currentUser.id }),
-	// 	{ enabled: true, retry: false }
-	// );
-
-  // console.log(currentUser);
-
 	const { getSchoolById } = useSchool();
+
   useEffect(() => {
 	  const response = getSchoolById("4bc089bd-4041-4146-8c1d-517d7551d394")
     .then((res) => { console.log(res.data?.data?.name); setSchoolName(res.data?.data?.name);})
@@ -188,7 +179,8 @@ export const ParentLog = (props) => {
                     
                   }}
                 >
-                  {schoolName}   
+                    
+                  {schoolName}
 
                 </Typography>
                 <Box style={{display:"flex",marginTop:10}}>
