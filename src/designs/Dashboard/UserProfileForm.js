@@ -280,7 +280,7 @@ export const UserProfileForm = (props) => {
                 fontWeight: 600,
               },
             }}
-            InputLabelProps={{  sx: {
+            InputLabelProps={{shrink:true,  sx: {
               color: "rgba(131,145,161,1)",
               fontFamily: "urbanist",
               fontWeight: 600,

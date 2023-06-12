@@ -138,6 +138,7 @@ const MenuDrawer = ({ setDrawerFlag, logOutHandler }) => {
                     btnText="Exit"
                     variant="contained"
                     sx={{
+                      ":hover": {color: "white" },
                       color: "black",
                       borderRadius: "20px",
                       width: "70px",
