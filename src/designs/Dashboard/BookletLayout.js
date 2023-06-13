@@ -14,6 +14,26 @@ import { useStudent } from "../../hooks/useStudent";
 let links = new Map([
   ["eng1", "https://publuu.com/flip-book/159959/400586"],
   ["eng2", "https://publuu.com/flip-book/159959/400592"],
+  ["math1", "https://pdf.ac/2m3w7p"],
+  ["math2", "https://pdf.ac/zJIfQ"],
+  ["math3", "https://pdf.ac/1nss4h"],
+  ["math4", "https://pdf.ac/1wMt0d"],
+  ["math5", "https://pdf.ac/2tPdGr"],
+  ["math6", "https://pdf.ac/J3Ju6"],
+  ["math7", "https://pdf.ac/fxm7f"],
+  ["math8", "https://pdf.ac/rY2FB"],
+  ["math9", "https://pdf.ac/HvoSZ"],
+  ["math10", "https://pdf.ac/QPpRZ"],
+  ["science1", "https://pdf.ac/1fGNJV"],
+  ["science2", "https://pdf.ac/fxmob"],
+  ["science3", "https://pdf.ac/nj2CG"],
+  ["science4", "https://pdf.ac/1nsurx"],
+  ["science5", "https://pdf.ac/2sgWVR"],
+  ["science6", "https://pdf.ac/1ykQv1"],
+  ["science7", "https://pdf.ac/FX4U8"],
+  ["science8", "https://pdf.ac/21ReRv"],
+  ["science9", "https://pdf.ac/2ehVTx"],
+  ["science10", "https://pdf.ac/J3KNX"]
 ]);
 
 let numericalGrade = 0;
@@ -169,33 +189,15 @@ export const BookletLayout = (props) => {
             })}
 
         {props.page === 2 && (
-          <a
-            href={links.get(`math${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`math${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`math${numericalGrade}`))
         )}
 
         {props.page === 1 && (
-          <a
-            href={links.get(`science${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`science${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`science${numericalGrade}`))
         )}
 
         {props.page === 3 && (
-          <a
-            href={links.get(`eng${numericalGrade}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {links.get(`eng${numericalGrade}`)}
-          </a>
+          window.location.replace(links.get(`eng${numericalGrade}`))
         )}
       </Grid>
       {/* <Grid

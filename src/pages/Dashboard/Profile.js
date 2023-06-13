@@ -170,6 +170,7 @@ const Profile = (props) => {
 			setCurrentUser({ ...userInfo, fullName: pdata.fullName });
 
 			window.localStorage.setItem("Name", pdata.fullName);
+			sessionStorage.setItem("current_student",JSON.stringify(pageData))
 			PersonalMutate(pdata);
 		}
 		// afterValidate(afterValidateCallBack);
