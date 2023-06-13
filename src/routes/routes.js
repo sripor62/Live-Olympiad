@@ -22,6 +22,7 @@ import BronzeCard from "../designs/cards/bronze";
 import SignUp from "../pages/Auth/SignUp";
 import ParentView from "../pages/ParentView";
 import ReportView from "../pages/ReportView";
+import { Subjects } from "../pages/Dashboard/Subjects";
 
 export const routes = [
 	{
@@ -77,6 +78,10 @@ export const routes = [
 	{
 		path: "/syllabus",
 		element: <Syllabus />,
+	},
+	{
+		path: "/subjects",
+		element: <Subjects />,
 	},
 	{
 		path: "/profile",

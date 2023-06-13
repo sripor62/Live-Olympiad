@@ -51,7 +51,7 @@ const Sidebar = (props) => {
                             </Box>
                         </Grid>
                     </Button> */}
-                    <Button onClick={() => {navigate("/syllabus")}}>
+                    <Button onClick={() => {navigate("/subjects")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
                                 <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Syllabus</Box>

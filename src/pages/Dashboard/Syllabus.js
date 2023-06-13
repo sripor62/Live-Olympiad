@@ -90,14 +90,14 @@ const Syllabus = () => {
   // };
 
   return (
-    <HomeLayout>
+   
       <div className="syllabus">
         <AccordionItem title="Subjects" subItems={syllabusData} level={1} />
         {/* <AccordionItem title="Science" subItems={syllabusData} level={1} />
         <AccordionItem title="English" subItems={syllabusData} level={1} /> */}
         
       </div>
-    </HomeLayout>
+    
   );
 };
 
