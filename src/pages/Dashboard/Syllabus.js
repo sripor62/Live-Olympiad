@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { useSyllabus } from "../../hooks/useSyllabus";
 import "./Syllabus.css";
-
 
 // const studentGrade = sessionStorage.getItem('grade');
 // let numericalGrade=0;
@@ -21,24 +20,25 @@ import "./Syllabus.css";
 //   console.log('Student Grade not found');
 // }
 
-
-
-
-const AccordionItem = ({ title, subItems, level }) => {
+const AccordionItem = ({ title, subItems, level, id, show, onShow }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
 
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+    onShow && onShow(id);
   };
 
   return (
     <div className={`accordion-item level-${level}`}>
-      <div className={`accordion-header ${isOpen ? 'open' : 'closed'}`} onClick={toggleAccordion}>
-        {subItems && Object.keys(subItems).length > 0 && <span className="arrow"></span>}
+      <div
+        className={`accordion-header ${show ? "open" : "closed"}`}
+        onClick={toggleAccordion}
+      >
+        {subItems && Object.keys(subItems).length > 0 && (
+          <span className="arrow"></span>
+        )}
         <h3>{title}</h3>
       </div>
-      {isOpen && (
+      {show && (
         <div className="accordion-content">
           {Object.entries(subItems).map(([subItemTitle, subItemContent]) => (
             <AccordionItem
@@ -57,7 +57,7 @@ const AccordionItem = ({ title, subItems, level }) => {
 const Syllabus = () => {
   const { getSyllabus } = useSyllabus();
   const [syllabusData, setSyllabusData] = useState({});
-  
+  const [showId, setShowId] = useState();
 
   useEffect(() => {
     const fetchSyllabusData = async () => {
@@ -71,6 +71,7 @@ const Syllabus = () => {
 
     fetchSyllabusData();
   }, []);
+  const handleShow = (id) => setShowId(id);
 
   // const getBookletLink = (grade) => {
   //   const bookletLinks = {
