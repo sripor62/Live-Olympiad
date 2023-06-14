@@ -133,7 +133,7 @@ const MenuDrawer = ({ setDrawerFlag, logOutHandler }) => {
                 >
                   <CustomButton
                     onClick={() => {
-                      navigate("/Parent");
+                      navigate("/parent");
                     }}
                     btnText="Exit"
                     variant="contained"

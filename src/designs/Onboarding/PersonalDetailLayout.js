@@ -41,31 +41,31 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export const PersonalDetailLayout = (props) => {
   const [gender, setGender] = React.useState("");
-  const [profilePicture, setProfilePicture] = React.useState(null);
-  const [isProfilePictureUpdated, setProfilePictureUpdated] = React.useState(false);
+  // const [profilePicture, setProfilePicture] = React.useState(null);
+  // const [isProfilePictureUpdated, setProfilePictureUpdated] = React.useState(false);
 
 
-  const handleImageChange = (event) => {
-    const file = event.target.file;
-    setProfilePicture(file);
-    //setProfilePictureUpdated(true);
-    };
+  // const handleImageChange = (event) => {
+  //   const file = event.target.file;
+  //   setProfilePicture(file);
+  //   //setProfilePictureUpdated(true);
+  //   };
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
-    // Trigger the submitHandler function and pass the selected file
-    props.submitHandler(profilePicture);
-  };
+  //   // Trigger the submitHandler function and pass the selected file
+  //   props.submitHandler(profilePicture);
+  // };
 
   return (
     <>
-      <Grid container xs="12">
+      <Grid container xs={10}>
         <Grid xs={12}>
           <Typography
             variant="h3"

@@ -12,7 +12,7 @@ export const OnboardingLayout = (props) => {
             <Grid item xs={12} lg={7} sx={responsiveStype.default.hide_mobile}>
                 <Box width={1} height={1} sx={{ backgroundColor: "#4545A5" }}>
                     <Box width={1} py={10} ml={10}>
-                        <img src='../images/brand.svg'  className="width_30"/>
+                        <img src='../images/brand.svg' alt=""  className="width_30"/>
                     </Box>
                     <LoStepper activeStep={props.stepperIndex} />
                 </Box>
@@ -23,7 +23,7 @@ export const OnboardingLayout = (props) => {
             </Grid>
             <Grid xs={12} lg={5}>
                 <Grid container xs={12} lg={12} direction="row" justifyContent="center" alignItems="center" className="height_100">
-                    <Grid xs="10">
+                    <Grid xs={10}>
                         {props.children}
                     </Grid>
                 </Grid>

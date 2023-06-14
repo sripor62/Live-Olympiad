@@ -77,7 +77,7 @@ export const ParentLog = (props) => {
     };
 
     fetchSchoolNames();
-  }, [getSchoolById, props.children]);
+  }, [props.children]);
 
 
   const renderChildren = () => {

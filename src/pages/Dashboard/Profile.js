@@ -36,7 +36,7 @@ const Profile = (props) => {
 			}
 		}
 	}, []);
-	const { getSubjects } = usePayment();
+	// const { getSubjects } = usePayment();
 	const curentUser = useStore((state) => state.currentUser);
 	const setCurrentUser = useStore((state) => state.setCurrentUser);
 
@@ -45,16 +45,16 @@ const Profile = (props) => {
 	useEffect(() => {
 		navigateAsPerSessionValidity(true);
 	});
-	const { getUserPaymentInfo, getSubscriptions } = usePayment();
-	const { dataschoolLoader: PaymentData, isLoading: PaymentLoader } = useQuery(
-		[`PaymentData`],
-		() => getUserPaymentInfo(curentUser?.id),
-		{ enabled: true, retry: false }
-	);
-	const [paymentInfo, setPaymentInfo] = useState();
-	useEffect(() => {
-		setPaymentInfo(PaymentData?.data.data);
-	}, [PaymentData]);
+	// const { getUserPaymentInfo, getSubscriptions } = usePayment();
+	// const { dataschoolLoader: PaymentData, isLoading: PaymentLoader } = useQuery(
+	// 	[`PaymentData`],
+	// 	() => getUserPaymentInfo(curentUser?.id),
+	// 	{ enabled: true, retry: false }
+	// );
+	// const [paymentInfo, setPaymentInfo] = useState();
+	// useEffect(() => {
+	// 	setPaymentInfo(PaymentData?.data.data);
+	// }, [PaymentData]);
 	const [snakeBarProps, setSnakeBarProps] = useState({});
 	const [submitFlag, setsubmitFlag] = useState(false);
 	const [pageData, setPageData] = useState({
@@ -133,14 +133,14 @@ const Profile = (props) => {
 			: setSchoolsList(schoolsData?.data.data);
 	}, [schoolData, schoolsData]);
 
-	const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery(
-		[`SubscriptionData`],
-		() => getSubscriptions(student?._id),
-		{ enabled: true, retry: false }
-	);
-	useEffect(() => {
-		setSubscriptionList(SubscriptionData?.data.data);
-	}, [SubscriptionData]);
+	// const { data: SubscriptionData, isLoading: subscriptionsLoader } = useQuery(
+	// 	[`SubscriptionData`],
+	// 	() => getSubscriptions(student?._id),
+	// 	{ enabled: true, retry: false }
+	// );
+	// useEffect(() => {
+	// 	setSubscriptionList(SubscriptionData?.data.data);
+	// }, [SubscriptionData]);
 	const profileSubmit = () => {
 		var pdata = {
 			...pageData,
@@ -180,27 +180,27 @@ const Profile = (props) => {
 	const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } =
 		useMutation(sendPersonalData);
 
-	const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
-		[`SubjectData`],
-		() => getSubjects(),
-		{ enabled: true, retry: false }
-	);
+	// const { data: SubjectData, isLoading: SubjectLoader } = useQuery(
+	// 	[`SubjectData`],
+	// 	() => getSubjects(),
+	// 	{ enabled: true, retry: false }
+	// );
 
-	useEffect(() => {
-		let subjectMap = {};
-		if (SubjectData?.data?.data) {
-			SubjectData.data.data.forEach((subject) => {
-				subjectMap[subject.id] = subject.name;
-			});
-		}
-		if (SubscriptionData?.data?.data?.subscribedCourses) {
-			setSubscribedSubjects(
-				SubscriptionData.data.data.subscribedCourses.map(
-					(sub) => subjectMap[sub]
-				)
-			);
-		}
-	}, [SubjectData, subscriptionList]);
+	// useEffect(() => {
+	// 	let subjectMap = {};
+	// 	if (SubjectData?.data?.data) {
+	// 		SubjectData.data.data.forEach((subject) => {
+	// 			subjectMap[subject.id] = subject.name;
+	// 		});
+	// 	}
+	// 	if (SubscriptionData?.data?.data?.subscribedCourses) {
+	// 		setSubscribedSubjects(
+	// 			SubscriptionData.data.data.subscribedCourses.map(
+	// 				(sub) => subjectMap[sub]
+	// 			)
+	// 		);
+	// 	}
+	// }, [SubjectData, subscriptionList]);
 
 	const { mutate: addProfileMutate, isLoading: addProfileLoading } =
 		useMutation(profileDataDetails, {
@@ -251,7 +251,7 @@ const Profile = (props) => {
 				selectionChangeHandler={selectionChangeHandler}
 				schoolsList={schoolsList}
 				setSchoolsList={setSchoolsList}
-				paymentInfo={paymentInfo}
+				// paymentInfo={paymentInfo}
 				currentSchool={schoolCurrent}
 				grades={grades?.data?.data}
 			/>

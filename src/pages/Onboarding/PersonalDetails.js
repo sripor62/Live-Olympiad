@@ -20,7 +20,6 @@ export default function PersonalDetails() {
 		fullName: "",
 		email: "",
 		rollNumber: "",
-		profilePicture: "",
 		dob: "",
 		gender: "",
 	});
@@ -43,8 +42,7 @@ export default function PersonalDetails() {
 				personalData?.data.data.fullName &&
 				personalData?.data.data.gender &&
 				personalData?.data.data.dob &&
-				personalData?.data.data.rollNumber &&
-				personalData?.data.data.profilePicture
+				personalData?.data.data.rollNumber
 			) {
 				setCurrentUser({
 					...currentUser,
@@ -67,10 +65,9 @@ export default function PersonalDetails() {
 			email: pageData.email,
 			rollNumber: pageData.rollNumber,
 			dob: pageData.dob,
-			gender: pageData.gender,
-			profilePicture: pageData.profilePicture
+			gender: pageData.gender
 		};
-		//console.log(pdata);
+		// console.log(pdata);
 		if(!pdata.fullName) {
 			setSnakeBarProps({ snackbarFlag: true, msz: "Name field cannot be empty", type: "error" });
 		}
@@ -89,7 +86,7 @@ export default function PersonalDetails() {
 
 			window.localStorage.setItem("Name", pdata.fullName);
 			PersonalMutate(pdata);
-			navigate("/Parent");
+			navigate("/parent");
 		}
 	};
 	const { mutate: PersonalMutate, isLoading: PersonalInfoLoading } =

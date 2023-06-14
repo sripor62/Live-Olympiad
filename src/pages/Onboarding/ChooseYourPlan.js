@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const ChooseYourPlan = () => {
 	const navigate = useNavigate();
 	const submitHandler = () => {
-		navigate("/Parent");
+		navigate("/parent");
 	};
 	return (
 		<OnboardingLayout>
