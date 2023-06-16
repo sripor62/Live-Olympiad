@@ -8,7 +8,9 @@ import MobileVerification from "../pages/Auth/MobileVerification";
 import SchoolDetails from "../pages/Onboarding/SchoolDetails";
 import InfoBoard from "../pages/Dashboard/InfoBoard";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Syllabus from "../pages/Dashboard/Syllabus";
+import SyllabusMath from "../pages/Dashboard/SyllabusMath";
+import SyllabusEnglish from "../pages/Dashboard/SyllabusEnglish";
+import SyllabusScience from "../pages/Dashboard/SyllabusScience";
 import Profile from "../pages/Dashboard/Profile";
 import Schedule from "../pages/Dashboard/Schedule";
 import ChooseYourPlan from "../pages/Onboarding/ChooseYourPlan";
@@ -76,8 +78,16 @@ export const routes = [
 		element: <Dashboard />,
 	},
 	{
-		path: "/syllabus",
-		element: <Syllabus />,
+		path: "/syllabusMath",
+		element: <SyllabusMath />,
+	},
+	{
+		path: "/syllabusScience",
+		element: <SyllabusScience />,
+	},
+	{
+		path: "/syllabusEnglish",
+		element: <SyllabusEnglish />,
 	},
 	{
 		path: "/subjects",
