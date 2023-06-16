@@ -41,7 +41,9 @@ export const Subjects = () => {
           }}
         />
         <Chip
-							onClick={() => {}}
+							onClick={() => {
+                navigate("/syllabus");
+              }}
 							label="Mathematics"
 							variant="contained"
 							sx={{
@@ -54,7 +56,9 @@ export const Subjects = () => {
 							}}
 						/>
                         	<Chip
-							onClick={() => {}}
+							onClick={() => {
+                navigate("/syllabus");
+              }}
 							label="English"
 							variant="contained"
 							sx={{
