@@ -79,7 +79,7 @@ export const BookletLayout = (props) => {
 				</Typography>
 			</Grid> */}
       <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-        <Typography variant="h6">Booklets</Typography>
+        <Typography variant="h6">Click on one of the subjects to view its booklet</Typography>
         <Grid container mb={5} alignItems="center">
           <Grid item xs={12} md={12} lg={8}>
             <SubjectSelector setPage={props.setPage} />

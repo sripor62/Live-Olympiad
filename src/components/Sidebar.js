@@ -17,7 +17,10 @@ const Sidebar = (props) => {
         if (location.pathname === "/dashboard") setPage(0)
         //if (location.pathname === "/profile") setPage(1)
         if (location.pathname === "/subscription") setPage(2)
-        if (location.pathname === "/syllabus") setPage(3)
+        if (location.pathname === "/subjects") setPage(3)
+        if (location.pathname === "/syllabusMath") setPage(3)
+        if (location.pathname === "/syllabusScience") setPage(3)
+        if (location.pathname === "/syllabusEnglish") setPage(3)
         //if (location.pathname === "/schedule") setPage(3)
         if (location.pathname === "/booklet") setPage(4)
     }, [page, location.pathname])
@@ -38,7 +41,8 @@ const Sidebar = (props) => {
                     </Button>
                     */}
                     <Button onClick={() => {navigate("/dashboard")}}>
-                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>{(page === 0) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
+                            {(page === 0) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
                             <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>{examType}</Box>
                             </Box>
@@ -52,9 +56,10 @@ const Sidebar = (props) => {
                         </Grid>
                     </Button> */}
                     <Button onClick={() => {navigate("/subjects")}}>
-                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}}/>
-                            <Box>
-                                <Box sx={{ ml: 2,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none" }}>Syllabus</Box>
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
+                            <AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}} />
+                            <Box variant='body2' fontWeight='bold'>
+                                <Box sx={{ ml: 2,fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Syllabus</Box>
                             </Box>
                         </Grid>
                     </Button>

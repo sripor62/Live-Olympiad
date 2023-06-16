@@ -16,14 +16,10 @@ export const Subjects = () => {
         <Sidebar />
       </Grid>
       <Grid item lg={3} p={2}>
-        <Stack direction="column" spacing={4}>
-        <Box
-         
-        >
-          {" "}
-          <Typography>Subjects</Typography>
+        <Stack direction="column" spacing={1}>
+        <Box>
         </Box>
-        <Typography>Click on the one of the subject to view syllabus:</Typography>
+        <Typography variant="h6">Click on the one of the subjects to view its syllabus</Typography>
 
         <Chip
            onClick={() => {

@@ -23,7 +23,6 @@ const AccordionItem = ({ title, subItems, level }) => {
         <div className="accordion-content">
           {Object.entries(subItems).map(([subItemTitle, subItemContent]) => (
             <AccordionItem
-              key={subItemTitle}
               title={subItemTitle}
               subItems={subItemContent}
               level={level + 1} // Increase the indentation level
@@ -56,7 +55,13 @@ const SyllabusScience = () => {
   return (
     <HomeLayout>
       <div className="syllabus">
-        <AccordionItem title="Syllabus" subItems={syllabusData.Science} level={1} />
+        {Object.keys(syllabusData.Science || {}).map((topic) => (
+          <AccordionItem
+            title={topic}
+            subItems={syllabusData.Science[topic]}
+            level={1}
+          />
+        ))}
       </div>
     </HomeLayout>
   );
