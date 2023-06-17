@@ -27,7 +27,7 @@ const Dashboard = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  // const { getTestList } = useTests();
+  const { getTestList } = useTests();
   // const { getSubscriptions, getSubjects } = usePayment();
 
   // const { data: SubscriptionData } = useQuery(
@@ -71,33 +71,33 @@ const Dashboard = () => {
     setAnchorEl(null);
   };
 
-  // const { data: testList } = useQuery(
-  //   [`TestListData`, student?.grade],
-  //   () =>
-  //     getTestList({
-  //       grade: student?.grade,
-  //     }),
-  //   { enabled: !!student?.grade, retry: false }
-  // );
+  const { data: testList } = useQuery(
+    [`TestListData`, student?.grade],
+    () =>
+      getTestList({
+        grade: student?.grade,
+      }),
+    { enabled: !!student?.grade, retry: false }
+  );
 
-  // useEffect(() => {
-  //   if (environment.env !== "school") {
-  //     setPassAssessData(testList?.data);
-  //   } else {
-  //     let newFilteredList =
-  //       testList &&
-  //       testList.data.filter((test) => {
-  //         let flag = false;
-  //         if (subjects) {
-  //           subjects.forEach((subject) => {
-  //             flag = flag || test.subject[0].search(subject) !== -1;
-  //           });
-  //         }
-  //         return flag;
-  //       });
-  //     setPassAssessData(newFilteredList);
-  //   }
-  // }, [subjects, testList]);
+  useEffect(() => {
+    if (environment.env !== "school") {
+      setPassAssessData(testList?.data);
+    } else {
+      let newFilteredList =
+        testList &&
+        testList.data.filter((test) => {
+          let flag = false;
+          if (subjects) {
+            subjects.forEach((subject) => {
+              flag = flag || test.subject[0].search(subject) !== -1;
+            });
+          }
+          return flag;
+        });
+      setPassAssessData(newFilteredList);
+    }
+  }, [subjects, testList]);
 
   const testScreen = (packageId) => {
     window.open(

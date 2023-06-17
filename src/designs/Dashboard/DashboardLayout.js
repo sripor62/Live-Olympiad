@@ -42,17 +42,17 @@ export const DashboardLayout = (props) => {
 					{/* <Grid item xs={12} md={12} lg={4}>
 					</Grid> */}
 				</Grid>
-				{props.page === 0 &&
+				{/* {props.page === 0 &&
 					props?.testsLists?.map((option) => {
 						return (
 							<CustomListItem
-								testSend={props.testSend}
+							    testSend={props.testSend}
 								option={option}
 								key={option._id}
 								testScreen={props.testScreen}
 							/>
 						);
-					})}
+					})} */}
 				{props.page === 1 &&
 					props?.testsLists
 						?.filter((item) => {
@@ -98,7 +98,7 @@ export const DashboardLayout = (props) => {
 								/>
 							);
 						})}
-				{props.page === 4 &&
+				{/* {props.page === 4 &&
 					props?.testsLists
 						?.filter((item) => {
 							return item.testStatus === true;
@@ -142,7 +142,7 @@ export const DashboardLayout = (props) => {
 									testScreen={props.testScreen}
 								/>
 							);
-						})}
+						})} */}
 			</Grid>
 			{/* <Grid
 				item

@@ -5,7 +5,7 @@ export const environment = {
   schoolsBaseUrl: "https://qpqinf8e1h.execute-api.ap-south-1.amazonaws.com/live/schools",
   cookieDomain: ".liveolympiad.org",
   paymentUrl:"https://payments.digishaala.com",
-  testLiveolympiad:"https://content.liveolympiad.org",
+  testLiveolympiad:"https://contentx.liveolympiad.org",
   env:'live',
   institutionDomain:'K12',
   sessionsUrl:"https://sessions.digishaala.com",  
