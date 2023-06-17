@@ -9,10 +9,10 @@ export const Subjects = () => {
   const navigate = useNavigate();
   return (
     <Grid container>
-      <Grid item lg={12}>
+      <Grid item lg={12} md={12} sm={12} xs={12}>
         <Header />
       </Grid>
-      <Grid item lg={2}>
+      <Grid item lg={2} md={12} sm={12} xs={12}>
         <Sidebar />
       </Grid>
       <Grid item lg={3} p={2}>
