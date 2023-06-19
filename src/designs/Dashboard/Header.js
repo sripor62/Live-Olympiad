@@ -197,6 +197,13 @@ const Header = (props) => {
                     }}>
                 <Box style={{display:"flex"}}><LogoutIcon/><Typography style={{marginLeft:20}}>EXIT</Typography> </Box>
                 </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    navigate("/individualReport");
+                  }}
+                >
+                Individual Report
+                </MenuItem>
               </Menu>
             </Grid>
           </Grid>

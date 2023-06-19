@@ -25,6 +25,7 @@ import SignUp from "../pages/Auth/SignUp";
 import ParentView from "../pages/ParentView";
 import ReportView from "../pages/ReportView";
 import { Subjects } from "../pages/Dashboard/Subjects";
+import IndividualReport from "../designs/IndividualReport/IndividualReport";
 
 export const routes = [
 	{
@@ -92,6 +93,10 @@ export const routes = [
 	{
 		path: "/subjects",
 		element: <Subjects />,
+	},
+	{
+		path: "/individualReport",
+		element: <IndividualReport />,
 	},
 	{
 		path: "/profile",

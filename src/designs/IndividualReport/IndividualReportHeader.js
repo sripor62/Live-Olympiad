@@ -1,0 +1,108 @@
+import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
+import React from "react";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+const IndividualReportHeader = () => {
+  return (
+    <Grid
+      container
+      sx={{
+        padding: 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Grid item lg={2} md={2} sm={3} xs={4}>
+        <Button
+          startIcon={<ArrowBackIosIcon fontSize="small" />}
+          style={{
+            borderRadius: 12,
+            fontFamily: "Urbanist",
+            fontWeight: 600,
+            fontSize: "14px",
+            color: "#6A707C",
+            borderRadius: "20px",
+            border: "2px solid #6A707C",
+            width: "101px",
+            height: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          BACK
+        </Button>
+      </Grid>
+      <Grid item lg={6} md={6} sm={9} xs={8}>
+        <Typography
+          style={{
+            fontFamily: "Urbanist",
+            fontWeight: 600,
+            fontSize: 20,
+            color: "#1C1B1F",
+          }}
+        >
+          Individual Question Report
+        </Typography>
+      </Grid>
+      <Grid item lg={4} md={4} sm={12} xs={12}>
+        <Grid
+          container
+          spacing={1}
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+          }}
+        >
+          <Grid item>
+            <Button
+              startIcon={<ArrowBackIcon fontSize="small" />}
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 600,
+                fontSize: "14px",
+                /* identical to box height, or 143% */
+                color: "#1C1B1F",
+                border: "2px solid #6A707C",
+                width: "140px",
+                height: "40px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              PREVIOUS
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              endIcon={<ArrowForwardIcon fontSize="small" />}
+              style={{
+                marginRight: "7%",
+                fontFamily: "Inter",
+                fontWeight: 600,
+                fontSize: "14px",
+                /* identical to box height, or 143% */
+                color: "#1C1B1F",
+                border: "2px solid #6A707C",
+                width: "140px",
+                height: "40px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              NEXT
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+  );
+};
+
+export default IndividualReportHeader;
