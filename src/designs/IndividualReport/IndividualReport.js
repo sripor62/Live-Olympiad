@@ -37,7 +37,7 @@ const IndividualReport = () => {
                 display: "flex",
                 alignItems: "flex-start",
                 padding: "26px",
-                height: "412px",
+                height: "auto",
                 border: "2px solid #04E844",
                 borderRadius: "10px",
                 width:"100%"
@@ -52,7 +52,7 @@ const IndividualReport = () => {
                   alignItems: "flex-start",
                 }}
               >
-                <Grid item lg={2} md={2} sm={2} xs={2}>
+                <Grid item lg={2} md={2} sm={2} xs={12}>
                   <Box
                     style={{
                       width: "48px",
@@ -79,7 +79,7 @@ const IndividualReport = () => {
                     </Typography>
                   </Box>
                 </Grid>
-                <Grid item lg={10} md={10} sm={10} xs={10}>  
+                <Grid item lg={10} md={10} sm={10} xs={12}>  
                   <Typography
                     style={{
                       fontFamily: "Urbanist",
@@ -96,11 +96,12 @@ const IndividualReport = () => {
                   {AnswerOptions.map((item, i) => (
                     <Box
                       style={{
-                        width: "302px",
-                        height: "50px",
+                        width: "70%",
+                        height: "auto",
                         backgroundColor: "#FFFFFF",
                         border: "2px solid #8391A1",
                         borderRadius: "10px",
+                        padding:10,
                         display: "flex",
                         justifyContent: "flex-start",
                         alignItems: "center",

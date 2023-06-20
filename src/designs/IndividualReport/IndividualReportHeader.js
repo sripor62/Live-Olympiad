@@ -9,13 +9,14 @@ const IndividualReportHeader = () => {
     <Grid
       container
       sx={{
-        padding: 2,
+        padding: 1,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
+      spacing={2}
     >
-      <Grid item lg={2} md={2} sm={3} xs={4}>
+      <Grid item lg={8} md={8} sm={6} xs={12} style={{display:"flex", alignItems:"center"}}>
         <Button
           startIcon={<ArrowBackIosIcon fontSize="small" />}
           style={{
@@ -35,10 +36,9 @@ const IndividualReportHeader = () => {
         >
           BACK
         </Button>
-      </Grid>
-      <Grid item lg={6} md={6} sm={9} xs={8}>
         <Typography
           style={{
+            marginLeft:8,
             fontFamily: "Urbanist",
             fontWeight: 600,
             fontSize: 20,
@@ -48,16 +48,8 @@ const IndividualReportHeader = () => {
           Individual Question Report
         </Typography>
       </Grid>
-      <Grid item lg={4} md={4} sm={12} xs={12}>
-        <Grid
-          container
-          spacing={1}
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "flex-end",
-          }}
-        >
+      <Grid item lg={4} md={4} sm={6} xs={12}>
+        <Grid container spacing={1} style={{display:"flex", alignItems:"flex-end",justifyContent:"flex-end"}}>
           <Grid item>
             <Button
               startIcon={<ArrowBackIcon fontSize="small" />}

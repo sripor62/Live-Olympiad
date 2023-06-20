@@ -5,13 +5,13 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export const IndividualReportSidebar = () => {
   return (
     <Grid container p={2}>
-      <Grid item>
+      <Grid item lg={12} xs={12}>
         <Chip
           label="Maths"
           color="primary"
-          className="brb_0"
+          
           style={{
-            width: "495px",
+            width: "100%",
             height: "38px",
             backgroundColor: "#4545A5",
             borderRadius: "25px 25px 0px 0px",
@@ -26,8 +26,8 @@ export const IndividualReportSidebar = () => {
         <Box
           style={{
             padding: "28px 34px",
-            width: "495px",
-            height: "347px",
+            width: "100%",
+            height: "auto",
             backgroundColor: "#F7F8F9",
             borderRadius: "0px 0px 25px 25px",
            
@@ -69,7 +69,7 @@ export const IndividualReportSidebar = () => {
             Count of students in Class 8, Section A is 24. This is 1 more than
             count in Class 8, Section B{" "}
           </Typography>
-          <Box style={{ display: "flex", marginTop:10 }}>
+          <Box style={{marginTop:10 }}>
             <Box>
               <Box
                 style={{
@@ -122,7 +122,7 @@ export const IndividualReportSidebar = () => {
                 </Typography>
               </Box>
             </Box>
-            <Box style={{ marginLeft: 20 }}>
+            <Box style={{ marginLeft: "30%",marginTop:10 }}>
               <Box
                 style={{
                   marginTop: 2,
