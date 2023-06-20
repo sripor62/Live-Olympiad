@@ -34,11 +34,24 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 export const SchoolDetailLayout = (props) => {
   const [classes, setClasses] = React.useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
-
+  const [selectedSchoolName, setSelectedSchoolName] = useState("");
 
   const handleChange = (event) => {
     setClasses(event.target.value);
   };
+
+  const handleSchoolChange = (event) => {
+    const selectedSchoolId = event.target.value;
+    const selectedSchool = props.schoolsList.find(
+      (school) => school._id === selectedSchoolId
+    );
+    setSelectedSchoolName(selectedSchool?.name || "");
+    props.setPageData({
+      ...props.pageData,
+      schoolId: selectedSchoolId,
+    });
+  };
+
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -134,15 +147,8 @@ export const SchoolDetailLayout = (props) => {
             </InputLabel>
             <Select
               label="School"
-              selected={selectedSchool}
-              value={selectedSchool}
-              onChange={(event) => {
-                const selectedSchoolId = event.target.value;
-                props.setPageData({
-                  ...props.pageData,
-                  schoolId: selectedSchoolId,
-                });
-              }}
+              //value={props.pageData.schoolId}
+              onChange={handleSchoolChange}
               inputProps={{
                 sx: {
                   color: "rgba(131,145,161,1)",

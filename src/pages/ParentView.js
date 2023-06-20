@@ -50,7 +50,7 @@ import {
 	  school: "Harvard School",
 	  class: "II",
 	  section: "E",
-	},
+	}
   ];
   
   const ParentView = ({ logOutHandler }) => {
@@ -64,7 +64,15 @@ import {
 	const PAGE_SIZE = 2;
 	const startIndex = (page - 1) * PAGE_SIZE;
 	const endIndex = startIndex + PAGE_SIZE;
-	const numPages = Math.ceil(childrenData.length / PAGE_SIZE);
+	
+  
+	const { data: students } = useQuery(
+	  [`students`, currentUser],
+	  () => getStudentsOfUser(currentUser?.id),
+	  { enabled: !!currentUser?.id, retry: false }
+	);
+
+	const numPages = Math.ceil(students?.data?.data?.length / PAGE_SIZE);
   
 	const handleClickPrev = () => {
 	  setPage((prevIndex) => Math.max(prevIndex - 1, 1));
@@ -73,12 +81,6 @@ import {
 	const handleClickNext = () => {
 	  setPage((prevIndex) => Math.min(prevIndex + 1, numPages));
 	};
-  
-	const { data: students } = useQuery(
-	  [`students`, currentUser],
-	  () => getStudentsOfUser(currentUser?.id),
-	  { enabled: !!currentUser?.id, retry: false }
-	);
   
 	useEffect(() => {
 	  if (students?.data?.data) {

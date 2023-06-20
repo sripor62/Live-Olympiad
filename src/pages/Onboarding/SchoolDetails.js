@@ -32,7 +32,13 @@ const SchoolDetails = () => {
 			section: pageData?.section,
 			grade: pageData?.grade,
 		};
-		if (pdata.grade && pdata.schoolId) {
+		if(!pdata.grade) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "Class field cannot be empty", type: "error" });
+		}
+		if(!pdata.schoolId) {
+			setSnakeBarProps({ snackbarFlag: true, msz: "School field cannot be empty", type: "error" });
+		}
+		else if (pdata.grade && pdata.schoolId) {
 			afterValidate(afterValidateCallBack);
 			addEducationMutate(pdata);
 		}
