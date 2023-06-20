@@ -89,7 +89,7 @@ const IndividualReportHeader = (props) => {
               PREVIOUS
             </Button>
           </Grid>
-          <Grid item>
+          <Grid item sx={{marginRight:{lg:2,md:2,sm:2,xs:4}}}>
             <Button
               onClick={props.handleAnswerButtonClick}
               endIcon={<ArrowForwardIcon fontSize="small" />}
