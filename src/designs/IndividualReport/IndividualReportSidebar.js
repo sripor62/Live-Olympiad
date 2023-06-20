@@ -1,7 +1,8 @@
 import { Box, Chip, Grid, Typography } from "@mui/material";
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
+import AssignmentTurnedInOutlinedIcon from '@mui/icons-material/AssignmentTurnedInOutlined';
+import MemoryOutlinedIcon from '@mui/icons-material/MemoryOutlined';
 export const IndividualReportSidebar = () => {
   return (
     <Grid container p={2}>
@@ -93,7 +94,7 @@ export const IndividualReportSidebar = () => {
                     display: "flex",
                   }}
                 >
-                  Cognitive Complexity
+                  <MemoryOutlinedIcon style={{marginRight:2}}/> Cognitive Complexity
                 </Typography>
               </Box>
               <Box
@@ -145,7 +146,7 @@ export const IndividualReportSidebar = () => {
                     display: "flex",
                   }}
                 >
-                  Subject Skill
+                   <AssignmentTurnedInOutlinedIcon style={{marginRight:2}}/>Subject Skill
                 </Typography>
               </Box>
               <Box

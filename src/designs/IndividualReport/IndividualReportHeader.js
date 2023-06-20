@@ -3,8 +3,10 @@ import React from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useNavigate } from "react-router-dom";
 
-const IndividualReportHeader = () => {
+const IndividualReportHeader = (props) => {
+  const navigate = useNavigate();
   return (
     <Grid
       container
@@ -16,8 +18,16 @@ const IndividualReportHeader = () => {
       }}
       spacing={2}
     >
-      <Grid item lg={8} md={8} sm={6} xs={12} style={{display:"flex", alignItems:"center"}}>
+      <Grid
+        item
+        lg={8}
+        md={8}
+        sm={6}
+        xs={12}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <Button
+          onClick={() => navigate(-1)}
           startIcon={<ArrowBackIosIcon fontSize="small" />}
           style={{
             borderRadius: 12,
@@ -38,7 +48,7 @@ const IndividualReportHeader = () => {
         </Button>
         <Typography
           style={{
-            marginLeft:8,
+            marginLeft: 8,
             fontFamily: "Urbanist",
             fontWeight: 600,
             fontSize: 20,
@@ -49,9 +59,18 @@ const IndividualReportHeader = () => {
         </Typography>
       </Grid>
       <Grid item lg={4} md={4} sm={6} xs={12}>
-        <Grid container spacing={1} style={{display:"flex", alignItems:"flex-end",justifyContent:"flex-end"}}>
+        <Grid
+          container
+          spacing={1}
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "flex-end",
+          }}
+        >
           <Grid item>
             <Button
+              onClick={props.handlePreAnswerButtonClick}
               startIcon={<ArrowBackIcon fontSize="small" />}
               style={{
                 fontFamily: "Inter",
@@ -72,6 +91,7 @@ const IndividualReportHeader = () => {
           </Grid>
           <Grid item>
             <Button
+              onClick={props.handleAnswerButtonClick}
               endIcon={<ArrowForwardIcon fontSize="small" />}
               style={{
                 marginRight: "7%",

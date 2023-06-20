@@ -1,24 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import IndividualReportHeader from "./IndividualReportHeader";
 import Header from "../Dashboard/Header";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { IndividualReportSidebar } from "./IndividualReportSidebar";
-const AnswerOptions = [
-  "Section A Section B",
-  "Section C Section D",
-  "Section E Section F",
-  "Section G Section F",
-];
+const questions = [
+  {
+    questionText: 'Section A of class 8 has 24 students.Section B of class 8 has 23 students. Which of these correctly compares the number of students in each section?',
+    answerOptions: [
+      { answerText: "Section A Section B", isCorrect: true },
+      { answerText: "Section C Section D", isCorrect: false },
+      { answerText: "Section E Section F", isCorrect: false },
+      { answerText: "Section G Section H", isCorrect: false },
+    ],
+  },
+  {
+    questionText: 'Who is PM of India?',
+    answerOptions: [
+      { answerText: 'Vijay Rupani', isCorrect: false },
+      { answerText: 'Manmohan singh', isCorrect: false },
+      { answerText: 'Narendra Modi', isCorrect: true },
+      { answerText: 'Deep Patel', isCorrect: false },
+    ],
+  } /* other quenstions here*/
+]
+
 
 const IndividualReport = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+
+  const handleAnswerButtonClick = () => {
+    const nextQuestions = currentQuestion + 1;
+    if (nextQuestions < questions.length) {
+      setCurrentQuestion(nextQuestions);
+    }
+  }
+  const handlePreAnswerButtonClick = () => {
+    const nextQuestions = currentQuestion - 1;
+    if (nextQuestions < questions.length) {
+      setCurrentQuestion(nextQuestions);
+    }
+  }
   return (
     <Grid container>
       <Grid item lg={12} md={12} sm={12} xs={12}>
         <Header />
       </Grid>
       <Grid item lg={12} md={12} sm={12} xs={12}>
-        <IndividualReportHeader />
+        <IndividualReportHeader handleAnswerButtonClick={handleAnswerButtonClick} handlePreAnswerButtonClick={handlePreAnswerButtonClick}/>
       </Grid>
       <Grid
         item
@@ -75,7 +104,7 @@ const IndividualReport = () => {
                         marginBottom: 2,
                       }}
                     >
-                      Q5
+                      Q{currentQuestion + 1}
                     </Typography>
                   </Box>
                 </Grid>
@@ -89,11 +118,9 @@ const IndividualReport = () => {
                       marginBottom: 14,
                     }}
                   >
-                    Section A of class 8 has 24 students. Section B of class 8
-                    has 23 students. Which of these correctly compares the
-                    number of students in each section?
+                    {questions[currentQuestion].questionText}
                   </Typography>
-                  {AnswerOptions.map((item, i) => (
+                  {questions[currentQuestion].answerOptions.map((answerOptions, index) =>(
                     <Box
                       style={{
                         width: "70%",
@@ -117,7 +144,7 @@ const IndividualReport = () => {
                           color: "#1C1B1F",
                         }}
                       >
-                        {item}
+                          {answerOptions.answerText}
                       </Typography>
                     </Box>
                   ))}
