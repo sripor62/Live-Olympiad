@@ -79,7 +79,6 @@ export const ParentLog = (props) => {
     fetchSchoolNames();
   }, [props.children]);
 
-
   const renderChildren = () => {
     return props.children.map((child, index) => {
       const schoolName = schoolNames[index];
@@ -199,8 +198,6 @@ export const ParentLog = (props) => {
     });
   };
 
-
-  
   return (
     <AuthLayout responsiveStype={props.responsiveStype}>
       <Grid container sx={{marginTop:{lg:"0%",md:"0%",sm:"-60%",xs:"0%"}}}>

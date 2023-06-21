@@ -30,5 +30,3 @@ export const environment = {
   contentUrl:"https://content.liveolympiad.org",
   syllabusUrl:"https://rhjm5wzm9k.execute-api.ap-south-1.amazonaws.com/live/items/scope"
 };
-
-
