@@ -32,5 +32,3 @@ export const environment = {
   packagesBaseUrl: "https://54gwy0pjg9.execute-api.ap-south-1.amazonaws.com/live/packages",
   activityBaseUrl: "https://rodv0uj9xb.execute-api.ap-south-1.amazonaws.com/live/activity"
 };
-
-
