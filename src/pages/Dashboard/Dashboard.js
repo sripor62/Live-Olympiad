@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
-import { useState } from "react";
-import { useQuery } from "react-query";
-import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
-import { BookletLayout } from "../../designs/Dashboard/BookletLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
-import useTests from "../../hooks/useTests";
+import usePackages from "../../hooks/usePackages";
 import { useStore } from "../../stores";
 import { environment } from "../../environments/environment";
-import { usePayment } from "../../hooks/usePayment";
-import { Typography } from "@mui/material";
+import { useCookies } from 'react-cookie';
+import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -19,49 +15,62 @@ const Dashboard = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
+  // const [cookies] = useCookies(['sessionId']);
+  // const sessionId = cookies.sessionId;
+  // console.log(sessionId);
 
   const [passAssessData, setPassAssessData] = useState();
   const [page, setPage] = useState(0);
-  const [subjects, setSubjects] = useState();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const { getPackages } = usePackages();
 
-  const { getTestList } = useTests();
-  // const { getSubscriptions, getSubjects } = usePayment();
 
-  // const { data: SubscriptionData } = useQuery(
-  //   [`SubscriptionData`],
-  //   () => getSubscriptions(curentUser?.id),
-  //   { enabled: !!curentUser?.id, retry: false }
-  // );
-  // const { data: CoursesData } = useQuery(["CoursesData"], () => getSubjects(), {
-  //   enabled: true,
-  //   retry: false,
-  // });
+    const fetchPackageData = async (page) => {
 
-  // useEffect(() => {
-  //   if (CoursesData !== undefined) {
-  //     let subs = {};
-  //     // SubscriptionData?.data?.data?.subscribedCourses?.forEach((item) => {
-  //     //   if (typeof item !== "string") {
-  //     //     console.log("Invalid item:", item);
-  //     //     return;
-  //     //   }
-  //     //   console.log(item.slice(0, 4));
-  //     // });
-  //     CoursesData.data.data.forEach((course) => {
-  //       subs[course.id] = course.name;
-  //     });
-  //     if (SubscriptionData?.data?.data?.subscribedCourses?.length !== 0) {
-  //       setSubjects(
-  //         SubscriptionData?.data?.data.subscribedCourses.map((item) =>
-  //           subs[item].slice(0, 4)
-  //         )
-  //       );
-  //     }
-  //   }
-  // }, [SubscriptionData, CoursesData]);
+      if(page===1) {
+      try {
+        const response = await getPackages({
+          grade:student?.grade,
+          subject: 'Science'
+        });
+        if (response && response.data) {
+          setPassAssessData(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching test data:", error);
+      }
+    }
+
+    else if(page===2) {
+      try {
+        const response = await getPackages({
+          grade:student?.grade,
+          subject: 'Math'
+        });
+        if (response && response.data) {
+          setPassAssessData(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching test data:", error);
+      }
+    }
+
+    else if(page===3) {
+      try {
+        const response = await getPackages({
+          grade:student?.grade,
+          subject: 'English'
+        });
+        if (response && response.data) {
+          setPassAssessData(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching test data:", error);
+      }
+    }
+    };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -71,37 +80,15 @@ const Dashboard = () => {
     setAnchorEl(null);
   };
 
-  const { data: testList } = useQuery(
-    [`TestListData`, student?.grade],
-    () =>
-      getTestList({
-        grade: student?.grade,
-      }),
-    { enabled: !!student?.grade, retry: false }
-  );
-
   useEffect(() => {
-    if (environment.env !== "school") {
-      setPassAssessData(testList?.data);
-    } else {
-      let newFilteredList =
-        testList &&
-        testList.data.filter((test) => {
-          let flag = false;
-          if (subjects) {
-            subjects.forEach((subject) => {
-              flag = flag || test.subject[0].search(subject) !== -1;
-            });
-          }
-          return flag;
-        });
-      setPassAssessData(newFilteredList);
+    if (page !== 0) {
+      fetchPackageData(page);
     }
-  }, [subjects, testList]);
+  }, [page]);
 
   const testScreen = (packageId) => {
     window.open(
-      `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,
+      `${environment.activityBaseUrl}/recommend?sessionId=${packageId}`,
       "_self"
     );
   };
@@ -110,8 +97,8 @@ const Dashboard = () => {
   const currentUser = useStore((state) => state.currentUser);
 
   const testSend = (packageId) => {
-    window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
-  };
+        window.location.href = `${environment.activityBaseUrl}/recommend?sessionId=${packageId}`;
+      };
 
   return (
     <HomeLayout logOutHandler={clearCurrentUser}>
@@ -124,12 +111,13 @@ const Dashboard = () => {
         handleClose={handleClose}
         testsLists={passAssessData}
         testScreen={testScreen}
-        passAssessData={passAssessData}
         testSend={testSend}
-        // showParentButton={true}
-        // responsiveStype={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       />
     </HomeLayout>
   );
 };
+
 export default Dashboard;
+
+
+

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { useSyllabus } from "../../hooks/useSyllabus";
-import "./Syllabus.css";
+import "../../designs/Dashboard/Syllabus.css";
 
 
 
