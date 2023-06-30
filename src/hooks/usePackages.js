@@ -6,7 +6,7 @@ const usePackages=()=>{
 
     const getPackages = async (body) => {
         if(body.grade && body.subject){
-            const endpoint = environment.packagesBaseUrl +  `?class=${body.grade}&subject=${body.subject}&series=Mock` ;
+            const endpoint = environment.packagesBaseUrl +  `?class=${body.grade}&subject=${body.subject}&series=Practice` ;
             return await axiosInstance().get(endpoint);
         }
     };

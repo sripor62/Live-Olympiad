@@ -4,7 +4,6 @@ import { navigateAsPerSessionValidity } from "../../services/helpers";
 import usePackages from "../../hooks/usePackages";
 import { useStore } from "../../stores";
 import { environment } from "../../environments/environment";
-import { useCookies } from 'react-cookie';
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 
 const Dashboard = () => {
@@ -15,9 +14,10 @@ const Dashboard = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
-  // const [cookies] = useCookies(['sessionId']);
-  // const sessionId = cookies.sessionId;
-  // console.log(sessionId);
+  let stud = localStorage.getItem("current_user");
+  let studData = JSON.parse(stud);
+  let token = studData.state.currentUser.access_token;
+  let id = studData.state.currentUser.id;
 
   const [passAssessData, setPassAssessData] = useState();
   const [page, setPage] = useState(0);
@@ -88,7 +88,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     window.open(
-      `${environment.activityBaseUrl}/recommend?sessionId=${packageId}`,
+      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`,
       "_self"
     );
   };
@@ -97,7 +97,7 @@ const Dashboard = () => {
   const currentUser = useStore((state) => state.currentUser);
 
   const testSend = (packageId) => {
-        window.location.href = `${environment.activityBaseUrl}/recommend?sessionId=${packageId}`;
+        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
       };
 
   return (

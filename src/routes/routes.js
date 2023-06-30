@@ -138,5 +138,5 @@ export const routes = [
 	{
 		path: "/signUp",
 		element: <SignUp />,
-	},
+	}
 ];
