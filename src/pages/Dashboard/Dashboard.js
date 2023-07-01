@@ -9,8 +9,8 @@ import { useStudent } from "../../hooks/useStudent";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
-  let grade = window.localStorage.getItem("grade");
-  let school = window.localStorage.getItem("school");
+  // let grade = window.localStorage.getItem("grade");
+  // let school = window.localStorage.getItem("school");
   const student = JSON.parse(sessionStorage.getItem("current_student"));
   
   useEffect(() => {
@@ -36,14 +36,12 @@ const Dashboard = () => {
   let schoolId = student.schoolId;
   let userId = student.userId;
   let id = student._id;
-  console.log(userId);
-  console.log(schoolId);
+
 
   useEffect(() => {
     const fetchSchool = async () => {
       try {
         const response = await getSchoolById(schoolId);
-        //console.log(response.data.data.type);
         setSchoolType(response.data.data.type);
       } catch (error) {
         console.error("Error fetching school data:", error);
@@ -53,22 +51,34 @@ const Dashboard = () => {
     fetchSchool();
   }, [schoolId]);
 
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await getStudentsOfUser(userId);
-        console.log(response?.data.data);
-        setUserData(response?.data.data);
-      } catch (error) {
+        setUserData(response?.data.data);     
+  }
+       catch (error) {
         console.error("Error fetching user data:", error);
       }
     };
-
     fetchUser();
   }, [userId]);
+
+  // let idx;
+
+  // useEffect(() => {
+  //   if (userData) {
+  //     for (let i = 0; i < userData.length; i++) {
+  //       const item = userData[i];
+  //       if (item._id === id) {
+  //         idx = i;
+  //       }
+  //     }
+  //   }
+  // }, [userData, id]);
   
-  
-	console.log(schoolType);
+	
   let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
 
 
@@ -149,16 +159,11 @@ const Dashboard = () => {
     }
   }, [page]);
 
-  var idx=-1;
-  console.log(userData);
-  console.log(schoolType);
-  for (let i = 0; i < userData.length; i++) {
-    if(userData[i]._id === id) idx=i;
-  }
+  
 
   const testScreen = (packageId) => {
     window.open(
-      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${idx}`,
+      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`,
       "_self"
     );
   };
@@ -169,7 +174,7 @@ const Dashboard = () => {
   
 
   const testSend = (packageId) => {
-        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${idx}`;
+        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
       };
 
 
