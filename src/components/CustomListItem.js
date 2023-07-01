@@ -39,7 +39,7 @@ export const CustomListItem = (props) => {
 					style={{ justifyContent: "flex-start", alignItems: "center" }}
 				>
 					<Box variant="body2" mt={1}>
-						<Box
+						{props.option?.questions && <Box
 							sx={{
 								fontFamily: "Urbantist",
 								fontWeight: 500,
@@ -49,6 +49,7 @@ export const CustomListItem = (props) => {
 							{" "}
 							Test Length: {props.option.questions.length} Questions
 						</Box>
+                      }     
 					</Box>
 					<Box variant="body2" mt={1}>
 						<Box

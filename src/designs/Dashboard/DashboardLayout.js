@@ -6,18 +6,18 @@ export const DashboardLayout = (props) => {
 	return (
 		<Grid container mt={1}>
 			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-				<Typography variant="h6">{props.text}</Typography>
+				<Typography variant="h6">{props.seriesName}</Typography>
 				<Grid item xs={12}>
                 <Box fontWeight={600} sx={{ fontSize: { xs: "12px", lg: "14px" }, color: "#838BA1" }}>
-                    <Box mb={3}>Clicking on these buttons will take you to {props.text} test</Box>
+                    <Box mb={3}>Clicking on these buttons will take you to {props.seriesName} test</Box>
                 </Box>
             </Grid>
 				<Grid container mb={5} alignItems="center">
 					<Grid item xs={12} md={12} lg={8}>
-						<SubjectSelector setPage={props.setPage} text={props.text}/>
+						<SubjectSelector setPage={props.setPage} text={props.seriesName}/>
 					</Grid>
 				</Grid>
-				{props.text === "Screening" && props.page === 1 &&
+				{props.seriesName === "Screening" && props.page === 1 &&
 					props?.testsLists
 						?.filter((item) => {
 							return item.subject[0].search("Technology") !== -1;
@@ -32,7 +32,8 @@ export const DashboardLayout = (props) => {
 								/>
 							);
 						})}
-				{props.text === "Practice" && props.page === 1 &&
+						
+				{props.seriesName === "Practice" && props.page === 1 &&
 					props?.testsLists
 						?.filter((item) => {
 							return item.subject[0].search("Science") !== -1;
@@ -47,7 +48,7 @@ export const DashboardLayout = (props) => {
 								/>
 							);
 						})}
-				{props.text === "Practice" && props.page === 2 &&
+				{props.seriesName === "Practice" && props.page === 2 &&
 					props?.testsLists
 						?.filter((item) => {
 							return item.subject[0].search("Math") !== -1;
@@ -62,7 +63,7 @@ export const DashboardLayout = (props) => {
 								/>
 							);
 						})}
-				{props.text === "Practice" && props.page === 3 &&
+				{props.seriesName === "Practice" && props.page === 3 &&
 					props?.testsLists
 						?.filter((item) => {
 							return item.subject[0].search("English") !== -1;

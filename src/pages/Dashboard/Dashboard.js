@@ -5,6 +5,7 @@ import usePackages from "../../hooks/usePackages";
 import { useStore } from "../../stores";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { useSchool } from "../../hooks/useSchool";
+import { useStudent } from "../../hooks/useStudent";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -18,44 +19,64 @@ const Dashboard = () => {
   let stud = localStorage.getItem("current_user");
   let studData = JSON.parse(stud);
   let token = studData.state.currentUser.access_token;
-  let id = studData.state.currentUser.id;
 
   const [passAssessData, setPassAssessData] = useState();
   const [page, setPage] = useState(0);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const { getPackages } = usePackages();
   const {getSchoolById} = useSchool();
-  const [hostname, setHostname] = useState();
+  const {getStudentsOfUser} = useStudent();
+
+  const [schoolType, setSchoolType] = useState();
+  const [userData, setUserData] = useState();
 
   let schoolId = student.schoolId;
+  let userId = student.userId;
+  let id = student._id;
+  console.log(userId);
+  console.log(schoolId);
+
   useEffect(() => {
-    const fetchSchool = async (id) => {
+    const fetchSchool = async () => {
       try {
         const response = await getSchoolById(schoolId);
         //console.log(response.data.data.type);
-        setHostname(response.data.data.type);
+        setSchoolType(response.data.data.type);
       } catch (error) {
-        console.error("Error fetching syllabus data:", error);
+        console.error("Error fetching school data:", error);
       }
     };
 
     fetchSchool();
-  }, []);
+  }, [schoolId]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await getStudentsOfUser(userId);
+        console.log(response?.data.data);
+        setUserData(response?.data.data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
   
   
-	let sch_id = hostname;
-  let text;
-  if(sch_id==="Tech") text="Screening";
-  else text="Practice";
+	console.log(schoolType);
+  let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
 
 
     const fetchPackageData = async (page) => {
-      if(text==="Screening" && page===1) {
+      if(seriesName==="Screening" && page===1) {
         try {
           const response = await getPackages({
-            grade:student?.grade,
+            grade:'Beginner',
             subject: 'Technology',
             series: 'Screening'
           });
@@ -111,6 +132,7 @@ const Dashboard = () => {
         console.error("Error fetching test data:", error);
       }
     }
+    
     };
 
   const handleClick = (event) => {
@@ -127,9 +149,16 @@ const Dashboard = () => {
     }
   }, [page]);
 
+  var idx=-1;
+  console.log(userData);
+  console.log(schoolType);
+  for (let i = 0; i < userData.length; i++) {
+    if(userData[i]._id === id) idx=i;
+  }
+
   const testScreen = (packageId) => {
     window.open(
-      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`,
+      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${idx}`,
       "_self"
     );
   };
@@ -137,9 +166,12 @@ const Dashboard = () => {
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
   const currentUser = useStore((state) => state.currentUser);
 
+  
+
   const testSend = (packageId) => {
-        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
+        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${idx}`;
       };
+
 
   return (
     <HomeLayout logOutHandler={clearCurrentUser}>
@@ -153,7 +185,7 @@ const Dashboard = () => {
         testsLists={passAssessData}
         testScreen={testScreen}
         testSend={testSend}
-        text={text}
+        seriesName={seriesName}
       />
     </HomeLayout>
   );
