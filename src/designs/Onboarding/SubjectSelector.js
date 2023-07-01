@@ -2,7 +2,7 @@ import { Chip, Grid } from "@mui/material";
 import { Stack } from "@mui/material";
 import { environment } from "../../environments/environment";
 import React from "react";
-export const SubjectSelector = ({ setPage }) => {
+export const SubjectSelector = ({ setPage, text }) => {
 	return (
 		<Grid mt={2}>
 			<Grid item xs={12} sm={9} md={8} lg={9}>
@@ -36,7 +36,7 @@ export const SubjectSelector = ({ setPage }) => {
 							}}
 						/>
 					)} */}
-					{environment.env != "school" && (
+					{environment.env != "school" && text=="Practice" && (
 						<Chip
 							onClick={() => setPage(1)}
 							label="Science"
@@ -51,7 +51,7 @@ export const SubjectSelector = ({ setPage }) => {
 							}}
 						/>
 					)}
-					{environment.env != "school" && (
+					{environment.env != "school" && text=="Practice" && (
 						<Chip
 							onClick={() => setPage(2)}
 							label="Mathematics"
@@ -66,10 +66,25 @@ export const SubjectSelector = ({ setPage }) => {
 							}}
 						/>
 					)}
-					{environment.env != "school" && (
+					{environment.env != "school" && text=="Practice" && (
 						<Chip
 							onClick={() => setPage(3)}
 							label="English"
+							variant="contained"
+							sx={{
+								":hover": { bgcolor: "#EF4255", color: "white" },
+								color: "#EF4255",
+								border: "2px solid #EF4255",
+								fontWeight: 600,
+								fontSize: "12px",
+								backgroundColor: "white",
+							}}
+						/>
+					)}
+					{text=="Screening" && (
+						<Chip
+							onClick={() => setPage(1)}
+							label="Technology"
 							variant="contained"
 							sx={{
 								":hover": { bgcolor: "#EF4255", color: "white" },
