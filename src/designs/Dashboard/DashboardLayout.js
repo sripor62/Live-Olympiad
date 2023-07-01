@@ -20,7 +20,7 @@ export const DashboardLayout = (props) => {
 				{props.seriesName === "Screening" && props.page === 1 &&
 					props?.testsLists
 						?.filter((item) => {
-							return item.subject[0].search("Technology") !== -1;
+							return item.packageName.search("Technology") !== -1;
 						})
 						.map((option) => {
 							return (
@@ -36,7 +36,7 @@ export const DashboardLayout = (props) => {
 				{props.seriesName === "Practice" && props.page === 1 &&
 					props?.testsLists
 						?.filter((item) => {
-							return item.subject[0].search("Science") !== -1;
+							return item.packageName.search("Science") !== -1;
 						})
 						.map((option) => {
 							return (
@@ -51,7 +51,7 @@ export const DashboardLayout = (props) => {
 				{props.seriesName === "Practice" && props.page === 2 &&
 					props?.testsLists
 						?.filter((item) => {
-							return item.subject[0].search("Math") !== -1;
+							return item.packageName.search("Math") !== -1;
 						})
 						.map((option) => {
 							return (
@@ -66,7 +66,7 @@ export const DashboardLayout = (props) => {
 				{props.seriesName === "Practice" && props.page === 3 &&
 					props?.testsLists
 						?.filter((item) => {
-							return item.subject[0].search("English") !== -1;
+							return item.packageName.search("English") !== -1;
 						})
 						.map((option) => {
 							return (
