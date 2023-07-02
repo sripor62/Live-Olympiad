@@ -10,6 +10,7 @@ import { useStore } from "../../stores";
 import { environment } from "../../environments/environment";
 import { usePayment } from "../../hooks/usePayment";
 import { Typography } from "@mui/material";
+import { useSchool } from "../../hooks/useSchool";
 
 const Booklet = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -26,6 +27,24 @@ const Booklet = () => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  
+  let schoolId = student.schoolId;
+  const [schoolType, setSchoolType] = useState();
+  const {getSchoolById} = useSchool();
+  useEffect(() => {
+    const fetchSchool = async () => {
+      try {
+        const response = await getSchoolById(schoolId);
+        setSchoolType(response.data.data.type);
+      } catch (error) {
+        console.error("Error fetching school data:", error);
+      }
+    };
+
+    fetchSchool();
+  }, [schoolId]);
+  let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
 
   // const { getTestList } = useTests();
   // const { getSubscriptions, getSubjects } = usePayment();
@@ -114,7 +133,7 @@ const Booklet = () => {
   };
 
   return (
-    <HomeLayout logOutHandler={clearCurrentUser}>
+    <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}>
       <BookletLayout
         setPage={setPage}
         page={page}
@@ -126,6 +145,7 @@ const Booklet = () => {
         testScreen={testScreen}
         passAssessData={passAssessData}
         testSend={testSend}
+        seriesName={seriesName}
         // showParentButton={true}
         // responsiveStype={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       />

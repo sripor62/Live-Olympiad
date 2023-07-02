@@ -1,19 +1,39 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { Box, Chip, Grid, Stack, Typography } from "@mui/material";
 import Header from "../../designs/Dashboard/Header";
 import Sidebar from "../../components/Sidebar";
 import { useNavigate } from "react-router-dom";
+import { useSchool } from "../../hooks/useSchool";
 
-export const Subjects = () => {
+export const Subjects = (props) => {
   const navigate = useNavigate();
+
+  const student = JSON.parse(sessionStorage.getItem("current_student"));
+  let schoolId = student.schoolId;
+  const [schoolType, setSchoolType] = useState();
+  const {getSchoolById} = useSchool();
+  useEffect(() => {
+    const fetchSchool = async () => {
+      try {
+        const response = await getSchoolById(schoolId);
+        setSchoolType(response.data.data.type);
+      } catch (error) {
+        console.error("Error fetching school data:", error);
+      }
+    };
+
+    fetchSchool();
+  }, [schoolId]);
+  let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
+
   return (
     <Grid container>
       <Grid item lg={12} md={12} sm={12} xs={12}>
         <Header />
       </Grid>
       <Grid item lg={2} md={12} sm={12} xs={12}>
-        <Sidebar />
+        <Sidebar seriesName={seriesName}/>
       </Grid>
       <Grid item lg={3} p={2}>
         <Stack direction="column" spacing={1}>

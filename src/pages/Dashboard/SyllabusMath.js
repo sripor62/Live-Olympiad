@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { useSyllabus } from "../../hooks/useSyllabus";
 import "../../designs/Dashboard/Syllabus.css";
+import { useSchool } from "../../hooks/useSchool";
 
 
 
@@ -37,7 +38,24 @@ const AccordionItem = ({ title, subItems, level }) => {
 const SyllabusMath = () => {
   const { getSyllabus } = useSyllabus();
   const [syllabusData, setSyllabusData] = useState({});
-  
+
+  const student = JSON.parse(sessionStorage.getItem("current_student"));
+  let schoolId = student.schoolId;
+  const [schoolType, setSchoolType] = useState();
+  const {getSchoolById} = useSchool();
+  useEffect(() => {
+    const fetchSchool = async () => {
+      try {
+        const response = await getSchoolById(schoolId);
+        setSchoolType(response.data.data.type);
+      } catch (error) {
+        console.error("Error fetching school data:", error);
+      }
+    };
+
+    fetchSchool();
+  }, [schoolId]);
+  let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
 
   useEffect(() => {
     const fetchSyllabusData = async () => {
@@ -53,7 +71,7 @@ const SyllabusMath = () => {
   }, []);
 
   return (
-    <HomeLayout>
+    <HomeLayout seriesName={seriesName}>
       <div className="syllabus">
         {Object.keys(syllabusData.Math || {}).map((topic) => (
           <AccordionItem

@@ -106,6 +106,23 @@ const Profile = (props) => {
 		retry: false,
 	});
 
+	
+  let schoolId = student.schoolId;
+  const [schoolType, setSchoolType] = useState();
+  useEffect(() => {
+    const fetchSchool = async () => {
+      try {
+        const response = await getSchoolById(schoolId);
+        setSchoolType(response.data.data.type);
+      } catch (error) {
+        console.error("Error fetching school data:", error);
+      }
+    };
+
+    fetchSchool();
+  }, [schoolId]);
+  let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
+
 	useEffect(() => {
 		if (schoolsData && profileData) {
 			console.log(profileData?.data?.data);
@@ -235,7 +252,7 @@ const Profile = (props) => {
 		setPageData({ ...pageData, pinCode: school.pincode });
 	};
 	return (
-		<HomeLayout logOutHandler={clearCurrentUser}>
+		<HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}>
 			<ProfileLayout
 				subscriptionList={subscribedSubjects}
 				category={category}

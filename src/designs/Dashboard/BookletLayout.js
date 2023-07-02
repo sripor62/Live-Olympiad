@@ -82,7 +82,7 @@ export const BookletLayout = (props) => {
         <Typography variant="h6">Click on one of the subjects to view its booklet</Typography>
         <Grid container mb={5} alignItems="center">
           <Grid item xs={12} md={12} lg={8}>
-            <SubjectSelector setPage={props.setPage} />
+            <SubjectSelector setPage={props.setPage} seriesName={props.seriesName}/>
           </Grid>
           <Grid item xs={12} md={12} lg={4}></Grid>
         </Grid>
@@ -97,7 +97,7 @@ export const BookletLayout = (props) => {
               />
             );
           })}
-        {props.page === 1 &&
+        {/* {props.page === 1 &&
           props?.testsLists
             ?.filter((item) => {
               return item.subject[0].search("Science") !== -1;
@@ -186,7 +186,7 @@ export const BookletLayout = (props) => {
                   testScreen={props.testScreen}
                 />
               );
-            })}
+            })} */}
 
         {props.page === 2 && (
           window.location.replace(links.get(`math${numericalGrade}`))

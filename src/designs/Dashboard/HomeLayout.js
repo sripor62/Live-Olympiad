@@ -18,7 +18,7 @@ export default function HomeLayout(props) {
 			</Grid>
 
 			<Grid item xs={12} sm={12} md={2} lg={2}>
-				<Sidebar />
+				<Sidebar seriesName={props.seriesName}/>
 			</Grid>
 			<Grid item xs={12} sm={12} md={10} lg={10} padding={1}>
 				{props.children}

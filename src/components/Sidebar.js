@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { CustomButton } from './CustomButton';
 const Sidebar = (props) => {
+    console.log(props.seriesName);
     const navigate = useNavigate();
     const location = useLocation();
     const [page, setPage] = useState(location.pathname === "/dashboard" ? 0 : 2)
@@ -55,14 +56,14 @@ const Sidebar = (props) => {
                             </Box>
                         </Grid>
                     </Button> */}
-                    <Button onClick={() => {navigate("/subjects")}}>
+                    {props.seriesName==="Practice" && <Button onClick={() => {navigate("/subjects")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
                             <AccountCircleOutlinedIcon sx={{color:(page === 3) ? "#FCBD42": "#1E232C"}} />
                             <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2,fontFamily:"Urbanist",fontSize:'15px',color: (page === 3) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Syllabus</Box>
                             </Box>
                         </Grid>
-                    </Button>
+                    </Button>}
                     {/* <Button onClick={() => {navigate("/subscription")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}><WorkspacePremiumOutlinedIcon sx={{color:(page === 2) ? "#FCBD42": "#1E232C"}}/>
                             <Box>
@@ -80,14 +81,14 @@ const Sidebar = (props) => {
                     </Button>} 
                     */}
                     
-                    <Button onClick={() => {navigate("/booklet")}}>
+                    {props.seriesName==="Practice" && <Button onClick={() => {navigate("/booklet")}}>
                         <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
                             <MenuBookIcon sx={{color:(page === 4) ? "#FCBD42": "#1E232C"}} />
                             <Typography>
                                 <Box sx={{ ml: 2 ,fontWeight:'bold',fontFamily:"Urbanist",fontSize:'15px',color: (page === 4) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Booklets</Box>
                             </Typography>
                         </Grid>
-                    </Button>
+                    </Button>}
                    
 {/*                     
                     <Box sx={{display:'flex',ml:2,mt:1}}>

@@ -179,7 +179,7 @@ const Dashboard = () => {
 
 
   return (
-    <HomeLayout logOutHandler={clearCurrentUser}>
+    <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}> 
       <DashboardLayout
         setPage={setPage}
         page={page}

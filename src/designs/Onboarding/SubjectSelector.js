@@ -36,7 +36,7 @@ export const SubjectSelector = ({ setPage, text }) => {
 							}}
 						/>
 					)} */}
-					{environment.env != "school" && text=="Practice" && (
+					{text==="Practice" && (
 						<Chip
 							onClick={() => setPage(1)}
 							label="Science"
@@ -51,7 +51,7 @@ export const SubjectSelector = ({ setPage, text }) => {
 							}}
 						/>
 					)}
-					{environment.env != "school" && text=="Practice" && (
+					{ text==="Practice" && (
 						<Chip
 							onClick={() => setPage(2)}
 							label="Mathematics"
@@ -66,7 +66,7 @@ export const SubjectSelector = ({ setPage, text }) => {
 							}}
 						/>
 					)}
-					{environment.env != "school" && text=="Practice" && (
+					{ text==="Practice" && (
 						<Chip
 							onClick={() => setPage(3)}
 							label="English"
@@ -81,7 +81,7 @@ export const SubjectSelector = ({ setPage, text }) => {
 							}}
 						/>
 					)}
-					{text=="Screening" && (
+					{text==="Screening" && (
 						<Chip
 							onClick={() => setPage(1)}
 							label="Technology"
