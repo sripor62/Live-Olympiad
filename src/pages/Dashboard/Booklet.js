@@ -132,6 +132,8 @@ const Booklet = () => {
     window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
   };
 
+  
+
   return (
     <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}>
       <BookletLayout

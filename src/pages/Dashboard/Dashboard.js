@@ -32,6 +32,8 @@ const Dashboard = () => {
 
   const [schoolType, setSchoolType] = useState();
   const [userData, setUserData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
 
   let schoolId = student.schoolId;
   let userId = student.userId;
@@ -45,6 +47,9 @@ const Dashboard = () => {
         setSchoolType(response.data.data.type);
       } catch (error) {
         console.error("Error fetching school data:", error);
+      }
+      finally {
+        setIsLoading(false);
       }
     };
 
@@ -177,6 +182,10 @@ const Dashboard = () => {
         window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
       };
 
+      if (isLoading) {
+        // Display a loading spinner or a placeholder message
+        return <div>Loading...</div>;
+      }
 
   return (
     <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}> 

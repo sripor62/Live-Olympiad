@@ -109,6 +109,7 @@ const Profile = (props) => {
 	
   let schoolId = student.schoolId;
   const [schoolType, setSchoolType] = useState();
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchSchool = async () => {
       try {
@@ -116,6 +117,9 @@ const Profile = (props) => {
         setSchoolType(response.data.data.type);
       } catch (error) {
         console.error("Error fetching school data:", error);
+      }
+	  finally {
+        setIsLoading(false);
       }
     };
 
@@ -251,6 +255,11 @@ const Profile = (props) => {
 		});
 		setPageData({ ...pageData, pinCode: school.pincode });
 	};
+
+	if (isLoading) {
+        // Display a loading spinner or a placeholder message
+        return <div>Loading...</div>;
+      }
 	return (
 		<HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}>
 			<ProfileLayout
