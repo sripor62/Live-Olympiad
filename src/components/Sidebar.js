@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { CustomButton } from './CustomButton';
 const Sidebar = (props) => {
-    console.log(props.seriesName);
+    //console.log(props.seriesName);
     const navigate = useNavigate();
     const location = useLocation();
     const [page, setPage] = useState(location.pathname === "/dashboard" ? 0 : 2)
@@ -24,6 +24,7 @@ const Sidebar = (props) => {
         if (location.pathname === "/syllabusEnglish") setPage(3)
         //if (location.pathname === "/schedule") setPage(3)
         if (location.pathname === "/booklet") setPage(4)
+        if (location.pathname === "/reports") setPage(5)
     }, [page, location.pathname])
 
     return (<>
@@ -46,6 +47,14 @@ const Sidebar = (props) => {
                             {(page === 0) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
                             <Box variant='body2' fontWeight='bold'>
                                 <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 0) ? "#FCBD42": "#1E232C",textTransform:"none"}}>{examType}</Box>
+                            </Box>
+                        </Grid>
+                    </Button>
+                    <Button onClick={() => {navigate("/reports")}}>
+                        <Grid item md={12} lg={12} style={{ display: 'flex', alignItems: 'center' }} mb={3}>
+                            {(page === 5) ? <img alt="" src='../images/space_dashboard.png' />: <img alt="" src='../images/space_dashboardblack.png' />}
+                            <Box variant='body2' fontWeight='bold'>
+                                <Box sx={{ ml: 2 ,fontFamily:"Urbanist",fontSize:'15px' ,color: (page === 5) ? "#FCBD42": "#1E232C",textTransform:"none"}}>Report</Box>
                             </Box>
                         </Grid>
                     </Button>

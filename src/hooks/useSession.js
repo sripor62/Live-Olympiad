@@ -9,9 +9,12 @@ const useSessionHelper = () => {
 		let url = environment.sessionsUrl + `/sessions/reportsnew?${queryString}`;
 		return await axiosInstance(false).get(url);
 	};
-	const StudentsReport = async (packageId) => {
-		let url = `https://522rowf3da.execute-api.ap-south-1.amazonaws.com/live/reports/${packageId}/result`;
-		return await axiosInstance(false).get(url);
+	const StudentsReport = async (packageId, userToken) => {
+		let url = environment.reportsBaseUrl + `/${packageId}/result`;
+		return await axiosInstance().get(
+			url,
+			{ headers: { Authorization: "Bearer " + userToken } }
+			);
 	};
 
 	return {

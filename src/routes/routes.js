@@ -12,6 +12,7 @@ import SyllabusMath from "../pages/Dashboard/SyllabusMath";
 import SyllabusEnglish from "../pages/Dashboard/SyllabusEnglish";
 import SyllabusScience from "../pages/Dashboard/SyllabusScience";
 import Profile from "../pages/Dashboard/Profile";
+import Report from "../pages/Dashboard/Report";
 import Schedule from "../pages/Dashboard/Schedule";
 import ChooseYourPlan from "../pages/Onboarding/ChooseYourPlan";
 import Subscription from "../pages/Dashboard/subscription";
@@ -138,5 +139,9 @@ export const routes = [
 	{
 		path: "/signUp",
 		element: <SignUp />,
+	},
+	{
+		path: "/reports",
+		element: <Report />,
 	}
 ];

@@ -11,15 +11,9 @@ const usePackages=()=>{
         }
     };
 
-    const getPackagesForTech = async () => {{
-            const endpoint =  "https://users.liveolympiad.org/groups?type=Tech";
-            return await axiosInstance().get(endpoint);
-        }
-    };
 
     return{
         getPackages,
-        getPackagesForTech
     };
 }   
 export default usePackages;
