@@ -3,7 +3,6 @@ import { Box, Paper, Typography } from "@mui/material";
 
 export const ReportsLayout = (props) => {
   const { correct, incorrect } = props.repData;
-  console.log(correct);
 
   return (
     <Paper sx={{ m: "50px", p: "20px", textAlign: "center" }}>

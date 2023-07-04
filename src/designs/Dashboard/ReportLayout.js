@@ -17,22 +17,22 @@ export const ReportLayout = (props) => {
 						<SubjectSelector setPage={props.setPage} text={props.seriesName}/>
 					</Grid>
 				</Grid>
-				{props.seriesName === "Screening" && props.page === 1 && props.packId && (
+				{props.seriesName === "Screening" && props.page === 1 && props.repData && (
                 <ReportsLayout repData={props.repData}/>
                 )}
 
 
 						
-				{props.seriesName === "Practice" && props.page === 1 && props.packId && (
+				{props.seriesName === "Practice" && props.page === 1 && props.repData && (
                 <ReportsLayout repData={props.repData}/>
                 )}
 
-				{props.seriesName === "Practice" && props.page === 2 && props.packId && (
+				{props.seriesName === "Practice" && props.page === 2 && props.repData && (
                 <ReportsLayout repData={props.repData}/>
                 )}
 
 
-				{props.seriesName === "Practice" && props.page === 3 && props.packId && (
+				{props.seriesName === "Practice" && props.page === 3 && props.repData && (
                 <ReportsLayout repData={props.repData}/>
                 )}
 				

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
-import { useNavigate } from "react-router-dom";
 import usePackages from "../../hooks/usePackages";
 import { useStore } from "../../stores";
 import { ReportLayout } from "../../designs/Dashboard/ReportLayout";
@@ -10,10 +9,7 @@ import useSessionHelper from "../../hooks/useSession";
 
 const Report = () => {
   let curentUser = useStore((state) => state.currentUser);
-  // let grade = window.localStorage.getItem("grade");
-  // let school = window.localStorage.getItem("school");
   const student = JSON.parse(sessionStorage.getItem("current_student"));
-  const navigate = useNavigate();
   
   useEffect(() => {
     navigateAsPerSessionValidity(true);
@@ -22,10 +18,8 @@ const Report = () => {
   let studData = JSON.parse(stud);
   let token = studData.state.currentUser.access_token;
 
-  const [passAssessData, setPassAssessData] = useState();
+  
   const [page, setPage] = useState(0);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
 
   const { getPackages } = usePackages();
   const {getSchoolById} = useSchool();
@@ -58,9 +52,10 @@ const Report = () => {
 
 
   
-  
-	
   let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
+
+
+  
 
 
     const fetchPackageData = async (page) => {
@@ -72,7 +67,6 @@ const Report = () => {
             series: 'Screening'
           });
           if (response && response.data) {
-            setPassAssessData(response.data);
             setPackId(response.data[0]._id);
           }
         } catch (error) {
@@ -87,9 +81,7 @@ const Report = () => {
           subject: 'Science',
           series: 'Practice'
         });
-        //console.log(response.data[0]._id);
         if (response && response.data) {
-          setPassAssessData(response.data);
           setPackId(response.data[0]._id);
         }
       } catch (error) {
@@ -105,7 +97,6 @@ const Report = () => {
           series: 'Practice'
         });
         if (response && response.data) {
-          setPassAssessData(response.data);
           setPackId(response.data[0]._id);
         }
       } catch (error) {
@@ -121,7 +112,6 @@ const Report = () => {
           series: 'Practice'
         });
         if (response && response.data) {
-          setPassAssessData(response.data);
           setPackId(response.data[0]._id);
         }
       } catch (error) {
@@ -130,14 +120,6 @@ const Report = () => {
     }
     
     };
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   
 
@@ -150,11 +132,9 @@ const Report = () => {
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const response = await StudentsReport("64a019c6dd8157763a5daa0d", token);
-        //console.log(response.data.data[0]);
+        const response = await StudentsReport(packId, token);
         if (response.data.data && response.data.data.length > 0)
         setRepData(response.data.data[0]);
-        //setStudentReport(response.data);
       } catch (error) {
         console.error("Error fetching report data:", error);
       }
@@ -162,44 +142,28 @@ const Report = () => {
 
     
       fetchReport();
-  }, [ token]);
+  }, [ token, packId]);
 
   
 
-  const testScreen = (packageId) => {
-    navigate(`/report?packageId=${packageId}`);
-  };
+  
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
   const currentUser = useStore((state) => state.currentUser);
 
   
 
-  const testSend = (packageId) => {
-    navigate(`/report?packageId=${packageId}`);
-  };
-
       if (isLoading) {
         // Display a loading spinner or a placeholder message
         return <div>Loading...</div>;
       }
-
-      //console.log(packId);
 
   return (
     <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}> 
       <ReportLayout
         setPage={setPage}
         page={page}
-        open={open}
-        anchorEl={anchorEl}
-        handleClick={handleClick}
-        handleClose={handleClose}
-        testsLists={passAssessData}
-        testScreen={testScreen}
-        testSend={testSend}
         seriesName={seriesName}
-        packId={packId}
         repData={repData}
       />
     </HomeLayout>
