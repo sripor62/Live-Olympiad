@@ -88,7 +88,7 @@ const Dashboard = () => {
 
 
     const fetchPackageData = async (page) => {
-      if(seriesName==="Screening" && page===1) {
+      if(seriesName==="Screening" && page===1 && student?.grade==="Frontend") {
         try {
           const response = await getPackages({
             grade:'Beginner',
@@ -100,7 +100,7 @@ const Dashboard = () => {
           }
         } catch (error) {
           console.error("Error fetching test data:", error);
-        }
+      }
       }
 
       else if(page===1) {
