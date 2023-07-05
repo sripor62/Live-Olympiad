@@ -88,10 +88,10 @@ const Dashboard = () => {
 
 
     const fetchPackageData = async (page) => {
-      if(seriesName==="Screening" && page===1 && student?.grade==="Frontend") {
+      if(seriesName==="Screening" && page===1) {
         try {
           const response = await getPackages({
-            grade:'Beginner',
+            grade:student?.grade,
             subject: 'Technology',
             series: 'Screening'
           });
