@@ -12,6 +12,33 @@ import { usePayment } from "../../hooks/usePayment";
 import { Typography } from "@mui/material";
 import { useSchool } from "../../hooks/useSchool";
 
+let links = new Map([
+  ["eng1", "https://pdf.ac/1UaM37"],
+  ["eng2", "https://pdf.ac/DVfZX"],
+  ["eng3", "https://pdf.ac/13toav"],
+  ["eng4", "https://pdf.ac/13toav"],
+  ["math1", "https://pdf.ac/2m3w7p"],
+  ["math2", "https://pdf.ac/zJIfQ"],
+  ["math3", "https://pdf.ac/1nss4h"],
+  ["math4", "https://pdf.ac/1wMt0d"],
+  ["math5", "https://pdf.ac/2tPdGr"],
+  ["math6", "https://pdf.ac/J3Ju6"],
+  ["math7", "https://pdf.ac/fxm7f"],
+  ["math8", "https://pdf.ac/rY2FB"],
+  ["math9", "https://pdf.ac/HvoSZ"],
+  ["math10", "https://pdf.ac/QPpRZ"],
+  ["science1", "https://pdf.ac/1fGNJV"],
+  ["science2", "https://pdf.ac/fxmob"],
+  ["science3", "https://pdf.ac/nj2CG"],
+  ["science4", "https://pdf.ac/1nsurx"],
+  ["science5", "https://pdf.ac/2sgWVR"],
+  ["science6", "https://pdf.ac/1ykQv1"],
+  ["science7", "https://pdf.ac/FX4U8"],
+  ["science8", "https://pdf.ac/21ReRv"],
+  ["science9", "https://pdf.ac/2ehVTx"],
+  ["science10", "https://pdf.ac/J3KNX"]
+]);
+
 const Booklet = () => {
   let curentUser = useStore((state) => state.currentUser);
   let grade = window.localStorage.getItem("grade");
@@ -20,6 +47,7 @@ const Booklet = () => {
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
+  
 
   const [passAssessData, setPassAssessData] = useState();
   const [page, setPage] = useState(0);
@@ -148,6 +176,7 @@ const Booklet = () => {
         passAssessData={passAssessData}
         testSend={testSend}
         seriesName={seriesName}
+        links={links}
         // showParentButton={true}
         // responsiveStype={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       />
