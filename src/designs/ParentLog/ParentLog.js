@@ -2,12 +2,8 @@ import React from "react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { AddCircle } from "@mui/icons-material";
-import { useQuery } from "react-query";
-import useSessionHelper from "../../hooks/useSession";
-import { useStore } from "../../stores";
 import { useSchool } from "../../hooks/useSchool";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Avatar,
   Box,
@@ -16,9 +12,12 @@ import {
   IconButton,
   Typography,
   Stack,
+  Link
 } from "@mui/material";
 import { CustomButton } from "../../components/CustomButton";
 import { AuthLayout } from "../Auth/AuthLayout";
+import AppleIcon from '@mui/icons-material/Apple';
+import ShopIcon from '@mui/icons-material/Shop';
 
 const childrenData = [
   {
@@ -53,7 +52,6 @@ const childrenData = [
 ];
 
 export const ParentLog = (props) => {
-
   const [schoolNames, setSchoolNames] = useState([]);
   const { getSchoolById } = useSchool();
 
@@ -85,21 +83,20 @@ export const ParentLog = (props) => {
 
       return (
         <Box m={1} key={child.id}>
-              <Box
-                sx={{
-                  padding:2,
-                  backgroundColor: "#4545A5",
-                  width: "195px",
-                  height: "108px",
-                  borderRadius: "8px",
-                  boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)",
-                  marginTop: "10%",
-                  marginLeft: "-1%",
-                  
-                }}
-              >
-                <Box style={{display:"flex",  paddingTop:1,}}>
-                <Stack direction="column" style={{width:"100%"}}>
+          <Box
+            sx={{
+              padding: 2,
+              backgroundColor: "#4545A5",
+              width: "195px",
+              height: "108px",
+              borderRadius: "8px",
+              boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.25)",
+              marginTop: "10%",
+              marginLeft: "-1%",
+            }}
+          >
+            <Box style={{ display: "flex", paddingTop: 1 }}>
+              <Stack direction="column" style={{ width: "100%" }}>
                 <Typography
                   sx={{
                     fontFamily: "Inter",
@@ -110,41 +107,9 @@ export const ParentLog = (props) => {
                     color: "#FFFFFF",
                   }}
                 >
-                    
                   {schoolName}
-
                 </Typography>
-                <Box style={{display:"flex",marginTop:10}}>
-                <Typography
-                  sx={{
-                    fontFamily: "Inter",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "8px",
-                    lineHeight: "10px",
-                    color: "#FFFFFF",
-                  }}
-                >
-                  {child.grade}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Inter",
-                    fontStyle: "normal",
-                    fontWeight: "400",
-                    fontSize: "8px",
-                    lineHeight: "10px",
-                    color: "#FFFFFF",
-                   
-                  }}
-                >
-                 -{child.section}
-                </Typography>
-                
-                </Box>
-                </Stack>
-                <Box style={{marginRight:"",alignItems:"center",justifyContent:"center" }}>
-                <Avatar variant="rounded" src={child.profilePicture} />
+                <Box style={{ display: "flex", marginTop: 10 }}>
                   <Typography
                     sx={{
                       fontFamily: "Inter",
@@ -153,54 +118,90 @@ export const ParentLog = (props) => {
                       fontSize: "8px",
                       lineHeight: "10px",
                       color: "#FFFFFF",
-                      
                     }}
                   >
-                    {child.fullName}
+                    {child.grade}
                   </Typography>
-                </Box>
-                </Box>
-                <Box
-                  sx={{
-                    borderRadius: "8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: "flex",
-                    flexDirection: "column",
-                    marginTop:"-6%"
-                  }}
-                >
                   <Typography
                     sx={{
                       fontFamily: "Inter",
                       fontStyle: "normal",
                       fontWeight: "400",
                       fontSize: "8px",
+                      lineHeight: "10px",
                       color: "#FFFFFF",
-                      marginBottom:"-5%",
-                      marginRight:2
                     }}
                   >
-                    Enter
+                    -{child.section}
                   </Typography>
-                  <Button
-                    sx={{ }}
-                    onClick={() => {
-                      props.onHandleClickNavigate(child);
-                    }}
-                  >
-                    <img src="./images/Arrow5.png" alt="arrow" />
-                  </Button>
                 </Box>
+              </Stack>
+              <Box
+                style={{
+                  marginRight: "",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Avatar variant="rounded" src={child.profilePicture} />
+                <Typography
+                  sx={{
+                    fontFamily: "Inter",
+                    fontStyle: "normal",
+                    fontWeight: "400",
+                    fontSize: "8px",
+                    lineHeight: "10px",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  {child.fullName}
+                </Typography>
               </Box>
             </Box>
+            <Box
+              sx={{
+                borderRadius: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "flex",
+                flexDirection: "column",
+                marginTop: "-6%",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Inter",
+                  fontStyle: "normal",
+                  fontWeight: "400",
+                  fontSize: "8px",
+                  color: "#FFFFFF",
+                  marginBottom: "-5%",
+                  marginRight: 2,
+                }}
+              >
+                Enter
+              </Typography>
+              <Button
+                sx={{}}
+                onClick={() => {
+                  props.onHandleClickNavigate(child);
+                }}
+              >
+                <img src="./images/Arrow5.png" alt="arrow" />
+              </Button>
+            </Box>
+          </Box>
+        </Box>
       );
     });
   };
 
   return (
     <AuthLayout responsiveStype={props.responsiveStype}>
-      <Grid container sx={{marginTop:{lg:"0%",md:"0%",sm:"-60%",xs:"0%"}}}>
+      <Grid
+        container
+        sx={{ marginTop: { lg: "0%", md: "0%", sm: "-60%", xs: "0%" } }}
+      >
         <Grid
           item
           xs={12}
@@ -215,7 +216,7 @@ export const ParentLog = (props) => {
             btnText="LOGOUT"
             variant="contained"
             sx={{
-              ":hover": {color: "white" },
+              ":hover": { color: "white" },
               color: "black",
               borderRadius: "20px",
               width: "70px",
@@ -264,10 +265,10 @@ export const ParentLog = (props) => {
         </Grid>
         <Grid
           item
-		  lg={12}
-		  md={12}
-		  sm={12}
-		  xs={12}
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
           sx={{
             display: "flex",
             flexDirection: {
@@ -326,9 +327,94 @@ export const ParentLog = (props) => {
               Add Children
             </Typography>
           </Box>
-        </Grid>
+           </Grid>
+
+           <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            mt={2}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box sx={{ textAlign: "center" }}>
+              <Typography
+                sx={{
+                  fontFamily: "Inter",
+                  fontStyle: "normal",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  lineHeight: "11px",
+                  color: "#060606",
+                  marginBottom: "2%",
+                }}
+              >
+                Available on Play Store:
+              </Typography>
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.liveolympiad.liveolympiadapp"
+                target="_blank"
+              >
+                {/* <img
+                  //src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL9Gx8q2uvHLD9Jr_OzwUBvlDfjcBBFFv29DO2ZbPR2WXA9Wa0CEo_MIhGHlYwVUO_NhU&usqp=CAU"
+                  src={<ShopIcon />}
+                  alt="Download"
+                  style={{ cursor: "pointer" }}
+                /> */}
+                <ShopIcon />
+              </Link>
+            </Box>
+          </Grid>
+
+          
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            mt={2}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box sx={{ textAlign: "center" }}>
+              <Typography
+                sx={{
+                  fontFamily: "Inter",
+                  fontStyle: "normal",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  lineHeight: "11px",
+                  color: "#060606",
+                  marginBottom: "2%",
+                }}
+              >
+                Available soon on Apple Store:
+              </Typography>
+              <Link
+                //href=""
+                //target="_blank"
+              >
+                {/* <img
+                  //src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL9Gx8q2uvHLD9Jr_OzwUBvlDfjcBBFFv29DO2ZbPR2WXA9Wa0CEo_MIhGHlYwVUO_NhU&usqp=CAU"
+                  src={AppleIcon}
+                  alt="Download"
+                  style={{ cursor: "pointer" }}
+                /> */}
+                <AppleIcon />
+              </Link>
+            </Box>
+          </Grid>
+
       </Grid>
     </AuthLayout>
-    );
-
+  );
 };

@@ -1,4 +1,4 @@
-import { Grid, Typography, Box, Link } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import { CustomListItem } from "../../components/CustomListItem";
 import { SubjectSelector } from "../Onboarding/SubjectSelector";
 
@@ -88,19 +88,6 @@ export const DashboardLayout = (props) => {
               );
             })}
       </Grid>
-      {props.seriesName === "Practice" && (
-        <Grid item xs={12}>
-          <Typography variant="body1">
-            You can download our app from the following link:{" "}
-            <Link
-              href="https://play.google.com/store/apps/details?id=com.liveolympiad.liveolympiadapp"
-              target="_blank"
-            >
-              Download App
-            </Link>
-          </Typography>
-        </Grid>
-      )}
     </Grid>
   );
 };
