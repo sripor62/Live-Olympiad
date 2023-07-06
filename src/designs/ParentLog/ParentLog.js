@@ -18,6 +18,9 @@ import { CustomButton } from "../../components/CustomButton";
 import { AuthLayout } from "../Auth/AuthLayout";
 import AppleIcon from '@mui/icons-material/Apple';
 import ShopIcon from '@mui/icons-material/Shop';
+import { useNavigate } from "react-router-dom";
+
+
 
 const childrenData = [
   {
@@ -54,6 +57,7 @@ const childrenData = [
 export const ParentLog = (props) => {
   const [schoolNames, setSchoolNames] = useState([]);
   const { getSchoolById } = useSchool();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSchoolNames = async () => {
@@ -80,6 +84,10 @@ export const ParentLog = (props) => {
   const renderChildren = () => {
     return props.children.map((child, index) => {
       const schoolName = schoolNames[index];
+      var name = child.fullName;
+      var id = child._id;
+      var grade = child.grade;
+      var schoolId = child.schoolId;
 
       return (
         <Box m={1} key={child.id}>
@@ -184,7 +192,15 @@ export const ParentLog = (props) => {
               <Button
                 sx={{}}
                 onClick={() => {
+                  if(grade === undefined) {
+                    navigate(`/schooldetails/${id}`);
+                  }
+                  else if(name === undefined) {
+                    navigate(`/personaldetails/${id}`);
+                  }
+                  else if(schoolId !== undefined) {
                   props.onHandleClickNavigate(child);
+                  }
                 }}
               >
                 <img src="./images/Arrow5.png" alt="arrow" />
