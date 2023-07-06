@@ -22,37 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const childrenData = [
-  {
-    id: 1,
-    name: "Aneysha Das",
-    school: "Cambridge School",
-    class: "V",
-    section: "B",
-  },
-  {
-    id: 2,
-    name: "John Doe",
-    school: "St. Mary's School",
-    class: "VI",
-    section: "A",
-  },
-  { id: 3, name: "James", school: "Oxford", class: "IV", section: "C" },
-  {
-    id: 4,
-    name: "Tom Brown",
-    school: "Harvard School",
-    class: "III",
-    section: "D",
-  },
-  {
-    id: 5,
-    name: "Tom Cruise",
-    school: "Harvard School",
-    class: "II",
-    section: "E",
-  },
-];
+
 
 export const ParentLog = (props) => {
   const [schoolNames, setSchoolNames] = useState([]);
@@ -88,9 +58,11 @@ export const ParentLog = (props) => {
       var id = child._id;
       var grade = child.grade;
       var schoolId = child.schoolId;
+      var v = child.__v;
 
       return (
-        <Box m={1} key={child.id}>
+        v!==undefined && (
+          <Box m={1} key={child.id}>
           <Box
             sx={{
               padding: 2,
@@ -208,6 +180,7 @@ export const ParentLog = (props) => {
             </Box>
           </Box>
         </Box>
+      )
       );
     });
   };
