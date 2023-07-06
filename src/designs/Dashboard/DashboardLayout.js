@@ -1,85 +1,106 @@
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, Link } from "@mui/material";
 import { CustomListItem } from "../../components/CustomListItem";
 import { SubjectSelector } from "../Onboarding/SubjectSelector";
 
 export const DashboardLayout = (props) => {
-	return (
-		<Grid container mt={1}>
-			<Grid item p={2} xs={12} sm={12} md={8} lg={7}>
-				<Typography variant="h6">{props.seriesName}</Typography>
-				<Grid item xs={12}>
-                <Box fontWeight={600} sx={{ fontSize: { xs: "12px", lg: "14px" }, color: "#838BA1" }}>
-                    <Box mb={3}>Clicking on these buttons will take you to {props.seriesName} test</Box>
-                </Box>
-            </Grid>
-				<Grid container mb={5} alignItems="center">
-					<Grid item xs={12} md={12} lg={8}>
-						<SubjectSelector setPage={props.setPage} text={props.seriesName}/>
-					</Grid>
-				</Grid>
-				{props.seriesName === "Screening" && props.page === 1 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.packageName.search("Technology") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-						
-				{props.seriesName === "Practice" && props.page === 1 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.packageName.search("Science") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.seriesName === "Practice" && props.page === 2 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.packageName.search("Math") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				{props.seriesName === "Practice" && props.page === 3 &&
-					props?.testsLists
-						?.filter((item) => {
-							return item.packageName.search("English") !== -1;
-						})
-						.map((option) => {
-							return (
-								<CustomListItem
-									testSend={props.testSend}
-									option={option}
-									key={option._id}
-									testScreen={props.testScreen}
-								/>
-							);
-						})}
-				
-			</Grid>
-		</Grid>
-	);
+  return (
+    <Grid container mt={1}>
+      <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
+        <Typography variant="h6">{props.seriesName}</Typography>
+        <Grid item xs={12}>
+          <Box
+            fontWeight={600}
+            sx={{ fontSize: { xs: "12px", lg: "14px" }, color: "#838BA1" }}
+          >
+            <Box mb={3}>
+              Clicking on these buttons will take you to {props.seriesName} test
+            </Box>
+          </Box>
+        </Grid>
+        <Grid container mb={5} alignItems="center">
+          <Grid item xs={12} md={12} lg={8}>
+            <SubjectSelector setPage={props.setPage} text={props.seriesName} />
+          </Grid>
+        </Grid>
+        {props.seriesName === "Screening" &&
+          props.page === 1 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.packageName.search("Technology") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+
+        {props.seriesName === "Practice" &&
+          props.page === 1 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.packageName.search("Science") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.seriesName === "Practice" &&
+          props.page === 2 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.packageName.search("Math") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+        {props.seriesName === "Practice" &&
+          props.page === 3 &&
+          props?.testsLists
+            ?.filter((item) => {
+              return item.packageName.search("English") !== -1;
+            })
+            .map((option) => {
+              return (
+                <CustomListItem
+                  testSend={props.testSend}
+                  option={option}
+                  key={option._id}
+                  testScreen={props.testScreen}
+                />
+              );
+            })}
+      </Grid>
+      {props.seriesName === "Practice" && (
+        <Grid item xs={12}>
+          <Typography variant="body1">
+            You can download our app from the following link:{" "}
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.liveolympiad.liveolympiadapp"
+              target="_blank"
+            >
+              Download App
+            </Link>
+          </Typography>
+        </Grid>
+      )}
+    </Grid>
+  );
 };
