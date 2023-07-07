@@ -1,5 +1,4 @@
 import {  Grid, Typography } from "@mui/material";
-import { CustomListItem } from "../../components/CustomListItem";
 import { SubjectSelector } from "../Onboarding/SubjectSelector";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -42,17 +41,6 @@ export const BookletLayout = (props) => {
           </Grid>
           <Grid item xs={12} md={12} lg={4}></Grid>
         </Grid>
-        {props.page === 0 &&
-          props?.testsLists?.map((option) => {
-            return (
-              <CustomListItem
-                testSend={props.testSend}
-                option={option}
-                key={option._id}
-                testScreen={props.testScreen}
-              />
-            );
-          })}
 
         {props.page === 2 && (
           window.location.replace(props.links.get(`math${numericalGrade}`))

@@ -1,60 +1,52 @@
 import React, { useEffect } from "react";
 import HomeLayout from "../../designs/Dashboard/HomeLayout";
 import { useState } from "react";
-import { useQuery } from "react-query";
-import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { BookletLayout } from "../../designs/Dashboard/BookletLayout";
 import { navigateAsPerSessionValidity } from "../../services/helpers";
-import useTests from "../../hooks/useTests";
 import { useStore } from "../../stores";
-import { environment } from "../../environments/environment";
-import { usePayment } from "../../hooks/usePayment";
-import { Typography } from "@mui/material";
 import { useSchool } from "../../hooks/useSchool";
 
 let links = new Map([
-  ["eng1", "https://pdf.ac/1UaM37"],
-  ["eng2", "https://pdf.ac/DVfZX"],
-  ["eng3", "https://pdf.ac/13toav"],
-  ["eng4", "https://pdf.ac/13toav"],
-  ["math1", "https://pdf.ac/2m3w7p"],
-  ["math2", "https://pdf.ac/zJIfQ"],
-  ["math3", "https://pdf.ac/1nss4h"],
-  ["math4", "https://pdf.ac/1wMt0d"],
-  ["math5", "https://pdf.ac/2tPdGr"],
-  ["math6", "https://pdf.ac/J3Ju6"],
-  ["math7", "https://pdf.ac/fxm7f"],
-  ["math8", "https://pdf.ac/rY2FB"],
-  ["math9", "https://pdf.ac/HvoSZ"],
-  ["math10", "https://pdf.ac/QPpRZ"],
-  ["science1", "https://pdf.ac/1fGNJV"],
-  ["science2", "https://pdf.ac/fxmob"],
-  ["science3", "https://pdf.ac/nj2CG"],
-  ["science4", "https://pdf.ac/1nsurx"],
-  ["science5", "https://pdf.ac/2sgWVR"],
-  ["science6", "https://pdf.ac/1ykQv1"],
-  ["science7", "https://pdf.ac/FX4U8"],
-  ["science8", "https://pdf.ac/21ReRv"],
-  ["science9", "https://pdf.ac/2ehVTx"],
-  ["science10", "https://pdf.ac/J3KNX"]
+  ["eng1", "https://drive.google.com/file/d/1WIImmdwSxCcY2dDnZi8HigKN3dwj3n-F/view?usp=sharing"],
+  ["eng2", "https://drive.google.com/file/d/1YIgliF2uURSB0mBerRUskLcFYXESpPdL/view?usp=sharing"],
+  ["eng3", "https://drive.google.com/file/d/1LN2yAWFvx9al1eDi9kdT0SZTv304XgCI/view?usp=sharing"],
+  ["eng4", "https://drive.google.com/file/d/1LN2yAWFvx9al1eDi9kdT0SZTv304XgCI/view?usp=sharing"],
+  ["math1", "https://drive.google.com/file/d/1BVDwx_gaiSmBh-w7-Zf5hms6Df_8kuLt/view?usp=sharing"],
+  ["math2", "https://drive.google.com/file/d/1h2pg8zruG8ROSjBhG49V7DRxNW6N8aMx/view?usp=sharing"],
+  ["math3", "https://drive.google.com/file/d/1AA9IapDIFi1vyoYVI-984hF_PnNhWtuH/view?usp=sharing"],
+  ["math4", "https://drive.google.com/file/d/17vTd7nEFzk6F2g9v6KrM2YGmfd2S7N9Q/view?usp=sharing"],
+  ["math5", "https://drive.google.com/file/d/1iYSkrDbVylKckLFDoAxmwVlj-kcFoiHQ/view?usp=sharing"],
+  ["math6", "https://drive.google.com/file/d/1vw8DyaOOmX5X4Sh0J1YKaou_t9HlG4EH/view?usp=sharing"],
+  ["math7", "https://drive.google.com/file/d/1GzxBVdVAaMBKh4tEpDtPb8CJcGtbEF24/view?usp=sharing"],
+  ["math8", "https://drive.google.com/file/d/1Qkx4zLBnvuhBjDOld5SUECw8QXM0HBeQ/view?usp=sharing"],
+  ["math9", "https://drive.google.com/file/d/1OH3Z2aLbLC9mFpZQeBb04kIF4ru0LkhK/view?usp=sharing"],
+  ["math10", "https://drive.google.com/file/d/1pXPvX6tHO_hSBr8xxnUacPsVwa23V0tQ/view?usp=sharing"],
+  ["science1", "https://drive.google.com/file/d/1IqsJ3ShhP39_gXo516YR88CMHv0bZ2SB/view?usp=sharing"],
+  ["science2", "https://drive.google.com/file/d/1ufmFpDtlxB4a9bFtb_570mP2PHf28gV8/view?usp=sharing"],
+  ["science3", "https://drive.google.com/file/d/1z8IzL-2uDUhv8d6mjE1bP4MH6GxJpF22/view?usp=sharing"],
+  ["science4", "https://drive.google.com/file/d/1mfmTKpLd-9lJykx-kxMBI-58S0Fl_Wg7/view?usp=sharing"],
+  ["science5", "https://drive.google.com/file/d/1zfWLRY7uyNg4f9K-5BOce5-0O6DBNZcp/view?usp=sharing"],
+  ["science6", "https://drive.google.com/file/d/1qo9uNdKlZYxWB_2-IK8lKJzzGI38Mu7S/view?usp=sharing"],
+  ["science7", "https://drive.google.com/file/d/1xiXlV9Dt_7VOC4e23RjPVSe9SZD_gAzl/view?usp=sharing"],
+  ["science8", "https://drive.google.com/file/d/1x3G9TKxBsga6hEw5p7iFUCYOJFVBnUM2/view?usp=sharing"],
+  ["science9", "https://drive.google.com/file/d/1x_SQPxPVpuifCElna_zR7kuO8wJiaP6k/view?usp=sharing"],
+  ["science10", "https://drive.google.com/file/d/1_zoq4XO5B0RuLpEfJAu5rW-xdM8ySI8Y/view?usp=sharing"]
 ]);
+
+
+
+
 
 const Booklet = () => {
   let curentUser = useStore((state) => state.currentUser);
-  let grade = window.localStorage.getItem("grade");
-  let school = window.localStorage.getItem("school");
   const student = JSON.parse(sessionStorage.getItem("current_student"));
   useEffect(() => {
     navigateAsPerSessionValidity(true);
   });
   
 
-  const [passAssessData, setPassAssessData] = useState();
+  
   const [page, setPage] = useState(0);
-  const [subjects, setSubjects] = useState();
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
 
   
   let schoolId = student.schoolId;
@@ -74,91 +66,12 @@ const Booklet = () => {
   }, [schoolId]);
   let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
 
-  // const { getTestList } = useTests();
-  // const { getSubscriptions, getSubjects } = usePayment();
-
-  // const { data: SubscriptionData } = useQuery(
-  //   [`SubscriptionData`],
-  //   () => getSubscriptions(curentUser?.id),
-  //   { enabled: !!curentUser?.id, retry: false }
-  // );
-  // const { data: CoursesData } = useQuery(["CoursesData"], () => getSubjects(), {
-  //   enabled: true,
-  //   retry: false,
-  // });
-
-  // useEffect(() => {
-  //   if (CoursesData !== undefined) {
-  //     let subs = {};
-  //     // SubscriptionData?.data?.data?.subscribedCourses?.forEach((item) => {
-  //     //   if (typeof item !== "string") {
-  //     //     console.log("Invalid item:", item);
-  //     //     return;
-  //     //   }
-  //     //   console.log(item.slice(0, 4));
-  //     // });
-  //     CoursesData.data.data.forEach((course) => {
-  //       subs[course.id] = course.name;
-  //     });
-  //     if (SubscriptionData?.data?.data?.subscribedCourses?.length !== 0) {
-  //       setSubjects(
-  //         SubscriptionData?.data?.data.subscribedCourses.map((item) =>
-  //           subs[item].slice(0, 4)
-  //         )
-  //       );
-  //     }
-  //   }
-  // }, [SubscriptionData, CoursesData]);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  // const { data: testList } = useQuery(
-  //   [`TestListData`, student?.grade],
-  //   () =>
-  //     getTestList({
-  //       grade: student?.grade,
-  //     }),
-  //   { enabled: !!student?.grade, retry: false }
-  // );
-
-  // useEffect(() => {
-  //   if (environment.env !== "school") {
-  //     setPassAssessData(testList?.data);
-  //   } else {
-  //     let newFilteredList =
-  //       testList &&
-  //       testList.data.filter((test) => {
-  //         let flag = false;
-  //         if (subjects) {
-  //           subjects.forEach((subject) => {
-  //             flag = flag || test.subject[0].search(subject) !== -1;
-  //           });
-  //         }
-  //         return flag;
-  //       });
-  //     setPassAssessData(newFilteredList);
-  //   }
-  // }, [subjects, testList]);
-
-  const testScreen = (packageId) => {
-    window.open(
-      `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`,
-      "_self"
-    );
-  };
+ 
 
   const clearCurrentUser = useStore((state) => state.clearCurrentUser);
   const currentUser = useStore((state) => state.currentUser);
 
-  const testSend = (packageId) => {
-    window.location.href = `${environment.testAppUrl}/sessionStart/${currentUser.access_token}/${packageId}`;
-  };
+  
 
   
 
@@ -167,18 +80,8 @@ const Booklet = () => {
       <BookletLayout
         setPage={setPage}
         page={page}
-        open={open}
-        anchorEl={anchorEl}
-        handleClick={handleClick}
-        handleClose={handleClose}
-        testsLists={passAssessData}
-        testScreen={testScreen}
-        passAssessData={passAssessData}
-        testSend={testSend}
         seriesName={seriesName}
         links={links}
-        // showParentButton={true}
-        // responsiveStype={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       />
     </HomeLayout>
   );
