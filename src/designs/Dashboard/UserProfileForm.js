@@ -43,7 +43,7 @@ export const UserProfileForm = (props) => {
     setClasses(event.target.value);
   };
 
-  console.log(props.pageData);
+  //console.log(props.pageData);
 
   return (
     <>

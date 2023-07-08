@@ -57,13 +57,19 @@
 	  sessionStorage.setItem("current_student", JSON.stringify(child));
 	  navigate("/dashboard");
 	};
+
+	const handleLogOut = () => {
+		// event.preventDefault(); // Prevent the default form submission behavior
+		// clearCurrentUser();
+		navigate("/");
+	  };
   
 	return (
 	  <ParentLog
 		handleClickNext={handleClickNext}
 		handleClickPrev={handleClickPrev}
 		responsiveStyle={responsiveStype}
-		logOutHandler={clearCurrentUser}
+		logOutHandler={handleLogOut}
 		page={page}
 		setPage={setPage}
 		numPages={numPages}

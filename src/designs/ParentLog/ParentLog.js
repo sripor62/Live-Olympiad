@@ -62,7 +62,7 @@ export const ParentLog = (props) => {
 
       return (
         v!==undefined && (
-          <Box m={1} key={child.id}>
+          <Box m={1} key={child._id}>
           <Box
             sx={{
               padding: 2,

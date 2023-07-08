@@ -5,7 +5,7 @@ import usePackages from "../../hooks/usePackages";
 import { useStore } from "../../stores";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { useSchool } from "../../hooks/useSchool";
-import { useStudent } from "../../hooks/useStudent";
+import { environment } from "../../environments/environment";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -28,15 +28,12 @@ const Dashboard = () => {
 
   const { getPackages } = usePackages();
   const {getSchoolById} = useSchool();
-  const {getStudentsOfUser} = useStudent();
 
   const [schoolType, setSchoolType] = useState();
-  const [userData, setUserData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
 
   let schoolId = student.schoolId;
-  let userId = student.userId;
   let id = student._id;
 
 
@@ -57,31 +54,7 @@ const Dashboard = () => {
   }, [schoolId]);
 
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await getStudentsOfUser(userId);
-        setUserData(response?.data.data);     
-  }
-       catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-    fetchUser();
-  }, [userId]);
-
-  // let idx;
-
-  // useEffect(() => {
-  //   if (userData) {
-  //     for (let i = 0; i < userData.length; i++) {
-  //       const item = userData[i];
-  //       if (item._id === id) {
-  //         idx = i;
-  //       }
-  //     }
-  //   }
-  // }, [userData, id]);
+  
   
 	
   let seriesName = (schoolType === "Tech") ? "Screening" : "Practice";
@@ -168,7 +141,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     window.open(
-      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`,
+      `${environment.ilpBaseUrl}/sessionStart/${token}/${packageId}/${id}`,
       "_self"
     );
   };
@@ -179,7 +152,7 @@ const Dashboard = () => {
   
 
   const testSend = (packageId) => {
-        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
+        window.location.href = `${environment.ilpBaseUrl}/sessionStart/${token}/${packageId}/${id}`;
       };
 
       if (isLoading) {

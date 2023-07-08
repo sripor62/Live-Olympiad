@@ -30,7 +30,7 @@ const Profile = (props) => {
 		if (window.localStorage) {
 			if (!localStorage.getItem("reload")) {
 				localStorage["reload"] = true;
-				window.location.reload();
+				//window.location.reload();
 			} else {
 				localStorage.removeItem("reload");
 			}
@@ -129,7 +129,7 @@ const Profile = (props) => {
 
 	useEffect(() => {
 		if (schoolsData && profileData) {
-			console.log(profileData?.data?.data);
+			//console.log(profileData?.data?.data);
 			var pdata = {
 				...profileData?.data.data,
 			};
