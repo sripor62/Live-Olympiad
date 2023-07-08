@@ -141,7 +141,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     window.open(
-      `${environment.ilpBaseUrl}/sessionStart/${token}/${packageId}/${id}`,
+      `${environment.testAppUrl}/sessionStart/${token}/${packageId}/${id}`,
       "_self"
     );
   };
@@ -152,7 +152,7 @@ const Dashboard = () => {
   
 
   const testSend = (packageId) => {
-        window.location.href = `${environment.ilpBaseUrl}/sessionStart/${token}/${packageId}/${id}`;
+        window.location.href = `${environment.testAppUrl}/sessionStart/${token}/${packageId}/${id}`;
       };
 
       if (isLoading) {
