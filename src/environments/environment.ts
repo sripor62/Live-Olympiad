@@ -26,7 +26,7 @@ export const environment = {
   env:'live',
   institutionDomain:'K12',
   sessionsUrl:"https://sessions.digishaala.com",  
-  testAppUrl:"https://ilp.liveolympiad.org",
+  testAppUrl:"https://tab.liveolympiad.org",
   contentUrl:"https://content.liveolympiad.org",
   syllabusUrl:"https://rhjm5wzm9k.execute-api.ap-south-1.amazonaws.com/live/items",
   packagesBaseUrl: "https://54gwy0pjg9.execute-api.ap-south-1.amazonaws.com/live/packages",

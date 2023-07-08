@@ -10,7 +10,7 @@ export const environment = {
     env:"uat",
     institutionDomain:'K12',
     sessionsUrl:"https://sessions-uat.digishaala.com",  
-    testAppUrl:"https://ilp-uat.liveolympiad.org",
+    testAppUrl:"https://tab-uat.liveolympiad.org",
     syllabusUrl:"https://wb7ri28sf1.execute-api.ap-south-1.amazonaws.com/uat/items",
     packagesBaseurl:  "https://e0346heb8a.execute-api.ap-south-1.amazonaws.com/uat/packages",
     activityBaseUrl: "https://vs3mur3j3j.execute-api.ap-south-1.amazonaws.com/uat/activity",

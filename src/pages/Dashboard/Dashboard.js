@@ -6,7 +6,6 @@ import { useStore } from "../../stores";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { useSchool } from "../../hooks/useSchool";
 import { useStudent } from "../../hooks/useStudent";
-import { environment } from "../../environments/environment";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -169,7 +168,7 @@ const Dashboard = () => {
 
   const testScreen = (packageId) => {
     window.open(
-      `${environment.testAppUrl}/sessionStart/${token}/${packageId}/${id}`,
+      `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`,
       "_self"
     );
   };
@@ -180,7 +179,7 @@ const Dashboard = () => {
   
 
   const testSend = (packageId) => {
-        window.location.href = `${environment.testAppUrl}/sessionStart/${token}/${packageId}/${id}`;
+        window.location.href = `https://tab.liveolympiad.org/sessionStart/${token}/${packageId}/${id}`;
       };
 
       if (isLoading) {
