@@ -5,6 +5,8 @@ import { useState } from "react";
 
 export const DashboardLayout = (props) => {
   const [click, setClick] = useState(false);
+  const [math, setMath] = useState(false);
+  const [english, setEnglish] = useState(false);
   console.log(props.data);
   return (
     <Grid container mt={1}>
@@ -71,12 +73,17 @@ export const DashboardLayout = (props) => {
             })
             .map((option) => {
               return (
-                <CustomListItem
-                  testSend={props.testSend}
-                  option={option}
-                  key={option._id}
-                  testScreen={props.testScreen}
-                />
+                <Box>
+                { math && <CustomListItem
+                    testSend={props.testSend}
+                    option={option}
+                    key={option._id}
+                    testScreen={props.testScreen}
+                  />}
+                  {props?.data?.map((domain, i) => {
+                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setMath(true)}} key={i}>{domain}</List>;
+                  })}
+                </Box>
               );
             })}
         {props.seriesName === "Practice" &&
@@ -87,12 +94,17 @@ export const DashboardLayout = (props) => {
             })
             .map((option) => {
               return (
-                <CustomListItem
-                  testSend={props.testSend}
-                  option={option}
-                  key={option._id}
-                  testScreen={props.testScreen}
-                />
+                <Box>
+                { english && <CustomListItem
+                    testSend={props.testSend}
+                    option={option}
+                    key={option._id}
+                    testScreen={props.testScreen}
+                  />}
+                  {props?.data?.map((domain, i) => {
+                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setEnglish(true)}} key={i}>{domain}</List>;
+                  })}
+                </Box>
               );
             })}
       </Grid>
