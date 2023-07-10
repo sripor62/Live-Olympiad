@@ -1,8 +1,11 @@
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, List } from "@mui/material";
 import { CustomListItem } from "../../components/CustomListItem";
 import { SubjectSelector } from "../Onboarding/SubjectSelector";
+import { useState } from "react";
 
 export const DashboardLayout = (props) => {
+  const [click, setClick] = useState(false);
+  console.log(props.data);
   return (
     <Grid container mt={1}>
       <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
@@ -47,12 +50,17 @@ export const DashboardLayout = (props) => {
             })
             .map((option) => {
               return (
-                <CustomListItem
-                  testSend={props.testSend}
-                  option={option}
-                  key={option._id}
-                  testScreen={props.testScreen}
-                />
+                <Box>
+                { click && <CustomListItem
+                    testSend={props.testSend}
+                    option={option}
+                    key={option._id}
+                    testScreen={props.testScreen}
+                  />}
+                  {props?.data?.map((domain, i) => {
+                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setClick(true)}} key={i}>{domain}</List>;
+                  })}
+                </Box>
               );
             })}
         {props.seriesName === "Practice" &&
