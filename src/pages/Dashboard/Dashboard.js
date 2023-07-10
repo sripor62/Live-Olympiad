@@ -6,6 +6,7 @@ import { useStore } from "../../stores";
 import { DashboardLayout } from "../../designs/Dashboard/DashboardLayout";
 import { useSchool } from "../../hooks/useSchool";
 import { environment } from "../../environments/environment";
+import { useSyllabus } from "../../hooks/useSyllabus";
 
 const Dashboard = () => {
   let curentUser = useStore((state) => state.currentUser);
@@ -21,13 +22,14 @@ const Dashboard = () => {
   let token = studData.state.currentUser.access_token;
 
   const [passAssessData, setPassAssessData] = useState();
+  const [data, setData] = useState();
   const [page, setPage] = useState(0);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const { getPackages } = usePackages();
   const {getSchoolById} = useSchool();
+  const { getSyllabusByTags } = useSyllabus();
 
   const [schoolType, setSchoolType] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -83,6 +85,19 @@ const Dashboard = () => {
           subject: 'Science',
           series: 'Practice'
         });
+        const resp = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'Science'
+        });
+        if (resp && resp.data) {
+          const newData = [...(data || [])]; // Create a copy of the existing data
+          for (let key in resp.data) {
+            for (let it in resp.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData); // Update the data state with the new array
+        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -98,6 +113,19 @@ const Dashboard = () => {
           subject: 'Math',
           series: 'Practice'
         });
+        const resp = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'Math'
+        });
+        if (resp && resp.data) {
+          const newData = [...(data || [])]; // Create a copy of the existing data
+          for (let key in resp.data) {
+            for (let it in resp.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData); // Update the data state with the new array
+        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -113,6 +141,19 @@ const Dashboard = () => {
           subject: 'English',
           series: 'Practice'
         });
+        const resp = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'English'
+        });
+        if (resp && resp.data) {
+          const newData = [...(data || [])]; // Create a copy of the existing data
+          for (let key in resp.data) {
+            for (let it in resp.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData); // Update the data state with the new array
+        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -173,6 +214,7 @@ const Dashboard = () => {
         testScreen={testScreen}
         testSend={testSend}
         seriesName={seriesName}
+        data={data}
       />
     </HomeLayout>
   );
