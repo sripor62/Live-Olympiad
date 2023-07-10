@@ -90,7 +90,7 @@ const Dashboard = () => {
           subject: 'Science'
         });
         if (resp && resp.data) {
-          const newData = [...(data || [])]; // Create a copy of the existing data
+          const newData = []; // Create a copy of the existing data
           for (let key in resp.data) {
             for (let it in resp.data[key]) {
               newData.push(it); // Add the 'it' value to the newData array
@@ -118,7 +118,7 @@ const Dashboard = () => {
           subject: 'Math'
         });
         if (resp && resp.data) {
-          const newData = [...(data || [])]; // Create a copy of the existing data
+          const newData = []; // Create a copy of the existing data
           for (let key in resp.data) {
             for (let it in resp.data[key]) {
               newData.push(it); // Add the 'it' value to the newData array
@@ -146,7 +146,7 @@ const Dashboard = () => {
           subject: 'English'
         });
         if (resp && resp.data) {
-          const newData = [...(data || [])]; // Create a copy of the existing data
+          const newData = []; // Create a copy of the existing data
           for (let key in resp.data) {
             for (let it in resp.data[key]) {
               newData.push(it); // Add the 'it' value to the newData array
@@ -174,6 +174,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (page !== 0) {
+      setData([]);
       fetchPackageData(page);
     }
   }, [page]);

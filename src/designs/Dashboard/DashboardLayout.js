@@ -60,7 +60,7 @@ export const DashboardLayout = (props) => {
                     testScreen={props.testScreen}
                   />}
                   {props?.data?.map((domain, i) => {
-                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setClick(true)}} key={i}>{domain}</List>;
+                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setClick(true); setMath(false);}} key={i}>{domain}</List>;
                   })}
                 </Box>
               );
@@ -81,7 +81,7 @@ export const DashboardLayout = (props) => {
                     testScreen={props.testScreen}
                   />}
                   {props?.data?.map((domain, i) => {
-                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setMath(true)}} key={i}>{domain}</List>;
+                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setMath(true); setClick(false);}} key={i}>{domain}</List>;
                   })}
                 </Box>
               );
