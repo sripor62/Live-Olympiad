@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   const [passAssessData, setPassAssessData] = useState();
   const [data, setData] = useState();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 

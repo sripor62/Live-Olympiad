@@ -53,14 +53,25 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                { click && <CustomListItem
-                    testSend={props.testSend}
-                    option={option}
-                    key={option._id}
-                    testScreen={props.testScreen}
-                  />}
+                  {click && (
+                    <CustomListItem
+                      testSend={props.testSend}
+                      option={option}
+                      key={option._id}
+                      testScreen={props.testScreen}
+                    />
+                  )}
                   {props?.data?.map((domain, i) => {
-                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setClick(true); setMath(false);}} key={i}>{domain}</List>;
+                    return (
+                      <Box>
+                        <CustomListItem
+                          testSend={props.testSend}
+                          option={domain}
+                          key={i}
+                          testScreen={props.testScreen}
+                        />
+                      </Box>
+                    );
                   })}
                 </Box>
               );
@@ -74,14 +85,25 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                { math && <CustomListItem
-                    testSend={props.testSend}
-                    option={option}
-                    key={option._id}
-                    testScreen={props.testScreen}
-                  />}
+                  {math && (
+                    <CustomListItem
+                      testSend={props.testSend}
+                      option={option}
+                      key={option._id}
+                      testScreen={props.testScreen}
+                    />
+                  )}
                   {props?.data?.map((domain, i) => {
-                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setMath(true); setClick(false);}} key={i}>{domain}</List>;
+                    return (
+                      <Box>
+                      <CustomListItem
+                        testSend={props.testSend}
+                        option={domain}
+                        key={i}
+                        testScreen={props.testScreen}
+                      />
+                    </Box>
+                    );
                   })}
                 </Box>
               );
@@ -95,14 +117,25 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                { english && <CustomListItem
-                    testSend={props.testSend}
-                    option={option}
-                    key={option._id}
-                    testScreen={props.testScreen}
-                  />}
+                  {english && (
+                    <CustomListItem
+                      testSend={props.testSend}
+                      option={option}
+                      key={option._id}
+                      testScreen={props.testScreen}
+                    />
+                  )}
                   {props?.data?.map((domain, i) => {
-                    return <List style={{color:"red",cursor:"pointer"}} onClick={()=>{setEnglish(true)}} key={i}>{domain}</List>;
+                    return (
+                      <Box>
+                      <CustomListItem
+                        testSend={props.testSend}
+                        option={domain}
+                        key={i}
+                        testScreen={props.testScreen}
+                      />
+                    </Box>
+                    );
                   })}
                 </Box>
               );
