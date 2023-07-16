@@ -38,7 +38,7 @@ export const CustomListItem = (props) => {
 					lg={4}
 					style={{ justifyContent: "flex-start", alignItems: "center" }}
 				>
-					<Box variant="body2" mt={1}>
+					{props.seriesName!=="Practice" && (<Box variant="body2" mt={1}>
 						{props.option?.questions && <Box
 							sx={{
 								fontFamily: "Urbantist",
@@ -50,8 +50,8 @@ export const CustomListItem = (props) => {
 							Test Length: {props.option.questions.length} Questions
 						</Box>
                       }     
-					</Box>
-					<Box variant="body2" mt={1}>
+					</Box>)}
+					{props.seriesName!=="Practice" && (<Box variant="body2" mt={1}>
 						<Box
 							sx={{
 								fontFamily: "Urbantist",
@@ -61,7 +61,7 @@ export const CustomListItem = (props) => {
 						>
 							Test Time: {props.option.totalDurationMin} Minutes
 						</Box>
-					</Box>
+					</Box>)}
 				</Grid>
 				<Grid
 					item

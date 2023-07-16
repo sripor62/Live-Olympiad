@@ -40,6 +40,7 @@ export const DashboardLayout = (props) => {
                   option={option}
                   key={option._id}
                   testScreen={props.testScreen}
+                  seriesName={props.seriesName}
                 />
               );
             })}
@@ -59,6 +60,7 @@ export const DashboardLayout = (props) => {
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
+                      seriesName={props.seriesName}
                     />
                   )}
                   {props?.data?.map((domain, i) => {
@@ -69,6 +71,7 @@ export const DashboardLayout = (props) => {
                           option={domain}
                           key={i}
                           testScreen={props.testScreen}
+                          seriesName={props.seriesName}
                         />
                       </Box>
                     );
@@ -91,6 +94,7 @@ export const DashboardLayout = (props) => {
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
+                      seriesName={props.seriesName}
                     />
                   )}
                   {props?.data?.map((domain, i) => {
@@ -101,6 +105,7 @@ export const DashboardLayout = (props) => {
                         option={domain}
                         key={i}
                         testScreen={props.testScreen}
+                        seriesName={props.seriesName}
                       />
                     </Box>
                     );
@@ -123,6 +128,7 @@ export const DashboardLayout = (props) => {
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
+                      seriesName={props.seriesName}
                     />
                   )}
                   {props?.data?.map((domain, i) => {
@@ -133,6 +139,7 @@ export const DashboardLayout = (props) => {
                         option={domain}
                         key={i}
                         testScreen={props.testScreen}
+                        seriesName={props.seriesName}
                       />
                     </Box>
                     );
