@@ -1,13 +1,8 @@
 import { Grid, Typography, Box, List } from "@mui/material";
 import { CustomListItem } from "../../components/CustomListItem";
 import { SubjectSelector } from "../Onboarding/SubjectSelector";
-import { useState } from "react";
 
 export const DashboardLayout = (props) => {
-  const [click, setClick] = useState(false);
-  const [math, setMath] = useState(false);
-  const [english, setEnglish] = useState(false);
-  console.log(props.data);
   return (
     <Grid container mt={1}>
       <Grid item p={2} xs={12} sm={12} md={8} lg={7}>
@@ -40,113 +35,127 @@ export const DashboardLayout = (props) => {
                   option={option}
                   key={option._id}
                   testScreen={props.testScreen}
-                  seriesName={props.seriesName}
                 />
               );
             })}
 
-        {props.seriesName === "Practice" &&
-          props.page === 1 &&
-          props?.testsLists
-            ?.filter((item) => {
-              return item.packageName.search("Science") !== -1;
-            })
-            .map((option) => {
-              return (
-                <Box>
-                  {click && (
-                    <CustomListItem
-                      testSend={props.testSend}
-                      option={option}
-                      key={option._id}
-                      testScreen={props.testScreen}
-                      seriesName={props.seriesName}
-                    />
-                  )}
-                  {props?.data?.map((domain, i) => {
-                    return (
-                      <Box>
-                        <CustomListItem
-                          testSend={props.testSend}
-                          option={domain}
-                          key={i}
-                          testScreen={props.testScreen}
-                          seriesName={props.seriesName}
-                        />
-                      </Box>
-                    );
-                  })}
-                </Box>
-              );
-            })}
-        {props.seriesName === "Practice" &&
-          props.page === 2 &&
-          props?.testsLists
-            ?.filter((item) => {
-              return item.packageName.search("Math") !== -1;
-            })
-            .map((option) => {
-              return (
-                <Box>
-                  {math && (
-                    <CustomListItem
-                      testSend={props.testSend}
-                      option={option}
-                      key={option._id}
-                      testScreen={props.testScreen}
-                      seriesName={props.seriesName}
-                    />
-                  )}
-                  {props?.data?.map((domain, i) => {
-                    return (
-                      <Box>
-                      <CustomListItem
-                        testSend={props.testSend}
-                        option={domain}
-                        key={i}
-                        testScreen={props.testScreen}
-                        seriesName={props.seriesName}
-                      />
-                    </Box>
-                    );
-                  })}
-                </Box>
-              );
-            })}
-        {props.seriesName === "Practice" &&
-          props.page === 3 &&
-          props?.testsLists
-            ?.filter((item) => {
-              return item.packageName.search("English") !== -1;
-            })
-            .map((option) => {
-              return (
-                <Box>
-                  {english && (
-                    <CustomListItem
-                      testSend={props.testSend}
-                      option={option}
-                      key={option._id}
-                      testScreen={props.testScreen}
-                      seriesName={props.seriesName}
-                    />
-                  )}
-                  {props?.data?.map((domain, i) => {
-                    return (
-                      <Box>
-                      <CustomListItem
-                        testSend={props.testSend}
-                        option={domain}
-                        key={i}
-                        testScreen={props.testScreen}
-                        seriesName={props.seriesName}
-                      />
-                    </Box>
-                    );
-                  })}
-                </Box>
-              );
-            })}
+{props.seriesName === "Practice" && props.page === 1 && (
+  <>
+    {
+      props.click !== "" &&
+      props?.testsLists
+        ?.filter((item) => {
+          return item.packageName.search("Science") !== -1;
+        })
+        .map((option) => {
+          return (
+          <CustomListItem
+            testSend={props.testSend}
+            click={props.click}
+            seriesName={props.seriesName}
+            option={option}
+            key={option._id}
+            testScreen={props.testScreen}
+          />
+          );
+          })
+       }
+    {props?.data?.map((domain, i) => (
+      <List
+        style={{ color: "red", cursor: "pointer" }}
+        onClick={() => {
+          props.setClick(domain);
+        }}
+        key={i}
+      >
+        {domain}
+      </List>
+    )
+    )}
+   </> 
+)
+}
+
+
+
+
+            
+{props.seriesName === "Practice" && props.page === 2 && (
+  <>
+    {
+      props.click !== "" &&
+      props?.testsLists
+        ?.filter((item) => {
+          return item.packageName.search("Math") !== -1;
+        })
+        .map((option) => {
+          return (
+          <CustomListItem
+            testSend={props.testSend}
+            click={props.click}
+            seriesName={props.seriesName}
+            option={option}
+            key={option._id}
+            testScreen={props.testScreen}
+          />
+          );
+          })
+       }
+    {props?.data?.map((domain, i) => (
+      <List
+        style={{ color: "red", cursor: "pointer" }}
+        onClick={() => {
+          props.setClick(domain);
+        }}
+        key={i}
+      >
+        {domain}
+      </List>
+    )
+    )}
+   </> 
+)
+}
+
+
+{props.seriesName === "Practice" && props.page === 3 && (
+  <>
+    {
+      props.click !== "" &&
+      props?.testsLists
+        ?.filter((item) => {
+          return item.packageName.search("English") !== -1;
+        })
+        .map((option) => {
+          return (
+          <CustomListItem
+            testSend={props.testSend}
+            click={props.click}
+            seriesName={props.seriesName}
+            option={option}
+            key={option._id}
+            testScreen={props.testScreen}
+          />
+          );
+          })
+       }
+    {props?.data?.map((domain, i) => (
+      <List
+        style={{ color: "red", cursor: "pointer" }}
+        onClick={() => {
+          props.setClick(domain);
+        }}
+        key={i}
+      >
+        {domain}
+      </List>
+    )
+    )}
+   </> 
+)
+}
+
+
       </Grid>
     </Grid>
   );

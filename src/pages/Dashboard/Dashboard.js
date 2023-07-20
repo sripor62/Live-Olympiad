@@ -23,7 +23,11 @@ const Dashboard = () => {
 
   const [passAssessData, setPassAssessData] = useState();
   const [data, setData] = useState();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  // const [math, setMath] = useState([]);
+  // const [science, setScience] = useState([]);
+  // const [english, setEnglish] = useState([]);
+  const [click, setClick] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -56,6 +60,71 @@ const Dashboard = () => {
   }, [schoolId]);
 
 
+
+
+
+  useEffect(() => {
+    const fetchSyllabus = async (page) => {
+
+      try {
+        if(page===1){
+        const response1 = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'Science'
+        });
+        if(response1 && response1.data) {
+          const newData = []; // Create a copy of the existing data
+          for (let key in response1.data) {
+            for (let it in response1.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData);
+        }
+      }
+
+        else if(page===2){
+        const response2 = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'Math'
+        });
+        if(response2 && response2.data) {
+          const newData = []; // Create a copy of the existing data
+          for (let key in response2.data) {
+            for (let it in response2.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData);
+        }
+      }
+
+        else {
+        const response3 = await getSyllabusByTags({
+          grade: student?.grade,
+          subject: 'English'
+        });
+        if(response3 && response3.data) {
+          const newData = []; // Create a copy of the existing data
+          for (let key in response3.data) {
+            for (let it in response3.data[key]) {
+              newData.push(it); // Add the 'it' value to the newData array
+            }
+          }
+          setData(newData);
+        }
+      }
+      }
+
+      catch (error) {
+        console.error("Error fetching sylaabus data:", error);
+      }
+    };
+
+    if(page!==0) {setClick(""); setData([]); setPassAssessData([]); fetchSyllabus(page);}
+  }, [page]);
+
+
   
   
 	
@@ -63,6 +132,7 @@ const Dashboard = () => {
 
 
     const fetchPackageData = async (page) => {
+
       if(seriesName==="Screening" && page===1) {
         try {
           const response = await getPackages({
@@ -83,21 +153,9 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Science',
-          series: 'Practice'
+          series: 'Practice',
+          tag: click
         });
-        const resp = await getSyllabusByTags({
-          grade: student?.grade,
-          subject: 'Science'
-        });
-        if (resp && resp.data) {
-          const newData = []; // Create a copy of the existing data
-          for (let key in resp.data) {
-            for (let it in resp.data[key]) {
-              newData.push(it); // Add the 'it' value to the newData array
-            }
-          }
-          setData(newData); // Update the data state with the new array
-        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -111,21 +169,9 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Math',
-          series: 'Practice'
+          series: 'Practice',
+          tag: click
         });
-        const resp = await getSyllabusByTags({
-          grade: student?.grade,
-          subject: 'Math'
-        });
-        if (resp && resp.data) {
-          const newData = []; // Create a copy of the existing data
-          for (let key in resp.data) {
-            for (let it in resp.data[key]) {
-              newData.push(it); // Add the 'it' value to the newData array
-            }
-          }
-          setData(newData); // Update the data state with the new array
-        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -139,21 +185,9 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'English',
-          series: 'Practice'
+          series: 'Practice',
+          tag: click
         });
-        const resp = await getSyllabusByTags({
-          grade: student?.grade,
-          subject: 'English'
-        });
-        if (resp && resp.data) {
-          const newData = []; // Create a copy of the existing data
-          for (let key in resp.data) {
-            for (let it in resp.data[key]) {
-              newData.push(it); // Add the 'it' value to the newData array
-            }
-          }
-          setData(newData); // Update the data state with the new array
-        }
         if (response && response.data) {
           setPassAssessData(response.data);
         }
@@ -161,8 +195,9 @@ const Dashboard = () => {
         console.error("Error fetching test data:", error);
       }
     }
-    
     };
+
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -173,11 +208,11 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if (page !== 0) {
-      setData([]);
+    if (page !== 0 && click!=="") {
+      setPassAssessData([]);
       fetchPackageData(page);
     }
-  }, [page]);
+  }, [page,click]);
 
   
 
@@ -202,6 +237,8 @@ const Dashboard = () => {
         return <div>Loading...</div>;
       }
 
+      
+
   return (
     <HomeLayout logOutHandler={clearCurrentUser} seriesName={seriesName}> 
       <DashboardLayout
@@ -216,6 +253,8 @@ const Dashboard = () => {
         testSend={testSend}
         seriesName={seriesName}
         data={data}
+        click={click}
+        setClick={setClick}
       />
     </HomeLayout>
   );
