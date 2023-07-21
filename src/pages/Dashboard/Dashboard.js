@@ -153,7 +153,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Science',
-          series: 'Practice',
+          series: 'Domain',
           tag: click
         });
         if (response && response.data) {
@@ -169,7 +169,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Math',
-          series: 'Practice',
+          series: 'Domain',
           tag: click
         });
         if (response && response.data) {
@@ -185,7 +185,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'English',
-          series: 'Practice',
+          series: 'Domain',
           tag: click
         });
         if (response && response.data) {
