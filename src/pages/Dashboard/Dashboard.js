@@ -154,7 +154,6 @@ const Dashboard = () => {
           grade:student?.grade,
           subject: 'Science',
           series: 'Domain',
-          tag: click
         });
         if (response && response.data) {
           setPassAssessData(response.data);
@@ -170,7 +169,6 @@ const Dashboard = () => {
           grade:student?.grade,
           subject: 'Math',
           series: 'Domain',
-          tag: click
         });
         if (response && response.data) {
           setPassAssessData(response.data);
@@ -186,7 +184,6 @@ const Dashboard = () => {
           grade:student?.grade,
           subject: 'English',
           series: 'Domain',
-          tag: click
         });
         if (response && response.data) {
           setPassAssessData(response.data);
@@ -208,11 +205,11 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if (page !== 0 && click!=="") {
-      setPassAssessData([]);
+    if (page !== 0) {
+      // setPassAssessData([]);
       fetchPackageData(page);
     }
-  }, [page,click]);
+  }, [page]);
 
   
 

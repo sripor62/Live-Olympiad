@@ -4,9 +4,16 @@ import axiosInstance from "../services/api.service";
 
 const usePackages=()=>{
 
+    // const getPackages = async (body) => {
+    //     if(body.grade && body.subject && body.series && body.tag){
+    //         const endpoint = environment.packagesBaseUrl +  `?class=${body.grade}&subject=${body.subject}&series=${body.series}&tags=${body.tag}` ;
+    //         return await axiosInstance().get(endpoint);
+    //     }
+    // };
+
     const getPackages = async (body) => {
-        if(body.grade && body.subject && body.series && body.tag){
-            const endpoint = environment.packagesBaseUrl +  `?class=${body.grade}&subject=${body.subject}&series=${body.series}&tags=${body.tag}` ;
+        if(body.grade && body.subject && body.series){
+            const endpoint = environment.packagesBaseUrl +  `?class=${body.grade}&subject=${body.subject}&series=${body.series}` ;
             return await axiosInstance().get(endpoint);
         }
     };

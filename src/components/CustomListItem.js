@@ -11,7 +11,7 @@ export const CustomListItem = (props) => {
 	return (
 		<Box>
 			<Chip
-				label={props.click}
+				label={props.option.tags}
 				color="primary"
 				className="brb_0"
 				sx={{
