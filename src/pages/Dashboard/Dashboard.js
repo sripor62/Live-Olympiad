@@ -153,7 +153,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Science',
-          series: 'Domain',
+          series: 'Practice',
         });
         if (response && response.data) {
           setPassAssessData(response.data);
@@ -168,7 +168,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'Math',
-          series: 'Domain',
+          series: 'Practice',
         });
         if (response && response.data) {
           setPassAssessData(response.data);
@@ -183,7 +183,7 @@ const Dashboard = () => {
         const response = await getPackages({
           grade:student?.grade,
           subject: 'English',
-          series: 'Domain',
+          series: 'Practice',
         });
         if (response && response.data) {
           setPassAssessData(response.data);
