@@ -53,15 +53,15 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                  {click && (
+                  {/* {click && (
                     <CustomListItem
                       testSend={props.testSend}
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
                     />
-                  )}
-                  {/* {props?.data?.map((domain, i) => {
+                  )} */}
+                  {props?.data?.map((domain, i) => {
                     return (
                       <Box>
                         <CustomListItem
@@ -72,7 +72,7 @@ export const DashboardLayout = (props) => {
                         />
                       </Box>
                     );
-                  })} */}
+                  })}
                 </Box>
               );
             })}
@@ -85,15 +85,15 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                  {math && (
+                  {/* {math && (
                     <CustomListItem
                       testSend={props.testSend}
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
                     />
-                  )}
-                  {/* {props?.data?.map((domain, i) => {
+                  )} */}
+                  {props?.data?.map((domain, i) => {
                     return (
                       <Box>
                       <CustomListItem
@@ -104,7 +104,7 @@ export const DashboardLayout = (props) => {
                       />
                     </Box>
                     );
-                  })} */}
+                  })}
                 </Box>
               );
             })}
@@ -117,15 +117,15 @@ export const DashboardLayout = (props) => {
             .map((option) => {
               return (
                 <Box>
-                  {english && (
+                  {/* {english && (
                     <CustomListItem
                       testSend={props.testSend}
                       option={option}
                       key={option._id}
                       testScreen={props.testScreen}
                     />
-                  )}
-                  {/* {props?.data?.map((domain, i) => {
+                  )} */}
+                  {props?.data?.map((domain, i) => {
                     return (
                       <Box>
                       <CustomListItem
@@ -136,7 +136,7 @@ export const DashboardLayout = (props) => {
                       />
                     </Box>
                     );
-                  })} */}
+                  })}
                 </Box>
               );
             })}
